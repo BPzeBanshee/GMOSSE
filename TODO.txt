@@ -1,0 +1,24 @@
+***************Overall:
+- finish obj_ctrl_game
+- eradicate obj_player_clear with event check in obj_player
+- 2P support
+- fix parent/child relationship with enemy parents
+	- should be:
+		- obj_en (event_user(15) and flash/z effects)
+		\_ obj_en_air (is dragged with screen)
+		\_ obj_en_ground (is left as is)
+			\_ obj_wall (inherit from obj_en_ground)
+
+***************Stage 2:
+- make third pattern for ANTICHRIST: dual spiral attack
+- fix stupid placing of enemies near end (red variant of obj_3Den3?)
+-- I'm thinking Radio Zonde style: change enemy wave spawn
+depending on which brick gap to go through
+- obj_en6 (bounce off walls) is a buggy piece of shit
+- check that stage 2 actually ends at position y=0
+- check that obj_midboss1 is stopping at the same place
+- fix rm_boss2 so it plays warning/music at the same time as rm_stage2
+
+***************Stage 3:
+- fucking get started on it
+-- start orbiting Earth, travel into atmosphere, into storm with battleships
