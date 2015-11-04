@@ -151,13 +151,16 @@ switch mode
         { // ##ATTACK PHASE 3##
         attack2_timer = 60;
         attack2_end = 0;
-        obj_orb2.attack3_timer = 60;
-        obj_orb2.attack3_end = 0;
         // ^^ resets timer variables of previous attack pattern ^^
         if !instance_exists(obj_orb2)
             {
             orb2 = instance_create(x,y,obj_orb2); 
             orb2.hspeed = -2;
+            }
+        else
+            {
+            orb2.attack3_timer = 60;
+            orb2.attack3_end = 0;
             }
         mode = 3.1; // sets attack pattern to 3.1 so as to not loop
         break;

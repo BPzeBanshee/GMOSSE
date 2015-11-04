@@ -11,7 +11,7 @@ audio_sound_gain(snd_click,0.9*global.sfx_volume,0);
     audio_sound_gain(snd_en_shot1,global.sfx_volume,0);
     audio_sound_gain(snd_en_shot2,global.sfx_volume,0);
     audio_sound_gain(snd_en_shot3,global.sfx_volume,0);
-    audio_sound_gain(snd_en_shot4,0.9*global.sfx_volume,0);
+    audio_sound_gain(snd_en_shot4,global.sfx_volume,0);
 
     // Voices
     audio_sound_gain(snd_voice1,global.voice_volume,0);
@@ -25,7 +25,7 @@ Differentiation between voices and sounds of course!
 */
 
 /* SHIP-SPECIFIC SOUND VOLUME HANDLING */
-audio_sound_gain(snd_xono_shot,0.74 * global.sfx_volume,0);
+audio_sound_gain(snd_xono_shot,0.15 * global.sfx_volume,0);
 audio_sound_gain(snd_war_shot1,0.77 * global.sfx_volume,0);
 audio_sound_gain(snd_war_shot2,0.77 * global.sfx_volume,0);
 audio_sound_gain(snd_war_bomb,1 * global.sfx_volume,0);

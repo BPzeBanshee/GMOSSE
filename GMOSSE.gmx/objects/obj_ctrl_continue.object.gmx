@@ -142,8 +142,8 @@ if has_chosen = 1
             else score = 9;
             global.countdown = 0;
             global.chain = 0;
-            obj_ctrl_game.respawntimer = 1;
-            obj_hitbox.invincible = 180;
+            with obj_ctrl_game respawntimer = 1;
+            with obj_hitbox invincible = 180;
             break;
             }
         case 2:

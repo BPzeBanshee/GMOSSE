@@ -8,6 +8,32 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>derp = 0;
+screenshotnum = 0;
+
+scr_detect_joys();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -38,7 +64,7 @@ then instance_create(0,0,obj_ctrl_pause);
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="7" enumb="3">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -55,7 +81,50 @@ then instance_create(0,0,obj_ctrl_pause);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_scanline(global.scanlines);
+            <string>/*if USE_SANDBOX=0
+    {
+    FS_file_delete(global.main_dir+"\score.gmes");
+    //FS_file_delete(global.main_dir+"\unlock.zd2");
+    
+    // this file only appears in devtests
+    if FS_file_exists(global.main_dir+"\config.ini")
+    then FS_file_delete(global.main_dir+"\config.ini");
+    }*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="120">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*var d,m,ye,h,mi,s,st;
+d = date_get_day(date_current_datetime());
+m = date_get_month(date_current_datetime());
+ye = date_get_year(date_current_datetime());
+h = date_get_hour(date_current_datetime());
+mi = date_get_minute(date_current_datetime());
+s = date_get_second(date_current_datetime());
+
+st = program_directory+"\"+
+string(d)+"-"+string(m)+"-"+string(ye)+"_"
++string(h)+"-"+string(mi)+"-"+string(s)+".bmp";
+//show_message(st);
+FS_screen_save(st);*/
 </string>
           </argument>
         </arguments>

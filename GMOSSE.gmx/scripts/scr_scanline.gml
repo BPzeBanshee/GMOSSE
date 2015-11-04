@@ -1,3 +1,4 @@
+// THIS IS OUTDATED, SEE OBJ_CTRL_FILTER
 /************Scanline Generator in Game Maker**********
 Created by BPzeBanshee
 
@@ -53,7 +54,6 @@ switch argument0
         break;
         }
     }
-xview = view_xview[0] + x_o;
-yview = view_yview[0] + y_o;
+scr_view_vars();
 background_x[scanline_layer]=xview;
 background_y[scanline_layer]=yview;

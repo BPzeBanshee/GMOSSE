@@ -203,16 +203,9 @@ draw_set_alpha(1);
 draw_set_color(8454016);
 
 draw_sprite(spr_pause,-1,xview+120,yview+135);
-/*draw_text(xview+60,yview+160,"Resume Game");
-if restart_locked = 1 then draw_set_color(c_red);
-draw_text(xview+60,yview+170,"Restart Level");
-if restart_locked = 1 then draw_set_color(8454016);
-draw_text(xview+60,yview+180,"Return to Ship Select");
-draw_text(xview+60,yview+190,"Configure Options");
-draw_text(xview+60,yview+200,"Exit to Main Menu");*/
 
 draw_set_color(make_color_rgb(50,50,50)); draw_set_alpha(0.5);
-draw_rectangle(xview+30-x_o,yview+110-y_o,xview+210-x_o,yview+220-y_o,0);
+draw_rectangle(xview+30,yview+110,xview+210,yview+220,0);
 draw_set_color(8454016); draw_set_alpha(1);
 
 draw_text(xview+60,yview+160,"RESUME GAME");

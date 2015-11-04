@@ -540,14 +540,12 @@
         <script>scripts\scr_screen_init.gml</script>
         <script>scripts\scr_tate_init.gml</script>
         <script>scripts\scr_tate.gml</script>
-        <script>scripts\scr_scanline.gml</script>
-        <script>scripts\scr_scrollspd.gml</script>
-        <script>scripts\scr_setvsync.gml</script>
         <script>scripts\scr_view_update.gml</script>
         <script>scripts\scr_view_vars.gml</script>
-        <scripts name="old">
-          <script>scripts\scr_resize.gml</script>
-        </scripts>
+        <script>scripts\scr_scanline.gml</script>
+        <script>scripts\scr_scrollspd.gml</script>
+        <script>scripts\scr_setdisplay.gml</script>
+        <script>scripts\scr_max_aa.gml</script>
       </scripts>
       <scripts name="Fonts">
         <script>scripts\scr_fonts_init.gml</script>
@@ -563,6 +561,7 @@
         <script>scripts\scr_addscore.gml</script>
       </scripts>
       <script>scripts\scr_input.gml</script>
+      <script>scripts\scr_detect_joys.gml</script>
       <script>scripts\scr_main_init.gml</script>
       <script>scripts\scr_main_reset.gml</script>
     </scripts>
@@ -589,9 +588,9 @@
       <script>scripts\scr_isonscreen.gml</script>
       <script>scripts\string_spacefix.gml</script>
       <script>scripts\draw_self2.gml</script>
+      <script>scripts\collision_tile.gml</script>
     </scripts>
     <script>scripts\Script_List.gml</script>
-    <script>scripts\collision_tile.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_init</font>
@@ -798,6 +797,7 @@
         <object>objects\obj_ctrl_pause</object>
         <object>objects\obj_ctrl_config</object>
         <object>objects\obj_ctrl_rebind</object>
+        <object>objects\obj_ctrl_filter</object>
       </objects>
       <objects name="Generic">
         <object>objects\obj_ctrl_game</object>

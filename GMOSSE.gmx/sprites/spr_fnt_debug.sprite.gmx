@@ -8,7 +8,7 @@
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>0</bbox_left>
-  <bbox_right>9</bbox_right>
+  <bbox_right>8</bbox_right>
   <bbox_top>0</bbox_top>
   <bbox_bottom>10</bbox_bottom>
   <HTile>0</HTile>
@@ -114,5 +114,6 @@
     <frame index="91">images\spr_fnt_debug_91.png</frame>
     <frame index="92">images\spr_fnt_debug_92.png</frame>
     <frame index="93">images\spr_fnt_debug_93.png</frame>
+    <frame index="94">images\spr_fnt_debug_94.png</frame>
   </frames>
 </sprite>

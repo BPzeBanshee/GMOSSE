@@ -26,8 +26,8 @@ ini_write_real("Video","tate",global.TATE2);
 ini_write_real("Video","hitboxvisible",global.hitbox_visible);
 ini_write_real("Video","scanlines",global.scanlines);
 ini_write_real("Video","vsync",global.vsync);
+ini_write_real("Video","antialiasing",global.aa);
 ini_write_real("Video","flicker",global.flicker);
-ini_write_real("Video","surfaces",global.surfaces);
 
 // [SOUND]
 ini_write_real("Sound","music_volume",global.music_volume);

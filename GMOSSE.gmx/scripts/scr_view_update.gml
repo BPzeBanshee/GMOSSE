@@ -16,6 +16,15 @@ None
 scr_tate_init();
 w = win_w*global.win_size;
 h = win_h*global.win_size;
+window_set_size(w,h);
+surface_resize(application_surface,w,h);
+scr_tate(global.tate);
+
+// update view vars for current room
+view_xview[0] = -x_o; view_yview[0] = -y_o;
+view_wview[0] = win_w; view_hview[0] = win_h;
+view_xport[0] = xport; view_yport[0] = yport;
+view_wport[0] = w; view_hport[0] = h;
 
 i=room_first;
 while i != -1

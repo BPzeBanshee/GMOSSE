@@ -145,10 +145,10 @@ draw_set_halign(fa_left);
 draw_set_alpha(alpha);
 
 if mode = 1 then draw_sprite_ext(sprite_index,image_index,x,y,1,1,0,c_white,image_alpha);
-if mode = 2 then draw_rectangle(xview-x_o2,yview-y_o2,xview+240,yview+320,0);
+if mode = 2 then draw_rectangle(xview,yview,xview+240,yview+320,0);
 if mode = 3
     {
-    draw_rectangle(xview-x_o2,yview-y_o2,xview+240,yview+320,0);
+    draw_rectangle(xview,yview,xview+240,yview+320,0);
     if alpha = 1 &amp;&amp; draw_timer &gt; 90 &amp;&amp; global.levelend = 1
         {
         draw_set_font(global.fnt_big);

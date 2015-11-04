@@ -30,12 +30,4 @@ switch argument0
     }
 
 // Assigning new view variables    
-xview = view_xview[0] + x_o;
-yview = view_yview[0] + y_o;
-
-/*if global.screen_adjust = 0
-    { 
-    scr_resize(global.win_size,1);
-    global.screen_adjust = 1;
-    }*/
-    
+scr_view_vars();

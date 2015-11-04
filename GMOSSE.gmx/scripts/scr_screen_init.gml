@@ -21,17 +21,16 @@ scr_tate_init();
 // create global xview/yview vars    
 scr_view_vars();
 
+// X/Y port position within window, only change if using widescreen display stuff
 globalvar xport,yport;
 xport = 0;
 yport = 0;
-// VirtualBox display hack (no longer needed)
-//scr_vboxhack()
 
 // Fullscreen
 window_set_fullscreen(global.fullscreen);
 
 // Vsync
-scr_setvsync(global.vsync);
+scr_setdisplay(global.aa,global.vsync);
 
 // Filtering
 texture_set_interpolation(global.filter);

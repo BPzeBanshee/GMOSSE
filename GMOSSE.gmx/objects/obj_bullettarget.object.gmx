@@ -53,11 +53,11 @@ if global.bulletcolour=3
     else sprite_index = sprite_def;
     }
 
-if collision_tile(1000000,vk_right)
+/*if collision_tile(1000000,vk_right)
 || collision_tile(1000000,vk_left)
 || collision_tile(1000000,vk_up)
 || collision_tile(1000000,vk_down)
-then event_perform(ev_collision,obj_en_wall);
+then event_perform(ev_collision,obj_en_wall);*/
 /*
 // This draws a line and is used in Draw event for testing purposes.
 // Don't use for proper game design unless you want something pointlessly

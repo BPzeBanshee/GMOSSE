@@ -113,62 +113,6 @@ if !global.button1 &amp;&amp; !global.jup &amp;&amp; !global.jdown
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="15">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>myroom = room;
-global.update = true;
-
-        
-if instance_exists(obj_ctrl_pause)
-    {
-    with obj_ctrl_pause scr_unpause();
-    } 
-    
-for (i=0; i&lt;=7; i+=1)
-    {
-    old_bkg_ind[i] = background_index[i];
-    old_bkg_alpha[i] = background_alpha[i];
-    old_bkg_vis[i] = background_visible[i];
-    old_bkg_x[i] = background_x[i];
-    old_bkg_y[i] = background_y[i];
-    old_bkg_vspeed[i] = background_vspeed[i];
-    old_bkg_hspeed[i] = background_hspeed[i];
-    old_bkg_htiled[i] = background_htiled[i];
-    old_bkg_vtiled[i] = background_vtiled[i];
-    }
-    
-if instance_exists(obj_ctrl_screen)
-    {
-    lastx = view_xview[0]; //obj_ctrl_screen.x;
-    lasty = view_yview[0]; //obj_ctrl_screen.y;
-    }
-    
-with (all) 
-    {
-    if persistent = 0 then persistent = 1;
-    }       
-scr_view_update();
-room_restart();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="7" enumb="14">
       <action>
         <libid>1</libid>
@@ -186,7 +130,7 @@ room_restart();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// MISC. SETTINGS MENU
+            <string>/// MISC. SETTINGS MENU
 
 // BEHAVIOUR
 category_type = "[MISC]";
@@ -263,8 +207,7 @@ if global.button1 &amp;&amp; !hook
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// VOLUME OPTIONS MENU //
-
+            <string>/// VOLUME OPTIONS MENU
 
 // BEHAVIOUR
 category_type = "[AUDIO]";
@@ -282,8 +225,6 @@ if global.jleft &amp;&amp; !hook
         }
     with obj_ctrl_music scr_setvolmusic();
     scr_setvolsnd();    
-    //scr_setvolsnd(global.sfx_volume);
-    //scr_setvolmusic(global.music_volume);
     }
     
 // RIGHT
@@ -298,8 +239,6 @@ if global.jright &amp;&amp; !hook
         }
     with obj_ctrl_music scr_setvolmusic();
     scr_setvolsnd();
-    //scr_setvolsnd(global.sfx_volume);
-    //scr_setvolmusic(global.music_volume);
     }
     
 // BUTTON 1
@@ -344,7 +283,7 @@ if global.button1 &amp;&amp; !hook
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// VIDEO OPTIONS MENU //
+            <string>/// VIDEO OPTIONS MENU
 
 
 // BEHAVIOUR
@@ -352,9 +291,8 @@ category_type = "[VIDEO]";
 selection_max = 10; // amount of positions in the submenu
 max_h = 35;
 
-if selection = 9 then warning = "MAY OR MAY NOT CAUSE
-CRASHES DEPENDING ON YOUR
-GRAPHICS CARD CAPABILITY!"
+if selection = 7 then warning = "CAN BE HEAVY ON GAME
+PERFORMANCE, USE WITH CAUTION."
 else warning = "";
 
 // LEFT
@@ -364,14 +302,14 @@ if global.jleft &amp;&amp; !hook
     switch selection
         {
         case 1: global.fullscreen = 0; window_set_fullscreen(global.fullscreen); break;
-        case 2: if global.win_size &gt; 1 {global.win_size -= 1; event_user(5);} break;
-        case 3: global.tate -= 1; if global.tate &lt; 0 then global.tate = 3; event_user(5); break;
+        case 2: if global.win_size &gt; 1 {global.win_size -= 1; scr_view_update();} break;
+        case 3: global.tate -= 1; if global.tate &lt; 0 then global.tate = 3; scr_view_update(); break;
         case 4: global.scanlines -= 1; if global.scanlines &lt; 0 then global.scanlines = 2; break;
         case 5: global.filter = 0; texture_set_interpolation(global.filter); break;
-        case 6: global.vsync = 0; scr_setvsync(global.vsync); break;
-        case 7: global.hitbox_visible = 0; break;
-        case 8: global.flicker = 0; break;
-        case 9: global.surfaces = 0; break;
+        case 6: global.vsync = 0; scr_setdisplay(global.aa,global.vsync); break;
+        case 7: if global.aa &gt; 0 then global.aa -= 1; scr_setdisplay(global.aa,global.vsync); break;
+        case 8: global.hitbox_visible = 0; break;
+        case 9: global.flicker = 0; break; 
         }
     }
     
@@ -382,14 +320,14 @@ if global.jright &amp;&amp; !hook
     switch selection
         {
         case 1: global.fullscreen = 1; window_set_fullscreen(global.fullscreen); break;
-        case 2: if global.win_size &lt; 3 {global.win_size += 1; event_user(5);} break;
-        case 3: global.tate += 1; if global.tate &gt; 3 then global.tate = 0; event_user(5); break;
+        case 2: if global.win_size &lt; 3 {global.win_size += 1; scr_view_update();} break;
+        case 3: global.tate += 1; if global.tate &gt; 3 then global.tate = 0; scr_view_update(); break;
         case 4: global.scanlines += 1; if global.scanlines &gt; 2 then global.scanlines = 0; break;
         case 5: global.filter = 1; texture_set_interpolation(global.filter); break;
-        case 6: global.vsync = 1; scr_setvsync(global.vsync); break;
-        case 7: global.hitbox_visible = 1; break;
-        case 8: global.flicker = 1; break;
-        case 9: global.surfaces = 1; break;
+        case 6: global.vsync = 1; scr_setdisplay(global.aa,global.vsync); break;
+        case 7: if global.aa &lt; scr_max_aa() then global.aa += 1; scr_setdisplay(global.aa,global.vsync); break;
+        case 8: global.hitbox_visible = 1; break;
+        case 9: global.flicker = 1; break;
         }
     }
     
@@ -427,8 +365,7 @@ if global.button1 &amp;&amp; !hook
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// CONTROL OPTIONS MENU //
-
+            <string>/// CONTROL OPTIONS MENU
 
 // BEHAVIOUR
 category_type = "[CONTROLS]";
@@ -462,7 +399,7 @@ if global.button1 &amp;&amp; !hook
     switch selection
         {
         case 1: c = instance_create(x,y,obj_ctrl_rebind); c.control = 1; break;
-        case 2: c = instance_create(x,y,obj_ctrl_rebind); c.control = 2; break;
+        case 2: c = instance_create(x,y,obj_ctrl_rebind); c.control = 1 + global.joy_system; break;
         case 4: selection = 1; category = 0; break;
         }
     }
@@ -488,7 +425,7 @@ if global.button1 &amp;&amp; !hook
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// MAIN OPTIONS MENU
+            <string>/// MAIN OPTIONS MENU
 category_type = "[CONFIG]";
 selection_max = 5;
 
@@ -504,95 +441,6 @@ if global.button1 &amp;&amp; !hook
         case 4: selection = 1; category = 4; break;
         case 5: instance_destroy(); break;
         }
-    }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="5">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if !global.update then instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if global.update = true
-    {
-    for (i=0; i&lt;=7; i+=1)
-        {
-        background_index[i] = old_bkg_ind[i];
-        background_alpha[i] = old_bkg_alpha[i];
-        background_visible[i] = old_bkg_vis[i];
-        background_x[i] = old_bkg_x[i];
-        background_y[i] = old_bkg_y[i];
-        background_vspeed[i] = old_bkg_vspeed[i];
-        background_hspeed[i] = old_bkg_hspeed[i];
-        background_htiled[i] = old_bkg_htiled[i];
-        background_vtiled[i] = old_bkg_vtiled[i];
-        }
-        
-    with (all)
-        {
-        if persistent = 0 then instance_destroy()
-        else persistent = object_get_persistent((self).object_index);
-        }
-        
-    if instance_exists(obj_ctrl_screen)
-        {
-        with obj_ctrl_screen
-            {
-            if instance_exists(obj_player)
-            then view_xview[0] = floor(x+((obj_hitbox.x - x)/w))-x_o;
-            view_yview[0] = floor(y)-y_o;
-            }
-        
-        //view_xview[0] = lastx - x_o;
-        //view_yview[0] = lasty - y_o;
-        scr_view_vars();
-        }
-        
-    if instance_exists(obj_ctrl_pause)
-        {
-        visible = 0;
-        with obj_ctrl_pause scr_pause();
-        visible = 1;
-        }
-        
-    global.update = false;
     }
 </string>
           </argument>
@@ -625,7 +473,7 @@ s = 125; g = 10;
 // DRAW BLACK BOX
 draw_set_alpha(0.5);
 draw_set_color(b);
-draw_rectangle(xview+30-x_o2,yview+s-8-y_o2,xview+210-x_o2,yview+s+(g*(selection_max+3))+max_h-y_o2,0);
+draw_rectangle(xview+30,yview+s-8,xview+210,yview+s+(g*(selection_max+3))+max_h,0);
 
 // DRAW CATEGORY TEXT
 draw_set_alpha(1);

@@ -46,9 +46,9 @@ global.win_size = ini_read_real("Video","window_size",1); // Size factor to scal
 global.tate = ini_read_real("Video","tate",0); // TATE (screen orientation)
 global.scanlines = ini_read_real("Video","scanlines",0); // scanlines
 global.vsync = ini_read_real("Video","vsync",false); // vertical sync
+global.aa = ini_read_real("Video","antialiasing",0); // Surfaces
 global.hitbox_visible = ini_read_real("Video","hitboxvisible",true); // hitbox visibility
 global.flicker = ini_read_real("Video","flicker",false); // explosion flicker
-global.surfaces = ini_read_real("Video","surfaces",false); // Surfaces
 
 /* SOUND */
 // Volume levels
