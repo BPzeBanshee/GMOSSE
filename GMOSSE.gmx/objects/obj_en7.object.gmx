@@ -230,7 +230,10 @@ then instance_destroy();
           <argument>
             <kind>1</kind>
             <string>with thr instance_destroy();
-
+if made = 1
+    {
+    for (i=0;i&lt;=3;i+=1) {with tur[i] visible = 0;};
+    }
 if image_alpha = 1
     {
     scr_playsnd(snd_exp2,0);

@@ -91,7 +91,7 @@ instance_activate_region(-48,yview-48,368,368,true);
           <argument>
             <kind>1</kind>
             <string>direction = 90;
-
+stage_time = 0;
 global.level = 4; // informs what stage this is (used for game completion/object deletion checking)
 global.behaviour = 4; // determines behaviour of stars (if used)
 global.gamecomplete = 0; // determines gameover/high score handling
