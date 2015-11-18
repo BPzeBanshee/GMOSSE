@@ -25,6 +25,7 @@ view_xview[0] = -x_o; view_yview[0] = -y_o;
 view_wview[0] = win_w; view_hview[0] = win_h;
 view_xport[0] = xport; view_yport[0] = yport;
 view_wport[0] = w; view_hport[0] = h;
+scr_view_vars();
 
 i=room_first;
 while i != -1

@@ -22,7 +22,7 @@ ini_write_real("Keyboard","button4",global.keycode_button4);
 ini_write_real("Video","fullscreen",global.fullscreen);
 ini_write_real("Video","filter",global.filter);
 ini_write_real("Video","window_size",global.win_size);
-ini_write_real("Video","tate",global.TATE2);
+ini_write_real("Video","tate",global.tate);
 ini_write_real("Video","hitboxvisible",global.hitbox_visible);
 ini_write_real("Video","scanlines",global.scanlines);
 ini_write_real("Video","vsync",global.vsync);

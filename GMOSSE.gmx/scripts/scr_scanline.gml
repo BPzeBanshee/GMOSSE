@@ -38,8 +38,6 @@ switch argument0
     case 1: // Standard Horizontal Scanlines
         {
         background_index[scanline_layer]=bkg_scanline1; 
-        background_visible[scanline_layer]=1;
-        background_foreground[scanline_layer]=1;
         background_vspeed[scanline_layer]=0; 
         background_hspeed[scanline_layer]=0;
         break;
@@ -47,8 +45,6 @@ switch argument0
     case 2: // Standard Vertical Scanlines
         {
         background_index[scanline_layer]=bkg_scanline2; 
-        background_visible[scanline_layer]=1;
-        background_foreground[scanline_layer]=1;
         background_vspeed[scanline_layer]=0; 
         background_hspeed[scanline_layer]=0;
         break;
@@ -57,3 +53,4 @@ switch argument0
 scr_view_vars();
 background_x[scanline_layer]=xview;
 background_y[scanline_layer]=yview;
+background_alpha[scanline_layer]=1;

@@ -291,8 +291,8 @@ category_type = "[VIDEO]";
 selection_max = 10; // amount of positions in the submenu
 max_h = 35;
 
-if selection = 7 then warning = "CAN BE HEAVY ON GAME
-PERFORMANCE, USE WITH CAUTION."
+if selection = 7 then warning = "PERFORMANCE INTENSIVE,
+USE WITH CAUTION."
 else warning = "";
 
 // LEFT
@@ -301,13 +301,53 @@ if global.jleft &amp;&amp; !hook
     hook = 1;
     switch selection
         {
-        case 1: global.fullscreen = 0; window_set_fullscreen(global.fullscreen); break;
-        case 2: if global.win_size &gt; 1 {global.win_size -= 1; scr_view_update();} break;
-        case 3: global.tate -= 1; if global.tate &lt; 0 then global.tate = 3; scr_view_update(); break;
-        case 4: global.scanlines -= 1; if global.scanlines &lt; 0 then global.scanlines = 2; break;
-        case 5: global.filter = 0; texture_set_interpolation(global.filter); break;
-        case 6: global.vsync = 0; scr_setdisplay(global.aa,global.vsync); break;
-        case 7: if global.aa &gt; 0 then global.aa -= 1; scr_setdisplay(global.aa,global.vsync); break;
+        case 1: 
+            {
+            global.fullscreen = 0; 
+            window_set_fullscreen(global.fullscreen); 
+            break;
+            }
+        case 2: 
+            {
+            if global.win_size &gt; 1 
+                {
+                global.win_size -= 1; 
+                scr_view_update();
+                } 
+            break;
+            }
+        case 3: 
+            {
+            global.tate -= 1; 
+            if global.tate &lt; 0 then global.tate = 3; 
+            scr_view_update(); 
+            break;
+            }
+        case 4: 
+            {
+            global.scanlines -= 1; 
+            if global.scanlines &lt; 0 then global.scanlines = 2; 
+            scr_scanline(global.scanlines);
+            break;
+            }
+        case 5: 
+            {
+            global.filter = 0; 
+            texture_set_interpolation(global.filter); 
+            break;
+            }
+        case 6: 
+            {
+            global.vsync = 0; 
+            scr_setdisplay(global.aa,global.vsync); 
+            break;
+            }
+        case 7: 
+            {
+            if global.aa &gt; 0 then global.aa -= 1; 
+            scr_setdisplay(global.aa,global.vsync);
+            break;
+            }
         case 8: global.hitbox_visible = 0; break;
         case 9: global.flicker = 0; break; 
         }
@@ -319,13 +359,53 @@ if global.jright &amp;&amp; !hook
     hook = 1;
     switch selection
         {
-        case 1: global.fullscreen = 1; window_set_fullscreen(global.fullscreen); break;
-        case 2: if global.win_size &lt; 3 {global.win_size += 1; scr_view_update();} break;
-        case 3: global.tate += 1; if global.tate &gt; 3 then global.tate = 0; scr_view_update(); break;
-        case 4: global.scanlines += 1; if global.scanlines &gt; 2 then global.scanlines = 0; break;
-        case 5: global.filter = 1; texture_set_interpolation(global.filter); break;
-        case 6: global.vsync = 1; scr_setdisplay(global.aa,global.vsync); break;
-        case 7: if global.aa &lt; scr_max_aa() then global.aa += 1; scr_setdisplay(global.aa,global.vsync); break;
+        case 1: 
+            {
+            global.fullscreen = 1; 
+            window_set_fullscreen(global.fullscreen); 
+            break;
+            }
+        case 2: 
+            {
+            if global.win_size &lt; 3 
+                {
+                global.win_size += 1; 
+                scr_view_update();
+                } 
+            break;
+            }
+        case 3: 
+            {
+            global.tate += 1; 
+            if global.tate &gt; 3 then global.tate = 0; 
+            scr_view_update(); 
+            break;
+            }
+        case 4:
+            { 
+            global.scanlines += 1; 
+            if global.scanlines &gt; 2 then global.scanlines = 0; 
+            scr_scanline(global.scanlines);
+            break;
+            }   
+        case 5:
+            {
+            global.filter = 1; 
+            texture_set_interpolation(global.filter); 
+            break;
+            }
+        case 6:
+            {
+            global.vsync = 1; 
+            scr_setdisplay(global.aa,global.vsync); 
+            break;
+            }
+        case 7: 
+            {
+            if global.aa &lt; scr_max_aa() then global.aa += 1; 
+            scr_setdisplay(global.aa,global.vsync); 
+            break;
+            }
         case 8: global.hitbox_visible = 1; break;
         case 9: global.flicker = 1; break;
         }
@@ -528,11 +608,18 @@ if category = 2
         case 1: scan_str = "HORIZONTAL"; break;
         case 2: scan_str = "VERTICAL"; break;
         }
+    switch global.aa
+        {
+        case 0: aa_str = "OFF"; break;
+        case 1: aa_str = "2xAA"; break;
+        case 2: aa_str = "4xAA"; break;
+        case 3: aa_str = "8xAA"; break;
+        }
     if global.filter = 0 then filter_str = "OFF" else filter_str = "ON";
     if global.vsync = 0 then vsync_str = "OFF" else vsync_str = "ON";
     if global.hitbox_visible = 0 then hitbox_str = "HIDDEN" else hitbox_str = "VISIBLE";
     if global.flicker = 0 then exp_str = "OPAQUE" else exp_str = "FLICKER";
-    if global.surfaces = 0 then surf_str = "OFF" else surf_str = "ON";
+    
     
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"FULLSCREEN: "+string(full_str));
@@ -541,9 +628,9 @@ if category = 2
     draw_text(xview+60,yview+s+(g*4),"SCANLINES: "+string(scan_str));
     draw_text(xview+60,yview+s+(g*5),"FILTER: "+string(filter_str));
     draw_text(xview+60,yview+s+(g*6),"VSYNC: "+string(vsync_str));
-    draw_text(xview+60,yview+s+(g*7),"HITBOX: "+string(hitbox_str));
-    draw_text(xview+60,yview+s+(g*8),"EXPLOSIONS: "+string(exp_str));
-    draw_text(xview+60,yview+s+(g*9),"SURFACES: "+string(surf_str));
+    draw_text(xview+60,yview+s+(g*7),"ANTIALIASING: "+string(aa_str));
+    draw_text(xview+60,yview+s+(g*8),"HITBOX: "+string(hitbox_str));
+    draw_text(xview+60,yview+s+(g*9),"EXPLOSIONS: "+string(exp_str));
     
     draw_text(xview+60,yview+s+(g*11),"RETURN TO MENU");
     
