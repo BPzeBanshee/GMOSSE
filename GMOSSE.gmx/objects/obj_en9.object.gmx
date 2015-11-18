@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_en_parent</parentName>
+  <parentName>obj_en_ground</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -81,8 +81,8 @@ made = 0;
           <argument>
             <kind>1</kind>
             <string>// Move with screen (spd_x/y are global vars, see obj_ctrl_screen)
-x -= spd_x;
-y -= spd_y;
+//x -= spd_x;
+//y -= spd_y;
 
 // Create turret
 if y &gt; yview-(sprite_height/2) &amp;&amp; !made

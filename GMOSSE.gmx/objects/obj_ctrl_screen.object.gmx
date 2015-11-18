@@ -8,6 +8,51 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*
+Creation Code Vars needed:
+globalvar spd_x,spd_y,max_w;
+
+spd_x = the horizontal speed you want
+spd_y = the vertical speed you want
+max_w = the maximum horizontal width the player
+        can traverse within the view
+        
+Place your values for those variables
+in the Creation Code event of this
+object in the room you want to use
+it in. Do not modify anything else.
+*/
+
+// Leave these alone
+if global.update exit;
+event_user(0); // Loading of needed objects to scroll with view
+event_user(1);
+if max_w &gt; 240 then w = max_w/(max_w-240) else w = max_w;
+// Update view (xview has additional wobblescroll formula)
+view_xview[0] = floor(x+((obj_ctrl_game.x - x)/w))-x_o
+view_yview[0] = floor(y)-y_o;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
@@ -59,8 +104,7 @@ else if max_w &gt; 240
 view_yview[0] = floor(y)-y_o;
 
 // update offset-adjusted view vars
-xview = view_xview[0] + x_o;
-yview = view_yview[0] + y_o;
+scr_view_vars();
 </string>
           </argument>
         </arguments>
@@ -159,52 +203,6 @@ switch global.shipselect
         break;
         }
     }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/*
-Creation Code Vars needed:
-globalvar spd_x,spd_y,max_w;
-
-spd_x = the horizontal speed you want
-spd_y = the vertical speed you want
-max_w = the maximum horizontal width the player
-        can traverse within the view
-        
-Place your values for those variables
-in the Creation Code event of this
-object in the room you want to use
-it in. Do not modify anything else.
-*/
-
-// Leave these alone
-if global.update exit;
-event_user(0); // Loading of needed objects to scroll with view
-event_user(1);
-if max_w &gt; 240 then w = max_w/(max_w-240) else w = max_w;
-
-// Update view (xview has additional wobblescroll formula)
-view_xview[0] = floor(x+((obj_ctrl_game.x - x)/w))-x_o
-view_yview[0] = floor(y)-y_o;
 </string>
           </argument>
         </arguments>

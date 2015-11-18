@@ -14,6 +14,11 @@
 global.room_id = 2;
 scr_tate(global.tate);
 if global.update exit;
+globalvar max_w,spd_x,spd_y;
+max_w = 320; // range of player x movement
+spd_x = 0; // initial x speed
+spd_y = -1; // initial y speed
+instance_create(0,room_height-320,obj_ctrl_screen);
 instance_deactivate_object(obj_en_wall);
 instance_deactivate_object(obj_en_parent);
 instance_activate_region(0,2094,320,320,true);</code>
@@ -280,7 +285,6 @@ instance_activate_region(0,2094,320,320,true);</code>
     <instance objName="obj_en5" x="224" y="1984" name="inst_16DF49FD" locked="0" code="vspeed = 4;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en7" x="160" y="1920" name="inst_7DA17424" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ctrl_st2b" x="16" y="2096" name="inst_6F07BEBD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_screen" x="0" y="2096" name="inst_36039455" locked="0" code="globalvar max_w,spd_x,spd_y;&#xA;max_w = 320; // range of player x movement&#xA;spd_x = 0; // initial x speed&#xA;spd_y = -1; // initial y speed&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ctrl_game" x="160" y="2320" name="inst_217FCE77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

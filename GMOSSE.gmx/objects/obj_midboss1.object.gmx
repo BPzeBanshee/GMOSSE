@@ -68,7 +68,7 @@ switch mode
     {
     case 0:
         {
-        if y &gt;= (yview-sprite_width/2)
+        if y &lt;= (yview-sprite_width/2)
             {
             speed = 4; direction = 270;
             scr_bosshealthbar(self.id);
