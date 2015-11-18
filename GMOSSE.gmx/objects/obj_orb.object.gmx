@@ -31,14 +31,10 @@ enemyHP_max = enemyHP;
 flash = 0;
 z = 128;
 
-// Movement variables
-move_timer = 0;
+timer = 0;
+phase = 0;
 
-// Attack pattern variables
-timer = 30;
-count = 0;
-spd = 4;
-atk_end = 0;
+event_user(0);
 </string>
           </argument>
         </arguments>
@@ -61,77 +57,17 @@ atk_end = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// ********Movement-related Patterns*******
-move_timer += 1;
-if move_timer &gt; 30 then direction -= 10;
-if move_timer = 30
+            <string>// Movement handling
+timer += 1;
+if timer &gt; 30 then direction -= 10;
+if timer = 30
     {
     speed = 10;
     direction = 270;
     }
-
-// **************Attack Patterns***********
-if instance_exists(obj_boss) 
-then switch obj_boss.mode
-    {
-    case 1.1:
-        {
-        timer -= 1;
-        if timer = 0
-            {
-            point = point_direction(x,y,obj_hitbox.x,obj_hitbox.y);
-            repeat 5
-                {
-                scr_basicshot(x,y,obj_bullet1,spd,point);
-                spd += 0.5;
-                }
-            spd = 3;
-            scr_playsnd(snd_en_shot1,1);
-            timer = 4;
-            count += 1;
-            }
-        if count = 8
-            {
-            atk_end += 0.25;
-            timer = 30;
-            count = 0;
-            }
-        if atk_end &gt; 1
-            {
-            count = 0;
-            timer = 30;
-            atk_end = 0;
-            obj_boss.mode = 2;
-            }
-        break;
-        }
-    case 3.1:
-        {
-        timer -= 1;
-        if timer = 0
-            {
-            scr_circleattack(40,x,y,3,obj_bullet1,obj_hitbox,4,true); //1,true
-            scr_playsnd(snd_en_shot2,1);
-            timer = 30;
-            atk_end += 0.05;
-            }
-        if atk_end = 1
-            {
-            timer = 30;
-            atk_end = 0;
-            obj_boss.mode = 1.1;
-            } 
-        break;
-        }
-    case 6:
-        {
-        if speed &gt; 5 then speed -= 1;
-        if direction &gt; 90 &amp;&amp; direction &lt; 270 then direction -= 5;
-        if direction &lt; 90 || direction &gt; 270 then direction += 5;
-        if y &lt; yview-sprite_height/2 then instance_destroy();
-        break;
-        }
-    }
+    
+// Handling is now done via obj_boss, it changes obj_orb's mode value
+event_user(phase);
 </string>
           </argument>
         </arguments>
@@ -155,10 +91,156 @@ then switch obj_boss.mode
           <argument>
             <kind>1</kind>
             <string>scr_addscore(5000,180,1);
-scr_playsnd(snd_exp3,0);
+
 // Contra Yagawa Corps Eksploshunz by Michael Bay!
 scr_create_exp(obj_explosion,360,18);
+scr_playsnd(snd_exp3,0);
 instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*
+Attack Phase 3: Timeout behaviour
+
+Basically it slows down to minimum speed,
+adjusts angle to point up and leaves.
+*/
+if speed &gt; 5 then speed -= 1;
+scr_turntoangle(90,5);
+if y &lt; (yview-sprite_height/2) then instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*
+Attack Phase 2: Circular explosions aimed at player hitbox
+
+This is called by obj_boss along with obj_orb2's direct attack
+*/
+if count &lt; 20 then atk2_timer -= 1;
+if atk2_timer = 0
+    {
+    scr_circleattack(40,x,y,3,obj_bullet1,obj_hitbox,4,true); //1,true
+    scr_playsnd(snd_en_shot2,1);
+    atk2_timer = 30;
+    count += 1;
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*
+Attack Phase 1: Bullet barrage of varied speeds aimed at player
+
+This executes in increments, each barrage of shots happen 8 times,
+with 4 barrages in total. Called by obj_boss before said boss
+performs its own circular attack.
+*/
+if count2 &lt; 4 then atk_timer -= 1;
+if atk_timer = 0
+    {
+    aim = point_direction(x,y,obj_hitbox.x,obj_hitbox.y);
+    repeat 5
+        {
+        scr_basicshot(x,y,obj_bullet1,spd,aim);
+        spd += 0.5;
+        }
+    spd = 4;
+    scr_playsnd(snd_en_shot1,1);
+    atk_timer = 4;
+    count += 1;
+    }
+if count = 8
+    {
+    count2 += 1;
+    atk_timer = 30;
+    count = 0;
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*
+Phase 0: Orb values are reset for future patterns
+*/
+atk_timer = 1;
+atk2_timer = 30;
+spd = 3;
+count = 0;
+count2 = 0;
 </string>
           </argument>
         </arguments>

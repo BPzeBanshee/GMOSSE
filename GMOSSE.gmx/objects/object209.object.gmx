@@ -31,19 +31,17 @@ enemyHP_max = enemyHP;
 z = 128;
 flash = 0;
 timeout = 5000;
-scr_bosshealthbar(self.id);
 
-// Movement-related variables
 image_speed = 0.1;
-vspeed = 2;
-move_timer = 0; 
+vspeed = 2; // sets initial speed to 2, so it moves down
+move_timer = 0; // timer variable for when to stop moving down
 
-// Attack related variables
-phase = 0;
-made = 0;
-count = 0;
-atk_timer = 0;
-atk2_timer = 2;
+mode = 1; // initialises the attack pattern variable at pattern 1
+attack2_timer = 90; // initialises attack phase 2's main timer
+attack2_end = 0; // initialises attack phase 2's 'end of phase' timer
+DOOMtimer = 2; // timer variable for final attack pattern
+
+scr_bosshealthbar(self.id);
 </string>
           </argument>
         </arguments>
@@ -95,16 +93,16 @@ special bullets will explode into more bullets.
 Similar to DodonPachi Dai-Ou-Jou's Stage 1 boss canister attacks.*/
 
 // Aesthetics
-thr = scr_basicshot(x,y,obj_en_thr,irandom_range(5,7),irandom_range(240,300));
-thr.depth = depth + 1;
-thr.image_xscale = irandom_range(2,4);
-thr.image_yscale = thr.image_xscale;
-thr.image_angle = random(360);
-thr.image_speed = 0.5;
+thrust = scr_basicshot(x,y,obj_en_thr,irandom_range(5,7),irandom_range(240,300));
+thrust.depth = depth + 1;
+thrust.image_xscale = irandom_range(2,4);
+thrust.image_yscale = thrust.image_xscale;
+thrust.image_angle = random(360);
+thrust.image_speed = 0.5;
 
 // Timeout
 if timeout &gt; 0 then timeout -= 1;
-if timeout = 0 then phase = 7;
+if timeout = 0 then mode = 6;
 
 // Movement-related code
 move_timer += 1;
@@ -112,114 +110,104 @@ if move_timer = 60 then vspeed = 0;
 if move_timer &lt; 60 then enemyHP = enemyHP_max;
 
 // Attack behaviour
-switch phase
-    {
-    case 0: // Entry onto screen, create first orb
+switch mode 
+    {// ##ATTACK PHASE 1##
+    case 1: 
         { 
         if move_timer = 60
             {
-            orb1 = instance_create(x,y,obj_orb);
-            orb1.hspeed = 2;
-            made = 1;
-            phase = 1; 
-            }
-        break;
-        }
-    case 1: // ##ATTACK PHASE 1##
-        { 
-        if instance_exists(orb1)
-            {
-            if orb1.timer &gt;= 30 then orb1.phase = 1; // execute attack once spinning
-            if orb1.count2 &gt;= 4
+            if !instance_exists(obj_orb)
                 {
-                orb1.phase = 0;
-                phase = 2; // go to next phase
+                orb1 = instance_create(x,y,obj_orb);
+                orb1.hspeed = 2;
                 }
+            mode = 1.1; 
             }
-        else phase = 4; // if orb is destroyed fast, skip to fourth phase
         break;
         }
-    case 2: // ##ATTACK PHASE 2##
-        { 
-        atk_timer += 1;
-        if atk_timer = 60
+    case 1.1: 
+        { // ##ATTACK PHASE 1.1##
+        if !instance_exists(obj_orb)
+            {
+            attack2_end = 1; // if attack phase 2 has been relooped this will end it
+            mode = 4;
+            }
+        break;
+        }
+    case 2: 
+        { // ##ATTACK PHASE 2##
+        attack2_timer -= 1;
+        if attack2_timer = 0
             {
             scr_circleattack(36,x,y,0,obj_bullet2,obj_hitbox,6,false);
             scr_playsnd(snd_en_shot2,1);
-            atk_timer = 30;
-            count += 1;
+            attack2_timer = 30;
+            attack2_end += 0.1;
             }
-        if count = 10
-            {
-            atk_timer = 0;
-            count = 0;
-            if made &lt; 2 then phase = 3 else phase = 4;
-            }
+        if attack2_end = 1 then mode = 3; 
         break;
         }
-    case 3: // create second orb
-        {
-        orb2 = instance_create(x,y,obj_orb2); 
-        orb2.hspeed = -2;
-        made = 2;
-        phase = 4;
-        break;
-        }
-    case 4: // ##ATTACK PHASE 3##
-        {
-        if instance_exists(orb1)
+    case 3: 
+        { // ##ATTACK PHASE 3##
+        attack2_timer = 60;
+        attack2_end = 0;
+        // ^^ resets timer variables of previous attack pattern ^^
+        if !instance_exists(obj_orb2)
             {
-            orb1.phase = 2;
-            orb2.phase = 1;
-            if orb1.count = 20 &amp;&amp; orb2.count = 4
-                {
-                orb1.phase = 0;
-                orb2.phase = 0;
-                phase = 1;
-                }
+            orb2 = instance_create(x,y,obj_orb2); 
+            orb2.hspeed = -2;
             }
         else
             {
-            orb2.phase = 2;
-            phase = 5;
+            orb2.attack3_timer = 60;
+            orb2.attack3_end = 0;
+            }
+        mode = 3.1; // sets attack pattern to 3.1 so as to not loop
+        break;
+        }
+    case 3.1: 
+        { // ##ATTACK PHASE 3.1##
+        if !instance_exists(obj_orb)
+            {
+            attack2_end = 1; // if attack phase 2 has been relooped this will end it
+            mode = 4;
             }
         break;
         }
-    case 5: // ##ATTACK PHASE 4##
-        {
-        if !instance_exists(orb2) then phase = 6;
+    case 4: 
+        { // ##ATTACK PHASE 4##
+        if !instance_exists(obj_orb2) then mode = 5;
         break;
         }
-    case 6: // ##FINAL ATTACK PHASE##
-        { 
+    case 5: 
+        { // ##FINAL ATTACK PHASE##
         global.omake_enabled = 1;
-        atk2_timer -= 1;
-        if atk2_timer = 0
+        with obj_bullet_shoot 
             {
-            blast = scr_circleattack(90,x,y,0,obj_bullet_shoot,obj_hitbox,10,false);
-            with obj_bullet_shoot
-                {
-                btype = 2;
-                friction = 0.4;
-                }
+            if btype=3 then instance_change(obj_bulletcancel,true);
+            }
+        DOOMtimer -= 1;
+        if DOOMtimer = 0
+            {
+            DOOMtimer = 180; // resets 'DOOM' timer to 180
+            var DOOMattack; // declare variable here without a value
+            DOOMattack = scr_circleattack(90,x,y,0,obj_bullet_shoot,obj_hitbox,10,false);
             scr_playsnd(snd_exp1,1);
-            atk2_timer = 180;
+            // ^^ bullet script, but different from most due to special behaviour ^^
+            with (obj_bullet_shoot) // with the special obj_bullet_shoot object
+                {
+                btype=2; // set behaviour type to 2
+                friction = 0.4; // set friction to 0.5
+                // use friction only with obj_bullet_shoot.btype = 2 or 3!      
+                }
             }  
         break;
         }
-    case 7: // TIMEOUT
+    case 6: // TIMEOUT
         {
         y -= 1;
-        if instance_exists(orb1)
-            {
-            orb1.mode = 3; 
-            orb1.y -= 1;
-            }
-        if instance_exists(orb2)
-            {
-            orb2.mode = 3;
-            orb2.y -= 1;
-            }
+        if instance_exists(obj_orb) then obj_orb.y -= 1;
+        if instance_exists(obj_orb2) then obj_orb2.y -= 1;
         direction = 90;
         if y &lt; yview-sprite_width/2 then instance_destroy();
         break;

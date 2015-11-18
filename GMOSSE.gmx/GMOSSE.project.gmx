@@ -635,6 +635,11 @@
           <object>objects\obj_orb_trans</object>
           <object>objects\obj_orb2</object>
           <object>objects\obj_orb2_trans</object>
+          <objects name="old">
+            <object>objects\object209</object>
+            <object>objects\object210</object>
+            <object>objects\object211</object>
+          </objects>
         </objects>
       </objects>
       <objects name="Stage 2">
