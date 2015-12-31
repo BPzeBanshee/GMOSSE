@@ -102,10 +102,8 @@
       </sprites>
       <sprites name="Stage 1">
         <sprite>sprites\spr_en1</sprite>
-        <sprite>sprites\spr_en1_old</sprite>
         <sprite>sprites\spr_en2</sprite>
         <sprite>sprites\spr_3Den1</sprite>
-        <sprite>sprites\spr_3Den1_old</sprite>
         <sprite>sprites\spr_3Den2</sprite>
         <sprite>sprites\spr_3Den3</sprite>
         <sprite>sprites\spr_en4</sprite>
@@ -668,7 +666,6 @@
         </objects>
       </objects>
       <objects name="Stage 3">
-        <object>objects\obj_en_cruiserb</object>
         <object>objects\obj_en_cruiser</object>
         <object>objects\obj_cruiser_hitbox</object>
         <object>objects\obj_crater4</object>
@@ -677,7 +674,6 @@
         <object>objects\obj_en5b</object>
         <objects name="Boss 3">
           <object>objects\obj_boss3</object>
-          <object>objects\object891</object>
           <object>objects\obj_en_tur1</object>
           <object>objects\obj_en_tur2</object>
           <object>objects\obj_en_tur3</object>

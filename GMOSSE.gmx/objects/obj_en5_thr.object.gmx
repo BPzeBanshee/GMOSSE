@@ -49,6 +49,7 @@
           <argument>
             <kind>1</kind>
             <string>image_angle = random(360);
+depth += 1;
 </string>
           </argument>
         </arguments>

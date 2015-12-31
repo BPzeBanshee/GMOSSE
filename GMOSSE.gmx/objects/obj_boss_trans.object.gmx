@@ -55,9 +55,9 @@ scr_3D();
             <string>scr_3D();
 
 thrust = instance_create(x,y,obj_en_thr);
-thrust.speed = irandom_range(5,7);
-thrust.image_angle = irandom(360);
-thrust.direction = irandom_range(240,300);
+thrust.speed = random_range(5,7);
+thrust.image_angle = random(360);
+thrust.direction = random_range(260,280);
 thrust.image_xscale = random(2.5);
 thrust.image_yscale = thrust.image_xscale;
 thrust.depth = depth + 1;

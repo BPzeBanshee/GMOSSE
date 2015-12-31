@@ -98,7 +98,6 @@ if made = 0
         for (j=0;j&lt;=m[i];j+=1) 
             {
             turret[i,j]=instance_create(p[b,0],p[b,1],p[b,2]);
-            turret[i,j].visible = 1;
             turret[i,j].active = 0;
             b += 1;
             }
@@ -118,7 +117,6 @@ if made = 1
                 {
                 turret[i,j].x = p[b,0];
                 turret[i,j].y = p[b,1];
-                //with turret[i,j] draw_self2();
                 }
             else
                 {
@@ -127,8 +125,6 @@ if made = 1
                 if p[b,2] = obj_en_tur2 then ctype = obj_crater2;
                 if p[b,2] = obj_en_tur3 then ctype = obj_crater3;
                 turret[i,j] = instance_create(p[b,0],p[b,1],ctype);
-                turret[i,j].visible = 1;
-                //with turret[i,j] draw_self2();
                 }
             b += 1; // update totalnumber
             }

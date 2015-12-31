@@ -99,6 +99,10 @@ if global.button2 &amp;&amp; bomb_timer = 0 &amp;&amp; global.bombs &gt; 0
     instance_create(x,y,obj_warbird_bomb);
     scr_playsnd(snd_war_bomb,0);
     }
+    
+a=instance_create(x,y+8,obj_en5_thr);
+a.speed = 4;
+a.direction = 270;
 </string>
           </argument>
         </arguments>
