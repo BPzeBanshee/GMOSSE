@@ -1,31 +1,15 @@
+///scr_hiscore_reset()
 // Sets default values for each position in the highscore and name arrays
-global.hiscore[1] = 90000;
-global.namescore[1] = "BPF      Stage: 1"; // Me!
-global.shipscore[1] = 1;
-global.hiscore[2] = 80000;
-global.namescore[2] = "KSR      Stage: 1"; // Kaiser
-global.shipscore[2] = 2;
-global.hiscore[3] = 70000;
-global.namescore[3] = "MJC      Stage: 1"; // mjclark
-global.shipscore[3] = 3;
-global.hiscore[4] = 60000;
-global.namescore[4] = "S20      Stage: 1"; // S20-TBL
-global.shipscore[4] = 4;
-global.hiscore[5] = 50000;
-global.namescore[5] = "GZR      Stage: 1"; // Gryzor/Rozyrg
-global.shipscore[5] = 5;
-global.hiscore[6] = 40000;
-global.namescore[6] = "ERA      Stage: 1"; // Alluro
-global.shipscore[6] = 4;
-global.hiscore[7] = 30000;
-global.namescore[7] = "GUS      Stage: 1"; // Gustav
-global.shipscore[7] = 3;
-global.hiscore[8] = 20000;
-global.namescore[8] = "EMS      Stage: 1"; // Emerald Master
-global.shipscore[8] = 2;
-global.hiscore[9] = 10000;
-global.namescore[9] = "UDD      Stage: 1"; // Udderdude
-global.shipscore[9] = 1;
-global.hiscore[10] = 0;
-global.namescore[10] = "<nobody>"; // What the GM registry normally shows when cleared
-global.shipscore[10] = 1;
+// Format: 0,name; 1,level; 2,shipused; 3,score
+
+// Normal mode
+global.hiscore[1,0] = "BPZ"; global.hiscore[1,1] = 3; global.hiscore[1,2] = 1; global.hiscore[1,3] = 90000;
+global.hiscore[2,0] = "KSR"; global.hiscore[2,1] = 3; global.hiscore[2,2] = 2; global.hiscore[2,3] = 80000;
+global.hiscore[3,0] = "MJC"; global.hiscore[3,1] = 3; global.hiscore[3,2] = 3; global.hiscore[3,3] = 70000;
+global.hiscore[4,0] = "S20"; global.hiscore[4,1] = 2; global.hiscore[4,2] = 4; global.hiscore[4,3] = 60000;
+global.hiscore[5,0] = "GZR"; global.hiscore[5,1] = 2; global.hiscore[5,2] = 5; global.hiscore[5,3] = 50000;
+global.hiscore[6,0] = "ERA"; global.hiscore[6,1] = 2; global.hiscore[6,2] = 4; global.hiscore[6,3] = 40000;
+global.hiscore[7,0] = "GST"; global.hiscore[7,1] = 1; global.hiscore[7,2] = 3; global.hiscore[7,3] = 30000;
+global.hiscore[8,0] = "EMS"; global.hiscore[8,1] = 1; global.hiscore[8,2] = 2; global.hiscore[8,3] = 20000;
+global.hiscore[9,0] = "UDD"; global.hiscore[9,1] = 1; global.hiscore[9,2] = 1; global.hiscore[9,3] = 10000;
+global.hiscore[10,0] = "ZZZ"; global.hiscore[10,1] = 0; global.hiscore[10,2] = 1; global.hiscore[10,3] = 0;

@@ -529,7 +529,8 @@
         <script>scripts\scr_pause_draw.gml</script>
       </scripts>
       <scripts name="High Score">
-        <script>scripts\scr_crypt.gml</script>
+        <script>scripts\scr_encrypt.gml</script>
+        <script>scripts\scr_decrypt.gml</script>
         <script>scripts\scr_hiscore_load.gml</script>
         <script>scripts\scr_hiscore_save.gml</script>
         <script>scripts\scr_hiscore_update.gml</script>

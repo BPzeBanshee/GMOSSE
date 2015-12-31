@@ -173,9 +173,8 @@ else
 
 if hassaved = 0
     {
-    //name = letter1+letter2+letter3+"      Stage: "+string(global.level)+"       Ship: "+string(global.shipselect);
-    name = letter1+letter2+letter3+"      Stage: "+string(global.level);
-    scr_hiscore_update(score,name,global.shipselect);
+    name = letter1+letter2+letter3;
+    scr_hiscore_update(name,global.level,global.shipselect,score);
     scr_hiscore_save("score.gmes");
     hassaved = 1;
     } 
@@ -238,7 +237,7 @@ if global.gamecomplete = 1
 then draw_text(xview+120,yview+130,"Game Complete!");
 else draw_text(xview+120,yview+130,"Game Over");
 
-if score &gt;= global.hiscore[9]
+if score &gt;= global.hiscore[9,3]
     {
     draw_text(xview+120,yview+150,"Enter Initials");
     flash += 1;
