@@ -1,11 +1,15 @@
 //export double FMODEffectGetParamName(double effect, double p)
 //This function gets the parameter name in a string 
+
 //n = FMODEffectGetParamName(effect,0);
+
 //returns the value of effect parameters
+
 //sound = FMODSoundAdd("gunshot.wav")
 //instance = FMODSoundPlay(sound);
 //effect = FMODInstanceAddEffect(instance, 3);
 //nm = FMODEffectGetParamName(effect,1)
+
 //...
 // //later
 //FMODEffectFree(effect)

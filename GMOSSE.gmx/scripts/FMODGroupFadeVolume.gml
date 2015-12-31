@@ -1,8 +1,9 @@
-/*//FMODGroupFadeVolume(group,targetvolume,numframes)
+//FMODGroupFadeVolume(group,targetvolume,numframes)
 //group 0 for all, 1-4 for a specific group
 //target volume the volume to go to
 //numframes. The number of frames the effect will take place
 //    use room_speed*2 for 2 seconds
+/*
 var d;
 d = argument1
 var i;

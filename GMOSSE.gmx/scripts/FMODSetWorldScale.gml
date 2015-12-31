@@ -6,4 +6,5 @@
 //it will appear to the sound system as though he moved
 //3 meters per second 
 //reduce the value to reduce the overall doppler effects in the game
+
 return external_call(global.dll_FMODSetWorldScale,argument0);

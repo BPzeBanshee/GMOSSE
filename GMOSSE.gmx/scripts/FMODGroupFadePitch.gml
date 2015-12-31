@@ -2,7 +2,8 @@
 //group 0 for all, 1-4 for a specific group
 //target Frequency the Frequency to go to
 //numframes. The number of frames the effect will take place
-/*//    use room_speed*2 for 2 seconds
+//    use room_speed*2 for 2 seconds
+/*
 var d;
 d = argument1
 var i;

@@ -7,8 +7,8 @@
 //burst of sounds. If you dont know it try 0 if fading from an unknown pan to 1 or -1
 //updatecode (optional) is the code to call to update your pan variable
 // it has the form of "with(100010 /*YourInstanceID*/) {YourVariableName = other.curpan;}"}
-/*// or "global.thevariablename = curpan;"
-var d;
+// or "global.thevariablename = curpan;"
+/*var d;
 d = argument2
 var i;
 //if(argument0 > 0)

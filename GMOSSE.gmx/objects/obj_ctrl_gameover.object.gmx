@@ -79,7 +79,7 @@ if ready = 0 &amp;&amp; !global.button1
 then ready = 1;
 
 // Highscore submission
-if score &gt;= global.hiscore[9]
+if score &gt;= global.hiscore[9,3]
     {
     if (timer &gt;= 50 &amp;&amp; global.button1 = 1 &amp;&amp; ready = 1)
         { 

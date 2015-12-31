@@ -5,6 +5,7 @@
 //highest value of the set. For eaxmple, if the highest value was .05 and the others
 //.005, .0005, the highest will be bumped to 1 making the others .1 and .01
 //For display purpose, it ensures you always have data to see.
+
 //Returns the calculated value use in the normalization (max value in the dtata set)
 //v = FMODInstanceGetSpectrumSnapshot2(instance,0, 1024);
 //FMODNormalizeSpectrumData(0, 1024);
@@ -12,4 +13,5 @@
 //{
 //    entry = FMODGetSnapshotEntry(i);
 //}
+
 return external_call(global.dll_FMODNormalizeSpectrumData,argument0,argument1);

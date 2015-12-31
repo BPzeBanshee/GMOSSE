@@ -1,5 +1,7 @@
 //export double FMODBlockersInit(double NumBlockers, double xs, double ys, double zs)
+
 //Blockers block sounds in the game, useful for walls, windows and other things
+
 //This turns the blocker feature on. Call it before you play any sounds
 //NumBlockers specifies the number of blocker in the room try to match your game and not to create too many blockers
 //xs is the room width

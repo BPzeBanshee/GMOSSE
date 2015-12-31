@@ -1,4 +1,5 @@
 //export double FMODInstanceSetFrequency(double instance, double freq)
+
 //Set a playing instance frequency fro "bullet time" effect
 //some sounds can have negative freq, reversed/rewinding effect if not streamed
 //sound = FMODSoundAdd("test.mp3");

@@ -1,5 +1,6 @@
 //export double FMODGroupAddEffect(double group, double effects)
 //effect (0 on fail) = FMODGroupAddEffect(1, 5)
+
 //Adds an FMOD effect to a group
 //Effects
 //    FMOD_DSP_TYPE_MIXER,          1    /* This unit does nothing but take inputs and mix them together then feed the result to the soundcard unit. */
@@ -21,9 +22,12 @@
 //    FMOD_DSP_TYPE_COMPRESSOR,     17    /* This unit implements dynamic compression (linked multichannel, wideband) */
 //    FMOD_DSP_TYPE_SFXREVERB,      18    /* This unit implements SFX reverb */
 //    FMOD_DSP_TYPE_LOWPASS_SIMPLE, 19    /* This unit filters sound using a simple lowpass with no resonance, but has flexible cutoff and is fast. */
+
 //Use this to dynamicaly add effects to a group.
 //Usefull for temporary effects. Like when in water or like Guitar Hero in power up mode
 //You can add as many effects as you want as long as you keep track and free each effect added
+
+
 //sound = FMODSoundAdd("gunshot.wav")
 //FMODSoundSetGroup(sound,1);
 //effect = FMODGroupAddEffect(1, 5);
@@ -31,6 +35,8 @@
 //...
 // //later
 //FMODEffectFree(effect)
+
 //The effect is removed when you call FMODEffectFree(effect)
 //You must free the effect when done with it or when the instance is done playing
+
 return external_call(global.dll_FMODGroupAddEffect,argument0,argument1);

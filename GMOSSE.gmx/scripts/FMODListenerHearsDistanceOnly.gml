@@ -1,4 +1,5 @@
 //export double FMODListenerHearsDistanceOnly(double listener, double truefalse)
+
 //Call this if you want to enable x,y,z relative 3d sounds
 //listener is the id (1-4) of the listener
 // true is default. 3d sounds will fade in and out but their relative position will not register in the speakers

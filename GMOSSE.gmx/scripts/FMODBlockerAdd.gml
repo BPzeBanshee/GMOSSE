@@ -1,5 +1,6 @@
 //export double FMODBlockerAdd(double x, double y, double z, double xs, double ys, double zs, double xe, double ye, double ze)
 //Blockers block sounds in the game, useful for walls, windows and other things
+
 //Adds a blocker to the system
 //Returns the blockerID to use with any move functions... Usedful for moving doors or fading blockers
 //x,y,z are the position of your object

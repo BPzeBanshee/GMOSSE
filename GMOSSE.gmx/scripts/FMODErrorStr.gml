@@ -1,4 +1,6 @@
 //argument0 is a value from FMODGetLastError()
+///FMOD_ErrorString
+return external_call(global.dll_FMODGetErrorString,argument0);
 //show_debug_message(FMODErrorStr(FMODGetLastError()))
 var FMOD_OK,
     FMOD_ERR_ALREADYLOCKED,         /* Tried to call lock a second time before unlock was called. */
@@ -78,6 +80,7 @@ var FMOD_OK,
     FMOD_ERR_UNSUPPORTED,           /* A command issued was not supported by this object.  Possibly a plugin without certain callbacks specified. */
     FMOD_ERR_UPDATE,                /* An error caused by System::update occured. */
     FMOD_ERR_VERSION,               /* The version number of this file format is not supported. */
+
     FMOD_ERR_EVENT_FAILED,          /* An Event failed to be retrieved, most likely due to 'just fail' being specified as the max playbacks behavior. */
     FMOD_ERR_EVENT_INTERNAL,        /* An error occured that wasn't supposed to.  See debug log for reason. */
     FMOD_ERR_EVENT_INFOONLY,        /* Can't execute this command on an EVENT_INFOONLY event. */
@@ -85,6 +88,7 @@ var FMOD_OK,
     FMOD_ERR_EVENT_MISMATCH,        /* FSB mis-matches the FEV it was compiled with. */
     FMOD_ERR_EVENT_NAMECONFLICT,    /* A category with the same name already exists. */
     FMOD_ERR_EVENT_NOTFOUND;        /* The requested event, event group, event category or event property could not be found. */
+
     FMOD_OK = 0;
     FMOD_ERR_ALREADYLOCKED=1;         /* Tried to call lock a second time before unlock was called. */
     FMOD_ERR_BADCOMMAND=2;            /* Tried to call a function on a data type that does not allow this type of functionality (ie calling Sound::lock on a streaming sound). */
@@ -163,6 +167,7 @@ var FMOD_OK,
     FMOD_ERR_UNSUPPORTED=75;           /* A command issued was not supported by this object.  Possibly a plugin without certain callbacks specified. */
     FMOD_ERR_UPDATE=76;                /* An error caused by System::update occured. */
     FMOD_ERR_VERSION=77;               /* The version number of this file format is not supported. */
+
     FMOD_ERR_EVENT_FAILED=78;          /* An Event failed to be retrieved, most likely due to 'just fail' being specified as the max playbacks behavior. */
     FMOD_ERR_EVENT_INTERNAL=79;        /* An error occured that wasn't supposed to.  See debug log for reason. */
     FMOD_ERR_EVENT_INFOONLY=80;        /* Can't execute this command on an EVENT_INFOONLY event. */
@@ -170,6 +175,8 @@ var FMOD_OK,
     FMOD_ERR_EVENT_MISMATCH=82;        /* FSB mis-matches the FEV it was compiled with. */
     FMOD_ERR_EVENT_NAMECONFLICT=83;    /* A category with the same name already exists. */
     FMOD_ERR_EVENT_NOTFOUND=84;        /* The requested event, event group, event category or event property could not be found. */
+
+
     switch (argument0)
     {
         case FMOD_ERR_ALREADYLOCKED:          return "Tried to call lock a second time before unlock was called. ";

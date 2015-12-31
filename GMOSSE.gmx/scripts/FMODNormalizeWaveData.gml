@@ -6,6 +6,7 @@
 //you can see the wave instead of a straight line.
 //A side effect is that larger variations may be reduced... but overall, the effect is 
 //acceptable for use in draw function
+
 //Returns the calculated value use in the normalization (max range variation value in the data set)
 //FMODInstanceGetWaveSnapshot2(instance,0, 1024);
 //FMODNormalizeWaveData(0, 1024);
@@ -13,4 +14,5 @@
 //{
 //    entry = FMODGetSnapshotEntry(i);
 //}
+
 return external_call(global.dll_FMODNormalizeWaveData,argument0, argument1);

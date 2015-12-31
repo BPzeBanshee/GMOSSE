@@ -1,4 +1,5 @@
 //export double FMODSoundAddEffect(double sound, double effects, position)
+
 //Adds an FMOD effect to a sound at the position (0-9) specified 
 //Effects
 //    FMOD_DSP_TYPE_MIXER,          1    /* This unit does nothing but take inputs and mix them together then feed the result to the soundcard unit. */
@@ -20,12 +21,18 @@
 //    FMOD_DSP_TYPE_COMPRESSOR,     17    /* This unit implements dynamic compression (linked multichannel, wideband) */
 //    FMOD_DSP_TYPE_SFXREVERB,      18    /* This unit implements SFX reverb */
 //    FMOD_DSP_TYPE_LOWPASS_SIMPLE, 19    /* This unit filters sound using a simple lowpass with no resonance, but has flexible cutoff and is fast. */
+
+
 //I dont check if an effect exist at the specified position do be careful not to
 //add an effect at the same position twice.
 //sound = FMODSoundAdd("gunshot.wav")
 //FMODSoundAddEffect(sound, 19,0);
 //FMODSoundAddEffect(sound, 5,1);
+
 //Action cannot be undone and you should not call this while an 
 //instance of the sound exists
+
 //Call before playing the sound
+
+
 return external_call(global.dll_FMODSoundAddEffect,argument0,argument1,argument2);

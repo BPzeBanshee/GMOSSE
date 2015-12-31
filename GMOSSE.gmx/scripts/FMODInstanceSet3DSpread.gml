@@ -12,6 +12,7 @@ In the above case, in a 5.1 setup, specifying a spread of 90 degrees would put t
 left part of the sound in the front left speaker, and the right part of the sound 
 in the front right speaker. This stereo separation remains intact as the listener 
 rotates and the sound moves around the speakers.
+
 To summarize (for a stereo sound).
 1. A spread angle of 0 makes the stereo sound mono at the point of the 3d emitter.
 2. A spread angle of 90 makes the left part of the stereo sound place itself at 45 
@@ -22,8 +23,10 @@ degrees to the left and the right part 90 degrees to the right.
 to where the 3d emitter should be located (by moving the left part 180 degrees left and 
 the right part 180 degrees right). So in this case, behind you when the sound should be 
 in front of you!
+
 Multichannel sounds with channel counts greater than stereo have their sub-channels spread 
 evently through the specified angle. For example a 6 channel sound over a 90 degree spread 
 has each subchannel located 15 degrees apart from each other in the speaker array.
 */
+
 return external_call(global.dll_FMODInstanceSet3DSpread,argument0,argument1);
