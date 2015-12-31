@@ -8,7 +8,7 @@
 //updatecode (optional) is the code to call to update your pan variable
 // it has the form of "with(100010 /*YourInstanceID*/) {YourVariableName = other.curpan;}"}
 // or "global.thevariablename = curpan;"
-var d;
+/*var d;
 d = argument1
 var i;
 if(argument0 > 0)

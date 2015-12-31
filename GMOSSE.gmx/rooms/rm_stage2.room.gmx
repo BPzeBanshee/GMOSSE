@@ -15,12 +15,6 @@ global.room_id = 2;
 scr_tate(global.tate);
 if global.update exit;
 
-// Screen values to be used by obj_ctrl_screen
-globalvar max_w,spd_x,spd_y;
-max_w = 320; // range of player x movement
-spd_x = 0; // initial x speed
-spd_y = -0.5; // initial y speed
-
 // Enemy handling
 instance_deactivate_object(obj_en_wall);
 instance_deactivate_object(obj_en_parent);
@@ -1342,12 +1336,11 @@ instance_activate_region(0,12478,320,320,true);</code>
     <instance objName="obj_wall_alt" x="16" y="12496" name="inst_F850ED91" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en9b" x="304" y="2992" name="inst_9EB19BD1" locked="0" code="path_start(pth_st2b,1,0,1);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en9b" x="320" y="5680" name="inst_B45479FE" locked="0" code="path_start(pth_st2a,2,0,1);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_en7" x="160" y="11056" name="inst_CB4C590B" locked="0" code="direction = 270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_en7" x="160" y="11056" name="inst_CB4C590B" locked="0" code="direction = 270;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en7" x="160" y="3392" name="inst_714FB4F3" locked="0" code="direction = 270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en7" x="160" y="1936" name="inst_9E73DDEC" locked="0" code="direction = 270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_st2" x="16" y="12480" name="inst_EB432CE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ctrl_st2" x="0" y="12480" name="inst_EB432CE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_stock_life" x="256" y="3568" name="inst_1C44ED61" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_screen" x="0" y="12480" name="inst_BF759F16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ctrl_game" x="160" y="12720" name="inst_B314A045" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

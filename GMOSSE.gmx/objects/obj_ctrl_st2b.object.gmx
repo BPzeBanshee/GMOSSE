@@ -8,6 +8,40 @@
   <parentName>obj_ctrl_stage</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// \/\/ MISC. GLOBAL/TIMELINE VARIABLES \/\/
+global.level = -2;
+completedelay = 0; 
+global.omake_enabled = 1;
+stage_time = 5800;
+
+// \/\/ BACKGROUND INITIALISATION/LOADING \/\/
+background_vspeed[0] = -0.99;
+background_vspeed[1] = -0.99;
+background_y[1] = room_height - 320;
+
+scr_camera_init(320,0,0,-1,1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -45,21 +79,21 @@ go under and out of the screen. Same thing with bullets and enemies
 */
 if yview &lt;= 3000 &amp;&amp; spd_y &lt; -1
     {
-    scr_scrollspd(0,-1);
-    background_vspeed[0] = -0.99 * -spd_y;
-    background_vspeed[1] = -0.99 * -spd_y;
+    scr_camera_spd(0,0,-1,1);
+    background_vspeed[0] = -0.99;
+    background_vspeed[1] = -0.99;
     }
-if yview &lt;= 680 &amp;&amp; spd_y &lt; -0.5
+if yview &lt;= 680 &amp;&amp; delay_y &lt; 2
     {
-    scr_scrollspd(0,-0.5);
-    background_vspeed[0] = -0.99 * -spd_y;
-    background_vspeed[1] = -0.99 * -spd_y;
+    scr_camera_spd(0,0,-1,2);
+    background_vspeed[0] = -0.495;
+    background_vspeed[1] = -0.495;
     }
 if yview &lt; 1
     {
-    scr_scrollspd(0,0);
-    background_vspeed[0] = 0.09;
-    background_vspeed[1] = 0.09;
+    scr_camera_spd(0,1,0,1);
+    background_vspeed[0] = 0.01;
+    background_vspeed[1] = 0.01;
     }
     
 /* 
@@ -117,68 +151,6 @@ if wall.y &gt;= yview+16 &amp;&amp; completedelay &lt; 60
     wall = instance_create(16,yview-16,obj_wall);
     wall.vspeed = global.bkg_scrollspeed;
     wall2 = instance_create(320-16,yview-16,obj_wall);
-    wall2.vspeed = global.bkg_scrollspeed;
-    }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// \/\/ STEP-BASED TIMELINE VARIABLES \/\/
-stage_time = 5800; // step-based timeline variable
-fade = global.music_volume; // used for fade out of music within step-based timeline
-
-// stage complete handling
-completedelay = 0; 
-global.omake_enabled = 1;
-
-// \/\/ BACKGROUND INITIALISATION/LOADING \/\/
-/*background_index[2] = global.bkg_stage2;
-background_vspeed[2] = 0;
-background_visible[2] = 1;
-background_htiled[2]=1;
-background_vtiled[2]=1;*/
-
-//background_index[1] = global.bkg_planet2;
-background_vspeed[1] = -0.99 * -spd_y;
-//background_visible[1] = 1;
-//background_x[1] = 85; // was 75.5
-background_y[1] = room_height - 320;
-//background_htiled[1]=0;
-//background_vtiled[1]=0;
-
-//background_index[0] = global.bkg_space;
-background_vspeed[0] = -0.99 * -spd_y;
-//background_visible[0] = 1;
-//background_vtiled[0] = 1;
-
-// \/\/ MISC. GLOBAL/TIMELINE VARIABLES \/\/
-global.level = -2; // informs what stage this is (used for game completion/object deletion checking)
-global.behaviour = 4; // determines behaviour of stars (if used)
-
-// \/ Starts the room with walls on the sides
-/*for (i=320; i&gt;-16; i-=32)
-    {
-    wall = instance_create(16,i,obj_wall);
-    wall.vspeed = global.bkg_scrollspeed;
-    wall2 = instance_create(304,i,obj_wall);
     wall2.vspeed = global.bkg_scrollspeed;
     }
 </string>

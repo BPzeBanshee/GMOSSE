@@ -13,6 +13,7 @@ if global.nextroom = rm_stage2 || // Stage 2
 global.nextroom = rm_boss2 then return 2;
 
 if global.nextroom = rm_stage3 then return 3; // Stage 3
+//global.nextroom = rm_boss3 then return 3;
 
 // Omake Stages
 if global.nextroom = rm_omake1 then return "O1";

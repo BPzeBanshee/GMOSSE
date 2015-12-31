@@ -8,6 +8,41 @@
   <parentName>obj_ctrl_stage</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// \/\/ STEP-BASED TIMELINE VARIABLES \/\/
+stage_time = 0;
+completedelay = 0; // initialise variable for stage complete handling
+global.omake_enabled = 0;
+
+// \/\/ BACKGROUND INITIALISATION/LOADING \/\/
+background_vspeed[0] = -0.495;
+background_vspeed[1] = -0.495;
+scr_camera_init(320,0,0,-1,2);
+
+// \/\/ MISC. GLOBAL/TIMELINE VARIABLES \/\/
+global.level = 2;
+global.behaviour = 4; // determines behaviour of stars (if used)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -46,21 +81,21 @@ go under and out of the screen. Same thing with bullets and enemies
 
 if yview &lt;= 3000 &amp;&amp; spd_y &lt; -1
     {
-    scr_scrollspd(0,-1);
-    background_vspeed[0] = -0.99 * -spd_y;
-    background_vspeed[1] = -0.99 * -spd_y;
+    scr_camera_spd(0,0,-1,1);
+    background_vspeed[0] = -0.99;
+    background_vspeed[1] = -0.99;
     }
-if yview &lt;= 680 &amp;&amp; spd_y &lt; -0.5
+if yview &lt;= 680 &amp;&amp; delay_y &lt; 2
     {
-    scr_scrollspd(0,-0.5);
-    background_vspeed[0] = -0.99 * -spd_y;
-    background_vspeed[1] = -0.99 * -spd_y;
+    scr_camera_spd(0,0,-1,2);
+    background_vspeed[0] = -0.495;
+    background_vspeed[1] = -0.495;
     }
 if yview &lt; 1
     {
-    scr_scrollspd(0,0);
-    background_vspeed[0] = 0.09;
-    background_vspeed[1] = 0.09;
+    scr_camera_spd(0,1,0,1);
+    background_vspeed[0] = 0.01;
+    background_vspeed[1] = 0.01;
     }
     
 /* 
@@ -85,16 +120,16 @@ switch stage_time
     {
     case 340:
         {
-        scr_scrollspd(0,-1);
-        background_vspeed[0] = -0.99 * -spd_y;
-        background_vspeed[1] = -0.99 * -spd_y;
+        scr_camera_spd(0,0,-1,1);
+        background_vspeed[0] = -0.99;
+        background_vspeed[1] = -0.99;
         break;
         }
     case 460:
         {
-        scr_scrollspd(0,-2);
-        background_vspeed[0] = -0.99 * -spd_y;
-        background_vspeed[1] = -0.99 * -spd_y;
+        scr_camera_spd(0,0,-2,1);
+        background_vspeed[0] = -1.98;
+        background_vspeed[1] = -1.98;
         break;
         }
     case 6000:
@@ -113,70 +148,6 @@ switch stage_time
         break;
         }
     }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// \/\/ STEP-BASED TIMELINE VARIABLES \/\/
-stage_time = 0; // step-based timeline variable
-fade = global.music_volume; // used for fade out of music within step-based timeline
-completedelay = 0; // initialise variable for stage complete handling
-global.omake_enabled = 0;
-
-// \/\/ BACKGROUND INITIALISATION/LOADING \/\/
-// Use this to ideally create your backgrounds. Tiles are a bitch.
-// The style I've used is for rooms that ARE NOT larger than the
-// screen width ie. Xeno Fighters R stages 5B and such. 
-// Tiles/background objects may be easier for those sort of stages.
-
-//background_index[2] = global.bkg_stage2; // background to use
-//background_vspeed[2] = 0; // sets background scrolling speed
-//background_visible[2] = 1; // turns the background on
-//background_htiled[2]=1; // enables horizontal tiling
-//background_vtiled[2]=1; // enables vertical tiling
-
-//background_index[1] = global.bkg_planet2; // background to use
-background_vspeed[1] = -0.99 * -spd_y;//global.bkg_scrollspeed;
-//background_visible[1] = 1; // turns the background on
-//background_x[1] = 85; // was 75.5
-//background_y[1] = room_height - 320;
-//background_htiled[1]=0; // disables horizontal tiling
-//background_vtiled[1]=0; // disables vertical tiling
-
-//background_index[0] = global.bkg_space; // background to use
-background_vspeed[0] = -0.99 * -spd_y; // sets background scrolling speed
-//background_visible[0] = 1; // turns the background on
-//background_vtiled[0] = 1;
-
-// \/\/ MISC. GLOBAL/TIMELINE VARIABLES \/\/
-// Determines what stage we're on and miscellaneous stuff.
-// global.gamecomplete is only necessary if initialising it
-// or if it's the final stage and you're mucking around with
-// end-game sequence stuff - set it to 0 this isn't the case.
-// global.level is there for object deletion checking
-// (namely obj_scorecontroller and obj_lifecontroller),
-// stage progression and highscore info.
-
-global.level = 2; // informs what stage this is (used for game completion/object deletion checking)
-global.behaviour = 4; // determines behaviour of stars (if used)
 </string>
           </argument>
         </arguments>

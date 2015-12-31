@@ -3,7 +3,7 @@
 //targetfr, is the target frequency, 
 //time is the time to do the effect for 2 seconds, use room_speed*2
 //Fade the frequency
-var d;
+/*var d;
 d = argument1    
 var i;
 //if(argument0 > 0)

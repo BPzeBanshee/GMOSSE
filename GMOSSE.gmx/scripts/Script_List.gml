@@ -108,8 +108,8 @@ CORE
                 - Rotates the screen. Angle of rotation is based on setting.
             * scr_scanline(mode)
                 - Draws scanlines to the screen.
-            * scr_scrollspd(xspd,yspd)
-                - Updates obj_ctrl_screen to scroll around the room at a certain
+            * scr_camera_spd(xspd,xdelay,yspd,ydelay)
+                - Updates obj_ctrl_camera to scroll around the room at a certain
                 speed. See obj_ctrl_st2 for example usage.
             * scr_setvsync(on)
                 - Sets vsync to either on if 1 is passed or off if 0.

@@ -8,6 +8,43 @@
   <parentName>obj_ctrl_stage</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/* COMPULSORY */
+global.level = 1;
+stage_time = 0;
+global.omake_enabled = 0;
+completedelay = 0; // stage complete handling
+
+/* VARIABLE HANDLING */
+atk_timer = 0;
+bkg_timer = -1;
+count = 0;
+pop_count = 0;
+
+/* BACKGROUND HANDLING */
+scr_camera_init(320,0,0,0,0);
+background_vspeed[0] = 0.1; // sets background scrolling speed
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -36,8 +73,6 @@ then completedelay += 1;
 if completedelay = 120
     {
     instance_create(x,y,obj_ctrl_clear);
-    rocktimer = 666;
-    rocktimer2 = 666;
     with obj_rock instance_destroy();
     }
 
@@ -329,7 +364,7 @@ if (stage_time &gt; 2650 &amp;&amp; stage_time &lt; 3200)
 // ****** AESTHETICS ******
 if stage_time &gt; 6550 &amp;&amp; !instance_exists(obj_boss1_omake)
     {
-    if background_vspeed[0]&lt; 4 then background_vspeed[0]+= 0.1;
+    if background_vspeed[0] &lt; 4 then background_vspeed[0] += 0.1;
     }
 
 // Reduced Size Asteroids in background
@@ -344,45 +379,6 @@ if bkg_timer = 0
     r = scr_basicshot(rx,-16,obj_rock,rs,rd);
     r.z = random(100);
     }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// Compulsory
-global.level = 1;
-stage_time = 0;
-fade = global.music_volume; // music fadeout stuff
-global.omake_enabled = 0;
-completedelay = 0; // stage complete handling
-
-// for controller variable handling ie spawning of asteroids
-atk_timer = 0;
-bkg_timer = -1;
-count = 0;
-pop_count = 0;
-
-global.bkg_scrollspeed = 0; // scrollspeed of stage
-background_vspeed[0] = 0.1; // sets background scrolling speed
-//background_index[0] = global.bkg_space;
-//background_visible[0] = 1;
 </string>
           </argument>
         </arguments>

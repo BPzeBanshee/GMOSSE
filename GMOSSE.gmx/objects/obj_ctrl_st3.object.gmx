@@ -8,6 +8,42 @@
   <parentName>obj_ctrl_stage</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// \/\/ STEP-BASED TIMELINE VARIABLES \/\/
+stage_time = 0;
+completedelay = 0; 
+global.omake_enabled = 0;
+global.level = 3; // used for game completion/object deletion checking
+
+// \/\/ BACKGROUND INITIALISATION/LOADING \/\/
+trans_alpha = 0;
+start = 3500;
+finish = start+1400;
+
+scr_camera_init(320,0,0,0,0);
+
+global.behaviour = 4; // determines behaviour of stars (if used)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -171,190 +207,6 @@ if stage_time &gt; start+900 &amp;&amp; stage_time &lt; finish
     if background_alpha[1] &lt; 1 then background_alpha[1] += 0.005;
     with obj_rain {if image_alpha &lt; 1 then image_alpha += 0.005};
     }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/**********************STAGE COMPLETE HANDLING*************************/
-if stage_time &gt; 12000 
-&amp;&amp; !instance_exists(obj_boss2)
-&amp;&amp; !instance_exists(obj_boss2_dead)
-&amp;&amp; !instance_exists(obj_boss2_omake)
-&amp;&amp; !instance_exists(obj_fade)
-then completedelay += 1;
-if completedelay = 120 then instance_create(x,y,obj_ctrl_clear);
-
-/*****************OBJECT SCROLLING/SPAWN HANDLING**********************/
-/*
-This is here because the room is larger than the view on the screen,
-and as such the view scrolls upwards. The last thing we need is for
-the player ship to retain its original position and appear to just
-go under and out of the screen. Same thing with bullets and enemies
-(unless the enemies are designed to do that, of course).
-*/
-
-if obj_ctrl_screen.x &lt;= 0
-    {
-    obj_ctrl_screen.x = 0;
-    scr_scrollspd(-spd_x,spd_y);
-    }
-if obj_ctrl_screen.x &gt;= 320
-    {
-    obj_ctrl_screen.x = 320;
-    scr_scrollspd(-spd_x,spd_y);
-    }
-if obj_ctrl_screen.y &lt;= 0
-    {
-    obj_ctrl_screen.y = 0;
-    scr_scrollspd(spd_x,-spd_y);
-    }
-if obj_ctrl_screen.y &gt;= 320
-    {
-    obj_ctrl_screen.y = 320;
-    scr_scrollspd(spd_x,-spd_y);
-    }
-    
-/* 
-Now with that being said we also don't want enemies off-screen to remain
-as resource hogs, so for stuff like walls they all get deactivated in
-the Room Creation code event (located in rm_stage2 &gt; Settings tab).
-This line of code reactivates anything that is deactivated and is
-entering our view.
-*/
-
-instance_deactivate_object(obj_en_parent);
-instance_activate_region(-48,yview-48,368,368,true);
-
-/**********************STAGE TIMELINE HANDLING*************************/
-/*
-This is the code that controls what happens in the stage, whether it be
-enemies, background effects, timing of music or boss initialisation.
-*/
-
-stage_time += 1;
-switch stage_time
-    {
-    case 450:
-        {
-        instance_create(xview,yview,obj_warning);
-        break;
-        }
-    case 800:
-        {
-        background_vspeed[2] = 1.1;
-        background_visible[2] = 1;
-        break;
-        }
-    case 1200:
-        {
-        background_vspeed[2] = 0;
-        break;
-        }
-    /*case 6000:
-        {
-        scr_fademusic(global.music_volume,0.005);
-        break;
-        }
-    case 6200:
-        {
-        instance_create(xview,yview,obj_warning);
-        break;
-        }
-    case 6550:
-        {
-        with obj_ctrl_music event_user(1); // boss music
-        break;
-        }*/
-    }
-
-// **********************STAGE COMPLETE HANDLING*************************
-/*if stage_time &gt; 400 
-&amp;&amp; !instance_exists(obj_boss2)
-&amp;&amp; !instance_exists(obj_boss2_dead) 
-then completedelay += 1;
-
-if completedelay = 120
-    {
-    with obj_walltarget instance_destroy();
-    instance_create(x,y,obj_ctrl_clear);
-    }
-
-// **********************STAGE TIMELINE HANDLING*************************
-stage_time += 1;
-switch stage_time
-    {
-    case 340:
-        {
-        instance_create(160,-96,obj_boss2);
-        break;
-        }
-    }
-    
-// Spawn walls on the sides
-if instance_exists(wall) then 
-if wall.y &gt;= yview+16 &amp;&amp; completedelay &lt; 60
-    {
-    wall = instance_create(16,yview-16,obj_wall);
-    wall.vspeed = global.bkg_scrollspeed;
-    wall2 = instance_create(320-16,yview-16,obj_wall);
-    wall2.vspeed = global.bkg_scrollspeed;
-    }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// \/\/ STEP-BASED TIMELINE VARIABLES \/\/
-stage_time = 0; // step-based timeline variable
-fade = global.music_volume; // used for fade out of music within step-based timeline
-
-// stage complete handling
-completedelay = 0; 
-global.omake_enabled = 0;
-
-// \/\/ BACKGROUND INITIALISATION/LOADING \/\/
-trans_alpha = 0;
-start = 3500;
-finish = start+1400;
-
-// \/\/ MISC. GLOBAL/TIMELINE VARIABLES \/\/
-global.level = 3; // used for game completion/object deletion checking
-global.behaviour = 4; // determines behaviour of stars (if used)
 </string>
           </argument>
         </arguments>

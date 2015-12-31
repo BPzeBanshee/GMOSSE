@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/****************** METHOD 4 ******************/
 //CREATE CODE
-qqx=ds_queue_create();
+/*qqx=ds_queue_create();
 qqy=ds_queue_create();
 
 //BEGIN STEP CODE
@@ -71,7 +71,7 @@ if size &gt; length
             <kind>1</kind>
             <string>/********************** METHOD 3 *************************/
 //END STEP EVENT 
-if optnum = 0 then length = 18;
+/*if optnum = 0 then length = 18;
 if optnum = 1 then length = 18*2;
 if optnum = 2 then length = 18*3;
 if optnum = 3 then length = 18*4;
@@ -123,11 +123,11 @@ the ship will need to keep track of a list of x/yprevious values.
 set up a 2d array of values, the longer the array, 
 the further distance the option will follow you at.*/
 
-for (i=0; i&lt;10; i+=1)
+/*for (i=0; i&lt;10; i+=1)
     {
     previous[i,0] = x;
     previous[i,1] = y;
-    }
+    }*/
 
 /* then to update the list, you have to go through it 
 backwards giving each position the value of the next position. 
@@ -136,7 +136,7 @@ but you have to make sure it only does this when the player moved,
 otherwise the option will end up on top of the ship 
 of you stop moving for 10 steps. */
 
-if x != xprevious || y != yprevious
+/*if x != xprevious || y != yprevious
     {
     for (i=10; i&gt;1; i-=1;)
         {
@@ -149,7 +149,7 @@ if x != xprevious || y != yprevious
 
 // then set the option to the last position in the list
 option.x = previous[9,0];
-option.y = previous[9,1];
+option.y = previous[9,1];*/
 
 /* thats the basic idea, just 
 adjust the numbers until it fits what you want. */
@@ -176,7 +176,7 @@ adjust the numbers until it fits what you want. */
           <argument>
             <kind>1</kind>
             <string>/************************ METHOD 1 ************************/
-if x != xprevious or y != yprevious 
+/*if x != xprevious or y != yprevious 
     { 
     i=0;
     while(i&lt;30)
@@ -195,7 +195,7 @@ if x != xprevious or y != yprevious
         } 
     } 
 option.x = xofoption[0];
-option.y = yofoption[0];
+option.y = yofoption[0];*/
 </string>
           </argument>
         </arguments>

@@ -10,7 +10,7 @@
 //updatecode (optional) is the code to call to update your volume variable
 // it has the form of "with(100010 /*YourInstanceID*/) {YourVariableName = other.instvol;}"}
 // or "global.thevariablename = instvol;"
-var d;
+/*var d;
 d = argument2
 var i;
 //if(argument0 > 0)

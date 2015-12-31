@@ -15,12 +15,6 @@ global.room_id = 2;
 scr_tate(global.tate);
 if global.update exit;
 
-// Screen values to be used by obj_ctrl_screen
-globalvar max_w,spd_x,spd_y;
-max_w = 320; // range of player x movement
-spd_x = 0; // initial x speed
-spd_y = -1; // initial y speed
-
 // Enemy handling
 instance_deactivate_object(obj_en_wall);
 instance_deactivate_object(obj_en_parent);
@@ -286,10 +280,9 @@ instance_activate_region(0,2094,320,320,true);</code>
     <instance objName="obj_wall" x="16" y="1968" name="inst_34699026" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_alt" x="304" y="1840" name="inst_EE6CE3FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en5" x="224" y="1984" name="inst_16DF49FD" locked="0" code="vspeed = 4;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_en7" x="160" y="1920" name="inst_7DA17424" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_st2b" x="16" y="2096" name="inst_6F07BEBD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_en7" x="160" y="1920" name="inst_7DA17424" locked="0" code="direction = 270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ctrl_st2b" x="0" y="2096" name="inst_6F07BEBD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ctrl_game" x="160" y="2320" name="inst_217FCE77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_screen" x="0" y="2096" name="inst_24C5116D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

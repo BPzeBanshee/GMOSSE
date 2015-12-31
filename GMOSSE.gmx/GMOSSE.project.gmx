@@ -543,13 +543,16 @@
         <script>scripts\scr_view_update.gml</script>
         <script>scripts\scr_view_vars.gml</script>
         <script>scripts\scr_scanline.gml</script>
-        <script>scripts\scr_scrollspd.gml</script>
         <script>scripts\scr_setdisplay.gml</script>
         <script>scripts\scr_max_aa.gml</script>
       </scripts>
       <scripts name="Fonts">
         <script>scripts\scr_fonts_init.gml</script>
         <script>scripts\scr_fonts_set.gml</script>
+      </scripts>
+      <scripts name="Camera">
+        <script>scripts\scr_camera_init.gml</script>
+        <script>scripts\scr_camera_spd.gml</script>
       </scripts>
       <scripts name="Others">
         <script>scripts\scr_3D.gml</script>
@@ -560,8 +563,8 @@
         <script>scripts\scr_bosshealthbar.gml</script>
         <script>scripts\scr_addscore.gml</script>
       </scripts>
-      <script>scripts\scr_input.gml</script>
       <script>scripts\scr_detect_joys.gml</script>
+      <script>scripts\scr_input.gml</script>
       <script>scripts\scr_main_init.gml</script>
       <script>scripts\scr_main_reset.gml</script>
     </scripts>
@@ -798,7 +801,7 @@
         <object>objects\obj_fade</object>
         <object>objects\obj_ctrl_input</object>
         <object>objects\obj_ctrl_music</object>
-        <object>objects\obj_ctrl_screen</object>
+        <object>objects\obj_ctrl_camera</object>
         <object>objects\obj_ctrl_pause</object>
         <object>objects\obj_ctrl_config</object>
         <object>objects\obj_ctrl_rebind</object>
@@ -889,6 +892,7 @@
         <object>objects\obj_textbox</object>
         <objects name="DO NOT USE">
           <object>objects\gradius_options</object>
+          <object>objects\object212</object>
         </objects>
         <object>objects\obj_en_dpscheck</object>
         <object>objects\obj_light_gen</object>

@@ -80,7 +80,7 @@ made = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Move with screen (spd_x/y are global vars, see obj_ctrl_screen)
+            <string>// Move with screen (spd_x/y are global vars, see obj_ctrl_camera)
 x -= spd_x;
 y -= spd_y;
 

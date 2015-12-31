@@ -66,7 +66,7 @@ background_vspeed[0] = 0.5;
   </views>
   <instances>
     <instance objName="obj_e3" x="160" y="80" name="inst_882C4542" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_screen" x="0" y="0" name="inst_7D6F3EC1" locked="0" code="globalvar max_w,spd_x,spd_y;&#xA;max_w = 320; // range of player x movement&#xA;spd_x = 0; // initial x speed&#xA;spd_y = 0; // initial y speed&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ctrl_camera" x="0" y="0" name="inst_7D6F3EC1" locked="0" code="globalvar max_w,spd_x,spd_y;&#xA;max_w = 320; // range of player x movement&#xA;spd_x = 0; // initial x speed&#xA;spd_y = 0; // initial y speed&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ctrl_game" x="160" y="240" name="inst_B163A2BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
