@@ -40,14 +40,15 @@ else
     {
     instance_create(119,75,obj_title);
     instance_create(120,160,obj_warp_gen);
-    repeat 15 {instance_create(room_width/2,room_height/2,obj_star);}
+    global.behaviour = 2;
+    repeat 30 star = instance_create(room_width/2,room_height/2,obj_star);
     
-    if instance_exists(obj_bkg_menu)
+    /*if instance_exists(obj_bkg_menu)
         {
         if obj_bkg_menu.visible = 1 
         then obj_star.image_alpha = 0.25
         else obj_star.image_alpha = 1;
-        }
+        }*/
     }
 </string>
           </argument>
@@ -213,29 +214,6 @@ if (global.button1 &amp;&amp; !global.levelend &amp;&amp; !hook &amp;&amp; enabl
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>repeat 5 {sound_stop(snd_exp1); sound_play(snd_exp1);}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -264,15 +242,10 @@ if (global.button1 &amp;&amp; !global.levelend &amp;&amp; !hook &amp;&amp; enabl
             {
             with a instance_destroy(); 
             with b instance_destroy();
+            global.behaviour = 2;
             instance_create(119,75,obj_title);
             instance_create(120,160,obj_warp_gen);
-            repeat 30
-                {
-                star = instance_create(room_width/2,room_height/2,obj_star);
-                star.direction = random(360);
-                star.speed = random_range(2,15);
-                star.image_speed = 0.05;  
-                }
+            repeat 30 instance_create(room_width/2,room_height/2,obj_star);
             global.intro = 0;
             enabled = 1;
             }

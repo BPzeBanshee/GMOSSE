@@ -26,11 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>global.omake_enabled = 0;
+global.level = -666;
 stage_time = 0;
 completedelay = 0;
-
-bkg_timer = -1;
-count = 0;
 
 scr_camera_init(320,0,0,0,0);
 </string>
@@ -55,7 +53,8 @@ scr_camera_init(320,0,0,0,0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if stage_time &gt; 10000
+            <string>/* STAGE COMPLETE HANDLING */
+if stage_time &gt; 10000
 &amp;&amp; !instance_exists(obj_boss3) &amp;&amp; !instance_exists(obj_fade)
 then completedelay += 1;
 

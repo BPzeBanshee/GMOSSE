@@ -21,5 +21,6 @@ if global.nextroom = rm_omake2 then return "O2";
 if global.nextroom = rm_omake3 then return "O3";
 
 // Test Rooms
-if global.nextroom = rm_test1 then return "TEST";
-if global.nextroom = rm_test2 then return "TEST2";
+if global.nextroom = rm_test1 then return "T1";
+if global.nextroom = rm_test2 then return "T2";
+if global.nextroom = rm_test3 then return "T3";

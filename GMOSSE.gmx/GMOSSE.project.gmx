@@ -296,8 +296,6 @@
         <sprite>sprites\spr_explosion_blue</sprite>
         <sprite>sprites\spr_explosion_green</sprite>
         <sprite>sprites\spr_explosion_purple</sprite>
-        <sprite>sprites\spr_rail</sprite>
-        <sprite>sprites\spr_rail_join</sprite>
         <sprite>sprites\spr_cloud</sprite>
         <sprite>sprites\spr_lightning</sprite>
         <sprite>sprites\spr_rain</sprite>
@@ -320,6 +318,7 @@
     <background>background\bkg_light_gen</background>
     <background>background\bkg_cloud</background>
     <background>background\bkg_wall</background>
+    <background>background\bkg_rail_t</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pth_test</path>
@@ -838,6 +837,7 @@
         <objects name="Test Stages">
           <object>objects\obj_ctrl_test1</object>
           <object>objects\obj_ctrl_test2</object>
+          <object>objects\obj_ctrl_test3</object>
         </objects>
         <objects name="Tutorial">
           <object>objects\obj_ctrl_tutorial</object>
@@ -865,8 +865,6 @@
           <object>objects\obj_planet1</object>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion2</object>
-          <object>objects\obj_rail</object>
-          <object>objects\obj_rail_join</object>
           <object>objects\obj_cloud</object>
           <object>objects\obj_lightning</object>
           <object>objects\obj_lightning2</object>
@@ -893,7 +891,6 @@
         </objects>
         <object>objects\obj_en_dpscheck</object>
         <object>objects\obj_light_gen</object>
-        <object>objects\obj_ati_check</object>
         <objects name="Walking Tank">
           <object>objects\obj_e</object>
           <object>objects\obj_e2</object>

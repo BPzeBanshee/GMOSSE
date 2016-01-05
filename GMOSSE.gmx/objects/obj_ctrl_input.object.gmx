@@ -150,8 +150,8 @@ FS_screen_save(st);*/
             <string>// Make global.fullscreen the reverse
 // of whatever it currently is, then
 // use the function with the given value.
-
-global.fullscreen = !global.fullscreen;
+if window_get_fullscreen() = global.fullscreen 
+then global.fullscreen = !global.fullscreen;
 window_set_fullscreen(global.fullscreen);
 </string>
           </argument>
@@ -200,6 +200,7 @@ scr_main_reset();
           <argument>
             <kind>1</kind>
             <string>global.update = 1;
+game_end();
 // this stops obj_ctrl_music attempting to load music when game is ending
 </string>
           </argument>

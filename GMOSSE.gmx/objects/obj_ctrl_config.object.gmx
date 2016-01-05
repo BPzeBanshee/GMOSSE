@@ -66,6 +66,31 @@ scr_config_save("config.ini");
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Hack to respond reliably when in fullscreen mode
+scr_pickmusicini();
+if global.fullscreen then window_set_fullscreen(1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -250,7 +275,9 @@ if global.button1 &amp;&amp; !hook
         {
         case 4:
             {
-            scr_pickmusicini();
+            // Hack to allow time to respond to window change
+            if global.fullscreen then window_set_fullscreen(0);
+            alarm[0] = 2;
             break;
             }
         case 5:
@@ -340,12 +367,14 @@ if global.jleft &amp;&amp; !hook
             {
             global.vsync = 0; 
             scr_setdisplay(global.aa,global.vsync); 
+            with obj_ctrl_filter alarm[0] = 1;
             break;
             }
         case 7: 
             {
             if global.aa &gt; 0 then global.aa -= 1; 
-            scr_setdisplay(global.aa,global.vsync);
+            scr_setdisplay(global.aa,global.vsync); 
+            with obj_ctrl_filter alarm[0] = 1;
             break;
             }
         case 8: global.hitbox_visible = 0; break;
@@ -361,7 +390,7 @@ if global.jright &amp;&amp; !hook
         {
         case 1: 
             {
-            global.fullscreen = 1; 
+            global.fullscreen = 1;
             window_set_fullscreen(global.fullscreen); 
             break;
             }
@@ -397,13 +426,15 @@ if global.jright &amp;&amp; !hook
         case 6:
             {
             global.vsync = 1; 
-            scr_setdisplay(global.aa,global.vsync); 
+            scr_setdisplay(global.aa,global.vsync);
+            with obj_ctrl_filter alarm[0] = 1; 
             break;
             }
         case 7: 
             {
             if global.aa &lt; scr_max_aa() then global.aa += 1; 
-            scr_setdisplay(global.aa,global.vsync); 
+            scr_setdisplay(global.aa,global.vsync);
+            with obj_ctrl_filter alarm[0] = 1;
             break;
             }
         case 8: global.hitbox_visible = 1; break;

@@ -192,7 +192,7 @@ afterimage = -666;
 image_timer += 1;
 if image_timer &gt;= 5
     {
-    thrust = scr_basicshot(x,y+10,obj_bh_thrust,2,270+random_range(-10,10));
+    thrust = scr_basicshot(x,y+10,obj_bh_thrust,4,270+random_range(-10,10));
     thrust.image_xscale = thrust_scale*2;
     thrust.image_yscale = thrust_scale*2;
     image_timer = 0;

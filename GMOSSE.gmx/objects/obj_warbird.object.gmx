@@ -125,7 +125,7 @@ a.direction = 270;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if time_passed = 180 then obj_hitbox.invincible = 2;
+            <string>if time_passed &gt;= 180 then obj_hitbox.invincible = 2;
 </string>
           </argument>
         </arguments>

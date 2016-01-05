@@ -36,7 +36,7 @@ x_l_diff = xview + 16;
 x_r_diff = xview + 240-16;
 y_u_diff = yview + 16;
 y_d_diff = yview + 320-16;
-    
+
 // This keeps the player within the view.
 if obj_hitbox.y &gt;= y_d_diff then y = y_d_diff;
 if obj_hitbox.y &lt;= y_u_diff then y = y_u_diff;

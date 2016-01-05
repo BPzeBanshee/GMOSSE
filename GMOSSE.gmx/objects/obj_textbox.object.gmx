@@ -32,7 +32,7 @@ manying words would show up message_number it will change the message
 
 chr1 = 0;
 text = "";
-msg = 0;
+msg = "";
 mode = 1;
 hook = 1;
 subimg = 0;
