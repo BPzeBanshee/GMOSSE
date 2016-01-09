@@ -37,7 +37,7 @@ bkg_timer = -1;
 count = 0;
 
 /* BACKGROUND HANDLING */
-scr_camera_init(320,0,0,0,0);
+scr_camera_init(320,0,0);
 background_vspeed[0] = 0.1; // sets background scrolling speed
 planet1 = instance_create(200,134,obj_planet1);
 planet1.image_angle = 46;

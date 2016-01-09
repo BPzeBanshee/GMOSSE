@@ -30,7 +30,7 @@ global.level = -666;
 stage_time = 0;
 completedelay = 0;
 
-scr_camera_init(320,0,0,0,0);
+scr_camera_init(320,0,0);
 </string>
           </argument>
         </arguments>

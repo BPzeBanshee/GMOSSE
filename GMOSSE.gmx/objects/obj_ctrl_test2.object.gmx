@@ -54,7 +54,7 @@ global.level = 4;
 global.behaviour = 4; // determines behaviour of stars (if used)
 global.gamecomplete = 0; // determines gameover/high score handling
 
-scr_camera_init(320,0,0,-1,3);
+scr_camera_init(320,0,-0.33);
 </string>
           </argument>
         </arguments>
@@ -84,39 +84,39 @@ y = obj_ctrl_camera.y;
 if direction = 90 &amp;&amp; y &lt; 160-spd_y
     {
     direction = 45;
-    scr_camera_spd(1,3,-1,3);
+    scr_camera_spd(0.33,-0.33);
     }
 // Top half (center)
 if direction = 45 &amp;&amp; y &lt; spd_y
     {
     direction = 315;
-    scr_camera_spd(1,3,1,3);
+    scr_camera_spd(0.33,0.33);
     }
 // Top half (right)
 if direction = 315 &amp;&amp; x &gt; room_width-320-spd_x
     {
     direction = 270;
-    scr_camera_spd(0,0,1,3);
+    scr_camera_spd(0,0.33);
     }
     
 // Bottom half (right)
 if direction = 270 &amp;&amp; y &gt; room_height-480-spd_y
     {
     direction = 225;
-    scr_camera_spd(-1,3,1,3);
+    scr_camera_spd(-0.33,0.33);
     }
 // Bottom half (center)
 if direction = 225 &amp;&amp; y &gt; room_height-320-spd_y
     {
     direction = 135;
-    scr_camera_spd(-1,3,-1,3);
+    scr_camera_spd(-0.33,-0.33);
     }
     
 // start moving to topleft
 if direction = 135 &amp;&amp; x &lt; spd_x
     {
     direction = 90;
-    scr_camera_spd(0,0,-1,3);
+    scr_camera_spd(0,-0.33);
     }
     
 instance_activate_region(-48,yview-48,368,368,true);

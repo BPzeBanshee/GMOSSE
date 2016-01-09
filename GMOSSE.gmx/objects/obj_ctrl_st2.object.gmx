@@ -33,7 +33,7 @@ global.omake_enabled = 0;
 // \/\/ BACKGROUND INITIALISATION/LOADING \/\/
 background_vspeed[0] = -0.495;
 background_vspeed[1] = -0.495;
-scr_camera_init(320,0,0,-1,2);
+scr_camera_init(320,0,-0.5);
 
 // \/\/ MISC. GLOBAL/TIMELINE VARIABLES \/\/
 global.level = 2;
@@ -81,19 +81,19 @@ go under and out of the screen. Same thing with bullets and enemies
 
 if yview &lt;= 3000 &amp;&amp; spd_y &lt; -1
     {
-    scr_camera_spd(0,0,-1,1);
+    scr_camera_spd(0,-1);
     background_vspeed[0] = -0.99;
     background_vspeed[1] = -0.99;
     }
-if yview &lt;= 680 &amp;&amp; delay_y &lt; 2
+if yview &lt;= 680 &amp;&amp; spd_y = -1
     {
-    scr_camera_spd(0,0,-1,2);
+    scr_camera_spd(0,-0.5);
     background_vspeed[0] = -0.495;
     background_vspeed[1] = -0.495;
     }
 if yview &lt; 1
     {
-    scr_camera_spd(0,1,0,1);
+    scr_camera_spd(0,0);
     background_vspeed[0] = 0.01;
     background_vspeed[1] = 0.01;
     }
@@ -120,14 +120,14 @@ switch stage_time
     {
     case 340:
         {
-        scr_camera_spd(0,0,-1,1);
+        scr_camera_spd(0,-1);
         background_vspeed[0] = -0.99;
         background_vspeed[1] = -0.99;
         break;
         }
     case 460:
         {
-        scr_camera_spd(0,0,-2,1);
+        scr_camera_spd(0,-2);
         background_vspeed[0] = -1.98;
         background_vspeed[1] = -1.98;
         break;

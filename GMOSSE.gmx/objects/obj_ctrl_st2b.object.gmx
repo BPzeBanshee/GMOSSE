@@ -36,7 +36,7 @@ background_vspeed[0] = -0.99;
 background_vspeed[1] = -0.99;
 background_y[1] = room_height - 320;
 
-scr_camera_init(320,0,0,-1,1);
+scr_camera_init(320,0,-1);
 </string>
           </argument>
         </arguments>
@@ -79,19 +79,19 @@ go under and out of the screen. Same thing with bullets and enemies
 */
 if yview &lt;= 3000 &amp;&amp; spd_y &lt; -1
     {
-    scr_camera_spd(0,0,-1,1);
+    scr_camera_spd(0,-1);
     background_vspeed[0] = -0.99;
     background_vspeed[1] = -0.99;
     }
-if yview &lt;= 680 &amp;&amp; delay_y &lt; 2
+if yview &lt;= 680 &amp;&amp; spd_y = -1
     {
-    scr_camera_spd(0,0,-1,2);
+    scr_camera_spd(0,-0.5);
     background_vspeed[0] = -0.495;
     background_vspeed[1] = -0.495;
     }
 if yview &lt; 1
     {
-    scr_camera_spd(0,1,0,1);
+    scr_camera_spd(0,0);
     background_vspeed[0] = 0.01;
     background_vspeed[1] = 0.01;
     }

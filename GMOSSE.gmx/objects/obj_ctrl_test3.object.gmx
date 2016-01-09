@@ -42,7 +42,7 @@ global.omake_enabled = 0;
 stage_time = 0;
 completedelay = 0;
 
-scr_camera_init(room_width,0,0,-1,2);
+scr_camera_init(room_width,0,-0.5);
 b = -1;
 s = 0;
 </string>
@@ -75,17 +75,17 @@ y = obj_ctrl_camera.y;
 if y &lt;= 0
     {
     obj_ctrl_camera.y = 0;
-    scr_camera_spd(0,0,0,0);
+    scr_camera_spd(0,0);
     }
 if x &gt; room_width-320
     {
     obj_ctrl_camera.x = room_width-320;
-    scr_camera_spd(0,0,-1,2);
+    scr_camera_spd(0,-0.5);
     }
 if x &lt; 0
     {
     obj_ctrl_camera.x = 0;
-    scr_camera_spd(0,0,-1,2);
+    scr_camera_spd(0,-0.5);
     }
     
 /*if keyboard_check(ord("W")) then scr_camera_spd(0,0,-1,2);
@@ -102,8 +102,8 @@ if b &gt; -1 &amp;&amp; max_w &gt; 320
     // TODO: the following line doesn't work well with max_w &gt; 240
     obj_ctrl_camera.x = obj_player.x-view_xview[0];
     max_w = 320;
-    if b = 0 then scr_camera_spd(-1,2,-1,2);
-    if b = 1 then scr_camera_spd(1,2,-1,2);
+    if b = 0 then scr_camera_spd(-0.5,-0.5);
+    if b = 1 then scr_camera_spd(0.5,-0.5);
     b = -1;
     with obj_ctrl_camera if max_w &gt; 240 then w = max_w/(max_w-240) else w = max_w;
     }
