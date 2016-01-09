@@ -27,9 +27,7 @@
             <kind>1</kind>
             <string>// Compulsory
 enemyHP = 1200;          // initial health
-enemyHP_max = enemyHP;  // max health
-z = 128;                // fake 3D handling
-flash = 0;              // for low-HP flash
+event_inherited();
 
 // Initial moving/aesthetic variables
 image_alpha = 0;
@@ -184,7 +182,7 @@ switch phase
             pod2 = instance_create(x-24,y+24,obj_boss2_pod);
             pod3 = instance_create(x+24,y-24,obj_boss2_pod);
             pod4 = instance_create(x-24,y-24,obj_boss2_pod);
-            scr_bosshealthbar(self.id);
+            scr_create_healthbar();
             made = 1;
             }
         image_alpha += 0.005;

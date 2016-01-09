@@ -28,10 +28,8 @@
             <string>/* 4|\|71(|-|R1$7 */
 // Compulsory (health, z-handling, etc)
 enemyHP = 1250; 
-enemyHP_max = enemyHP; 
+event_inherited();
 timeout = enemyHP;
-z = 128; 
-flash = 0;
 
 // Enemy behaviour
 image_xscale = 1.25;
@@ -44,7 +42,7 @@ direction = 270;
 speed = 6;
 
 with obj_ctrl_music event_user(12);
-scr_bosshealthbar(self.id);
+scr_create_healthbar();
 </string>
           </argument>
         </arguments>

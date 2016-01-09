@@ -25,18 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Compulsory
-enemyHP = 40;
-enemyHP_max = enemyHP;
-flash = 0;
-z = 128;
-
-// Attack-related
+            <string>// Attack-related
 timer = 0;
 count = 0;
 
 // Misc
 thr_timer = 0;
+
+// Compulsory
+enemyHP = 40;
+event_inherited();
 </string>
           </argument>
         </arguments>

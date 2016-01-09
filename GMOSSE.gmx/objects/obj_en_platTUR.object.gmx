@@ -26,9 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>enemyHP = 42.5;
-enemyHP_max = enemyHP;
-z = 128;
-flash = 0;
+event_inherited();
 
 direction = 270;
 can_shoot = 0;

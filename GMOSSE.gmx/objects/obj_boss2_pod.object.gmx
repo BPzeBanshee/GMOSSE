@@ -27,9 +27,7 @@
             <kind>1</kind>
             <string>// variable initialisation. Same purpose as for the boss object itself.
 enemyHP = 300; // declares how much health this object has (1/5 of the main object)
-enemyHP_max = enemyHP; // sets maximum health capacity
-flash = 0; // flashes red when flash = 1
-z = 128; // fake 3D handling
+event_inherited();
 
 image_alpha = 0;
 image_speed = 0.5;

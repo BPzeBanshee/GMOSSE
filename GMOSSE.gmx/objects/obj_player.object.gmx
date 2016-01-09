@@ -30,18 +30,6 @@ if !instance_exists(obj_hitbox) then exit;
 
 // Check for inputs
 scr_input();
-    
-// Establishes border variables   
-x_l_diff = xview + 16;
-x_r_diff = xview + 240-16;
-y_u_diff = yview + 16;
-y_d_diff = yview + 320-16;
-
-// This keeps the player within the view.
-if obj_hitbox.y &gt;= y_d_diff then y = y_d_diff;
-if obj_hitbox.y &lt;= y_u_diff then y = y_u_diff;
-if obj_hitbox.x &gt;= x_r_diff then x = x_r_diff;
-if obj_hitbox.x &lt;= x_l_diff then x = x_l_diff;
 
 // This gets the value that we're going to move the player
 // ship around by. The global vars are set in the player
@@ -70,54 +58,58 @@ else
 // Down
 if (global.jdown &amp;&amp; !global.jleft &amp;&amp; !global.jright)
     {
-    if (obj_hitbox.y &lt; y_d_diff) then y += spd;
+    y += spd;
     }
 
 // Down-Left
 if (global.jdown &amp;&amp; global.jleft &amp;&amp; !global.jup &amp;&amp; !global.jright)
     {
-    if (obj_hitbox.y &lt; y_d_diff) then y += d_spd;
-    if (obj_hitbox.x &gt; x_l_diff) then x -= d_spd;
+    y += d_spd;
+    x -= d_spd;
     }
  
 // Down-Right
 if (global.jdown &amp;&amp; global.jright &amp;&amp; !global.jup &amp;&amp; !global.jleft)
     {
-    if (obj_hitbox.y &lt; y_d_diff) then y += d_spd;
-    if (obj_hitbox.x &lt; x_r_diff) then x += d_spd;
+    y += d_spd;
+    x += d_spd;
     }
  
 // Up
 if (global.jup &amp;&amp; !global.jleft &amp;&amp; !global.jright)
     {
-    if (obj_hitbox.y &gt; y_u_diff) then y -= spd;
+    y -= spd;
     }
   
 // Up-Left
 if (global.jup &amp;&amp; global.jleft &amp;&amp; !global.jdown &amp;&amp; !global.jright)
     {
-    if (obj_hitbox.y &gt; y_u_diff) then y -= d_spd;
-    if (obj_hitbox.x &gt; x_l_diff) then x -= d_spd; 
+    y -= d_spd;
+    x -= d_spd; 
     }
  
 // Up-Right
 if (global.jup &amp;&amp; global.jright &amp;&amp; !global.jdown &amp;&amp; !global.jleft)
     {
-    if (obj_hitbox.y &gt; y_u_diff) then y -= d_spd;
-    if (obj_hitbox.x &lt; x_r_diff) then x += d_spd;
+    y -= d_spd;
+    x += d_spd;
     }
  
 // Left
 if (global.jleft &amp;&amp; !global.jup &amp;&amp; !global.jdown)
     {
-    if (obj_hitbox.x &gt; x_l_diff) then x -= spd;
+    x -= spd;
     }
  
 // Right
 if (global.jright &amp;&amp; !global.jup &amp;&amp; !global.jdown)
     {
-    if (obj_hitbox.x &lt; x_r_diff) then x += spd;
+    x += spd;
     }
+    
+// This keeps the player within the view.
+x = clamp(x,xview+16,xview+240-16);
+y = clamp(y,yview+16,yview+320-16);
 </string>
           </argument>
         </arguments>

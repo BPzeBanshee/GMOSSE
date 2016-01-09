@@ -27,14 +27,10 @@
             <kind>1</kind>
             <string>// This is the health handling.
 enemyHP = 20;
-enemyHP_max = enemyHP;
-flash = 0;
-
-// fake z-depth handling.
-z = 128;
+event_inherited();
 
 // Misc. variables
-if speed = 0
+if speed = 0 &amp;&amp; path_index = -1
     {
     direction = 270;
     speed = 5;

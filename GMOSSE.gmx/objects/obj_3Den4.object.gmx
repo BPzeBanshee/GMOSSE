@@ -27,11 +27,7 @@
             <kind>1</kind>
             <string>// Compulsory
 enemyHP = 15; 
-enemyHP_max = enemyHP;
-flash = 0;
-
-// Z handling
-z = 128;
+event_inherited();
 
 image_speed = 0;
 image_index = 4;

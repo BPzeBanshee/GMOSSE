@@ -40,7 +40,7 @@ spd_y = the vertical speed you want
 event_user(0); // Loading of needed objects to scroll with view
 
 // Update view (xview has additional wobblescroll formula)
-if max_w &gt; 240 then w = max_w/(max_w-240) else w = max_w;
+if max_w &gt; 240 then w = max_w/(max_w-240) else w = 1;//max_w;
 view_xview[0] = x+((obj_ctrl_game.x - x)/w)-x_o;
 view_yview[0] = y-y_o;
 </string>
@@ -82,11 +82,11 @@ y += spd_y;
 
 // Update view (xview has additional wobblescroll formula) 
 if instance_exists(obj_player)
-then view_xview[0] = x+((obj_hitbox.x - x)/w)-x_o
+then view_xview[0] = x+floor((obj_hitbox.x - x)/w)-x_o
 else if max_w &gt; 240
     {
-    if xview &gt; x+((max_w-240)/2) then view_xview[0] -= 1;
-    if xview &lt; x+((max_w-240)/2) then view_xview[0] += 1;
+    if xview &gt; x+floor((max_w-240)/2) then view_xview[0] -= 1;
+    if xview &lt; x+floor((max_w-240)/2) then view_xview[0] += 1;
     }
 view_yview[0] = y-y_o;
 

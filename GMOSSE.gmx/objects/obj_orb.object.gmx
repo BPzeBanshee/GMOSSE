@@ -27,9 +27,7 @@
             <kind>1</kind>
             <string>// Compulsory (health etc)
 enemyHP = 400;
-enemyHP_max = enemyHP; 
-flash = 0;
-z = 128;
+event_inherited();
 
 timer = 0;
 phase = 0;

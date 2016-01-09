@@ -26,10 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>enemyHP = 600;
-enemyHP_max = enemyHP;
+event_inherited();
 timeout = 950;
-flash = 0;
-z = 128;
 
 timer = 0;
 dead_timer = 0;
@@ -68,10 +66,10 @@ switch mode
     {
     case 0:
         {
-        if y &lt;= (yview-sprite_width/2)
+        if y &lt; (yview-sprite_width/2)
             {
             speed = 4; direction = 270;
-            scr_bosshealthbar(self.id);
+            scr_create_healthbar();
             mode = 1;
             }
         break;
@@ -137,12 +135,12 @@ switch mode
     dead = 1;
     }
     
-dead_timer += 1;
 if dead_timer = 0
     {
     repeat 3 scr_create_exp(obj_explosion,360,18); 
     scr_playsnd(snd_exp3,1);
     }
+dead_timer += 1;
 if dead_timer = 6
     {
     dead_timer = 1;

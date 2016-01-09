@@ -27,9 +27,7 @@
             <kind>1</kind>
             <string>// Compulsory
 enemyHP = 80;// This is the health handling.
-enemyHP_max = enemyHP;
-flash = 0; // flash effect when on low HP.
-z = 128;// fake z-depth handling.
+event_inherited();
 
 // Misc. variables
 timer = 0;

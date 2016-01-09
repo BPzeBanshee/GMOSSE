@@ -27,11 +27,10 @@
             <kind>1</kind>
             <string>// Compulsory
 enemyHP = 1200;
-enemyHP_max = enemyHP;
-z = 128;
-flash = 0;
+event_inherited();
+
 timeout = 5000;
-scr_bosshealthbar(self.id);
+scr_create_healthbar();
 
 // Movement-related variables
 image_speed = 0.1;

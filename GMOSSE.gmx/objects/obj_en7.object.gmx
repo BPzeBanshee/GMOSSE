@@ -27,9 +27,7 @@
             <kind>1</kind>
             <string>// Compulsory
 enemyHP = 165; // Health
-enemyHP_max = enemyHP;
-flash = 0; // Flashing effect
-z = 128; // Fake z-depth handling
+event_inherited();
 
 // Misc. variables
 phase = 0;
@@ -39,8 +37,7 @@ atk_timer = 0;
 made = 0;
 
 // Definable vars
-speed = 4;//5;
-//direction = 270;
+speed = 4;
 move_with_bkg = 0;
 </string>
           </argument>

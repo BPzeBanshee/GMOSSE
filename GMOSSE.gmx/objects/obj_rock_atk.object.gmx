@@ -25,14 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>enemyHP = 12.5;
-enemyHP_max = enemyHP; // was 0, why?
-flash = 0;
-z = 128;
-
-direction = point_direction(x,y,obj_hitbox.x,obj_hitbox.y);
+            <string>direction = point_direction(x,y,obj_hitbox.x,obj_hitbox.y);
 speed = 4;
 turnspeed = 4;
+
+enemyHP = 12.5;
+event_inherited();
 </string>
           </argument>
         </arguments>

@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//enemyHP = (parent).enemyHP;
-flash = 0;
+            <string>flash = 0;
 dead = 0;
 
 z = 128;

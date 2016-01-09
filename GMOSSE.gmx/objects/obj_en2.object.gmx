@@ -36,9 +36,7 @@
 
 timer = 0;
 enemyHP = 50;
-enemyHP_max = enemyHP;
-flash = 0;
-z = 128;
+event_inherited();
 </string>
           </argument>
         </arguments>

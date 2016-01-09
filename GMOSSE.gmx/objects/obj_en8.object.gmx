@@ -27,11 +27,7 @@
             <kind>1</kind>
             <string>// This is the health handling.
 enemyHP = 50;
-enemyHP_max = enemyHP;
-flash = 0;
-
-// fake z-depth handling.
-z = 128;
+event_inherited();
 
 // Enemy behaviour
 timer = 0;

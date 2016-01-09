@@ -27,9 +27,7 @@
             <kind>1</kind>
             <string>// Compulsory
 enemyHP = 200;
-enemyHP_max = enemyHP;
-flash = 0;
-z = 128;
+event_inherited();
 
 // Moving vars
 direction = 270;

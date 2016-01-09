@@ -32,7 +32,7 @@ timeout = 0;
 z = 128;
 
 dead = 0;
-scr_bosshealthbar(self.id);
+scr_create_healthbar();
 </string>
           </argument>
         </arguments>

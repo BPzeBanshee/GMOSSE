@@ -558,7 +558,7 @@
         <script>scripts\scr_checkstages.gml</script>
         <script>scripts\scr_draw_vars.gml</script>
         <script>scripts\scr_draw_gauge.gml</script>
-        <script>scripts\scr_bosshealthbar.gml</script>
+        <script>scripts\scr_create_healthbar.gml</script>
         <script>scripts\scr_addscore.gml</script>
       </scripts>
       <script>scripts\scr_detect_joys.gml</script>
@@ -636,11 +636,6 @@
           <object>objects\obj_orb_trans</object>
           <object>objects\obj_orb2</object>
           <object>objects\obj_orb2_trans</object>
-          <objects name="old">
-            <object>objects\object209</object>
-            <object>objects\object210</object>
-            <object>objects\object211</object>
-          </objects>
         </objects>
       </objects>
       <objects name="Stage 2">
@@ -770,6 +765,7 @@
       </objects>
       <objects name="Generic">
         <object>objects\obj_player</object>
+        <object>objects\object209</object>
         <object>objects\obj_player_shot</object>
         <object>objects\obj_player_clear</object>
         <object>objects\obj_player_clear2</object>
@@ -859,38 +855,33 @@
           <object>objects\obj_warp_gen</object>
         </objects>
         <objects name="In-Game Stages">
-          <object>objects\obj_rock</object>
           <object>objects\obj_en_thr</object>
           <object>objects\obj_en5_thr</object>
-          <object>objects\obj_planet1</object>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion2</object>
-          <object>objects\obj_cloud</object>
-          <object>objects\obj_lightning</object>
-          <object>objects\obj_lightning2</object>
-          <object>objects\obj_rain</object>
-          <object>objects\obj_planet3</object>
+          <objects name="Stage 1">
+            <object>objects\obj_rock</object>
+            <object>objects\obj_planet1</object>
+          </objects>
+          <objects name="Stage 3">
+            <object>objects\obj_planet3</object>
+            <object>objects\obj_cloud</object>
+            <object>objects\obj_rain</object>
+            <object>objects\obj_light_gen</object>
+            <object>objects\obj_lightning</object>
+            <object>objects\obj_lightning2</object>
+          </objects>
         </objects>
         <object>objects\obj_star</object>
         <object>objects\obj_popup</object>
       </objects>
       <objects name="EXPERIMENTAL">
-        <object>objects\obj_exp3</object>
-        <object>objects\obj_boss1_omake</object>
-        <object>objects\obj_boss2_omake</object>
-        <object>objects\obj_boss3_omake</object>
-        <object>objects\obj_omake3_arm</object>
-        <object>objects\obj_en10_old</object>
-        <object>objects\obj_en10</object>
-        <object>objects\obj_en10_beam</object>
-        <object>objects\obj_en10_orb</object>
-        <object>objects\obj_textbox</object>
-        <objects name="DO NOT USE">
-          <object>objects\gradius_options</object>
-          <object>objects\object212</object>
+        <objects name="Omakes">
+          <object>objects\obj_boss1_omake</object>
+          <object>objects\obj_boss2_omake</object>
+          <object>objects\obj_boss3_omake</object>
+          <object>objects\obj_omake3_arm</object>
         </objects>
-        <object>objects\obj_en_dpscheck</object>
-        <object>objects\obj_light_gen</object>
         <objects name="Walking Tank">
           <object>objects\obj_e</object>
           <object>objects\obj_e2</object>
@@ -899,6 +890,16 @@
           <object>objects\obj_e_foot</object>
           <object>objects\obj_e_foot2</object>
         </objects>
+        <objects name="DO NOT USE">
+          <object>objects\gradius_options</object>
+        </objects>
+        <object>objects\obj_en10_old</object>
+        <object>objects\obj_en10_beam</object>
+        <object>objects\obj_en10</object>
+        <object>objects\obj_en10_orb</object>
+        <object>objects\obj_textbox</object>
+        <object>objects\obj_en_dpscheck</object>
+        <object>objects\obj_exp3</object>
         <object>objects\obj_exp3_gen</object>
       </objects>
     </objects>

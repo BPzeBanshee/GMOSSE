@@ -31,11 +31,7 @@ shoot_angle = 0;
 
 // This is the health handling.
 enemyHP = 25;
-enemyHP_max = enemyHP;
-flash = 0;
-
-// fake z-depth handling.
-z = 128;
+event_inherited();
 </string>
           </argument>
         </arguments>
