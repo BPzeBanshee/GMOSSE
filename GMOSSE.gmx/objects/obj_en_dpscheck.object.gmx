@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_en_parent</parentName>
+  <parentName>obj_en_air</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,17 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Attack pattern variables
+            <string>// This is the health handling.
+enemyHP = 9999;
+event_inherited();
+
+// Attack pattern variables
 timer = 0;
 dps = 0;
-
-// This is the health handling.
-enemyHP = 9999;
-enemyHP_max = enemyHP;
-flash = 0;
-
-// fake z-depth handling.
-z = 128;
 </string>
           </argument>
         </arguments>

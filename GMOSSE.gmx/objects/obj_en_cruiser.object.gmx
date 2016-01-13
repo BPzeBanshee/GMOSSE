@@ -84,7 +84,7 @@ else scr_playsnd(snd_exp3,1);
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -122,7 +122,6 @@ if !made
         for (j=0;j&lt;=m[i];j+=1) 
             {
             turret[i,j]=instance_create(p[b,0],p[b,1],p[b,2]);
-            turret[i,j].visible = 1;
             turret[i,j].active = 1;
             
             // set directions left or right depending on side of carrier

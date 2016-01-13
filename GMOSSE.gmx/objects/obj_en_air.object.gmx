@@ -26,12 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>/*
-I've actually forgotten why this is even here.
-I think a few fake enemies (ie. obj_boss_trans)
-are children of this, but for reasons I can't recall.
-Might want to take a look at those before you rip
-this thing out though, in case it uses obj_enemytrans
-for checking something.
+Use this parent for air-based enemies that will
+maintain position relative to the view.
 */
 </string>
           </argument>

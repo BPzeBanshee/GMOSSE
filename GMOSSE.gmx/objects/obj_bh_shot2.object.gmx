@@ -33,7 +33,7 @@ then instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_en_wall">
+    <event eventtype="4" ename="obj_en_parent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -59,7 +59,7 @@ hit.image_yscale = 0.5;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_en_parent">
+    <event eventtype="4" ename="obj_en_wall">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -76,8 +76,7 @@ hit.image_yscale = 0.5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if other.z &lt;&gt; 128 exit; 
-hit = scr_basicshot(x,y,obj_bh_shothit,0.5,direction);
+            <string>hit = scr_basicshot(x,y,obj_bh_shothit,0.5,direction);
 hit.image_xscale = 0.5;
 hit.image_yscale = 0.5;
 </string>

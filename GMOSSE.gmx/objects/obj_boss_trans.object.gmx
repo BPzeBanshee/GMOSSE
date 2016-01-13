@@ -26,8 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>z = 64;
-z_speed = 0;
-timer = 0;
 image_speed = 0.1;
 scr_3D();
 </string>
@@ -52,15 +50,13 @@ scr_3D();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_3D();
-
-thrust = instance_create(x,y,obj_en_thr);
-thrust.speed = random_range(5,7);
-thrust.image_angle = random(360);
-thrust.direction = random_range(260,280);
-thrust.image_xscale = random(2.5);
-thrust.image_yscale = thrust.image_xscale;
-thrust.depth = depth + 1;
+            <string>thr = instance_create(x,y,obj_en_thr);
+thr.speed = random_range(5,7);
+thr.image_angle = random(360);
+thr.direction = random_range(260,280);
+thr.image_xscale = random(2.5);
+thr.image_yscale = thr.image_xscale;
+thr.depth = depth + 1;
 
 vspeed = -1;
 if y &lt; yview - 32 then instance_destroy();

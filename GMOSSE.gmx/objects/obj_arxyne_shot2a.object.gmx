@@ -132,7 +132,7 @@ then instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if other.z &lt;&gt; 128 exit;
+            <string>if other.z != 128 exit;
 e = instance_create(x,y,obj_arxyne_shot2c); 
 e.image_speed = 0.5;
 e.image_xscale = 1;

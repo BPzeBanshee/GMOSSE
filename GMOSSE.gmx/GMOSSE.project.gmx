@@ -686,11 +686,10 @@
         <objects name="Bomb Carrier">
           <object>objects\obj_en_carrier</object>
         </objects>
+        <object>objects\obj_en_wall</object>
         <object>objects\obj_en_parent</object>
         <object>objects\obj_en_air</object>
         <object>objects\obj_en_ground</object>
-        <object>objects\obj_en_trans</object>
-        <object>objects\obj_en_wall</object>
       </objects>
     </objects>
     <objects name="Player">
@@ -765,7 +764,6 @@
       </objects>
       <objects name="Generic">
         <object>objects\obj_player</object>
-        <object>objects\object209</object>
         <object>objects\obj_player_shot</object>
         <object>objects\obj_player_clear</object>
         <object>objects\obj_player_clear2</object>

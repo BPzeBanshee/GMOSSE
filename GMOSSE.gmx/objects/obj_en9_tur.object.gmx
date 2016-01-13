@@ -25,16 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// This is the health handling.
-enemyHP = 40;
-enemyHP_max = enemyHP;
-flash = 0;
-
-// fake z-depth handling.
-z = 128;
-
-// Misc. variables
-timer = 0; fire = 0;
+            <string>timer = 0; 
+fire = 0;
 image_xscale = 1.35;
 image_yscale = 1.35;
 </string>
@@ -78,7 +70,11 @@ if (timer = 60 || timer = 75 || timer = 90) &amp;&amp; scr_isonscreen()
     scr_basicshot(a,b,obj_bullet3,5,image_angle);
     scr_playsnd(snd_en_shot4,1);
     }
-if timer &gt;= 120 || y &gt; yview+270 { timer = 0; fire = 0;}
+if timer &gt;= 120 || y &gt; yview+270
+    { 
+    timer = 0; 
+    fire = 0;
+    }
 </string>
           </argument>
         </arguments>

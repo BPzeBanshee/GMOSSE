@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_en_trans</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,8 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>z = 63;
-z_speed = 0;
-timer = 0;
+scr_3D();
 </string>
           </argument>
         </arguments>
@@ -50,18 +49,19 @@ timer = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_3D();
+            <string>thr = instance_create(x,y,obj_en_thr);
+thr.speed = random_range(5,7);
+thr.image_angle = random(360);
+thr.direction = random_range(direction+160,direction+200);
+thr.image_xscale = random(2.5);
+thr.image_yscale = thr.image_xscale;
+thr.depth = depth + 1;
 
-thrust = instance_create(x,y,obj_en_thr);
-thrust.speed = random_range(5,7);
-thrust.image_angle = random(360);
-thrust.direction = random_range(direction+160,direction+200);
-thrust.image_xscale = random(2.5);
-thrust.image_yscale = thrust.image_xscale;
-thrust.depth = depth + 1;
-
-mp_linear_step(obj_boss_trans.x,obj_boss_trans.y,1.25,0);
-if y = obj_boss_trans.y &amp;&amp; x = obj_boss_trans.x then instance_destroy();
+if instance_exists(obj_boss_trans)
+    {
+    mp_linear_step(obj_boss_trans.x,obj_boss_trans.y,1.25,0);
+    if y = obj_boss_trans.y &amp;&amp; x = obj_boss_trans.x then instance_destroy();
+    }
 </string>
           </argument>
         </arguments>

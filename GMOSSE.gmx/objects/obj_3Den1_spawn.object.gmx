@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_en_trans</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,10 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>enemyHP = 40;
-enemyHP_max = enemyHP;
-
-z = 256;
+            <string>z = 256;
 z_speed = 4;
 speed = 3;
 </string>
@@ -61,8 +58,6 @@ if z &lt;= 128
     speed = 0;
     child = instance_create(x,y,obj_3Den1);
     child.image_angle = image_angle;
-    child.enemyHP = enemyHP;
-    child.enemyHP_max = enemyHP_max;
     instance_destroy();
     }
 </string>

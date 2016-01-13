@@ -129,6 +129,38 @@ if lives = 0 then invincible = -999;
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_en_air">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if invincible = 0 &amp;&amp; other.can_collide
+    {
+    lives -= 1;
+    global.bombs = global.init_bombs;
+    visible = 0;
+    invincible = 240;
+    instance_create(x,y,obj_player_dead);
+    with obj_player instance_destroy();
+    obj_ctrl_game.respawntimer = 60;
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_en_wall">
       <action>
         <libid>1</libid>
@@ -160,60 +192,6 @@ if lives = 0 then invincible = -999;
 /*move_bounce_all(0);
 obj_player.x = x;
 obj_player.y = y;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_en_ground">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>exit;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_en_parent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if invincible !=0 or other.z &lt;&gt; 128 exit;
-
-lives -= 1;
-global.bombs = global.init_bombs;
-visible = 0;
-invincible = 240;
-instance_create(x,y,obj_player_dead);
-with obj_player instance_destroy();
-obj_ctrl_game.respawntimer = 60;
 </string>
           </argument>
         </arguments>

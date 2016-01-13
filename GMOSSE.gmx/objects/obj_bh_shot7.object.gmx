@@ -33,7 +33,7 @@ then instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_en_wall">
+    <event eventtype="4" ename="obj_en_parent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -57,7 +57,7 @@ instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_en_parent">
+    <event eventtype="4" ename="obj_en_wall">
       <action>
         <libid>1</libid>
         <id>603</id>

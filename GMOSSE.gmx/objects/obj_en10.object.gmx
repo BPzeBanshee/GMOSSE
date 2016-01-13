@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-1</depth>
   <persistent>0</persistent>
-  <parentName>obj_wall</parentName>
+  <parentName>obj_en_wall</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,10 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>enemyHP = 5000;
-event_inherited();
-
-timer = 0;
+            <string>timer = 0;
 spd = 1;
 made = 0;
 </string>
@@ -74,45 +71,6 @@ if timer &gt; 60
             }
         }
     }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="25">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// Contra Yagawa Corps Eksploshunz by Michael Bay!
-scr_create_exp(obj_explosion,360,18);
-scr_playsnd(global.explosion2,0);
-
-dead1 = instance_create(x,y,obj_en6_dead);
-dead1.mode = 1;
-dead2 = instance_create(x,y,obj_en6_dead);
-dead2.mode = 2;
-dead3 = instance_create(x,y,obj_en6_dead);
-dead3.mode = 2;
-dead4 = instance_create(x,y,obj_en6_dead);
-dead4.mode = 3;
-dead5 = instance_create(x,y,obj_en6_dead);
-dead5.mode = 3;
-
-scr_addscore(600,180,1);
-instance_destroy();
 </string>
           </argument>
         </arguments>

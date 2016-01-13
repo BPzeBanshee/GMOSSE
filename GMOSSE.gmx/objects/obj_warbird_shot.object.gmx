@@ -32,7 +32,7 @@ if y &lt; yview-(sprite_width/2) then instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_en_wall">
+    <event eventtype="4" ename="obj_en_parent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,13 +49,13 @@ if y &lt; yview-(sprite_width/2) then instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_user(15);
+            <string>if other.z = 128 then event_user(15);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_en_parent">
+    <event eventtype="4" ename="obj_en_wall">
       <action>
         <libid>1</libid>
         <id>603</id>

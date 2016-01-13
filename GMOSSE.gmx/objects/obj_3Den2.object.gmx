@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_en_parent</parentName>
+  <parentName>obj_en_air</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>// compulsory stuff (other vars passed to it by obj_3Den2_spawn)
-flash = 0;
-z = 128;
+enemyHP = 140;
+event_inherited();
 
 // timers
 phase = 1;

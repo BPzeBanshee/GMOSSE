@@ -27,11 +27,7 @@
             <kind>1</kind>
             <string>// This is the health handling.
 enemyHP = 40;
-enemyHP_max = enemyHP;
-flash = 0;
-
-// fake z-depth handling.
-z = 128;
+event_inherited();
 
 // Misc. variables
 made = 0;
@@ -80,23 +76,19 @@ made = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Move with screen (spd_x/y are global vars, see obj_ctrl_camera)
-if path_index = -1
-    {
-    x -= spd_x;
-    y -= spd_y;
-    }
-
-// Create turret
+            <string>// Create turret
 if y &gt; yview-(sprite_height/2) &amp;&amp; !made
     {
     tur = instance_create(x,y,obj_en9_tur);
     tur.image_angle = 270;
     tur.direction = 270;
-    tur.visible = 0;
     made = 1;
     }
-
+if made
+    {
+    tur.x = x;
+    tur.y = y;
+    }
     
 // Death
 if y &gt; yview+320+(sprite_height/2) then instance_destroy();
@@ -127,38 +119,6 @@ instance_create(x,y,obj_explosion);
 scr_addscore(200,180,1);
 scr_playsnd(snd_exp2,0);
 instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_self2();
-if made
-    {
-    if path_index != -1
-        {
-        tur.x = x;
-        tur.y = y;
-        }
-    with tur draw_self2();
-    }
 </string>
           </argument>
         </arguments>

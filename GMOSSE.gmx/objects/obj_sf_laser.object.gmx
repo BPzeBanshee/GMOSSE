@@ -95,7 +95,11 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with other instance_change(obj_bulletcancel,true);
+            <string>with other
+    {
+    instance_create(x,y,obj_bulletcancel);
+    instance_destroy();
+    }
 </string>
           </argument>
         </arguments>

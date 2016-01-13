@@ -39,31 +39,6 @@ direction=parent.direction;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_en_wall">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if other.z &lt;&gt; 128 exit;
-scr_basicshot(x,y,obj_bh_shothit,5,90);
-instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_en_parent">
       <action>
         <libid>1</libid>
@@ -81,8 +56,32 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if other.z &lt;&gt; 128 exit;
+            <string>if other.z != 128 exit;
 scr_basicshot(x,y,obj_bh_shothit,5,90);
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_en_wall">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_basicshot(x,y,obj_bh_shothit,5,90);
 instance_destroy();
 </string>
           </argument>

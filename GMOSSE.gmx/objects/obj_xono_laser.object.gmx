@@ -30,7 +30,6 @@ image_angle = direction;
 image_speed = 0;
 timer = 0;
 
-attacktarget = obj_en_parent;
 max_speed = 15;
 min_speed = 1;
 turnrate = 1;
@@ -67,16 +66,12 @@ thr.image_angle = image_angle;
 
 // Enemy find code
 timer += 1;
-if instance_exists(attacktarget) &amp;&amp; timer &lt; 120
+if timer &lt; 120 &amp;&amp; instance_exists(obj_en_parent)
     {
-    target = instance_nearest(x,y,attacktarget);
-    //if target.z != 128 exit;
+    target = instance_nearest(x,y,obj_en_parent);
     angle = point_direction(x,y,target.x,target.y);
     }
-else
-    {
-    angle = 90;
-    }
+else angle = 90;
     
 // Movement code
 scr_turntoangle(angle,turnrate);
@@ -100,30 +95,6 @@ then instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_en_wall">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if other.z &lt;&gt; 128 exit;
-event_user(15);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_en_parent">
       <action>
         <libid>1</libid>
@@ -141,8 +112,30 @@ event_user(15);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if other.z &lt;&gt; 128 exit;
-event_user(15);
+            <string>if other.z = 128 then event_user(15);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_en_wall">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_user(15);
 </string>
           </argument>
         </arguments>
