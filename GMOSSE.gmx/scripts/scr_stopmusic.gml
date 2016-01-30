@@ -14,5 +14,5 @@ setting your variable to 0 after calling this.
 */
 if argument0 > 0
     {
-    if FMODInstanceIsPlaying(argument0) then FMODInstanceStop(argument0);
+    if AStreamIsPlaying(argument0) then AStreamStop(argument0);
     }

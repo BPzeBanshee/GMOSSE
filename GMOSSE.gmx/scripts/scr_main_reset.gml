@@ -1,4 +1,2 @@
-FMODfree();
-UnloadFMOD();
-cleanmem_init(1);
+AFree();
 game_restart();

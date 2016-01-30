@@ -9,5 +9,8 @@ Requirements:
 group 3 was the sfx that haven't been
 brought over to GM Sound Engine yet)
 */
-FMODInstanceSetPaused(obj_ctrl_music.music,argument0);
+if argument0=1
+then AStreamPause(music)
+else AStreamResume(music);
+//FMODInstanceSetPaused(music,argument0);
 //FMODGroupSetPaused(1,argument0);

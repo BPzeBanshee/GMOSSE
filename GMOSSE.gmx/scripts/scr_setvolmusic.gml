@@ -1,2 +1,2 @@
 /* Assigns volume variables to the sounds/voices/music */
-FMODGroupSetVolume(1,global.music_volume);
+AStreamSetVolume(music,global.music_volume);

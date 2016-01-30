@@ -18,10 +18,9 @@ ini_close();
 if global.music_info[1] = "NONE" return -1; 
 
 // everything that's required is sorted, load and configure
-var music;
-music = FMODSoundAdd(global.music_info[1],0,1);
-if music = 0 then show_message("Error loading "+string(global.music_info[1]));
-FMODSoundSetMaxVolume(music,(global.music_info[2]/100));
-FMODSoundSetLoopPoints(music,global.music_info[3],global.music_info[4]);
-if argument1 > 0 then FMODSoundSetGroup(music,argument1);
-return music;
+var m;
+m = ASourceLoad(global.music_info[1]);
+if m < 0 then show_message("Error loading "+string(global.music_info[1]));
+//FMODSoundSetMaxVolume(music,(global.music_info[2]/100));
+ASourceAddLoopPoint(m,ASourceGetLength(m)*global.music_info[3],ASourceGetLength(m)*global.music_info[4],-1);
+return m;

@@ -11,4 +11,4 @@ free to BE removed from memory safely using
 FMODSoundFree(). Think of Safely Removing 
 a USB stick as opposed to just pulling it.
 */
-FMODAllStop();
+AStreamStopAll();

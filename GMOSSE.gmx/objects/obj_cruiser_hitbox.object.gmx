@@ -26,10 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>enemyHP = 500;
-enemyHP_max = enemyHP;
-flash = 0;
-timeout = 0;
-z = 128;
+event_inherited();
+timeout = 9999;
 
 dead = 0;
 scr_create_healthbar();

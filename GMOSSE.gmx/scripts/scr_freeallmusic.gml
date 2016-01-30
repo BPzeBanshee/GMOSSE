@@ -1,4 +1,6 @@
 /* Frees the music from memory */
+ASourceFreeAll();
+/*
 // Common music (ie. boss theme, stage clear)
 scr_freemusic(global.snd_stageclear);
 scr_freemusic(global.snd_gameover);
@@ -30,4 +32,4 @@ if global.level = real(3)
     scr_freemusic(global.snd_st3);
     scr_freemusic(global.snd_omake3);
     }
-if global.level = 6662 then scr_freemusic(global.snd_omake2);
+if global.level = 6662 then scr_freemusic(global.snd_omake2);*/
