@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-99998</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -480,16 +480,17 @@ if global.button1 &amp;&amp; !hook
 
 // BEHAVIOUR
 category_type = "[CONTROLS]";
-selection_max = 4; // amount of positions in the submenu
+selection_max = 5; // amount of positions in the submenu
 max_h = 0;
 
 // LEFT
 if global.jleft &amp;&amp; !hook
     {
     hook = 1;
-    if selection = 3
+    switch selection
         {
-        if global.deadzone &gt; 0.1 then global.deadzone -= 0.1;
+        case 3: if global.deadzone &gt; 0.1 then global.deadzone -= 0.1; break;
+        case 4: if global.joytype &gt; 0 then global.joytype -= 1; break;
         }
     }
 
@@ -497,21 +498,22 @@ if global.jleft &amp;&amp; !hook
 if global.jright &amp;&amp; !hook
     {
     hook = 1;
-    if selection = 3
+    switch selection
         {
-        if global.deadzone &lt; 1 then global.deadzone += 0.1;
+        case 3: if global.deadzone &lt; 1 then global.deadzone += 0.1; break;
+        case 4: if global.joytype &lt; 2 then global.joytype += 1; break;
         }
     }
     
 if global.button1 &amp;&amp; !hook 
     {
-    scr_playsnd(snd_click,0);
+    scr_playsnd(snd_click,1);
     hook = 1;
     switch selection
         {
         case 1: c = instance_create(x,y,obj_ctrl_rebind); c.control = 1; break;
         case 2: c = instance_create(x,y,obj_ctrl_rebind); c.control = 1 + global.joy_system; break;
-        case 4: selection = 1; category = 0; break;
+        case 5: selection = 1; category = 0; break;
         }
     }
 </string>
@@ -612,13 +614,20 @@ if category = 1
     // BEHAVIOURS
     dz = string(round(global.deadzone*100))+"%";
     if global.deadzone = 0 then dz = "EXACT";
-    
+    switch global.joytype
+        {
+        case 0: du = "AXES"; break;
+        case 1: du = "DPAD"; break;
+        case 2: du = "BOTH"; break;
+        }
+        
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"DEFINE KEYBOARD");
     draw_text(xview+60,yview+s+(g*2),"DEFINE JOYSTICK");
     draw_text(xview+60,yview+s+(g*3),"DEADZONE: "+string(dz)); 
+    draw_text(xview+60,yview+s+(g*4),"JOYSTICK U/D/L/R: "+string(du));
     
-    draw_text(xview+60,yview+s+(g*5),"RETURN TO MENU");
+    draw_text(xview+60,yview+s+(g*6),"RETURN TO MENU");
     }
     
 // ------ VIDEO CONFIG MENU ------
