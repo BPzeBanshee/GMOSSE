@@ -50,8 +50,8 @@ music = 0;
 e = AInit();
 if e = -1
     {
-    show_debug_message("Error loading GMALP.DLL");
-    game_end();
+    show_message("Error loading GMALP.DLL");
+    instance_destroy();
     }
     
 global.music_volume = 1;
