@@ -13,18 +13,7 @@
   <code>global.pausable = 1;
 global.room_id = 66;
 global.level = 61;
-scr_tate(global.tate);
-
-//background_vspeed[0] = 0.5;
-/*if !global.update then repeat 15
-    {
-    xx = random(320);
-    yy = random(320);
-    dd = random_range(260,280);
-    ss = random_range(7,12);
-    ra = scr_basicshot(xx,yy,obj_rain,ss,dd);
-    ra.depth = random_range(0,1500);
-    }*/</code>
+scr_tate(global.tate);</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -55,7 +44,7 @@ scr_tate(global.tate);
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
   </backgrounds>
   <views>
-    <view visible="-1" objName="&lt;undefined&gt;" xview="0" yview="0" wview="240" hview="320" xport="0" yport="0" wport="240" hport="320" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="-1" objName="&lt;undefined&gt;" xview="200" yview="640" wview="240" hview="320" xport="0" yport="0" wport="240" hport="320" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
@@ -65,8 +54,8 @@ scr_tate(global.tate);
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_ctrl_game" x="112" y="848" name="inst_B163A2BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_test3" x="0" y="640" name="inst_2C9E47DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ctrl_game" x="320" y="848" name="inst_B163A2BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ctrl_test3" x="200" y="640" name="inst_2C9E47DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_rail_t" x="608" y="0" w="32" h="32" xo="64" yo="32" id="10000342" name="inst_966CCF6C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

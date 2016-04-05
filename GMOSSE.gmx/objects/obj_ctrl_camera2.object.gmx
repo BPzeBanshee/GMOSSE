@@ -25,23 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-DO NOT CREATE DIRECTLY VIA INSTANCE_CREATE.
-USE SCR_CAMERA_INIT() INSTEAD!
+            <string>event_user(0); // Loading of needed objects to scroll with view
 
-Global Vars explained:
-globalvar max_w,spd_x,spd_y;
+left_bound = 0;
+right_bound = room_width-240;
+target_pos = 0;
+scroll_spd = ceil(room_width/240);
 
-max_w = the maximum horizontal width the player
-        can traverse within the view
-spd_x = the horizontal speed you want
-spd_y = the vertical speed you want
-*/
-event_user(0); // Loading of needed objects to scroll with view
-
-// Update view (xview has additional wobblescroll formula)
-if max_w &gt; 240 then w = max_w/(max_w-240) else w = max_w;
-view_xview[0] = x+((obj_ctrl_game.x - x)/w)-x_o;
+// Update view
+view_xview[0] = x-x_o;
 view_yview[0] = y-y_o;
 </string>
           </argument>
@@ -68,6 +60,17 @@ view_yview[0] = y-y_o;
             <string>/// Main behaviour
 if instance_exists(obj_ctrl_clear) then exit;
 
+// move everything if player is moving certain dist left/right
+if instance_exists(obj_hitbox) 
+then target_pos = obj_hitbox.x 
+else target_pos = obj_ctrl_game.x;
+
+if left_bound != right_bound // if scrolling not disabled
+    {
+    if global.jleft then if x &gt; left_bound then x -= scroll_spd;
+    if global.jright then if x &lt; right_bound then x += scroll_spd;
+    }
+
 // Scrolling
 for (i=0;i&lt;array_length_1d(objects_to_scroll);i++)
     {
@@ -80,19 +83,12 @@ for (i=0;i&lt;array_length_1d(objects_to_scroll);i++)
 x += spd_x; 
 y += spd_y;
 
-// Update view (xview has additional wobblescroll formula) 
-target_pos = (obj_hitbox.x - x)/w;
-camera_scroll = target_pos - view_xview[0];
-camera_spd = max_w/240;
-// avoid overshoot
-if camera_scroll &gt;= 0
-    camera_scroll = min(camera_scroll, camera_spd)
-else
-    camera_scroll = max(camera_scroll, -camera_spd)
+// reset spd_x and put controller within boundaries
+if x &lt; left_bound then spd_x = min(left_bound-x,1);
+if x &gt; right_bound then spd_x = -min(x-right_bound,1);
 
-view_xview[0] += camera_scroll;
 // clamp to bounds
-view_xview[0] = x+clamp(view_xview[0],0,max_w-240)-x_o;//min(max(view_xview[0], 0), max_w-240);
+view_xview[0] = x-x_o;
 view_yview[0] = y-y_o;
 
 // update offset-adjusted view vars

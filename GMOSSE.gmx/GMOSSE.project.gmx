@@ -418,6 +418,7 @@
       </scripts>
       <scripts name="Camera">
         <script>scripts\scr_camera_init.gml</script>
+        <script>scripts\scr_camera_init2.gml</script>
         <script>scripts\scr_camera_spd.gml</script>
       </scripts>
       <scripts name="Others">
@@ -660,6 +661,8 @@
         <object>objects\obj_ctrl_input</object>
         <object>objects\obj_ctrl_music</object>
         <object>objects\obj_ctrl_camera</object>
+        <object>objects\obj_ctrl_camera2</object>
+        <object>objects\object204</object>
         <object>objects\obj_ctrl_pause</object>
         <object>objects\obj_ctrl_config</object>
         <object>objects\obj_ctrl_rebind</object>

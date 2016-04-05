@@ -81,18 +81,13 @@ x += spd_x;
 y += spd_y;
 
 // Update view (xview has additional wobblescroll formula) 
-target_pos = (obj_hitbox.x - x)/w;
-camera_scroll = target_pos - view_xview[0];
-camera_spd = max_w/240;
-// avoid overshoot
-if camera_scroll &gt;= 0
-    camera_scroll = min(camera_scroll, camera_spd)
-else
-    camera_scroll = max(camera_scroll, -camera_spd)
-
-view_xview[0] += camera_scroll;
-// clamp to bounds
-view_xview[0] = x+clamp(view_xview[0],0,max_w-240)-x_o;//min(max(view_xview[0], 0), max_w-240);
+if instance_exists(obj_player)
+then view_xview[0] = x+floor((obj_hitbox.x - x)/w)-x_o
+else if max_w &gt; 240
+    {
+    if xview &gt; x+floor((max_w-240)/2) then view_xview[0] -= 1;
+    if xview &lt; x+floor((max_w-240)/2) then view_xview[0] += 1;
+    }
 view_yview[0] = y-y_o;
 
 // update offset-adjusted view vars

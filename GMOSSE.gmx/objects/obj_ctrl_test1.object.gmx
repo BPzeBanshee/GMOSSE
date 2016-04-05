@@ -55,7 +55,7 @@ scr_camera_init(320,0,0);
             <kind>1</kind>
             <string>/* STAGE COMPLETE HANDLING */
 if stage_time &gt; 10000
-&amp;&amp; !instance_exists(obj_boss3) &amp;&amp; !instance_exists(obj_fade)
+&amp;&amp; !instance_exists(obj_boss3_omake) &amp;&amp; !instance_exists(obj_fade)
 then completedelay += 1;
 
 if completedelay = 120
@@ -89,7 +89,7 @@ switch stage_time
         {
         //a = instance_create(xview,yview+120,obj_en5);
         //with a path_start(pth_test,5,0,0);
-        //instance_create(160,yview-64,obj_boss3_omake);
+        instance_create(160,yview-64,obj_boss3_omake);
         //instance_create(120,-240,obj_boss3);
         break;
         }

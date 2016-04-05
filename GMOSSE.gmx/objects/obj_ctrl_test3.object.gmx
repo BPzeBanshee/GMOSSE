@@ -42,7 +42,7 @@ global.omake_enabled = 0;
 stage_time = 0;
 completedelay = 0;
 
-scr_camera_init(room_width,0,-0.5);
+scr_camera_init2(room_width,0,-0.5);
 b = -1;
 s = 0;
 </string>
@@ -68,45 +68,63 @@ s = 0;
           <argument>
             <kind>1</kind>
             <string>// Updating position
-x = obj_ctrl_camera.x;
-y = obj_ctrl_camera.y;
+x = obj_ctrl_camera2.x;
+y = obj_ctrl_camera2.y;
 
 // Boundary checking
 if y &lt;= 0
     {
-    obj_ctrl_camera.y = 0;
+    obj_ctrl_camera2.y = 0;
     scr_camera_spd(0,0);
     }
-if x &gt; room_width-320
+if x &gt; room_width-240
     {
-    obj_ctrl_camera.x = room_width-320;
+    obj_ctrl_camera2.x = room_width-240;
     scr_camera_spd(0,-0.5);
     }
 if x &lt; 0
     {
-    obj_ctrl_camera.x = 0;
+    obj_ctrl_camera2.x = 0;
     scr_camera_spd(0,-0.5);
     }
+    
+    
+if y = room_height/2
+    {
+    obj_ctrl_camera2.scroll_spd = global.shipspeed/2;
+    if obj_hitbox.x &lt; room_width/2
+        {
+        obj_ctrl_camera2.left_bound = 0;
+        obj_ctrl_camera2.right_bound = 80;
+        }
+    else
+        {
+        obj_ctrl_camera2.left_bound = room_width-320;
+        obj_ctrl_camera2.right_bound = room_width-240;
+        }
+    }
+    
+    
     
 /*if keyboard_check(ord("W")) then scr_camera_spd(0,0,-1,2);
 if keyboard_check(ord("S")) then scr_camera_spd(0,0,1,2);
 if keyboard_check(ord("A")) then scr_camera_spd(-1,2,0,0);
 if keyboard_check(ord("D")) then scr_camera_spd(1,2,0,0);*/
 
-if y = room_height/2
+/*if y = room_height/2
     {
     if obj_hitbox.x &lt; room_width/2 then b = 0 else b = 1;
     }
 if b &gt; -1 &amp;&amp; max_w &gt; 320
     {
     // TODO: the following line doesn't work well with max_w &gt; 240
-    obj_ctrl_camera.x = obj_player.x-view_xview[0];
+    obj_ctrl_camera.x = obj_hitbox.x-view_xview[0];
     max_w = 320;
     if b = 0 then scr_camera_spd(-0.5,-0.5);
     if b = 1 then scr_camera_spd(0.5,-0.5);
     b = -1;
     with obj_ctrl_camera if max_w &gt; 240 then w = max_w/(max_w-240) else w = max_w;
-    }
+    }*/
 </string>
           </argument>
         </arguments>
