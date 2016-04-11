@@ -91,7 +91,7 @@ if x &lt; 0
     
 if y = room_height/2
     {
-    obj_ctrl_camera2.scroll_spd = global.shipspeed/2;
+    obj_ctrl_camera2.scroll_spd = ceil(320/240);
     if obj_hitbox.x &lt; room_width/2
         {
         obj_ctrl_camera2.left_bound = 0;

@@ -51,9 +51,9 @@ v = spr_warp2;
           <argument>
             <kind>1</kind>
             <string>timer += 1;
-if timer = 10
+if timer = 15
     {
-    w = instance_create(x+random_range(-5,5),y+random_range(-5,5),obj_warp);
+    w = instance_create(x+random_range(-10,10),y+random_range(-10,10),obj_warp);
     w.sprite_index = v;
     timer = 0;
     }

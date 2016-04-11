@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>event_user(0); // Loading of needed objects to scroll with view
 
-left_bound = 0;
-right_bound = room_width-240;
+left_bound = -x_o;
+right_bound = room_width-240-x_o;
 target_pos = 0;
 scroll_spd = ceil(room_width/240);
 
@@ -65,10 +65,12 @@ if instance_exists(obj_hitbox)
 then target_pos = obj_hitbox.x 
 else target_pos = obj_ctrl_game.x;
 
+scroll_spd = floor(global.shipspeed/(room_width/240));
+
 if left_bound != right_bound // if scrolling not disabled
     {
-    if global.jleft then if x &gt; left_bound then x -= scroll_spd;
-    if global.jright then if x &lt; right_bound then x += scroll_spd;
+    if global.jleft then if x &gt; left_bound then x -= (scroll_spd);
+    if global.jright then if x &lt; right_bound then x += (scroll_spd);
     }
 
 // Scrolling

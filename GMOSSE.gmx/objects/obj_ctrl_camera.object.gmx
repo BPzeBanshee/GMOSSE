@@ -66,6 +66,11 @@ view_yview[0] = y-y_o;
           <argument>
             <kind>1</kind>
             <string>/// Main behaviour
+/*
+ISSUES:
+CODE IS COMPLETELY FUCKED IN TATE
+LIKELY TO BE REPLACED WITH CAMERA2 CODE
+*/
 if instance_exists(obj_ctrl_clear) then exit;
 
 // Scrolling
@@ -82,7 +87,7 @@ y += spd_y;
 
 // Update view (xview has additional wobblescroll formula) 
 target_pos = (obj_hitbox.x - x)/w;
-camera_scroll = target_pos - view_xview[0];
+camera_scroll = target_pos - xview;
 camera_spd = max_w/240;
 // avoid overshoot
 if camera_scroll &gt;= 0
@@ -92,7 +97,7 @@ else
 
 view_xview[0] += camera_scroll;
 // clamp to bounds
-view_xview[0] = x+clamp(view_xview[0],0,max_w-240)-x_o;//min(max(view_xview[0], 0), max_w-240);
+view_xview[0] = x+clamp(xview,0,max_w-240);//min(max(view_xview[0], 0), max_w-240);
 view_yview[0] = y-y_o;
 
 // update offset-adjusted view vars
