@@ -83,7 +83,7 @@ scr_config_save("config.ini");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Hack to respond reliably when in fullscreen mode
+            <string>/// Hack to respond reliably when in fullscreen mode
 scr_pickmusicini();
 if global.fullscreen then window_set_fullscreen(1);
 </string>
@@ -579,6 +579,7 @@ if global.button1 &amp;&amp; !hook
             <kind>1</kind>
             <string>if !enabled exit;
 // INIT
+scr_view_vars();
 draw_set_font(global.fnt_default);
 draw_set_halign(fa_left);
 s = 125; g = 10;

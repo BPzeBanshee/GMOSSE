@@ -1,13 +1,12 @@
-///scr_camera_spd(xspeed,yspeed)
+///scr_camera_spd(xspd,yspd)
 /*
 scr_camera_spd, by BPzeBanshee
 
-This is a function to set the camera speed
-values after having initialised the camera 
-with scr_camera_init.
+This is a function to set the camera speed and delay
+values after having initialised the camera with
+scr_camera_init.
 */
-if !instance_exists(obj_ctrl_camera)
-&& !instance_exists(obj_ctrl_camera2) return -1;
-
+if !instance_exists(obj_ctrl_camera) return -1;
 spd_x = argument0;
+obj_ctrl_camera.spd_x_init = spd_x;
 spd_y = argument1;
