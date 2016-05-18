@@ -43,6 +43,7 @@ stage_time = 0;
 completedelay = 0;
 
 scr_camera_init(0,room_width-240,0,-0.5);
+//obj_ctrl_camera.wobble_spd = 640/240;
 //scr_camera_init2(room_width,0,-0.5);
 b = -1;
 s = 0;
@@ -78,7 +79,7 @@ if y &lt;= 0
     obj_ctrl_camera.y = 0;
     scr_camera_spd(0,0);
     }
-if x &gt; room_width-240
+/*if x &gt; room_width-240
     {
     obj_ctrl_camera.x = room_width-240;
     scr_camera_spd(0,-0.5);
@@ -87,12 +88,12 @@ if x &lt; 0
     {
     obj_ctrl_camera.x = 0;
     scr_camera_spd(0,-0.5);
-    }
+    }*/
     
     
 if y = room_height/2
     {
-    obj_ctrl_camera.scroll_spd = ceil(320/240);
+    //obj_ctrl_camera.scroll_spd = 320/240;
     if obj_hitbox.x &lt; room_width/2
         {
         scr_camera_bound(0,80);

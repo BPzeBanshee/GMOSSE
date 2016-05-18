@@ -72,45 +72,46 @@ view_yview[0] = y-y_o;*/
             <string>/// Main behaviour
 if instance_exists(obj_ctrl_clear) then exit;
 
+// formulas tried
+// width = right_bound+240 - left_bound, then width/240 - close but not quite
+// width = right_bound+240 - left_bound + 32, then width/240 - good for Xono but not others
+
 // determine target and wobble speed to use
-var diag;//,alive
+var width;
+width = right_bound+240 - left_bound; // final result: width/240, close but not quite
 if instance_exists(obj_player)
     { 
     var spd,d_spd;
     if global.button3
         {
-        spd = 1//global.slowshipspeed;
-        d_spd = 0.6;//global.sldiagspeed;
+        spd = (global.slowshipspeed/5)+(global.slowshipspeed/10)*(width/320);
         }
     else
         {
-        spd = 1.4;//global.shipspeed;
-        d_spd = 1;//global.diagspeed;
+        spd = (global.shipspeed/5)+(global.shipspeed/10)*(width/320);//width/240;//global.shipspeed / (global.slowshipspeed+0.5);
         }
-    // if diagonally moving use diag speed for wobble formula, else normal speed
-    /*if (global.jup &amp;&amp; global.jleft) || (global.jup &amp;&amp; global.jright)
-    || (global.jdown &amp;&amp; global.jleft) || (global.jdown &amp;&amp; global.jright)
-    then wobble_spd = d_spd;//-0.66;
-    else*/ wobble_spd = spd;//-0.66;
+    wobble_spd = spd;
     }
 else 
     {
-    //alive = 0;
-    wobble_spd = 1.4;
+    wobble_spd = 1.4*(width/320);
     }
 
 // actually doing the wobble scroll
+var dist_l,dist_r;
+dist_l = x - left_bound;
+dist_r = right_bound- x;
 if left_bound != right_bound // if scrolling not disabled
     {
     if instance_exists(obj_player)
         {
-        if global.jleft &amp;&amp; x &gt; left_bound then x -= (wobble_spd);
-        if global.jright &amp;&amp; x &lt; right_bound then x += (wobble_spd);
+        if global.jleft &amp;&amp; x &gt; left_bound then x -= min(wobble_spd,dist_l);
+        if global.jright &amp;&amp; x &lt; right_bound then x += min(wobble_spd,dist_r);
         }
     else
         {
-        if x &gt; obj_ctrl_game.x-120 then x -= (wobble_spd);
-        if x &lt; obj_ctrl_game.x-120 then x += (wobble_spd);
+        if x &gt; obj_ctrl_game.x-120 then x -= wobble_spd;
+        if x &lt; obj_ctrl_game.x-120 then x += wobble_spd;
         }
     }
 

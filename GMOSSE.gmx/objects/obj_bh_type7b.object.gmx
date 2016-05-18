@@ -32,9 +32,7 @@ hook = 0;
 
 orbit_angle = 180;
 orbit_radius = 30;
-
 orbit_speed = 6; //change of angle per step
-
 </string>
           </argument>
         </arguments>
@@ -65,12 +63,12 @@ if instance_exists(obj_player)
     if orbit_angle &gt; 360 then orbit_angle = 0;
     x = obj_player.x + orbit_radius * cos(orbit_angle * pi / 180); 
     y = obj_player.y - orbit_radius * sin(orbit_angle * pi / 180);
-    if global.button2=1 &amp;&amp; hook=0
+    if global.button2 &amp;&amp; !hook
         {
-        hook=1;
-        if program = 0 {program += 1} else program = 0;
+        hook = 1;
+        program = !program;
         }
-    if global.button2=0 then hook=0;
+    if !global.button2 then hook = 0;
     if program = 1 then image_angle = orbit_angle;
     if program = 0 then image_angle = 90;
     }
