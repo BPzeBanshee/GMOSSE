@@ -237,6 +237,7 @@ if global.button1 &amp;&amp; !hook
 // BEHAVIOUR
 category_type = "[AUDIO]";
 selection_max = 5; // amount of positions in the submenu
+max_h = 0;
 
 // LEFT
 if global.jleft &amp;&amp; !hook
@@ -449,7 +450,6 @@ if global.button1 &amp;&amp; !hook
     scr_playsnd(snd_click,0);
     if selection = 10
         {
-        max_h = 0;
         selection = 1; 
         category = 0;
         }
@@ -541,6 +541,7 @@ if global.button1 &amp;&amp; !hook
             <string>/// MAIN OPTIONS MENU
 category_type = "[CONFIG]";
 selection_max = 5;
+max_h = 0;
 
 if global.button1 &amp;&amp; !hook 
     {
