@@ -85,7 +85,7 @@ scr_config_save("config.ini");
             <kind>1</kind>
             <string>/// Hack to respond reliably when in fullscreen mode
 scr_pickmusicini();
-if global.fullscreen then window_set_fullscreen(1);
+with obj_ctrl_filter alarm[1] = 1; // return to whatever fullscreen it was before
 </string>
           </argument>
         </arguments>
@@ -278,7 +278,7 @@ if global.button1 &amp;&amp; !hook
             {
             // Hack to allow time to respond to window change
             if global.fullscreen then window_set_fullscreen(0);
-            alarm[0] = 2;
+            alarm[0]=2;
             break;
             }
         case 5:

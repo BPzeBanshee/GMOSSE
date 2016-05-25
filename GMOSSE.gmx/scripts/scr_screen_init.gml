@@ -13,7 +13,26 @@ or instead manually define:
 - global.filter
 - global.tate
 - global.win_size
+- global.vertex_buffer_method
+- global.alternate_sync
 */
+
+// Set vertex buffer method 
+//(0,1,2 matches vbm constants for now but use this as safety measure)
+// 2 works better on shit Intel cards, 0 is what nvidia recommends for performance
+var v;
+switch global.vertex_buffer_method
+    {
+    case 0: v = vbm_fast; break;
+    case 1: v = vbm_compatible; break;
+    default: v = vbm_most_compatible; break;
+    }
+if display_get_windows_vertex_buffer_method() != v 
+then display_set_windows_vertex_buffer_method(v);
+
+// Set alternate sync (windows only thing, if normal vsync is wonky use this)
+if display_get_windows_alternate_sync() != global.alternate_sync 
+then display_set_windows_alternate_sync(global.alternate_sync);
 
 // TATE offset/variable init
 scr_tate_init();
