@@ -15,9 +15,9 @@ positions or force the view_xview and view_yview
 to an object position for scrolling shooters.
 */
 
-// Error checking
-if (argument0 = 1 || argument0 = 3) && window_get_width()=240 then exit;
-if (argument0 = 0 || argument0 = 2) && window_get_height()=240 then exit;
+// Error checking (no longer works correctly, why?)
+//if (argument0 = 1 || argument0 = 3) && window_get_width()=240 then exit;
+//if (argument0 = 0 || argument0 = 2) && window_get_height()=240 then exit;
 
 // Offset variables and setting view angle based on argument 
 switch argument0

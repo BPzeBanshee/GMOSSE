@@ -29,6 +29,8 @@ ini_write_real("Video","scanlines",global.scanlines);
 ini_write_real("Video","vsync",global.vsync);
 ini_write_real("Video","antialiasing",global.aa);
 ini_write_real("Video","flicker",global.flicker);
+ini_write_real("Video","vertex_buffer_method",global.vertex_buffer_method);
+ini_write_real("Video","alternate_sync",global.alternate_sync);
 
 // [SOUND]
 ini_write_real("Sound","music_volume",global.music_volume);

@@ -31,7 +31,8 @@ completedelay = 0;
 bkg_timer = -1;
 count = 0;
 
-scr_camera_init(320,0,0);
+//scr_camera_init(320,0,0);
+scr_camera_init(0,80,0,0);
 </string>
           </argument>
         </arguments>

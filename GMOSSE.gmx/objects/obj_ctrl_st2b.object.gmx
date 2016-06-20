@@ -36,7 +36,8 @@ background_vspeed[0] = -0.99;
 background_vspeed[1] = -0.99;
 background_y[1] = room_height - 320;
 
-scr_camera_init(320,0,-1);
+//scr_camera_init(320,0,-1);
+scr_camera_init(0,80,0,-1);
 </string>
           </argument>
         </arguments>

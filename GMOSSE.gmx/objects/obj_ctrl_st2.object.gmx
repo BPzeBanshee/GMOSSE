@@ -33,7 +33,8 @@ global.omake_enabled = 0;
 // \/\/ BACKGROUND INITIALISATION/LOADING \/\/
 background_vspeed[0] = -0.495;
 background_vspeed[1] = -0.495;
-scr_camera_init(320,0,-0.5);
+//scr_camera_init(320,0,-0.5);
+scr_camera_init(0,80,0,-0.5);
 
 // \/\/ MISC. GLOBAL/TIMELINE VARIABLES \/\/
 global.level = 2;

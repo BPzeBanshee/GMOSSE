@@ -83,9 +83,9 @@ scr_config_save("config.ini");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Hack to respond reliably when in fullscreen mode
+            <string>/// Hack to respond reliably when in fullscreen mode
 scr_pickmusicini();
-if global.fullscreen then window_set_fullscreen(1);
+with obj_ctrl_filter alarm[1] = 1; // return to whatever fullscreen it was before
 </string>
           </argument>
         </arguments>
@@ -237,6 +237,7 @@ if global.button1 &amp;&amp; !hook
 // BEHAVIOUR
 category_type = "[AUDIO]";
 selection_max = 5; // amount of positions in the submenu
+max_h = 0;
 
 // LEFT
 if global.jleft &amp;&amp; !hook
@@ -277,7 +278,7 @@ if global.button1 &amp;&amp; !hook
             {
             // Hack to allow time to respond to window change
             if global.fullscreen then window_set_fullscreen(0);
-            alarm[0] = 2;
+            alarm[0]=2;
             break;
             }
         case 5:
@@ -449,7 +450,6 @@ if global.button1 &amp;&amp; !hook
     scr_playsnd(snd_click,0);
     if selection = 10
         {
-        max_h = 0;
         selection = 1; 
         category = 0;
         }
@@ -541,6 +541,7 @@ if global.button1 &amp;&amp; !hook
             <string>/// MAIN OPTIONS MENU
 category_type = "[CONFIG]";
 selection_max = 5;
+max_h = 0;
 
 if global.button1 &amp;&amp; !hook 
     {
@@ -579,6 +580,7 @@ if global.button1 &amp;&amp; !hook
             <kind>1</kind>
             <string>if !enabled exit;
 // INIT
+scr_view_vars();
 draw_set_font(global.fnt_default);
 draw_set_halign(fa_left);
 s = 125; g = 10;

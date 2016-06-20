@@ -209,7 +209,8 @@ global.score_stored = score;
           <argument>
             <kind>1</kind>
             <string>scr_hud_p1();
-x = xview+120;
+x = obj_ctrl_stage.x+160;
+//x = xview+120;
 y = yview+240;
 </string>
           </argument>

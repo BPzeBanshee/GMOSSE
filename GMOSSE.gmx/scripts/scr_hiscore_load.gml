@@ -17,6 +17,7 @@ if !file_exists(a) // If the file isn't there
     // Sets default values for each position in the highscore and name arrays
     scr_hiscore_reset();
     scr_hiscore_save(argument0);
+    exit;
     }
 else // if the file is there, as expected
     { 

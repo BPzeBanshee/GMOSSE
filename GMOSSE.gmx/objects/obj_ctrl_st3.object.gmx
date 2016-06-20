@@ -36,7 +36,8 @@ trans_alpha = 0;
 start = 3500;
 finish = start+1400;
 
-scr_camera_init(320,0,0);
+//scr_camera_init(320,0,0);
+scr_camera_init(0,80,0,0);
 
 global.behaviour = 4; // determines behaviour of stars (if used)
 </string>

@@ -42,7 +42,9 @@ global.omake_enabled = 0;
 stage_time = 0;
 completedelay = 0;
 
-scr_camera_init2(room_width,0,-0.5);
+scr_camera_init(0,room_width-240,0,-0.5);
+//obj_ctrl_camera.wobble_spd = 640/240;
+//scr_camera_init2(room_width,0,-0.5);
 b = -1;
 s = 0;
 </string>
@@ -68,39 +70,37 @@ s = 0;
           <argument>
             <kind>1</kind>
             <string>// Updating position
-x = obj_ctrl_camera2.x;
-y = obj_ctrl_camera2.y;
+x = obj_ctrl_camera.x;
+y = obj_ctrl_camera.y;
 
 // Boundary checking
 if y &lt;= 0
     {
-    obj_ctrl_camera2.y = 0;
+    obj_ctrl_camera.y = 0;
     scr_camera_spd(0,0);
     }
-if x &gt; room_width-240
+/*if x &gt; room_width-240
     {
-    obj_ctrl_camera2.x = room_width-240;
+    obj_ctrl_camera.x = room_width-240;
     scr_camera_spd(0,-0.5);
     }
 if x &lt; 0
     {
-    obj_ctrl_camera2.x = 0;
+    obj_ctrl_camera.x = 0;
     scr_camera_spd(0,-0.5);
-    }
+    }*/
     
     
 if y = room_height/2
     {
-    obj_ctrl_camera2.scroll_spd = global.shipspeed/2;
+    //obj_ctrl_camera.scroll_spd = 320/240;
     if obj_hitbox.x &lt; room_width/2
         {
-        obj_ctrl_camera2.left_bound = 0;
-        obj_ctrl_camera2.right_bound = 80;
+        scr_camera_bound(0,80);
         }
     else
         {
-        obj_ctrl_camera2.left_bound = room_width-320;
-        obj_ctrl_camera2.right_bound = room_width-240;
+        scr_camera_bound(room_width-320,room_width-240);
         }
     }
     

@@ -34,30 +34,6 @@ scr_detect_joys();
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if window_get_fullscreen() != global.fullscreen 
-then window_set_fullscreen(global.fullscreen);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -136,7 +112,7 @@ then instance_create(0,0,obj_ctrl_pause);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*var d,m,ye,h,mi,s,st;
+            <string>var d,m,ye,h,mi,s,st;
 d = date_get_day(date_current_datetime());
 m = date_get_month(date_current_datetime());
 ye = date_get_year(date_current_datetime());
@@ -147,8 +123,9 @@ s = date_get_second(date_current_datetime());
 st = program_directory+"\"+
 string(d)+"-"+string(m)+"-"+string(ye)+"_"
 +string(h)+"-"+string(mi)+"-"+string(s)+".bmp";
+screen_save(st);
 //show_message(st);
-FS_screen_save(st);*/
+//FS_screen_save(st);
 </string>
           </argument>
         </arguments>
