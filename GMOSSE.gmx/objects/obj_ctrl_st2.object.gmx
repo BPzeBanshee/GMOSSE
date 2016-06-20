@@ -135,7 +135,7 @@ switch stage_time
         }
     case 6000:
         {
-        scr_fademusic(global.music_volume,0.005);
+        scr_fademusic(0.005);
         break;
         }
     case 6200:

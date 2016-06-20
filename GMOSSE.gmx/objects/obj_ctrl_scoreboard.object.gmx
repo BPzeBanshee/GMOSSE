@@ -53,7 +53,7 @@ if (global.button1 &amp;&amp; ready &amp;&amp; !instance_exists(obj_trans))
     {
     ready = 0;
     scr_trans(rm_menu,2,c_white,0.025,0.05,0);
-    if obj_ctrl_music.gameover = 1 then scr_fademusic(global.music_volume,0.05);
+    if obj_ctrl_music.gameover = 1 then scr_fademusic(0.05);
     }
 </string>
           </argument>

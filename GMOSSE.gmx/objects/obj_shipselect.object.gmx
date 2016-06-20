@@ -115,7 +115,7 @@ if global.button1 &amp;&amp; !hook
     else 
         {
         scr_trans(global.startstage,3,c_black,0.025,0.05,210);
-        scr_fademusic(global.music_volume,0.0055);
+        scr_fademusic(0.0055);
         }
     }
 

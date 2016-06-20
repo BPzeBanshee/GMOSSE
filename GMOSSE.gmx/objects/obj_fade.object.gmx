@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fade = global.music_volume;
+            <string>fade = round(global.music_volume)/100;
+vol = fade;
 </string>
           </argument>
         </arguments>
@@ -76,7 +77,7 @@
 || fade &lt;= 0
 then instance_destroy();
 
-fade -= (global.music_volume * fade_amount); 
+fade -= (vol * fade_amount); 
 AStreamSetVolume(music,max(0,fade));
 </string>
           </argument>

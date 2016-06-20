@@ -84,10 +84,12 @@ if instance_exists(obj_player)
     var spd,d_spd;
     if global.button3
         {
+        // xono: (0.6 + 0.3) * 1
         spd = (global.slowshipspeed/5)+(global.slowshipspeed/10)*(width/320);
         }
     else
         {
+        // xono: (1 + 0.5) * 1
         spd = (global.shipspeed/5)+(global.shipspeed/10)*(width/320);//width/240;//global.shipspeed / (global.slowshipspeed+0.5);
         }
     wobble_spd = spd;

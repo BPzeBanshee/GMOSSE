@@ -53,12 +53,7 @@ if e = -1
     show_message("Error loading GMALP.DLL");
     instance_destroy();
     }
-    
-global.music_volume = 1;
-global.sfx_volume = 1;
-global.voice_volume = 1;
 
-//fade = global.music_volume;
 timer = 360;
 alpha = 0;
 info = -1; // init variable for music loading scripts
@@ -515,8 +510,6 @@ scr_setvolsnd();
           <argument>
             <kind>1</kind>
             <string>if global.update exit;
-
-scr_setvolmusic();
 timer = 0;
 alpha = 0;
 
@@ -564,6 +557,7 @@ if room = rm_test1 || room = rm_test2
     timer = 360;
     }
     
+scr_setvolmusic();
 // Attempt at error handling
 /*errnumber = FMODGetLastError();
 if(errnumber != 0) show_message(FMODErrorStr(FMODGetLastError()));*/

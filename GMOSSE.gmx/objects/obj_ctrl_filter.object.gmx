@@ -30,6 +30,9 @@ For now this does nothing.
 Eventually it'll be used for various effects
 including scanlines etc.
 */
+globalvar filter_img,filter_alpha;
+filter_image = -1;
+filter_alpha = 1;
 </string>
           </argument>
         </arguments>
@@ -78,6 +81,8 @@ texture_set_interpolation(global.filter);
             <kind>1</kind>
             <string>texture_set_interpolation(global.filter);
 scr_scanline(global.scanlines);
+//filter_image = spr_static;
+//filter_alpha = 0.25;
 </string>
           </argument>
         </arguments>
@@ -100,8 +105,8 @@ scr_scanline(global.scanlines);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.scanlines &gt; 0 then 
-draw_background_tiled_ext(background_index[7],0,0,1,1,c_white,background_alpha[7]);
+            <string>if sprite_exists(filter_image)
+then draw_sprite_tiled_ext(filter_image,image_index,0,0,1,1,c_white,filter_alpha);
 </string>
           </argument>
         </arguments>
