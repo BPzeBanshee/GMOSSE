@@ -249,7 +249,7 @@ if global.jleft &amp;&amp; !hook
         case 2: if global.sfx_volume &gt; 0 then global.sfx_volume -= 10; break;
         case 3: if global.voice_volume &gt; 0 then global.voice_volume -= 10; break;
         }
-    with obj_ctrl_music scr_setvolmusic();
+    with obj_ctrl_music scr_setvolmusic(music);
     scr_setvolsnd();    
     }
     
@@ -263,7 +263,7 @@ if global.jright &amp;&amp; !hook
         case 2: if global.sfx_volume &lt; 100 then global.sfx_volume += 10; break;
         case 3: if global.voice_volume &lt; 100 then global.voice_volume += 10; break;
         }
-    with obj_ctrl_music scr_setvolmusic();
+    with obj_ctrl_music scr_setvolmusic(music);
     scr_setvolsnd();
     }
     

@@ -129,9 +129,9 @@ if timer = 550
             }
         case 2: // Stage 2
             {
-            //scr_trans(rm_stage3,3,c_black,0.025,0.05,210);
-            global.gamecomplete = 1;
-            instance_create(x,y,obj_ctrl_gameover);
+            scr_trans(rm_stage3,3,c_black,0.025,0.05,210);
+            //global.gamecomplete = 1;
+            //instance_create(x,y,obj_ctrl_gameover);
             break;
             }
         default: // Test rooms, etc
