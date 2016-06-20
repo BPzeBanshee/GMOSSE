@@ -53,12 +53,7 @@ if e = -1
     show_message("Error loading GMALP.DLL");
     instance_destroy();
     }
-    
-global.music_volume = 1;
-global.sfx_volume = 1;
-global.voice_volume = 1;
 
-//fade = global.music_volume;
 timer = 360;
 alpha = 0;
 info = -1; // init variable for music loading scripts
@@ -89,10 +84,6 @@ scr_setvolsnd();
           <argument>
             <kind>1</kind>
             <string>AUpdate(); // Compulsory part of GMALP
-    
-// Attempt at FMOD error display    
-//errnumber = FMODGetLastError();
-//if(errnumber != 0) show_message(FMODErrorStr(FMODGetLastError()));
 </string>
           </argument>
         </arguments>
@@ -118,11 +109,11 @@ scr_setvolsnd();
             <string>/// OMAKE BOSS THEME 3
 timer = 0;
 alpha = 0;
-scr_setvolmusic();
 scr_stopmusic(music);
 
 info = scr_loadmusicinfo(global.music_ini,"Omake3");
 music = scr_playmusic(global.snd_omake3,1);
+scr_setvolmusic(music);
 </string>
           </argument>
         </arguments>
@@ -148,12 +139,12 @@ music = scr_playmusic(global.snd_omake3,1);
             <string>/// OMAKE BOSS THEME 2
 timer = 0;
 alpha = 0;
-scr_setvolmusic();
 scr_stopmusic(music);
 
 // Fun fact: this one actually came first, I just named it omake2 to fit with stage order
 info = scr_loadmusicinfo(global.music_ini,"Omake2");
 music = scr_playmusic(global.snd_omake2,1);
+scr_setvolmusic(music);
 </string>
           </argument>
         </arguments>
@@ -179,11 +170,11 @@ music = scr_playmusic(global.snd_omake2,1);
             <string>/// OMAKE BOSS THEME 1
 timer = 0;
 alpha = 0;
-scr_setvolmusic();
 scr_stopmusic(music);
 
 info = scr_loadmusicinfo(global.music_ini,"Omake1");
 music = scr_playmusic(global.snd_omake1,1);
+scr_setvolmusic(music);
 </string>
           </argument>
         </arguments>
@@ -209,11 +200,11 @@ music = scr_playmusic(global.snd_omake1,1);
             <string>/// GAME OVER MUSIC
 timer = 0;
 alpha = 0;
-scr_setvolmusic();
-
 scr_stopmusic(music);
+
 info = scr_loadmusicinfo(global.music_ini,"GameOver");
 music = scr_playmusic(global.snd_gameover,0);
+scr_setvolmusic(music);
 gameover = 1;
 </string>
           </argument>
@@ -242,17 +233,15 @@ gameover = 1;
 if instance_exists(obj_ctrl_continue)
     {
     scr_stopmusic(music2);
-    //FMODGroupSetVolume(1,volume_old);
     exit;
     }
 else
     {
-    //volume_old = FMODGroupGetVolume(1);
     timer = 0;
     alpha = 0;
-    scr_setvolmusic();
     info = scr_loadmusicinfo(global.music_ini,"Continue");
     music2 = scr_playmusic(global.snd_continue,0);
+    scr_setvolmusic(music);
     }
 </string>
           </argument>
@@ -279,11 +268,11 @@ else
             <string>/// STAGE CLEAR MUSIC
 timer = 0;
 alpha = 0;
-scr_setvolmusic();
 
 scr_stopmusic(music);
 info = scr_loadmusicinfo(global.music_ini,"StageComplete");
 music = scr_playmusic(global.snd_stageclear,0);
+scr_setvolmusic(music);
 </string>
           </argument>
         </arguments>
@@ -311,11 +300,11 @@ if instance_exists(obj_ctrl_gameover) then exit;
 
 timer = 0;
 alpha = 0;
-scr_setvolmusic();
 
 scr_stopmusic(music);
 info = scr_loadmusicinfo(global.music_ini,"Stage3_B");
 music = scr_playmusic(global.snd_st3b,1);
+scr_setvolmusic(music);
 </string>
           </argument>
         </arguments>
@@ -343,11 +332,11 @@ if instance_exists(obj_ctrl_gameover) then exit;
 
 timer = 0;
 alpha = 0;
-scr_setvolmusic();
 
 scr_stopmusic(music);
 info = scr_loadmusicinfo(global.music_ini,"Boss1");
 music = scr_playmusic(global.snd_boss,1);
+scr_setvolmusic(music);
 </string>
           </argument>
         </arguments>
@@ -511,8 +500,6 @@ scr_setvolsnd();
           <argument>
             <kind>1</kind>
             <string>if global.update exit;
-
-scr_setvolmusic();
 timer = 0;
 alpha = 0;
 
@@ -522,34 +509,22 @@ if room = rm_menu
     timer = 360;
     if mainmenu = 0
         {
-        music = scr_playmusic(global.snd_intro,0);//FMODSoundPlay(global.snd_intro);
+        music = scr_playmusic(global.snd_intro,0);
         mainmenu = 1;
         }
     }
 
 // SHIP SELECT MENU
-if room = rm_shipselect
-    {
-    music = scr_playmusic(global.snd_shipselect,1);//FMODSoundLoop(global.snd_shipselect);
-    }
+if room = rm_shipselect then music = scr_playmusic(global.snd_shipselect,1);
 
 // STAGE 1
-if room = rm_stage1 || room = rm_boss1
-    {
-    music = scr_playmusic(global.snd_st1,1);//FMODSoundLoop(global.snd_st1);
-    }
+if room = rm_stage1 || room = rm_boss1 then music = scr_playmusic(global.snd_st1,1);
     
 // STAGE 2
-if room = rm_stage2 || room = rm_boss2
-    {
-    music = scr_playmusic(global.snd_st2,1);
-    }
+if room = rm_stage2 || room = rm_boss2 then music = scr_playmusic(global.snd_st2,1);
     
 // STAGE 3
-if room = rm_stage3
-    {
-    music = scr_playmusic(global.snd_st3,1);
-    }    
+if room = rm_stage3 then music = scr_playmusic(global.snd_st3,1);
     
 // TEST ROOM STAGES
 if room = rm_test1 || room = rm_test2 
@@ -560,9 +535,7 @@ if room = rm_test1 || room = rm_test2
     timer = 360;
     }
     
-// Attempt at error handling
-/*errnumber = FMODGetLastError();
-if(errnumber != 0) show_message(FMODErrorStr(FMODGetLastError()));*/
+scr_setvolmusic(music);
 </string>
           </argument>
         </arguments>

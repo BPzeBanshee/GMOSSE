@@ -303,6 +303,11 @@
         <sprite>sprites\spr_planet3</sprite>
         <sprite>sprites\spr_crater4</sprite>
       </sprites>
+      <sprites name="Filters">
+        <sprite>sprites\spr_scanline_hori</sprite>
+        <sprite>sprites\spr_scanline_vert</sprite>
+        <sprite>sprites\spr_static</sprite>
+      </sprites>
       <sprite>sprites\spr_warning</sprite>
       <sprite>sprites\spr_danger</sprite>
       <sprite>sprites\spr_warning_bkg2</sprite>
@@ -310,8 +315,6 @@
     </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\bkg_scanline1</background>
-    <background>background\bkg_scanline2</background>
     <background>background\bkg_space</background>
     <background>background\bkg_planet2</background>
     <background>background\bkg_stage2</background>
@@ -326,7 +329,6 @@
     <path>paths\pth_st2a</path>
     <path>paths\pth_st2b</path>
     <path>paths\pth_st3_boss</path>
-    <path>paths\pth_st3_boss2</path>
   </paths>
   <scripts name="scripts">
     <scripts name="CORE">

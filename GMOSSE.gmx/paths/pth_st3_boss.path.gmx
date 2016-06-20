@@ -6,8 +6,7 @@
   <hsnap>16</hsnap>
   <vsnap>16</vsnap>
   <points>
-    <point>0,0,100</point>
-    <point>-64,480,100</point>
-    <point>-128,960,100</point>
+    <point>0,-240,100</point>
+    <point>-64,560,100</point>
   </points>
 </path>

@@ -12,7 +12,7 @@ index twice you'll trigger an Invalid Handle
 error, so best to avoid doing that here by
 setting your variable to 0 after calling this.
 */
-if argument0 > 0
+if argument0 > -1
     {
     if AStreamIsPlaying(argument0) then AStreamStop(argument0);
     }

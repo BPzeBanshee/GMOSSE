@@ -55,9 +55,9 @@ global.alternate_sync = ini_read_real("Video","alternate_sync",0); // alternate 
   
 /* SOUND */
 // Volume levels
-global.music_volume = ini_read_real("Sound","music_volume",1);
-global.sfx_volume = ini_read_real("Sound","sfx_volume",1);
-global.voice_volume = ini_read_real("Sound","voice_volume",1);
+global.music_volume = ini_read_real("Sound","music_volume",100);
+global.sfx_volume = ini_read_real("Sound","sfx_volume",100);
+global.voice_volume = ini_read_real("Sound","voice_volume",100);
     
 // Music INI location
 global.music_ini = ini_read_string("Sound","musicmodfile","music.ini");

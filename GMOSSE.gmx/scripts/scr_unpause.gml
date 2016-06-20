@@ -12,5 +12,5 @@ for (i=0; i<=7; i+=1)
     background_alpha[i] = bkg_alpha[i];
     }
 
-sprite_delete(p);
+if sprite_exists(pause_img) then sprite_delete(pause_img);
 instance_activate_all();

@@ -64,7 +64,7 @@ scr_create_healthbar();
           <argument>
             <kind>1</kind>
             <string>if !instance_exists(obj_fade)
-then scr_fademusic(global.music_volume,0.005);
+then scr_fademusic(0.005);
 </string>
           </argument>
         </arguments>

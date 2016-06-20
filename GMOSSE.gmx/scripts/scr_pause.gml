@@ -6,7 +6,7 @@ and provides a stillscreen image to draw to
 fake the impression of everything having frozen.
 */
 
-p = 0;
+pause_img = 0;
 tate_first = global.tate;
 
 // Freeze background positions/save speeds
@@ -32,8 +32,7 @@ if surface_exists(application_surface) then draw_surface_stretched(application_s
 draw_set_blend_mode(bm_normal);
 surface_reset_target();
 
-//p = sprite_create_from_surface(surf,0,0,view_wport,view_hport,false,false,0,0);
-p = sprite_create_from_surface(surf,0,0,win_w,win_h,false,false,0,0);
+pause_img = sprite_create_from_surface(surf,0,0,win_w,win_h,false,false,0,0);
 surface_free(surf);
 
 // Deactivate everything else/reactivate core stuff

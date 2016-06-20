@@ -275,7 +275,7 @@ thr2.image_yscale = 0.75;*/
           <argument>
             <kind>1</kind>
             <string>if !instance_exists(obj_fade)
-then scr_fademusic(global.music_volume,0.005);
+then scr_fademusic(0.005);
 if instance_exists(arm_left) with arm_left instance_destroy();
 if instance_exists(arm_right) with arm_right instance_destroy();
 instance_destroy();

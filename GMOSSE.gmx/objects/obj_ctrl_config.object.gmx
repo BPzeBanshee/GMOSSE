@@ -191,7 +191,7 @@ if global.jright &amp;&amp; !hook
 if global.button1 &amp;&amp; !hook 
     {
     hook = 1;
-    scr_playsnd(snd_click,0);
+    scr_playsnd(snd_click,1);
     switch selection
         {
         case 4:
@@ -245,11 +245,11 @@ if global.jleft &amp;&amp; !hook
     hook = 1;
     switch selection
         {
-        case 1: if global.music_volume &gt; 0 then global.music_volume -= 0.1; break;
-        case 2: if global.sfx_volume &gt; 0 then global.sfx_volume -= 0.1; break;
-        case 3: if global.voice_volume &gt; 0 then global.voice_volume -= 0.1; break;
+        case 1: if global.music_volume &gt; 0 then global.music_volume -= 10; break;
+        case 2: if global.sfx_volume &gt; 0 then global.sfx_volume -= 10; break;
+        case 3: if global.voice_volume &gt; 0 then global.voice_volume -= 10; break;
         }
-    with obj_ctrl_music scr_setvolmusic();
+    with obj_ctrl_music scr_setvolmusic(music);
     scr_setvolsnd();    
     }
     
@@ -259,11 +259,11 @@ if global.jright &amp;&amp; !hook
     hook = 1;
     switch selection
         {
-        case 1: if global.music_volume &lt; 1 then global.music_volume += 0.1; break;
-        case 2: if global.sfx_volume &lt; 1 then global.sfx_volume += 0.1; break;
-        case 3: if global.voice_volume &lt; 1 then global.voice_volume += 0.1; break;
+        case 1: if global.music_volume &lt; 100 then global.music_volume += 10; break;
+        case 2: if global.sfx_volume &lt; 100 then global.sfx_volume += 10; break;
+        case 3: if global.voice_volume &lt; 100 then global.voice_volume += 10; break;
         }
-    with obj_ctrl_music scr_setvolmusic();
+    with obj_ctrl_music scr_setvolmusic(music);
     scr_setvolsnd();
     }
     
@@ -271,7 +271,7 @@ if global.jright &amp;&amp; !hook
 if global.button1 &amp;&amp; !hook 
     {
     hook = 1;
-    scr_playsnd(snd_click,0);
+    scr_playsnd(snd_click,1);
     switch selection
         {
         case 4:
@@ -447,7 +447,7 @@ if global.jright &amp;&amp; !hook
 if global.button1 &amp;&amp; !hook 
     {
     hook = 1;
-    scr_playsnd(snd_click,0);
+    scr_playsnd(snd_click,1);
     if selection = 10
         {
         selection = 1; 
@@ -690,16 +690,16 @@ if category = 2
 if category = 3
     {
     // BEHAVIOURS
-    vol_music = string(round(global.music_volume*100))+"%";
-    if global.music_volume = 1 then vol_music = "MAX";
+    vol_music = string(round(global.music_volume))+"%";
+    if global.music_volume = 100 then vol_music = "MAX";
     if global.music_volume = 0 then vol_music = "OFF";
 
-    vol_sfx = string(round(global.sfx_volume*100))+"%";
-    if global.sfx_volume = 1 then vol_sfx = "MAX";
+    vol_sfx = string(round(global.sfx_volume))+"%";
+    if global.sfx_volume = 100 then vol_sfx = "MAX";
     if global.sfx_volume = 0 then vol_sfx = "OFF";
     
-    vol_voice = string(round(global.voice_volume*100))+"%";
-    if global.voice_volume = 1 then vol_voice = "MAX";
+    vol_voice = string(round(global.voice_volume))+"%";
+    if global.voice_volume = 100 then vol_voice = "MAX";
     if global.voice_volume = 0 then vol_voice = "OFF";
     
     // TEXT
