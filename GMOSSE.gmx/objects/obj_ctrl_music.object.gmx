@@ -372,11 +372,7 @@ if room != rm_scores &amp;&amp; global.nextroom != rm_scores
     {
     scr_stopallmusic();
     music = 0;
-    }
-    
-// Attempt at error handling 
-//errnumber = FMODGetLastError();
-//if(errnumber != 0) show_message(FMODErrorStr(FMODGetLastError()));    
+    } 
 
 // Stage-specific music to free
 if room = rm_stage1
@@ -417,8 +413,8 @@ if global.nextroom = rm_menu
         global.snd_intro = scr_loadmusic("Intro");
         info = scr_loadmusicinfo(global.music_ini,"Intro");
         }
-    }
-
+    }    
+    
 if global.nextroom = rm_shipselect
     {
     // Freeing intro if loaded

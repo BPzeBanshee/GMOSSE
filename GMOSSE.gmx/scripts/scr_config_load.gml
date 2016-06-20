@@ -50,7 +50,9 @@ global.vsync = ini_read_real("Video","vsync",false); // vertical sync
 global.aa = ini_read_real("Video","antialiasing",0); // Surfaces
 global.hitbox_visible = ini_read_real("Video","hitboxvisible",true); // hitbox visibility
 global.flicker = ini_read_real("Video","flicker",false); // explosion flicker
-
+global.vertex_buffer_method = ini_read_real("Video","vertex_buffer_method",2); // vertex buffer method
+global.alternate_sync = ini_read_real("Video","alternate_sync",0); // alternate sync method (windows only)
+  
 /* SOUND */
 // Volume levels
 global.music_volume = ini_read_real("Sound","music_volume",100);

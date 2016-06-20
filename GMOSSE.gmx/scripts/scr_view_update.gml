@@ -41,7 +41,7 @@ else
 view_wview[0] = win_w; view_hview[0] = win_h;
 view_xport[0] = xport; view_yport[0] = yport;
 view_wport[0] = w; view_hport[0] = h;
-
+show_debug_message(string(w)+","+string(h));
 // and finally update view vars for every other room
 i=room_first;
 while i != -1
