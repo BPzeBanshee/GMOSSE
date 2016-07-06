@@ -26,9 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>timer = 0;
-image_xscale = 1.5;
-image_yscale = 1.5;
-
 </string>
           </argument>
         </arguments>
@@ -90,7 +87,7 @@ if instance_exists((parent))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_basicshot(x,y,obj_bullet1,5,direction); 
+            <string>scr_basicshot(x,y,obj_bullet1,4,direction); //5
 </string>
           </argument>
         </arguments>
@@ -113,7 +110,7 @@ if instance_exists((parent))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_basicshot(x,y,obj_bullet3,7,direction); 
+            <string>scr_basicshot(x,y,obj_bullet3,5,direction); //7
 </string>
           </argument>
         </arguments>

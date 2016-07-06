@@ -73,7 +73,7 @@ switch stage_time
     {
     case 60:
         {
-        e=instance_create(160,-32,obj_en7);
+        e=instance_create(160,-32,obj_en72);
         e.direction = 270;
         //instance_create(160,0,obj_3Den4s);
         //stage_time = 0;
@@ -86,11 +86,11 @@ switch stage_time
         //instance_create(x,y,obj_warning);
         break;
         }
-    case 240:
+    case 300:
         {
         //a = instance_create(xview,yview+120,obj_en5);
         //with a path_start(pth_test,5,0,0);
-        instance_create(160,yview-64,obj_boss3_omake);
+        //instance_create(160,yview-64,obj_boss3_omake);
         //instance_create(120,-240,obj_boss3);
         break;
         }

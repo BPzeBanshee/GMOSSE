@@ -67,7 +67,7 @@ image_angle -= 5;
 // scr_spreadshot. The exact variables for usage can be seen
 // in the script itself.
 timer += 1;
-if timer &gt; 60 
+if timer &gt; 60 &amp;&amp; y &lt; yview+200
     {
     hspeed = 0;
     vspeed = 0.5;

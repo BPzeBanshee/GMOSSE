@@ -72,6 +72,36 @@ event_user(0);
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_user(0);
+event_inherited();
+// Update turret positions
+if made then for(i=0;i&lt;=3;i+=1)
+    {
+    tur[i].x = p[i,0];
+    tur[i].y = p[i,1];
+    } 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -97,12 +127,20 @@ thr.image_xscale = 2;
 thr.image_yscale = 2;
 thr.image_angle = irandom(360);
 
+// debug test code
+//if y &gt; yview+(sprite_height/2) then speed=0;
+if keyboard_check(ord("J")) {speed = 0.5; direction=180;}
+if keyboard_check(ord("L")) {speed = 0.5; direction=0;}
+if keyboard_check(ord("K")) {speed = 0.5; direction=270;}
+if keyboard_check(ord("I")) {speed = 0.5; direction=90;}
+if keyboard_check(vk_space) speed=0;
+
 // Pod control
 if y &gt;= yview-(sprite_width/2) &amp;&amp; !made
     {
     for (i=0;i&lt;=3;i+=1)
         {
-        tur[i] = instance_create(p[i,0],p[i,1],obj_en7_tur);
+        tur[i] = instance_create(p[i,0],p[i,1],obj_en72_tur);
         tur[i].parent = (self).id;
         }
     made = 1;
@@ -121,31 +159,31 @@ switch phase
     case 0: 
         {
         if y &gt; yview-(sprite_width/2) speed -= 0.1;
-        if speed = 0.3 then phase = 1;
+        if speed &lt;= 0.3 then phase = 1;
         break;
         }
     case 1: 
         {
-        if y &gt; yview+150 then phase = 3;
+        if y &gt; yview+240 then phase = 3;
         
         atk_timer += 1;
         if atk_timer &gt;= 30 &amp;&amp; made = 1
             {
-            for (i=0;i&lt;=3;i+=1) {with tur[i] event_user(1)};
-            scr_playsnd(snd_en_shot4,1);
+            //for (i=0;i&lt;=3;i+=1) {with tur[i] event_user(1)};
+            //scr_playsnd(snd_en_shot4,1);
             atk_timer = 0;
             }
         break;
         }
     case 2: 
         {
-        if y &gt; yview+150 then phase = 3;
+        if y &gt; yview+240 then phase = 3;
         
         atk_timer += 1;
         if atk_timer &gt;= 4 &amp;&amp; made = 1
             {
-            for (i=0;i&lt;=3;i+=1) {with tur[i] event_user(2)};
-            scr_playsnd(snd_en_shot1,1);
+            //for (i=0;i&lt;=3;i+=1) {with tur[i] event_user(2)};
+            //scr_playsnd(snd_en_shot1,1);
             atk_timer = 0;
             }
         break;
@@ -156,9 +194,6 @@ switch phase
         break;
         }
     }
-    
-// Update turret positions
-event_user(0);
     
 // Death handling
 if (x &lt; -sprite_width) || (x &gt; 320 + sprite_width) 
@@ -230,8 +265,7 @@ if image_alpha = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Turret position updating
-p[0,0] = x + lengthdir_x(17,direction-180) + lengthdir_x(7,direction-90);
+            <string>p[0,0] = x + lengthdir_x(17,direction-180) + lengthdir_x(7,direction-90);
 p[0,1] = y + lengthdir_y(17,direction-180) + lengthdir_y(7,direction-90);
 
 p[1,0] = x + lengthdir_x(17,direction-180) + lengthdir_x(7,direction+90);
@@ -242,12 +276,6 @@ p[2,1] = y + lengthdir_y(7,direction) + lengthdir_y(7,direction-90);
 
 p[3,0] = x + lengthdir_x(7,direction) + lengthdir_x(7,direction+90);
 p[3,1] = y + lengthdir_y(7,direction) + lengthdir_y(7,direction+90);
-
-if made then for(i=0;i&lt;=3;i+=1)
-    {
-    tur[i].x = p[i,0];
-    tur[i].y = p[i,1];
-    } 
 </string>
           </argument>
         </arguments>

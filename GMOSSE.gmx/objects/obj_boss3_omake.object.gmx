@@ -35,7 +35,7 @@ timeout = 9999;
 phase = 0;
 made = 0;
 timer = 0;
-bool = 0 d = 0;
+bool = 0; d = 0;
 arm_left=0; arm_right=0;
 
 image_angle = 270;

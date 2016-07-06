@@ -127,15 +127,20 @@
       <sprites name="Stage 2">
         <sprite>sprites\spr_en5</sprite>
         <sprite>sprites\spr_en7</sprite>
+        <sprite>sprites\sprite159</sprite>
         <sprite>sprites\spr_en7_tur</sprite>
+        <sprite>sprites\sprite160</sprite>
         <sprite>sprites\spr_en8</sprite>
         <sprite>sprites\spr_en8_orb</sprite>
         <sprite>sprites\spr_en9_tur</sprite>
         <sprites name="Enemy 6">
           <sprite>sprites\spr_en6_full</sprite>
           <sprite>sprites\spr_en6</sprite>
+          <sprite>sprites\sprite161</sprite>
           <sprite>sprites\spr_en6b</sprite>
+          <sprite>sprites\sprite162</sprite>
           <sprite>sprites\spr_en6_dead</sprite>
+          <sprite>sprites\sprite163</sprite>
         </sprites>
         <sprites name="Boss 2">
           <sprite>sprites\spr_boss2</sprite>
@@ -763,6 +768,8 @@
         <objects name="DO NOT USE">
           <object>objects\gradius_options</object>
         </objects>
+        <object>objects\obj_en72</object>
+        <object>objects\obj_en72_tur</object>
         <object>objects\obj_en10_old</object>
         <object>objects\obj_en10_beam</object>
         <object>objects\obj_en10</object>

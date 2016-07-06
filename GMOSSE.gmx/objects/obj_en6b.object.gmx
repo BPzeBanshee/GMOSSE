@@ -30,6 +30,8 @@ p_max = p_min + sprite_width/2;
 p = p_max;
 hit = 0;
 timer = 0;
+image_speed = 0;
+image_index = 0;
 </string>
           </argument>
         </arguments>
@@ -53,6 +55,7 @@ timer = 0;
           <argument>
             <kind>1</kind>
             <string>if !instance_exists(parent) then instance_destroy();
+if image_index &gt; 0 then image_index -= 0.25;
 p_min = (sprite_width/2);
 p_max = p_min + sprite_width/2;
 y = (parent).y;
@@ -129,6 +132,7 @@ if direction = 0
             <kind>1</kind>
             <string>hit = 1;
 p -= 4;
+image_index = 5;
 </string>
           </argument>
         </arguments>
