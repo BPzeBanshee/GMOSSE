@@ -30,7 +30,7 @@ enemyHP = 1200;          // initial health
 event_inherited();
 
 // Initial moving/aesthetic variables
-image_alpha = 0;
+//image_alpha = 0;
 vspeed = 3.6;//3.75
 spd = 0;
 neg = 0;
@@ -185,9 +185,13 @@ switch phase
             scr_create_healthbar();
             made = 1;
             }
-        image_alpha += 0.005;
+        timer += 1;
         if vspeed &gt; 0 then vspeed -= 0.0375;
-        if image_alpha = 1 then phase = 1;
+        if timer = 200
+            {
+            timer = 0;
+            phase = 1;
+            }
         break;
         }
     case 1:

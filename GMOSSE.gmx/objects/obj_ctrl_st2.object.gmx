@@ -65,7 +65,7 @@ global.behaviour = 4; // determines behaviour of stars (if used)
 if stage_time &gt; 8500 
 &amp;&amp; !instance_exists(obj_boss2)
 &amp;&amp; !instance_exists(obj_boss2_dead)
-&amp;&amp; !instance_exists(obj_boss2_omake)
+&amp;&amp; !instance_exists(obj_omake2)
 &amp;&amp; !instance_exists(obj_fade)
 then completedelay += 1;
 

@@ -106,7 +106,9 @@
         <sprite>sprites\spr_3Den1</sprite>
         <sprite>sprites\spr_3Den2</sprite>
         <sprite>sprites\spr_3Den3</sprite>
+        <sprite>sprites\sprite166</sprite>
         <sprite>sprites\spr_en4</sprite>
+        <sprite>sprites\sprite165</sprite>
         <sprite>sprites\spr_en_thr</sprite>
         <sprite>sprites\spr_en_thr2</sprite>
         <sprite>sprites\spr_en_plat</sprite>
@@ -149,7 +151,11 @@
           <sprite>sprites\spr_boss2_orbA</sprite>
           <sprite>sprites\spr_boss2_orbB</sprite>
           <sprite>sprites\spr_boss2_orbC</sprite>
+          <sprite>sprites\sprite167</sprite>
+          <sprite>sprites\spr_boss2_orbB_old</sprite>
+          <sprite>sprites\spr_boss2_orbC_old</sprite>
           <sprite>sprites\spr_boss2_omake</sprite>
+          <sprite>sprites\sprite164</sprite>
         </sprites>
       </sprites>
       <sprites name="Stage 3">
@@ -512,6 +518,7 @@
           <object>objects\obj_orb_trans</object>
           <object>objects\obj_orb2</object>
           <object>objects\obj_orb2_trans</object>
+          <object>objects\obj_omake1</object>
         </objects>
       </objects>
       <objects name="Stage 2">
@@ -533,6 +540,7 @@
           <object>objects\obj_boss2</object>
           <object>objects\obj_boss2_dead</object>
           <object>objects\obj_boss2_pod</object>
+          <object>objects\obj_omake2</object>
         </objects>
       </objects>
       <objects name="Stage 3">
@@ -550,6 +558,8 @@
           <object>objects\obj_crater</object>
           <object>objects\obj_crater2</object>
           <object>objects\obj_crater3</object>
+          <object>objects\obj_omake3</object>
+          <object>objects\obj_omake3_arm</object>
         </objects>
         <object>objects\obj_3Den4s</object>
         <object>objects\obj_3Den4</object>
@@ -751,12 +761,6 @@
         <object>objects\obj_popup</object>
       </objects>
       <objects name="EXPERIMENTAL">
-        <objects name="Omakes">
-          <object>objects\obj_boss1_omake</object>
-          <object>objects\obj_boss2_omake</object>
-          <object>objects\obj_boss3_omake</object>
-          <object>objects\obj_omake3_arm</object>
-        </objects>
         <objects name="Walking Tank">
           <object>objects\obj_e</object>
           <object>objects\obj_e2</object>

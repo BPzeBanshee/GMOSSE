@@ -68,7 +68,7 @@ planet1.image_angle = 46;
 if stage_time &gt; 7650 
 &amp;&amp; !instance_exists(obj_boss)
 &amp;&amp; !instance_exists(obj_boss_dead)
-&amp;&amp; !instance_exists(obj_boss1_omake)
+&amp;&amp; !instance_exists(obj_omake1)
 &amp;&amp; !instance_exists(obj_fade)
 then completedelay += 1;
 
@@ -166,7 +166,7 @@ if (stage_time &gt; 2650 &amp;&amp; stage_time &lt; 3200)
     }
     
 // ****** AESTHETICS ******
-if stage_time &gt; 6550 &amp;&amp; !instance_exists(obj_boss1_omake)
+if stage_time &gt; 6550 &amp;&amp; !instance_exists(obj_omake1)
     {
     if background_vspeed[0]&lt; 4 then background_vspeed[0]+= 0.1;
     }

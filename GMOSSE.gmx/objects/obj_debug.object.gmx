@@ -257,7 +257,7 @@ with obj_ctrl_filter alarm[1] = 2;
             <kind>1</kind>
             <string>//scr_hiscore_update("AYY",6,5,987654321);
 //scr_hiscore_save("score.gmes");
-global.startstage = rm_test1;
+global.startstage = rm_omake3;//rm_test1;
 show_message("Starting Stage set to "+string(room_get_name(global.startstage)));
 
 with obj_ctrl_filter alarm[1] = 2;

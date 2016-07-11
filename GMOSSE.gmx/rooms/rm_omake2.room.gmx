@@ -28,9 +28,9 @@ background_vspeed[0] = 0.1;
 //background_vtiled[0] = 1;
 
 // RED
-background_blend[1] = c_red;
+//background_blend[1] = c_red;
 if global.update exit;
-with obj_wall image_blend = c_red;</code>
+//with obj_wall image_blend = c_red;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

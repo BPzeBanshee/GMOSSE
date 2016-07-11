@@ -121,7 +121,7 @@ switch phase
     case 0: 
         {
         if y &gt; yview-(sprite_width/2) speed -= 0.1;
-        if speed = 0.3 then phase = 1;
+        if speed &lt;= 0.3 then phase = 1;
         break;
         }
     case 1: 

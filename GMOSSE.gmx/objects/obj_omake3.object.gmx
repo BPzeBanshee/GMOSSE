@@ -33,14 +33,15 @@ timeout = 9999;
 
 // Enemy behaviour
 phase = 0;
-made = 0;
 timer = 0;
 bool = 0; d = 0;
-arm_left=0; arm_right=0;
+made = 0;
+arm_left = -1; 
+arm_right = -1;
 
 image_angle = 270;
 direction = 270;
-speed = 6;
+speed = 5;
 
 with obj_ctrl_music event_user(13);
 scr_create_healthbar();
@@ -78,7 +79,9 @@ y1 = y+lengthdir_y(36,aim+90);
 x2 = x+lengthdir_x(36,aim+270); // left shoulder
 y2 = y+lengthdir_y(36,aim+270);
 
-thr = scr_basicshot(x,y,obj_explosion,5,aim+180+random_range(-10,10));
+// Back thruster
+var thr;
+thr = scr_basicshot(x,y,obj_explosion,5,image_angle+180+random_range(-10,10));
 thr.depth = depth + 1;
 thr.image_xscale = 0.25;
 thr.image_yscale = 0.25;
@@ -92,37 +95,42 @@ if made = 0 // Create the arms
     arm_left.image_yscale = -1;
     made = 1;
     }
-else // Maintain the arms
+else
     {
+    // Right arm
     if instance_exists(arm_right)
         {
         arm_right.x = x1; arm_right.y = y1;
         arm_right.direction = image_angle+d;
-        x3 = x1+lengthdir_x(48,arm_right.direction); // Right arm
-        y3 = y1+lengthdir_y(48,arm_right.direction);
         }
     else 
         {
+        var e;
         e = scr_basicshot(x1,y1,obj_explosion,5,aim+90+random_range(-30,30));
         e.depth = depth + 1;
+        e.image_xscale = 0.5;
+        e.image_yscale = 0.5;
         }
+        
+    // Left arm
     if instance_exists(arm_left)
         {
         arm_left.x = x2; arm_left.y = y2;
         arm_left.direction = image_angle-d;
-        x4 = x2+lengthdir_x(48,arm_left.direction); // Left arm
-        y4 = y2+lengthdir_y(48,arm_left.direction);
         }
     else
         {
+        var e;
         e = scr_basicshot(x2,y2,obj_explosion,5,aim+270+random_range(-30,30));
         e.depth = depth + 1;
+        e.image_xscale = 0.5;
+        e.image_yscale = 0.5;
         }
     }
 
 switch phase
     {
-    case 0:
+    case 0: // Introduction
         {
         if speed &gt; 0 then speed -= 0.1;
         if speed = 0 then phase = 1;
@@ -130,7 +138,7 @@ switch phase
         }
     case 1:
         {
-        // Shake That! BEEP BEEP BEEP BEEP BEEP! BEEP!
+        // Moves arms in waving formation
         if bool = 0 then d += 1 else d -= 1;
         if d &gt; 30 then bool = 1;
         if d &lt; -30 then bool = 0;
@@ -138,120 +146,26 @@ switch phase
         timer += 1;
         if timer = 5
             {
-            if instance_exists(arm_right) then scr_basicshot(x3,y3,obj_bullet1,5,arm_right.direction)
+            if instance_exists(arm_right) 
+            then with arm_right event_user(1)
             else
                 {
-                for (i=2;i&lt;=6;i+=1) 
-                    {
-                    scr_basicshot(x1,y1,obj_bullet2,i,image_angle+(d*12));
-                    /*scr_basicshot(x1,y1,obj_bullet2,i,image_angle+45);
-                    scr_basicshot(x1,y1,obj_bullet2,i,image_angle+90);
-                    scr_basicshot(x1,y1,obj_bullet2,i,image_angle+135);
-                    scr_basicshot(x1,y1,obj_bullet2,i,image_angle+180);
-                    scr_basicshot(x1,y1,obj_bullet2,i,image_angle+225);
-                    scr_basicshot(x1,y1,obj_bullet2,i,image_angle+270);
-                    scr_basicshot(x1,y1,obj_bullet2,i,image_angle+315);*/
-                    }
+                for (i=2;i&lt;=6;i+=1) scr_basicshot(x1,y1,obj_bullet2,i,image_angle+(d*12));
                 scr_playsnd(snd_en_shot2,1);
                 }
-            if instance_exists(arm_left) then scr_basicshot(x4,y4,obj_bullet1,5,arm_left.direction)
+                
+            if instance_exists(arm_left) 
+            then with arm_left event_user(1)
             else
                 {
-                for (i=2;i&lt;=6;i+=1) 
-                    {
-                    scr_basicshot(x2,y2,obj_bullet2,i,image_angle-(d*12));
-                    /*scr_basicshot(x2,y2,obj_bullet2,i,image_angle+45);
-                    scr_basicshot(x2,y2,obj_bullet2,i,image_angle+90);
-                    scr_basicshot(x2,y2,obj_bullet2,i,image_angle+135);
-                    scr_basicshot(x2,y2,obj_bullet2,i,image_angle+180);
-                    scr_basicshot(x2,y2,obj_bullet2,i,image_angle+225);
-                    scr_basicshot(x2,y2,obj_bullet2,i,image_angle+270);
-                    scr_basicshot(x2,y2,obj_bullet2,i,image_angle+315);*/
-                    }
+                for (i=2;i&lt;=6;i+=1) scr_basicshot(x2,y2,obj_bullet2,i,image_angle-(d*12));
                 scr_playsnd(snd_en_shot2,1);
-                };
+                }
             timer = 0;
             }
         break;
         }
     }
-
-/* AESTHETICS */
-/*thr1 = scr_basicshot(x,y,obj_explosion,random(6),direction+180-45+random_range(-20,20));
-thr2 = scr_basicshot(x,y,obj_explosion,random(6),direction+180+45+random_range(-20,20));
-thr1.depth = depth + 1;
-thr2.depth = depth + 1;
-thr1.image_xscale = 0.75;
-thr1.image_yscale = 0.75;
-thr2.image_xscale = 0.75;
-thr2.image_yscale = 0.75;*/
-
-/* BEHAVIOUR */
-/*switch phase
-    {
-    case 0:
-        {
-        timer += 1;
-        if timer &gt;= 180
-            {
-            phase = 1;
-            }
-        else y += 1;
-        break;
-        }
-    case 1:
-        {
-        timer += 1;
-        //if instance_exists(obj_player) then scr_addscore(1000,0,0); // no logging
-        
-        // Move around very fast
-        if x &gt;= 320-64 || x &lt;= 64 then hspeed = -hspeed;
-        
-        // Attack 1
-        switch timer
-            {
-            case 10: case 20: case 30: case 40: case 50: case 60:
-            case 70: case 80: case 90: case 100: case 110: case 120:
-            scr_playsnd(snd_en_shot1,1);
-            scr_spreadshot(x,y,obj_bullet1,-1,55,7,8,true); 
-            break;
-            }
-            
-        // Attack 2A
-        if timer &gt; 150 &amp;&amp; timer &lt; 200
-            {
-            scr_playsnd(snd_en_shot4,1);
-            scr_basicshot(x,y,obj_bullet4,6,d); // was 8, then 7
-            d -= 10;
-            }
-        if timer = 200 then d = 270;
-        
-        // Attack 2B
-        if timer &gt; 230 &amp;&amp; timer &lt; 270
-            {
-            scr_playsnd(snd_en_shot2,1);
-            scr_basicshot(x,y,obj_bullet2,6,d); // was 8, then 7
-            d += 10;
-            }
-        if timer = 320
-            {
-            timer = 0;
-            d = 270;
-            }
-        //enemyHP = timeout;
-        if timeout &gt; 0 then timeout -= 1;
-        if timeout = 0 &amp;&amp; x = 160 then phase = 2;
-        break;
-        }
-    case 2:
-        {
-        hspeed = 0;
-        vspeed -= 0.2;
-        if y &lt; yview-(sprite_width/2) then instance_destroy();
-        break;
-        }
-    }
-
 </string>
           </argument>
         </arguments>

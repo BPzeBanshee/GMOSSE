@@ -28,6 +28,8 @@
             <string>// Compulsory (health, z-handling, etc)
 enemyHP = 200; 
 event_inherited();
+xx = x+lengthdir_x(48,direction);
+yy = y+lengthdir_y(48,direction);
 </string>
           </argument>
         </arguments>
@@ -50,13 +52,21 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle = direction;
-xx = x + lengthdir_x(16,direction-180);
-yy = y + lengthdir_y(16,direction-180);
-thr = scr_basicshot(xx,yy,obj_explosion,5,direction-180+random_range(-10,10));
+            <string>// AESTHETICS
+image_angle = direction;
+
+// Thrusters
+var tx,ty,thr;
+tx = x + lengthdir_x(16,direction-180);
+ty = y + lengthdir_y(16,direction-180);
+thr = scr_basicshot(tx,ty,obj_explosion,5,direction-180+random_range(-10,10));
 thr.image_xscale = 0.5;
 thr.image_yscale = 0.5;
 thr.depth = depth + 1;
+
+// HAND POSITION
+xx = x+lengthdir_x(50,direction);
+yy = y+lengthdir_y(50,direction);
 </string>
           </argument>
         </arguments>
@@ -80,9 +90,33 @@ thr.depth = depth + 1;
           <argument>
             <kind>1</kind>
             <string>scr_create_exp(obj_explosion,360,18);
-scr_playsnd(snd_exp2,0);
+scr_playsnd(snd_exp3,1);
 scr_addscore(1000,180,1);
 instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_basicshot(xx,yy,obj_bullet1,4,direction);
+instance_create(xx,yy,obj_bulletcancel);
 </string>
           </argument>
         </arguments>

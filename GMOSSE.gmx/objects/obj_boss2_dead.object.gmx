@@ -82,7 +82,7 @@ if image_alpha &lt;= 0
     {
     scr_playsnd(snd_exp3,0);
     if global.omake_enabled = 1 
-    then instance_create(160,yview-16,obj_boss2_omake);
+    then instance_create(160,yview-16,obj_omake2);
     instance_destroy();
     }
 </string>

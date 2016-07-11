@@ -135,8 +135,8 @@ else if x &gt; right_bound then spd_x = -min(x-right_bound,1)
 else spd_x = spd_x_init;
 
 // clamp to bounds
-view_xview[0] = floor(x)-x_o;
-view_yview[0] = floor(y)-y_o;
+view_xview[0] = x-x_o;
+view_yview[0] = y-y_o;
 
 // update offset-adjusted view vars
 scr_view_vars();
