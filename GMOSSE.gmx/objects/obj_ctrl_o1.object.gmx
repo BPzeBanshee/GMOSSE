@@ -70,15 +70,11 @@ if completedelay = 120
 stage_time += 1;
 switch stage_time
     {
-    /*case 60:
-        {
-        instance_create(x,y,obj_warning);
-        break;
-        }*/
     case 60:
         {
+        //instance_create(x,y,obj_warning);
         w = instance_create(x,y,obj_danger);
-        w.msg = "/\X3|&lt;I|_|_J&lt;&gt;y |\/||&lt; ||#APPROACHING";
+        w.msg = "|&lt;||_|_3R &lt;|_0\/\/|\| ||#APPROACHING";
         break;
         }
     case 150://case 400:

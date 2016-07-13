@@ -159,9 +159,7 @@
         </sprites>
       </sprites>
       <sprites name="Stage 3">
-        <sprite>sprites\spr_omake3_arm</sprite>
         <sprite>sprites\spr_st3_boss</sprite>
-        <sprite>sprites\spr_omake3</sprite>
         <sprite>sprites\spr_en_cruiser</sprite>
         <sprite>sprites\spr_grey_32</sprite>
         <sprite>sprites\spr_cruiser_hitbox</sprite>
@@ -173,6 +171,9 @@
           <sprite>sprites\spr_crater</sprite>
           <sprite>sprites\spr_crater2</sprite>
           <sprite>sprites\spr_crater3</sprite>
+          <sprite>sprites\spr_omake3</sprite>
+          <sprite>sprites\spr_omake3_legs</sprite>
+          <sprite>sprites\spr_omake3_arm</sprite>
         </sprites>
       </sprites>
       <sprite>sprites\spr_ball</sprite>
@@ -454,7 +455,6 @@
     </scripts>
     <scripts name="Bullets">
       <scripts name="S20-TBL's Scripts">
-        <script>scripts\scr_s20_shot.gml</script>
         <script>scripts\scr_circleshot02.gml</script>
         <script>scripts\scr_circleattack.gml</script>
       </scripts>
@@ -549,6 +549,8 @@
         <object>objects\obj_crater4</object>
         <object>objects\obj_en_spawner</object>
         <object>objects\obj_en_spawner2</object>
+        <object>objects\obj_3Den4</object>
+        <object>objects\obj_3Den4s</object>
         <object>objects\obj_en5b</object>
         <objects name="Boss 3">
           <object>objects\obj_boss3</object>
@@ -560,9 +562,8 @@
           <object>objects\obj_crater3</object>
           <object>objects\obj_omake3</object>
           <object>objects\obj_omake3_arm</object>
+          <object>objects\obj_omake3_legs</object>
         </objects>
-        <object>objects\obj_3Den4s</object>
-        <object>objects\obj_3Den4</object>
       </objects>
       <objects name="Walls">
         <object>objects\obj_wall</object>

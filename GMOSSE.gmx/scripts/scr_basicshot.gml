@@ -1,3 +1,4 @@
+///scr_basicshot(x,y,object,speed,direction)
 /*
 Basic bullet script for GMOSSE
 
