@@ -64,6 +64,79 @@ then instance_create(0,0,obj_ctrl_pause);
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="75">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// System Event
+/*
+System Event
+
+Taken from YoYoGames' Twin Stick Shooter example code
+modified to work with GMOSSE by BPzeBanshee
+*/
+
+// Debug cocde so you can see which event has been
+// triggered and the pad associated with it.
+show_debug_message("Event = " + async_load[? "event_type"]);        
+show_debug_message("Pad = " + string(async_load[? "pad_index"]));   
+
+// Parse the async_load map to see which event has been triggered
+switch(async_load[? "event_type"]) 
+    {
+    case "gamepad discovered": 
+        {
+        // Get the pad index value from the async_load map
+        var pad = async_load[? "pad_index"];
+        global.joy_id = pad;
+        global.joy_system = 2;
+        
+        // Set the deadzone for the analog stick and triggers
+        gamepad_set_axis_deadzone(pad,global.deadzone);    
+        gamepad_set_button_threshold(pad,global.deadzone);
+        /*
+        // Check to see if an instance is associated with this pad index
+        if !(instance_exists(player[pad]))         
+            {
+            // Create a player object and assign it a pad number
+            player[pad] = instance_create(64+random(room_width-128),64+ random(room_height - 128), obj_Player);
+            player[pad].image_index = pad;
+            player[pad].pad_num = pad;
+            }*/
+        break;
+        }
+    case "gamepad lost":
+        {
+        // Get the pad index
+        var pad = async_load[? "pad_index"];       
+        if global.joy_id = pad then scr_detect_joys(); // fall back on detect joys script
+        // Check for a player instance associated with the pad and remove it
+        /*if (instance_exists(player[pad]))
+            {
+            with (player[pad]) instance_destroy();
+            player[pad] = noone; // Set the controller array to "noone" so it detects a new pad being connected
+            }*/
+        break;
+        }
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="3">
       <action>
         <libid>1</libid>
