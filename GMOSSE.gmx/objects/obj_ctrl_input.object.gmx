@@ -28,7 +28,26 @@
             <string>derp = 0;
 screenshotnum = 0;
 
-scr_detect_joys();
+// Find preferred ID if there's multiple devices connected
+// New system
+if gamepad_get_device_count() &gt; 1 &amp;&amp; gamepad_is_connected(global.joy_pref)
+    {
+    show_debug_message("obj_ctrl_input: locking in preferred joystick id");
+    global.joy_id = global.joy_pref;
+    global.joy_system = 2;
+    }
+// old system
+else if joystick_exists(1) &amp;&amp; joystick_exists(2) &amp;&amp; global.joy_pref &lt; 2
+    {
+    show_debug_message("obj_ctrl_input: fell back to joystick_exists");
+    if joystick_exists(global.joy_pref)
+        {
+        global.joy_id = global.joy_pref+1;
+        global.joy_system = 1;
+        }
+    }
+else scr_detect_joys(); // only one device? okay we'll find the first one and accept it
+show_debug_message("obj_ctrl_input: fell back again, should be calling scr_detect_joys()");
 </string>
           </argument>
         </arguments>
@@ -51,7 +70,9 @@ scr_detect_joys();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// obj_player calls scr_input for hopefully reduced lag
+            <string>if instance_exists(obj_ctrl_rebind) then exit;
+
+// obj_player calls scr_input for hopefully reduced lag
 if !instance_exists(obj_player) || !instance_exists(obj_hitbox) 
 then scr_input();
 
@@ -81,7 +102,7 @@ then instance_create(0,0,obj_ctrl_pause);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// System Event
+            <string>/// Controller Hotplug Support
 /*
 System Event
 
@@ -89,7 +110,7 @@ Taken from YoYoGames' Twin Stick Shooter example code
 modified to work with GMOSSE by BPzeBanshee
 */
 
-// Debug cocde so you can see which event has been
+// Debug code so you can see which event has been
 // triggered and the pad associated with it.
 show_debug_message("Event = " + async_load[? "event_type"]);        
 show_debug_message("Pad = " + string(async_load[? "pad_index"]));   
@@ -101,21 +122,15 @@ switch(async_load[? "event_type"])
         {
         // Get the pad index value from the async_load map
         var pad = async_load[? "pad_index"];
-        global.joy_id = pad;
-        global.joy_system = 2;
+        if global.joy_pref = pad
+            {
+            global.joy_id = pad;
+            global.joy_system = 2;
+            }
         
         // Set the deadzone for the analog stick and triggers
-        gamepad_set_axis_deadzone(pad,global.deadzone);    
+        //gamepad_set_axis_deadzone(pad,global.deadzone);    
         gamepad_set_button_threshold(pad,global.deadzone);
-        /*
-        // Check to see if an instance is associated with this pad index
-        if !(instance_exists(player[pad]))         
-            {
-            // Create a player object and assign it a pad number
-            player[pad] = instance_create(64+random(room_width-128),64+ random(room_height - 128), obj_Player);
-            player[pad].image_index = pad;
-            player[pad].pad_num = pad;
-            }*/
         break;
         }
     case "gamepad lost":
@@ -123,12 +138,6 @@ switch(async_load[? "event_type"])
         // Get the pad index
         var pad = async_load[? "pad_index"];       
         if global.joy_id = pad then scr_detect_joys(); // fall back on detect joys script
-        // Check for a player instance associated with the pad and remove it
-        /*if (instance_exists(player[pad]))
-            {
-            with (player[pad]) instance_destroy();
-            player[pad] = noone; // Set the controller array to "noone" so it detects a new pad being connected
-            }*/
         break;
         }
     }
@@ -224,6 +233,8 @@ screen_save(st);
             <string>// Make global.fullscreen the reverse
 // of whatever it currently is, then
 // use the function with the given value.
+if keyboard_check_direct(vk_ralt) or keyboard_check_direct(vk_lalt) exit;
+
 if window_get_fullscreen() = global.fullscreen 
 then global.fullscreen = !global.fullscreen;
 window_set_fullscreen(global.fullscreen);

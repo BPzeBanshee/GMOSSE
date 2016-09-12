@@ -512,7 +512,7 @@ if global.button1 &amp;&amp; !hook
     switch selection
         {
         case 1: c = instance_create(x,y,obj_ctrl_rebind); c.control = 1; break;
-        case 2: c = instance_create(x,y,obj_ctrl_rebind); c.control = 1 + global.joy_system; break;
+        case 2: c = instance_create(x,y,obj_ctrl_rebind); c.control = 2; break;
         case 5: selection = 1; category = 0; break;
         }
     }
@@ -586,7 +586,7 @@ draw_set_halign(fa_left);
 s = 125; g = 10;
 
 // DRAW BLACK BOX
-draw_set_alpha(0.5);
+draw_set_alpha(0.75);
 draw_set_color(b);
 draw_rectangle(xview+30,yview+s-8,xview+210,yview+s+(g*(selection_max+3))+max_h,0);
 
@@ -625,7 +625,7 @@ if category = 1
         
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"DEFINE KEYBOARD");
-    draw_text(xview+60,yview+s+(g*2),"DEFINE JOYSTICK");
+    draw_text(xview+60,yview+s+(g*2),"DEFINE GAMEPAD");
     draw_text(xview+60,yview+s+(g*3),"DEADZONE: "+string(dz)); 
     draw_text(xview+60,yview+s+(g*4),"JOYSTICK U/D/L/R: "+string(du));
     

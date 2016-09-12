@@ -29,8 +29,10 @@ global.button1 = 0;
 global.button2 = 0;
 global.button3 = 0;
 global.button4 = 0;
-global.joy_id = 1;
-instance_create(0,0,obj_ctrl_input);
+global.joy_id = 0;
+global.joy_pref = 0;
+global.joy_system = 2;
+
 
 /* CONFIG */
 scr_config_load("config.ini");
@@ -45,6 +47,7 @@ scr_hiscore_load("score.gmes");
 scr_fonts_init();
 
 /* CONTROLLERS */
+instance_create(0,0,obj_ctrl_input);
 instance_create(0,0,obj_ctrl_music);
 instance_create(0,0,obj_ctrl_filter);
     

@@ -22,10 +22,11 @@ ini_open(argument0);
     
 /* JOYSTICK */
 // joystick button numbers
-global.joy1 = ini_read_real("Joystick","joy1",1);
-global.joy2 = ini_read_real("Joystick","joy2",2);
-global.joy3 = ini_read_real("Joystick","joy3",3);
-global.joy4 = ini_read_real("Joystick","joy4",7);
+global.joy_pref = ini_read_real("Joystick","joy_pref",0); // preferred joy id
+global.joy1 = ini_read_real("Joystick","joy1",gp_face1);
+global.joy2 = ini_read_real("Joystick","joy2",gp_face2);
+global.joy3 = ini_read_real("Joystick","joy3",gp_face3);
+global.joy4 = ini_read_real("Joystick","joy4",gp_start);
 global.deadzone = ini_read_real("Joystick","deadzone",0.3); // joystick deadzone
 global.joytype = ini_read_real("Joystick","joytype",2);// direction input to use
 

@@ -26,13 +26,17 @@
           <argument>
             <kind>1</kind>
             <string>// deactivates standard inputs in case of interference
-instance_deactivate_object(obj_ctrl_input);
+//instance_deactivate_object(obj_ctrl_input);
 
 // variable initialisation
 mode = 1;
 timer = 0;
 msg = "";
+desc = "";
+system = "";
 joy_key = 0;
+
+rect_h = 20;
 </string>
           </argument>
         </arguments>
@@ -55,7 +59,7 @@ joy_key = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_activate_object(obj_ctrl_input);
+            <string>//instance_activate_object(obj_ctrl_input);
 </string>
           </argument>
         </arguments>
@@ -84,7 +88,7 @@ joy_key = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="13">
+    <event eventtype="7" enumb="14">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -101,7 +105,8 @@ joy_key = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* 
+            <string>/// DEFINE JOY BUTTONS (NEW SYSTEM)
+/* 
 this is where the gamepad check stuff happens.
 the timer check is to stop the user assigning
 multiple commands to the same button by accident
@@ -116,12 +121,12 @@ if !gamepad_is_connected(global.joy_id) then mode = 6;
 
 switch mode
     {
-    case 1: msg = "Press a key for SHOT"; break;
-    case 2: msg = "Press a key for BOMB"; break;
-    case 3: msg = "Press a key for FOCUS"; break;
-    case 4: msg = "Press a key for PAUSE"; break;
+    case 1: msg = "Press a button for SHOT"; break;
+    case 2: msg = "Press a button for BOMB"; break;
+    case 3: msg = "Press a button for FOCUS"; break;
+    case 4: msg = "Press a button for PAUSE"; break;
     case 5: instance_destroy(); break;
-    case 6: msg = "Joystick not found!"; break; // error
+    case 6: msg = "Gamepad not found!"; break; // error
     }
 
 timer += 1;
@@ -152,7 +157,7 @@ if timer &gt; 30
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="12">
+    <event eventtype="7" enumb="13">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -169,23 +174,26 @@ if timer &gt; 30
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// this is where the keyboard check stuff happens
-// the timer check is to stop the user assigning
-// multiple commands to the same button by accident
-// (something I've seen in some programs before).
-// keyboard_key = 0 is when nothing is pressed.
-// forcing it to 0 is another anti-accident measure.
-// the exists and id checks is to keep the game
-// responsive if it cant find a joystick.
+            <string>/// DEFINE JOY BUTTONS (OLD SYSTEM)
+/* 
+This is where the check stuff happens.
 
-if !joystick_exists(global.joy_id) then mode = 6;
+the timer check is to stop the user assigning
+multiple commands to the same button by accident
+(something I've seen in some programs before).
+
+the exists and id checks is to keep the game
+responsive if it cant find a joystick.
+*/
+system = "joystick_*";
+if mode &lt; 6 then if !joystick_exists(global.joy_id) then mode = 6;
 
 switch mode
     {
-    case 1: msg = "Press a key for SHOT"; break;
-    case 2: msg = "Press a key for BOMB"; break;
-    case 3: msg = "Press a key for FOCUS"; break;
-    case 4: msg = "Press a key for PAUSE"; break;
+    case 1: msg = "Press a button for SHOT"; break;
+    case 2: msg = "Press a button for BOMB"; break;
+    case 3: msg = "Press a button for FOCUS"; break;
+    case 4: msg = "Press a button for PAUSE"; break;
     case 5: instance_activate_object(obj_ctrl_input); instance_destroy(); break;
     case 6: msg = "Joystick not found!"; break; // error
     }
@@ -214,6 +222,123 @@ if timer &gt; 30 &amp;&amp; mode &lt; 6
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// FIND ID(S) AND SYSTEM TO USE
+rect_h = 60;
+if mode = 1
+    {
+    old_id = global.joy_id;
+    old_pr = global.joy_pref;
+    old_sy = global.joy_system;
+    num_of_pads = scr_detect_joys();
+    
+    if num_of_pads = 0
+        {
+        // get out of this event and give an error
+        mode = 6;
+        system = "gamepad_*";
+        control = 4;
+        }
+        
+    if num_of_pads = 1
+        {
+        // get out of this event and go to the rebind sequence
+        global.joy_pref = global.joy_id;
+        if global.joy_system = 1
+            {
+            system = "joystick_*";
+            desc = scr_linebreak(joystick_name(global.joy_id),32,99);
+            control = 3;
+            }
+        else
+            {
+            system = "gamepad_*";
+            desc = scr_linebreak(gamepad_get_description(global.joy_id),32,99);
+            control = 4;
+            }
+        }
+        
+    if num_of_pads &gt; 1
+        {
+        msg = chr(global.keycode_button1)+" to pick ID, "+chr(global.keycode_button2)+" aborts";
+        //msg = "KEY1 to pick ID, KEY2 aborts";
+        if global.joy_system = 2
+            {
+            system = "gamepad_*";
+            min_s = 0;
+            max_s = num_of_pads - 1;
+            }
+        else
+            {
+            system = "joystick_*";
+            min_s = 1;
+            max_s = 2;
+            }
+        desc = "";
+        select = min_s;
+        mode = 2;
+        }
+    }
+    
+if mode = 2
+    {
+    // Selection keys
+    if (keyboard_check_pressed(global.keycode_left)) &amp;&amp; select &gt; min_s then select -= 1;
+    if (keyboard_check_pressed(global.keycode_right)) &amp;&amp; select &lt; max_s then select += 1;
+    
+    // Display vars for current joy id
+    if global.joy_system = 1
+        {
+        if joystick_exists(select) 
+        then desc = scr_linebreak(joystick_name(select),32,99) 
+        else desc = "N/A";
+        }
+    if global.joy_system = 2
+        {
+        if gamepad_is_connected(select) 
+        then desc = scr_linebreak(gamepad_get_description(select),32,99)
+        else desc = "N/A";
+        }
+    
+    // Accept
+    if (keyboard_check_pressed(global.keycode_button1))
+        {
+        global.joy_id = select;
+        global.joy_pref = global.joy_id;
+        mode = 1;
+        control = 2 + global.joy_system; // 1 if old, 2 if new
+        }
+        
+    // Cancel
+    if (keyboard_check_pressed(global.keycode_button2))
+        {
+        global.joy_id = old_id;
+        global.joy_pref = old_pr;
+        global.joy_system = old_sy;
+        instance_destroy();
+        }
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
@@ -231,12 +356,17 @@ if timer &gt; 30 &amp;&amp; mode &lt; 6
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// this is where the keyboard check stuff happens
-// the timer check is to stop the user assigning
-// multiple commands to the same button by accident
-// (something I've seen in some programs before).
-// keyboard_key = 0 is when nothing is pressed.
-// forcing it to 0 is another anti-accident measure.
+            <string>/// DEFINE KEYBOARD KEYS
+/* 
+This is where the keyboard check stuff happens
+the timer check is to stop the user assigning
+multiple commands to the same button by accident
+(something I've seen in some programs before).
+keyboard_key = 0 is when nothing is pressed.
+forcing it to 0 is another anti-accident measure.
+the exists and id checks is to keep the game
+responsive if it cant find a joystick.
+*/
 
 switch mode
     {
@@ -280,17 +410,31 @@ if timer &gt; 30 &amp;&amp; keyboard_key != 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_alpha(0.5);
+            <string>draw_set_alpha(0.75);
 draw_set_color(c_black);
-draw_rectangle(xview+40,yview+260,xview+200,yview+290,0);
+draw_rectangle(xview+20,yview+235,xview+220,yview+235+rect_h,0);
 
 draw_set_font(global.fnt_default); // sets the font
 draw_set_halign(fa_center); // centers the text
-draw_set_color(make_color_rgb(90,90,255)); // sets the colour to blue
+draw_set_color(make_color_rgb(170,170,255)); // sets the colour to blue
 draw_set_alpha(1);
-draw_text(xview+120,yview+270,string(msg)); // draws the message
-if control = 2 draw_text(xview+120,yview+280,"ID (joystick_*): "+string(global.joy_id));
-if control = 3 draw_text(xview+120,yview+280,"ID (gamepad_*): "+string(global.joy_id));
+draw_text(xview+120,yview+240,string(msg)); // draws the message
+
+if control &gt; 1 // Non-keyboard display
+    {
+    var pad;
+    if control = 2 &amp;&amp; mode = 2
+        {
+        pad = string(select);
+        if select &gt; min_s then draw_sprite_ext(spr_shipselect,-1,xview+50,yview+265,-1,1,0,c_white,1);
+        if select &lt; max_s then draw_sprite_ext(spr_shipselect,-1,xview+190,yview+265,1,1,0,c_white,1);
+        }
+        
+    else pad = string(global.joy_id);
+    // eg: "ID: 0 (joystick_*)"
+    draw_text(xview+120,yview+260,"ID: "+pad+" ("+string(system)+")");
+    draw_text(xview+120,yview+270,string(desc));
+    }
 </string>
           </argument>
         </arguments>
