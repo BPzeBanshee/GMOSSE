@@ -12,7 +12,6 @@
   <showcolour>-1</showcolour>
   <code>global.pausable = 0;
 global.room_id = 252;
-scr_tate(global.tate);
 
 global.behaviour = 1;
 repeat 60

@@ -13,7 +13,6 @@
   <code>global.pausable = 1;
 global.room_id = 66;
 global.level = -11;
-scr_tate(global.tate);
 
 //global.bkg_space = background_add_background("images/backgrounds/bkg_space.gmbck");  
 //background_index[0] = global.bkg_space; 

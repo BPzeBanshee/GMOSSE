@@ -12,8 +12,7 @@
   <showcolour>-1</showcolour>
   <code>global.pausable = 1;
 global.room_id = 66;
-global.level = 61;
-scr_tate(global.tate);</code>
+global.level = 61;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

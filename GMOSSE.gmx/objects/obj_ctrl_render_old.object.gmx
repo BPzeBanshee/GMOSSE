@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-9999</depth>
+  <depth>0</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,23 +26,37 @@
           <argument>
             <kind>1</kind>
             <string>/*
-For now this does nothing.
-Eventually it'll be used for various effects
-including scanlines etc.
+obj_ctrl_render_old, by BPzeBanshee
+
+A bit of code cleanup and variable-ification of the featureset notwithstanding
+this is the last iteration of the "old" render system I used for GMOSSE to handle
+window size upscaling and screen rotation (tate), originally split into 
+half a dozen macro scripts which became unwieldly for new users to figure out.
+
+Because of a longstanding bug in GM with this method 
+the draw area gets offset some 40 pixels when rotated which
+needs to be accounted for in view-based draw routines.
+Updating the global xview/yview vars on-demand is a must
+but for the purposes of this example I kept that part contained
+in this object via event_user(2). Originally it was in scr_view_vars().
 */
-globalvar filter_img,filter_alpha;
-filter_image = -1;
-filter_alpha = 1;
-scr_scanline(global.scanlines);
-alarm[0] = 121;
-//filter_image = spr_static;
-//filter_alpha = 0.25;
+
+m_base_w = 240;
+m_base_h = 320;
+m_angle = global.rotation;
+m_scale = global.window_size + 1;
+l_res = "";
+l_win_w = 240;
+l_win_h = 320;
+
+event_user(0); // Initialise control values
+event_user(1); // room_set_view the game to do what we want
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="1">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -59,15 +73,40 @@ alarm[0] = 121;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Fullscreen toggle
-if window_get_fullscreen() != global.fullscreen 
-then scr_fullscreen(global.fullscreen);
+            <string>view_angle[0] = m_angle;
+if m_angle != global.rotation then event_user(0);
+if m_scale != global.window_size+1 then event_user(1);
+
+// DEBUG BUTTONS
+/*
+// Window angle
+if keyboard_check_pressed(ord("Q"))
+    {
+    m_angle += 90; if m_angle &gt; 270 then m_angle = 0;
+    }
+if keyboard_check_pressed(ord("E"))
+    {
+    m_angle -= 90; if m_angle &lt; 0 then m_angle = 270;
+    }
+
+    
+// Window scale
+if keyboard_check_pressed(ord("R"))
+    {
+    m_scale += 1; if m_scale &gt; 3 then m_scale = 1;
+    event_user(1);
+    }
+if keyboard_check_pressed(ord("T"))
+    {
+    m_scale -= 1; if m_scale &lt; 1 then m_scale = 3;
+    event_user(1);
+    }*/
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -84,14 +123,59 @@ then scr_fullscreen(global.fullscreen);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Bilinear filtering
-texture_set_interpolation(global.filter);
+            <string>/// Cycles through rooms by index and updates views
+// *WARNING* Call event_user(0) at least once before using this!
+
+// store original window angle for later
+var angle_first,w,h;
+angle_first = view_angle[0];
+m_scale = global.window_size+1;
+
+// resize application surface and rotate view based on vars
+w = l_win_w * m_scale;
+h = l_win_h * m_scale;
+window_set_size(w,h);
+surface_resize(application_surface,w,h);
+view_angle[0] = m_angle;
+l_res = string(w)+"x"+string(h);
+scr_view_vars();
+
+// now we update view vars for current room
+// first, determine if angle has changed and apply offset to current view if so
+if view_angle[0] != angle_first then 
+if view_angle[0] = 90 || view_angle[0] = 270
+    {
+    view_xview[0] -= t_o; 
+    view_yview[0] += t_o;
+    }
+else
+    {
+    view_xview[0] += t_o; 
+    view_yview[0] -= t_o;
+    }
+
+    
+// adjust width, etc
+view_wview[0] = l_win_w; view_hview[0] = l_win_h;
+view_wport[0] = w; view_hport[0] = h;
+
+// and finally update view vars for every other room
+i=room_first;
+while i != -1
+    {
+    if i != rm_init
+        {
+        room_set_view(i,0,true,-x_o,-y_o,l_win_w,l_win_h,0,0,w,h,0,0,0,0,noone);
+        room_set_view_enabled(i,true); 
+        }
+    i = room_next(i);
+    }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="4">
+    <event eventtype="7" enumb="10">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -108,14 +192,32 @@ texture_set_interpolation(global.filter);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>texture_set_interpolation(global.filter);
-alarm[0] = 5;
+            <string>/// Load rotation offset values
+globalvar x_o,y_o,t_o;
+t_o = 40;
+m_angle = global.rotation;
+if (m_angle = 0 || m_angle = 180)
+    {
+    l_win_w = m_base_w;
+    l_win_h = m_base_h;
+    x_o = 0; y_o = 0;
+    }
+else
+    {
+    l_win_w = m_base_h;
+    l_win_h = m_base_w;
+    x_o = t_o; y_o = -t_o;
+    }
+    
+window_set_min_width(l_win_w);
+window_set_min_height(l_win_h);
+event_user(1);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="76">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -132,8 +234,7 @@ alarm[0] = 5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if sprite_exists(filter_image)
-then draw_sprite_tiled_ext(filter_image,image_index,0,0,1,1,c_white,filter_alpha);
+            <string>scr_view_vars();
 </string>
           </argument>
         </arguments>

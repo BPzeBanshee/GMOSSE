@@ -26,4 +26,10 @@ if argument0 = 3
     return -1;
     }
 display_reset(set_aa,argument1);
+if global.use_new_renderer then with obj_ctrl_render event_user(0);
+with obj_ctrl_filter 
+    {
+    alarm[0] = 1;
+    alarm[1] = 1;
+    }
 return 0;

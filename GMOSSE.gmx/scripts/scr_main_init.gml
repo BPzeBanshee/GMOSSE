@@ -50,6 +50,11 @@ scr_fonts_init();
 instance_create(0,0,obj_ctrl_input);
 instance_create(0,0,obj_ctrl_music);
 instance_create(0,0,obj_ctrl_filter);
+
+application_surface_draw_enable(true);
+if global.use_new_renderer 
+then instance_create(0,0,obj_ctrl_render)
+else instance_create(0,0,obj_ctrl_render_old);
     
 /* MISC. */
 global.pause = 0;

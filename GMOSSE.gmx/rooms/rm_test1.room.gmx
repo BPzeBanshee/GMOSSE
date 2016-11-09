@@ -13,7 +13,6 @@
   <code>global.pausable = 1;
 global.room_id = 66;
 global.level = 61;
-scr_tate(global.tate);
 
 if !global.update then repeat 15
     {

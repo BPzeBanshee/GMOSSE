@@ -11,7 +11,6 @@
   <colour>0</colour>
   <showcolour>-1</showcolour>
   <code>global.pausable = 1;
-scr_tate(global.tate);
 global.room_id = 4;
 global.level = 63;
 

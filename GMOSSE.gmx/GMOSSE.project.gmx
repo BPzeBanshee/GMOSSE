@@ -314,6 +314,7 @@
         <sprite>sprites\spr_portraits</sprite>
         <sprite>sprites\spr_planet3</sprite>
         <sprite>sprites\spr_crater4</sprite>
+        <sprite>sprites\spr_outline</sprite>
       </sprites>
       <sprites name="Filters">
         <sprite>sprites\spr_scanline_hori</sprite>
@@ -334,6 +335,7 @@
     <background>background\bkg_cloud</background>
     <background>background\bkg_wall</background>
     <background>background\bkg_rail_t</background>
+    <background>background\bkg_wallpaper</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pth_test</path>
@@ -418,13 +420,11 @@
       </scripts>
       <scripts name="Screen">
         <script>scripts\scr_screen_init.gml</script>
-        <script>scripts\scr_tate_init.gml</script>
-        <script>scripts\scr_tate.gml</script>
-        <script>scripts\scr_view_update.gml</script>
         <script>scripts\scr_view_vars.gml</script>
         <script>scripts\scr_scanline.gml</script>
         <script>scripts\scr_setdisplay.gml</script>
         <script>scripts\scr_max_aa.gml</script>
+        <script>scripts\scr_fullscreen.gml</script>
       </scripts>
       <scripts name="Fonts">
         <script>scripts\scr_fonts_init.gml</script>
@@ -445,8 +445,8 @@
         <script>scripts\scr_addscore.gml</script>
         <script>scripts\scr_linebreak.gml</script>
       </scripts>
-      <script>scripts\scr_detect_joys.gml</script>
       <script>scripts\scr_input.gml</script>
+      <script>scripts\scr_detect_joys.gml</script>
       <script>scripts\scr_main_init.gml</script>
       <script>scripts\scr_main_reset.gml</script>
     </scripts>
@@ -683,8 +683,11 @@
         <object>objects\obj_ctrl_camera_old</object>
         <object>objects\obj_ctrl_pause</object>
         <object>objects\obj_ctrl_config</object>
+        <object>objects\obj_ctrl_config_old</object>
         <object>objects\obj_ctrl_rebind</object>
         <object>objects\obj_ctrl_filter</object>
+        <object>objects\obj_ctrl_render</object>
+        <object>objects\obj_ctrl_render_old</object>
       </objects>
       <objects name="Generic">
         <object>objects\obj_ctrl_game</object>

@@ -41,8 +41,7 @@ wobble_spd = 1;
 spd_x_init = spd_x;
 // Update view
 x = obj_ctrl_game.x-120;
-view_xview[0] = x-x_o;
-view_yview[0] = y-y_o;
+event_user(1);
 // Update view (xview has additional wobblescroll formula)
 /*if max_w &gt; 240 then w = max_w/(max_w-240) else w = max_w;
 view_xview[0] = x+floor((obj_ctrl_game.x - x)/w)-x_o;
@@ -135,11 +134,7 @@ else if x &gt; right_bound then spd_x = -min(x-right_bound,1)
 else spd_x = spd_x_init;
 
 // clamp to bounds
-view_xview[0] = x-x_o;
-view_yview[0] = y-y_o;
-
-// update offset-adjusted view vars
-scr_view_vars();
+event_user(1);
 /*
 // Update view (xview has additional wobblescroll formula) 
 if instance_exists(obj_player)
@@ -154,6 +149,39 @@ view_yview[0] = y-y_o;
 // update offset-adjusted view vars
 scr_view_vars();
 */
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Update view to use controller x/y
+if !global.use_new_renderer 
+    {
+    view_xview[0] = x - x_o;
+    view_yview[0] = y - y_o;
+    }
+else
+    {
+    view_xview[0] = x;
+    view_yview[0] = y;
+    }
 </string>
           </argument>
         </arguments>

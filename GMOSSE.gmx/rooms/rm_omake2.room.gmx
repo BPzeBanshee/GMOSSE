@@ -13,7 +13,6 @@
   <code>global.pausable = 1;
 global.room_id = 66;
 global.level = -22;
-scr_tate(global.tate);
 
 // Top layer background
 //global.bkg_stage2 = background_add_background("images/backgrounds/bkg_stage2.gmbck");

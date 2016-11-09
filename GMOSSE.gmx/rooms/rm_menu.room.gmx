@@ -12,7 +12,6 @@
   <showcolour>-1</showcolour>
   <code>global.pausable = 0;
 global.room_id = 253;
-scr_tate(global.tate);
 
 if global.update exit;
 global.behaviour = 2;</code>

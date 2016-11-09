@@ -1,3 +1,4 @@
+///scr_view_vars()
 /*
 scr_view_vars, by BPzeBanshee
 
@@ -9,8 +10,10 @@ without it wobbling out of sync with the screen.
 Usage:
 scr_view_vars()
 
-Call at the beginning of every Draw event
+Called by obj_ctrl_render in Pre Draw
 */
-
-xview = view_xview[0] + x_o;
-yview = view_yview[0] + y_o;
+globalvar xview,yview;
+xview = view_xview[0];
+yview = view_yview[0];
+//xview = view_xview[0] + x_o;
+//yview = view_yview[0] + y_o;

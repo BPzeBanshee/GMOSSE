@@ -12,7 +12,6 @@
   <showcolour>-1</showcolour>
   <code>global.pausable = 1;
 global.room_id = 2;
-scr_tate(global.tate);
 if global.update exit;
 
 // Enemy handling
