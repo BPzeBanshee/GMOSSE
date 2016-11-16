@@ -34,7 +34,6 @@ globalvar filter_img,filter_alpha;
 filter_image = -1;
 filter_alpha = 1;
 scr_scanline(global.scanlines);
-alarm[0] = 121;
 //filter_image = spr_static;
 //filter_alpha = 0.25;
 </string>
@@ -86,6 +85,10 @@ then scr_fullscreen(global.fullscreen);
             <kind>1</kind>
             <string>/// Bilinear filtering
 texture_set_interpolation(global.filter);
+
+/*
+In my experiments with Game Maker I've noticed that interpolation 
+*/
 </string>
           </argument>
         </arguments>
@@ -108,8 +111,7 @@ texture_set_interpolation(global.filter);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>texture_set_interpolation(global.filter);
-alarm[0] = 5;
+            <string>alarm[0] = 7;
 </string>
           </argument>
         </arguments>

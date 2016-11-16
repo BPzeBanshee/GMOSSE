@@ -11,9 +11,7 @@
   <colour>0</colour>
   <showcolour>-1</showcolour>
   <code>global.pausable = 1;
-global.room_id = -1;
-
-if !global.update repeat 30
+repeat 30
     {
     rx = random_range(2,318);
     rs = random_range(5,15);

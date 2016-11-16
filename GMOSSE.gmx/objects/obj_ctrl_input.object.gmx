@@ -46,8 +46,11 @@ else if joystick_exists(1) &amp;&amp; joystick_exists(2) &amp;&amp; global.joy_p
         global.joy_system = 1;
         }
     }
-else scr_detect_joys(); // only one device? okay we'll find the first one and accept it
-show_debug_message("obj_ctrl_input: fell back again, should be calling scr_detect_joys()");
+else 
+    {
+    scr_detect_joys(); // only one device? okay we'll find the first one and accept it
+    show_debug_message("obj_ctrl_input: fell back again, should be calling scr_detect_joys()");
+    }
 </string>
           </argument>
         </arguments>
@@ -237,7 +240,7 @@ if keyboard_check_direct(vk_ralt) or keyboard_check_direct(vk_lalt) exit;
 
 if window_get_fullscreen() = global.fullscreen 
 then global.fullscreen = !global.fullscreen;
-window_set_fullscreen(global.fullscreen);
+scr_fullscreen(global.fullscreen);
 </string>
           </argument>
         </arguments>

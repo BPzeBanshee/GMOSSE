@@ -11,8 +11,6 @@
   <colour>0</colour>
   <showcolour>-1</showcolour>
   <code>global.pausable = 0;
-global.room_id = 252;
-
 global.behaviour = 1;
 repeat 60
     {

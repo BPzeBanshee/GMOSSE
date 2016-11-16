@@ -105,7 +105,6 @@ if made = 0
     made = 1;
     }
     
-//draw_self2();
 if made = 1
     {
     b = 0;

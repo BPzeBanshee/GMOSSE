@@ -11,25 +11,8 @@
   <colour>0</colour>
   <showcolour>-1</showcolour>
   <code>global.pausable = 1;
-global.room_id = 66;
 global.level = -22;
-
-// Top layer background
-//global.bkg_stage2 = background_add_background("images/backgrounds/bkg_stage2.gmbck");
-//background_index[1] = global.bkg_stage2;
-//background_visible[1] = 1;
-
-// Bottom layer background
-//global.bkg_space = background_add_background("images/backgrounds/bkg_space.gmbck"); 
-//background_index[0] = global.bkg_space;
-//background_visible[0] = 1; 
-background_vspeed[0] = 0.1;
-//background_vtiled[0] = 1;
-
-// RED
-//background_blend[1] = c_red;
-if global.update exit;
-//with obj_wall image_blend = c_red;</code>
+background_vspeed[0] = 0.1;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -99,7 +82,7 @@ if global.update exit;
     <instance objName="obj_wall" x="16" y="272" name="inst_80117B50" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="16" y="304" name="inst_CCBF011B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ctrl_o2" x="16" y="0" name="inst_8DB740D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_camera" x="0" y="0" name="inst_65080033" locked="0" code="globalvar max_w,spd_x,spd_y;&#xA;max_w = 320; // range of player x movement&#xA;spd_x = 0; // initial x speed&#xA;spd_y = 0; // initial y speed&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ctrl_camera_old" x="0" y="0" name="inst_65080033" locked="0" code="globalvar max_w,spd_x,spd_y;&#xA;max_w = 320; // range of player x movement&#xA;spd_x = 0; // initial x speed&#xA;spd_y = 0; // initial y speed&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ctrl_game" x="160" y="240" name="inst_2B9B0CF6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

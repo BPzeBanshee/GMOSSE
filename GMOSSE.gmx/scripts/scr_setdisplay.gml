@@ -1,3 +1,4 @@
+///scr_setdisplay(aa,vsync)
 /*
 scr_setdisplay(aa,vsync)
 by BPzeBanshee
@@ -6,23 +7,16 @@ Safely measures antialiasing values to use and applies them
 as well as the vsync function.
 */
 var set_aa;
-if argument0 = 0 then set_aa = 0;
-if argument0 = 1
+switch argument0
     {
-    if ((display_aa & 2) == 2) then set_aa = 2
-    else show_message("2xAA unsupported by your card");
-    return -1;
+    default: set_aa = 0; break;
+    case 1: set_aa = 2; break;
+    case 2: set_aa = 4; break;
+    case 3: set_aa = 8; break;
     }
-if argument0 = 2
+if set_aa > scr_max_aa()
     {
-    if ((display_aa & 4) == 4) then set_aa = 4
-    else show_message("4xAA unsupported by your card");
-    return -1;
-    }
-if argument0 = 3
-    {
-    if ((display_aa & 8) == 8) then set_aa = 8
-    else show_message("8xAA unsupported by your card");
+    show_message(string(set_aa)+"xAA unsupported by your card");
     return -1;
     }
 display_reset(set_aa,argument1);

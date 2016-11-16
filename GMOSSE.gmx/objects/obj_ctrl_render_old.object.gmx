@@ -48,6 +48,7 @@ m_scale = global.window_size + 1;
 l_res = "";
 l_win_w = 240;
 l_win_h = 320;
+l_max_size = 3;
 
 event_user(0); // Initialise control values
 event_user(1); // room_set_view the game to do what we want
@@ -73,8 +74,7 @@ event_user(1); // room_set_view the game to do what we want
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>view_angle[0] = m_angle;
-if m_angle != global.rotation then event_user(0);
+            <string>if m_angle != global.rotation then event_user(0);
 if m_scale != global.window_size+1 then event_user(1);
 
 // DEBUG BUTTONS
@@ -106,6 +106,32 @@ if keyboard_check_pressed(ord("T"))
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Update xview/yview vars
+globalvar xview,yview;
+xview = view_xview[0] + x_o;
+yview = view_yview[0] + y_o;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
@@ -129,7 +155,7 @@ if keyboard_check_pressed(ord("T"))
 // store original window angle for later
 var angle_first,w,h;
 angle_first = view_angle[0];
-m_scale = global.window_size+1;
+m_scale = clamp(global.window_size+1,1,l_max_size);
 
 // resize application surface and rotate view based on vars
 w = l_win_w * m_scale;
@@ -138,7 +164,7 @@ window_set_size(w,h);
 surface_resize(application_surface,w,h);
 view_angle[0] = m_angle;
 l_res = string(w)+"x"+string(h);
-scr_view_vars();
+event_user(2);
 
 // now we update view vars for current room
 // first, determine if angle has changed and apply offset to current view if so
@@ -217,6 +243,30 @@ event_user(1);
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_user(2);
+view_angle[0] = m_angle;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="76">
       <action>
         <libid>1</libid>
@@ -234,7 +284,7 @@ event_user(1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_view_vars();
+            <string>event_user(2);
 </string>
           </argument>
         </arguments>

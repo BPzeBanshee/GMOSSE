@@ -38,7 +38,7 @@ global.keycode_button3 = ini_read_real("Keyboard","button3",vk_shift);
 global.keycode_button4 = ini_read_real("Keyboard","button4",vk_enter);
      
 /* VIDEO */
-global.use_new_renderer = ini_read_real("Video","use_new_renderer",1); // Render method
+global.use_new_renderer = ini_read_real("Video","use_new_renderer",0); // Render method
 global.fullscreen = ini_read_real("Video","fullscreen",false); // Fullscreen mode
 global.window_aspect = ini_read_real("Video","window_aspect",1); // window aspect ratio
 global.window_size = ini_read_real("Video","window_size",1); // window size

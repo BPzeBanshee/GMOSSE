@@ -91,6 +91,8 @@ event_user(0);
             <kind>1</kind>
             <string>// Update turret positions
 event_user(0);
+
+event_inherited();
 </string>
           </argument>
         </arguments>

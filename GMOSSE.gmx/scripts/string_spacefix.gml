@@ -1,3 +1,4 @@
+///string_spacefix(str)
 /*
 string_spacefix, by BPzeBanshee
 

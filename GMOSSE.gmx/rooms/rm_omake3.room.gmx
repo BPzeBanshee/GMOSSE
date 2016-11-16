@@ -11,23 +11,8 @@
   <colour>0</colour>
   <showcolour>-1</showcolour>
   <code>global.pausable = 1;
-global.room_id = 66;
 global.level = -33;
-
-//global.bkg_space = background_add_background("images/backgrounds/bkg_space.gmbck");  
-//background_index[0] = global.bkg_space; 
-//background_visible[0] = 1; 
-background_vspeed[0] = 0.1;
-//background_blend[0] = c_red;
-
-/*if !global.update then repeat 30
-    {
-    rx = random_range(2,318);
-    rs = random_range(5,15);
-    rd = random_range(240,300);
-    r = scr_basicshot(rx,-16,obj_rock,rs,rd);
-    r.z = random(100);
-    }*/</code>
+background_vspeed[0] = 0.1;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

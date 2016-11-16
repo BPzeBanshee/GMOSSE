@@ -31,7 +31,7 @@ for (i=0; i<=7; i+=1)
     }
 
 // Capture image of screen (without debug text)
-instance_deactivate_object(obj_debug);
+// Note: This stopped working for debug use since GMS switchover, 
 instance_deactivate_object(obj_ctrl_music);
 
 // First, create the surface
@@ -52,7 +52,6 @@ surface_free(surf);
 // Now we're done with the image, deactivate everything except core controllers
 instance_deactivate_all(1);
 instance_activate_object(obj_debug);
-if global.update instance_activate_object(obj_ctrl_config);
 instance_activate_object(obj_ctrl_input);
 instance_activate_object(obj_ctrl_music);
 instance_activate_object(obj_ctrl_filter);

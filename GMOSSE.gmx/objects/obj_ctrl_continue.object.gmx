@@ -184,7 +184,7 @@ if !global.jup &amp;&amp; !global.jdown
           <argument>
             <kind>1</kind>
             <string>if !enabled then exit;
-scr_view_vars();
+//scr_view_vars();
 draw_set_alpha(alpha);
 
 if alpha &lt; 1

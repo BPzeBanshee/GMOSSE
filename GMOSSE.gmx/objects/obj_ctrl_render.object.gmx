@@ -49,11 +49,11 @@ m_size = global.window_size;        // selector var for resolution list (see eve
 m_angle = global.rotation;          // angle of screen in degrees
 m_clean = global.scaling;           // proportional or clean scale
 m_wallpaper = global.use_wallpaper; // draw wallpaper (y/n)?
-scr_view_vars();
+event_user(1);
 
 // Define self-configured variables
 l_scale = 1;  // automatically calculated in step
-l_delay = 10; // masks funny behaviour while changing window size
+l_delay = 5; // masks funny behaviour while changing window size
 l_res = "";
 
 // Define control aspect ratio settings for windowed mode
@@ -170,6 +170,31 @@ yy = y - lengthdir_y((m_base_w/2)*l_scale,m_angle) - lengthdir_y((m_base_h/2)*l_
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>globalvar xview,yview;
+xview = view_xview[0];
+yview = view_yview[0];
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="10">
       <action>
         <libid>1</libid>
@@ -204,11 +229,30 @@ l_res = string(w)+"x"+string(h);
 l_delay = 10;
 
 // Restore filter use if applicable
-with obj_ctrl_filter
-    {
-    alarm[0] = 10;
-    alarm[1] = 10;
-    }
+with obj_ctrl_filter alarm[0] = 10;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_user(1);
 </string>
           </argument>
         </arguments>
@@ -265,7 +309,7 @@ draw_set_blend_mode(bm_normal);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_view_vars();
+            <string>event_user(1);
 </string>
           </argument>
         </arguments>

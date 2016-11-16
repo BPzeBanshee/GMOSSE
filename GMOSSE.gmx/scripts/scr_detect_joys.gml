@@ -1,3 +1,4 @@
+///scr_detect_joys()
 /*
 scr_detect_joys(), by BPzeBanshee
 

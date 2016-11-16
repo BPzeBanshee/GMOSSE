@@ -13,7 +13,7 @@ until you unpause/repause again neither does the offsets for drawing it,
 so we use tate_first as defined in scr_pause() rather than global.rotation.
 */
 if !sprite_exists(pause_img) then exit;
-scr_view_vars();
+//scr_view_vars();
 if global.use_new_renderer 
 then draw_sprite_ext(pause_img,0,xview,yview,1,1,0,c_white,1) 
 else switch tate_first

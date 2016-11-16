@@ -55,7 +55,7 @@ if direction &lt; 90 direction += 5;
           <argument>
             <kind>1</kind>
             <string>if other.z != 128 exit;
-scr_playsnd(snd_sf_shothit,0);
+scr_playsnd(snd_sf_shothit,1);
 scr_basicshot(x,y,obj_sf_shothit,speed,direction);
 instance_destroy();
 </string>
@@ -80,7 +80,7 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_playsnd(snd_sf_shothit,0);
+            <string>scr_playsnd(snd_sf_shothit,1);
 scr_basicshot(x,y,obj_sf_shothit,speed,direction);
 instance_destroy();
 </string>

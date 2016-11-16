@@ -1,11 +1,9 @@
+///scr_draw_gauge(x1,y1,r,width,start,end,dir,value,mincol,maxcol)
 /*
 scr_draw_gauge, by SINAZ
 
 Purpose/Description:
 Draws a circular healthbar style guage with a center at x1,y1.
-
-Usage:
-scr_draw_gauge(x1,y1,r,width,start,end,dir,value,mincol,maxcol)
 
 It has an inner radius of r, and a width of width.  Start and end
 represent the angle at which the guage should start and end.

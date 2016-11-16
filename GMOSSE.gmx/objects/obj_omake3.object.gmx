@@ -104,11 +104,13 @@ if instance_exists(arm_right) then with arm_right instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
-/// Update leg position
+            <string>/// Update leg position
 legs.x = x;
 legs.y = y;
 legs.image_angle = image_angle;
+
+// Inherited enemy behaviour
+event_inherited();
 </string>
           </argument>
         </arguments>

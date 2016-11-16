@@ -99,6 +99,7 @@
         <sprite>sprites\spr_wall1</sprite>
         <sprite>sprites\spr_wall2</sprite>
         <sprite>sprites\spr_wall3</sprite>
+        <sprite>sprites\spr_wall_blank</sprite>
       </sprites>
       <sprites name="Stage 1">
         <sprite>sprites\spr_en1</sprite>
@@ -420,7 +421,6 @@
       </scripts>
       <scripts name="Screen">
         <script>scripts\scr_screen_init.gml</script>
-        <script>scripts\scr_view_vars.gml</script>
         <script>scripts\scr_scanline.gml</script>
         <script>scripts\scr_setdisplay.gml</script>
         <script>scripts\scr_max_aa.gml</script>
@@ -471,8 +471,6 @@
       <script>scripts\scr_draw_input.gml</script>
       <script>scripts\scr_isonscreen.gml</script>
       <script>scripts\string_spacefix.gml</script>
-      <script>scripts\draw_self2.gml</script>
-      <script>scripts\collision_tile.gml</script>
     </scripts>
     <script>scripts\Script_List.gml</script>
   </scripts>
@@ -568,7 +566,6 @@
       </objects>
       <objects name="Walls">
         <object>objects\obj_wall</object>
-        <object>objects\obj_wall_alt</object>
       </objects>
       <objects name="Generic">
         <objects name="Bomb Carrier">
@@ -674,16 +671,15 @@
     </objects>
     <objects name="Controllers">
       <objects name="CORE">
+        <object>objects\obj_init</object>
         <object>objects\obj_debug</object>
         <object>objects\obj_trans</object>
         <object>objects\obj_fade</object>
         <object>objects\obj_ctrl_input</object>
         <object>objects\obj_ctrl_music</object>
         <object>objects\obj_ctrl_camera</object>
-        <object>objects\obj_ctrl_camera_old</object>
         <object>objects\obj_ctrl_pause</object>
         <object>objects\obj_ctrl_config</object>
-        <object>objects\obj_ctrl_config_old</object>
         <object>objects\obj_ctrl_rebind</object>
         <object>objects\obj_ctrl_filter</object>
         <object>objects\obj_ctrl_render</object>
@@ -775,6 +771,7 @@
           <object>objects\obj_e_foot2</object>
         </objects>
         <objects name="DO NOT USE">
+          <object>objects\obj_ctrl_camera_old</object>
           <object>objects\gradius_options</object>
         </objects>
         <object>objects\obj_en72</object>
