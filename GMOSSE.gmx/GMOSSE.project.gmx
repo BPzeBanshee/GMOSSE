@@ -41,6 +41,7 @@
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
+    <sound>sound\snd_yoyo_bug</sound>
     <sounds name="Player">
       <sounds name="Xonochrome">
         <sound>sound\snd_xono_shot</sound>

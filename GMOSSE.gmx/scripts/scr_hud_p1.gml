@@ -69,7 +69,7 @@ if global.shipselect = 3 && instance_exists(obj_player)
     for (i=0;i<spd;i+=1)
         {
         k = sprite_get_width(spr_bh_spd) * i;
-        draw_sprite_ext(spr_bh_spd,-1,xview+4+k,yview+314,1,1,0,c_white,a3);
+        draw_sprite_ext(spr_bh_spd,-1,xview+4+k,yview+316,1,1,0,c_white,a3);
         }
     }
 else
