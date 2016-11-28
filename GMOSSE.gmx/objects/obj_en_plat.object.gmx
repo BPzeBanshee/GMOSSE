@@ -3,7 +3,7 @@
   <spriteName>spr_en_plat</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>obj_en_air</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -180,7 +180,7 @@ if tur_count &gt; 0
     }
     
 // Final pattern - Only occurs if all turrets are destroyed
-if tur_count = 0 &amp;&amp; y &gt; yview-(sprite_height/2)
+if tur_count = 0 &amp;&amp; y &gt; yview-(sprite_height/2) &amp;&amp; y &lt; yview+160
     {
     timer += 1;
     if timer &gt;= 4

@@ -27,10 +27,7 @@
             <kind>1</kind>
             <string>/*
 Variables that are used in the step function need to be called here
-and assigned a variable first. Sure, you can set in the Global Game
-Settings "treat uninitialised variables as value 0" but this way
-you have more control and get better error checking for complex
-equations that might go wrong and cause GM to error out.
+and assigned a variable first. 
 */
 /* WEAPON/TIMER VARS */
 shot_angle = 0;
@@ -41,24 +38,26 @@ lsr_timer = 0;
 bomb_timer = 0;
 
 /* SPEED VARS */
-global.shipspeed = 5; 
-global.slowshipspeed = 2; 
-
-global.diagspeed = 5;
-global.sldiagspeed = 2;
-
-if global.xonospr = 2 then sprite_index = spr_xono_v2;
-if global.xonospr = 3 
-    {
-    sprite_index = spr_xono_v3;
-    image_speed = 0.33;
-    }
 /* 
 Personally I keep diagonal move speeds the same as the 
 shipspeed but this is customisable to tailor to your needs. 
 Apparently limiting diagonal speed is a common thing 
 in shmups but I've never really noticed or liked it.
 */
+global.shipspeed = 5; 
+global.slowshipspeed = 2; 
+
+global.diagspeed = 5;
+global.sldiagspeed = 2;
+
+/* AESTHETIC VARS */
+if global.xonospr = 2 then sprite_index = spr_xono_v2;
+if global.xonospr = 3 
+    {
+    sprite_index = spr_xono_v3;
+    image_speed = 0.33;
+    }
+
 </string>
           </argument>
         </arguments>

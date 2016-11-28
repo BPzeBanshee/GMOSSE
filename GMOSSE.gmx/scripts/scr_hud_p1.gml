@@ -47,11 +47,39 @@ if instance_exists(obj_player)
     && obj_player.y > yview+294 
     then a3 = 0.25;
     }
-for (i=0;i<global.bombs;i+=1)
+if global.shipselect = 3 && instance_exists(obj_player)
     {
-    k = sprite_get_width(spr_bombs) * i;
-    draw_sprite_ext(spr_bombs,0,xview+8+k,yview+312,1,1,0,c_white,a3);
+    // Speed Level and Weapon Display
+    var spd,op,md;
+    spd = obj_player.speed_gear;
+    if (obj_player.option1).program = 1 then md = "*" else md = "";
+    switch global.optiontype
+        {
+        default: op = "NORMAL"; break;
+        case 2: op = "REVERSE"; break;
+        case 3: op = "SEARCH"; break;
+        case 4: op = "MULTI"; break;
+        case 5: op = "MULTI-R"; break;
+        case 6: op = "SHADOW"; break;
+        case 7: op = "ROLL"; break;
+        }
+    draw_set_color(make_color_rgb(90,218,90));
+    draw_set_alpha(a3);
+    draw_text(xview,yview+300,op + md);
+    for (i=0;i<spd;i+=1)
+        {
+        k = sprite_get_width(spr_bh_spd) * i;
+        draw_sprite_ext(spr_bh_spd,-1,xview+4+k,yview+314,1,1,0,c_white,a3);
+        }
     }
-    
+else
+    {
+    // Bomb Display
+    for (i=0;i<global.bombs;i+=1)
+        {
+        k = sprite_get_width(spr_bombs) * i;
+        draw_sprite_ext(spr_bombs,0,xview+8+k,yview+312,1,1,0,c_white,a3);
+        }
+    }
 
 

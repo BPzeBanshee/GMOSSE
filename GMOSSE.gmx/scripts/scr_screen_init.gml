@@ -41,3 +41,5 @@ scr_setdisplay(global.aa,global.vsync);
 
 // Filtering
 texture_set_interpolation(global.filter);
+
+

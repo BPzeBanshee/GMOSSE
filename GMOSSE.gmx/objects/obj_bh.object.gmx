@@ -25,40 +25,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>can_shoot = 1;
-can_shoot2 = 1;
-can_shoot_bomb = 1;
-// weapon/bomber variable handling
+            <string>/*
+Variables that are used in the step function need to be called here
+and assigned a variable first. 
+*/
+/* WEAPON/TIMER VARS */
 shot_angle = 0;
 shot_angle_add = 1;
 
-afterimage = 0;
-// despite being used by its parent object afterimage = 0 is required here since
-// the parent object itself has not been created to initialise the variable.
+can_shoot = 1;
+can_shoot2 = 1;
+can_shoot_bomb = 1;
 
-global.shipspeed = 1; 
-// this is the ship's movement speed when not pressing SHIFT.
-
-global.slowshipspeed =1; 
-// this is how much is taken away from existing speed when pressing SHIFT.
-
-// variables that are used in the step function need to be called here
-// and assigned a variable first. Sure, you can set in the Global Game
-// Settings "treat uninitialised variables as value 0" but this way
-// you have more control and get better error checking for complex
-// equations that might go wrong and cause GM to error out.
+/* SPEED VARS */
+/* 
+Personally I keep diagonal move speeds the same as the 
+shipspeed but this is customisable to tailor to your needs. 
+Apparently limiting diagonal speed is a common thing 
+in shmups but I've never really noticed or liked it.
+*/
+global.shipspeed = 1;
+global.slowshipspeed = 1; 
 
 global.diagspeed = 1;
 global.sldiagspeed = 1;
-// This is the ship's movement speed when going diagonally.
-// Personally I keep it the same as the shipspeed but this
-// is customisable to tailor to your needs. Apparently limiting
-// diagonal speed is a common thing in shmups but I've never
-// noticed it.
 
+/* OPTION VARS */
 switch global.optiontype
     {
-    case 1: option_t1 = obj_bh_type1; option_t2 = obj_bh_type1; break;
+    default: option_t1 = obj_bh_type1; option_t2 = obj_bh_type1; break;
     case 2: option_t1 = obj_bh_type2; option_t2 = obj_bh_type2; break;
     case 3: option_t1 = obj_bh_type3; option_t2 = obj_bh_type3; break;
     case 4: option_t1 = obj_bh_type4; option_t2 = obj_bh_type4; break;
@@ -71,42 +66,18 @@ shootingtime = 0;
 image_timer = 0;
 speed_gear = 1;
 thrust_scale = 0.25;
-speed_up = 0;
+speed_up = 1;
 can_speed = 1;
-option1 = instance_create(x,y,option_t1) with option1 
-    {
-    position = 1;
-    direction = 90;
-    } 
-option2 = instance_create(x,y,option_t2) with option2 
-    {
-    position = 2;
-    direction = 90;
-    }
+
+option1 = instance_create(x,y,option_t1);
+option1.position = 1;
+option1.direction = 90;
+option2 = instance_create(x,y,option_t2);
+option2.position = 2;
+option2.direction = 90;
+
+/* AESTHETIC VARS */
 instance_create(x,y,obj_bh_trace);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>can_shoot_bomb = 1;
 </string>
           </argument>
         </arguments>
@@ -175,8 +146,10 @@ instance_create(x,y,obj_bh_trace);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>/* COMPUSLORY EVENT */
+event_inherited();
 
+// Generation of trace
 if !instance_exists(obj_bh_trace)
     {
     option1 = instance_create(x,y,option_t1);
@@ -187,6 +160,7 @@ if !instance_exists(obj_bh_trace)
     option2.direction = 90;
     instance_create(x,y,obj_bh_trace);
     }
+    
 // image aesthetics
 afterimage = -666;
 image_timer += 1;
@@ -199,35 +173,25 @@ if image_timer &gt;= 5
     }
 
 // shoot code
-
-// I made this mainly as a test of spraying bullets my own way, but it
-// can also be expanded upon. Speed, angle of the image, firing direction
-// and playing of sounds is done through by passing variables and
-// commands to the object created by the with {} function.
-
-//button 1 (fire)
-
-if (global.button1 = 1) 
+// button 1
+if global.button1
     {
-    if can_shoot = 1 
+    if can_shoot = 1 // Main shot
         {
         scr_playsnd(snd_bh_mainshot,1);
         shot = scr_basicshot(x,y,obj_bh_mainshot,20,90+shot_angle);
         shot.image_blend = obj_bh_orb.image_blend;
 
-        if shot_angle_add = 1 then shot_angle += 1;
-        if shot_angle_add = 0 then shot_angle -= 1;
+        if shot_angle_add = 1 then shot_angle += 1 else shot_angle -= 1;
         if shot_angle &gt; 3 || shot_angle &lt; -3
             {
-            shot_angle = 0; 
-            if shot_angle_add = 1 
-            then shot_angle_add = 0 
-            else shot_angle_add = 1;
+            shot_angle = 0;
+            shot_angle_add = !shot_angle_add; // binary invert
             }
         can_shoot = 0;
         alarm[0] = 4;
         }
-    if can_shoot2 = 1
+    if can_shoot2 = 1 // Side orb shot
         {
         with obj_bh_orb event_user(0);
         switch weapon
@@ -244,19 +208,17 @@ if (global.button1 = 1)
         }
     }
 
-//button 3 (alternate fire while slowing down)
-if(global.button3 = 1 &amp;&amp; can_speed = 1) 
+//button 3 (speed gear setting)
+if (global.button3 &amp;&amp; can_speed) 
     {
     can_speed = 0;
-    if speed_up = 0 {speed_gear -= 1;} else speed_gear += 1;
-    if speed_gear &gt; 4 {speed_up = 0; speed_gear -= 2;}
-    if speed_gear &lt; 1 {speed_up = 1; speed_gear += 2;}
+    if speed_up = 1 then speed_gear += 1 else speed_gear -= 1;
     switch speed_gear
         {
-        case 1: global.shipspeed = 1; thrust_scale = 0.25; break;
+        case 1: global.shipspeed = 1; thrust_scale = 0.25; speed_up = 1; break;
         case 2: global.shipspeed = 3; thrust_scale = 0.5; break;
         case 3: global.shipspeed = 5; thrust_scale = 0.75; break;
-        case 4: global.shipspeed = 7; thrust_scale = 1; break;
+        case 4: global.shipspeed = 7; thrust_scale = 1; speed_up = 0; break;
         }
     global.slowshipspeed = global.shipspeed; 
     global.diagspeed = global.shipspeed;

@@ -79,10 +79,10 @@
       <sound>sound\snd_voice2</sound>
       <sound>sound\snd_voice3</sound>
       <sound>sound\snd_voice4</sound>
+      <sound>sound\snd_pain</sound>
     </sounds>
     <sounds name="Others">
       <sound>sound\snd_1up</sound>
-      <sound>sound\snd_1upold</sound>
       <sound>sound\snd_click</sound>
       <sound>sound\snd_exp1</sound>
       <sound>sound\snd_exp2</sound>
@@ -90,7 +90,6 @@
       <sound>sound\snd_lightning1</sound>
       <sound>sound\snd_lightning2</sound>
       <sound>sound\snd_lightning3</sound>
-      <sound>sound\snd_pain</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -135,6 +134,7 @@
         <sprite>sprites\sprite160</sprite>
         <sprite>sprites\spr_en8</sprite>
         <sprite>sprites\spr_en8_orb</sprite>
+        <sprite>sprites\spr_en8_orb_old</sprite>
         <sprite>sprites\spr_en9_tur</sprite>
         <sprites name="Enemy 6">
           <sprite>sprites\spr_en6_full</sprite>
@@ -222,6 +222,7 @@
         <sprite>sprites\spr_bh_out</sprite>
         <sprite>sprites\spr_bh_orb</sprite>
         <sprite>sprites\spr_trace_bhorb</sprite>
+        <sprite>sprites\spr_bh_spd</sprite>
       </sprites>
       <sprites name="Swordfish">
         <sprite>sprites\spr_sf</sprite>
@@ -297,7 +298,6 @@
         <sprite>sprites\spr_logo2</sprite>
       </sprites>
       <sprites name="Aesthetics">
-        <sprite>sprites\spr_warp</sprite>
         <sprite>sprites\spr_warp2</sprite>
         <sprite>sprites\spr_planet1</sprite>
         <sprite>sprites\spr_whitepixel</sprite>

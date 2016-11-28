@@ -35,7 +35,7 @@ if obj_player.weapon = 1
     direction += irandom_range(-15,15);
     sprite_index = spr_bh_shothit;
     image_blend = obj_bh_orb.image_blend;
-    scr_playsnd(snd_bh_shothit,0);
+    scr_playsnd(snd_bh_shothit,1);
     }
 if obj_player.weapon = 2
     {
@@ -49,7 +49,7 @@ if obj_player.weapon = 3
     speed = 5;
     sprite_index = spr_bh_shothit;
     image_blend = obj_bh_orb.image_blend;
-    scr_playsnd(snd_bh_shothit,0);
+    scr_playsnd(snd_bh_shothit,1);
     }
 if obj_player.weapon = 4
     {
@@ -64,7 +64,7 @@ if obj_player.weapon = 5
     direction = irandom(360);
     sprite_index = spr_bh_shothit;
     image_blend = obj_bh_orb.image_blend;
-    scr_playsnd(snd_bh_shothit,0);
+    scr_playsnd(snd_bh_shothit,1);
     }
 if obj_player.weapon = 6
     {
@@ -81,7 +81,7 @@ if obj_player.weapon = 7
     speed = 3;
     sprite_index = spr_bh_shothit;
     image_blend = obj_bh_orb.image_blend;
-    scr_playsnd(snd_bh_shothit,0);
+    scr_playsnd(snd_bh_shothit,1);
     }
 }
 </string>

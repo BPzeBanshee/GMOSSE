@@ -50,7 +50,7 @@
             <kind>1</kind>
             <string>scr_draw_vars(global.fnt_little,fa_center,c_white);
 draw_set_alpha(image_alpha);
-draw_text(x,y,string(msg));
+draw_text(round(x),y,string(msg));
 
 timeout -= 1;
 y -= 0.2;

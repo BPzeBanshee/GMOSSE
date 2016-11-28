@@ -28,6 +28,8 @@
             <string>image_timer = 0;
 image_angle = 90;
 angle = 90;
+program = 0;
+hook = 0;
 </string>
           </argument>
         </arguments>

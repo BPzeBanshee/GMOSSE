@@ -53,7 +53,7 @@ event_user(1);
 
 // Define self-configured variables
 l_scale = 1;  // automatically calculated in step
-l_delay = 5; // masks funny behaviour while changing window size
+l_delay = 0; // masks funny behaviour while changing window size
 l_res = "";
 
 // Define control aspect ratio settings for windowed mode
@@ -113,6 +113,11 @@ event_user(0); // set window size according to selected resolution
 
 if m_size != global.window_size 
 or m_aspect != global.window_aspect 
+then event_user(0);
+
+if !global.fullscreen
+then if window_get_width() != m_array_w[m_aspect,m_size]
+|| window_get_height() != m_array_h[m_aspect,m_size] 
 then event_user(0);
 
 // DEBUG COMMANDS
@@ -226,7 +231,8 @@ w = m_array_w[m_aspect,m_size];
 h = m_array_h[m_aspect,m_size];
 window_set_size(w,h);
 l_res = string(w)+"x"+string(h);
-l_delay = 10;
+//show_debug_message(l_res+" set");
+l_delay = 10 * !global.fullscreen;
 
 // Restore filter use if applicable
 with obj_ctrl_filter alarm[0] = 10;
@@ -287,6 +293,14 @@ if m_wallpaper &amp;&amp; (m_aspect &gt; 0 || (m_aspect = 0 &amp;&amp; (m_angle 
 draw_set_blend_mode_ext(bm_one,bm_zero);
 draw_surface_ext(application_surface,xx,yy,l_scale,l_scale,m_angle,c_white,1);
 draw_set_blend_mode(bm_normal);
+
+/*scr_draw_vars(global.fnt_little,fa_right,c_black);
+var s1 = "Win. Size: "+string(window_get_width())+"x"+string(window_get_height());
+var s2 = "GUI. Size: "+string(display_get_width())+"x"+string(display_get_height());
+draw_rectangle(window_get_width()-string_width(s1),0,window_get_width(),12,0);
+draw_set_color(c_white);
+draw_text(window_get_width(),0,s1);
+draw_text(window_get_width(),12,s2);*/
 </string>
           </argument>
         </arguments>

@@ -28,7 +28,14 @@
             <string>if image_angle &gt; 360 then image_angle = 0;
 if image_angle &lt; 0 then image_angle = 360;
 
-if (!global.button2)
+if global.button2 &amp;&amp; !hook
+    {
+    program = !program;
+    hook = 1;
+    }
+if !global.button2 then hook = 0;
+
+if program = 0
     {
     if (global.jup &amp;&amp; !global.jleft &amp;&amp; !global.jright)
         {

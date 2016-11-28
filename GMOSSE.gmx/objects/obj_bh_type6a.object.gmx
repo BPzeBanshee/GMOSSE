@@ -67,7 +67,14 @@ moving = 0;
     || (global.jleft &amp;&amp; global.jright) 
     then moving = 0;
 
-    if global.button2 then moving = 2;//if timer &gt; length {moving=2} else {exit;}
+    if global.button2 &amp;&amp; !hook
+        {
+        program = !program;
+        hook = 1;
+        }
+    if !global.button2 then hook = 0;
+    
+    if program = 1 then moving = 2;
         
     if moving &gt; 0
         {
@@ -81,16 +88,14 @@ moving = 0;
         size += 1;
         }
         
-    if moving = 2 //global.button2 &amp;&amp; moving = 2
+    if moving = 2
         {
-        //mp_linear_step(obj_player.x-new_x,obj_player.y-new_y,10,0);
         x = obj_player.x-new_x;
         y = obj_player.y-new_y;
         }
         
     if size &gt;= length
         {
-        //mp_linear_step(ds_queue_head(qqx),ds_queue_head(qqy),10,0);
         if moving = 1 
             {
             x = ds_queue_head(qqx); 

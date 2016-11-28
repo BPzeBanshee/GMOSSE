@@ -35,9 +35,6 @@ timer = 0;
 dead_timer = 0;
 dead = 0;
 mode = 0;
-
-image_xscale = 4;
-image_yscale = 4;
 </string>
           </argument>
         </arguments>

@@ -57,7 +57,7 @@ direction=parent.direction;
           <argument>
             <kind>1</kind>
             <string>if other.z != 128 exit;
-scr_basicshot(x,y,obj_bh_shothit,5,90);
+scr_basicshot(x,y,obj_bh_shothit,5,direction);
 instance_destroy();
 </string>
           </argument>
