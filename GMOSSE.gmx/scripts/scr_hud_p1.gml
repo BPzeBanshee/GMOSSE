@@ -65,7 +65,7 @@ if global.shipselect = 3 && instance_exists(obj_player)
         }
     draw_set_color(make_color_rgb(90,218,90));
     draw_set_alpha(a3);
-    draw_text(xview,yview+300,op + md);
+    draw_text(xview,yview+302,op + md);
     for (i=0;i<spd;i+=1)
         {
         k = sprite_get_width(spr_bh_spd) * i;

@@ -222,6 +222,7 @@
         <sprite>sprites\spr_bh</sprite>
         <sprite>sprites\spr_bh_out</sprite>
         <sprite>sprites\spr_bh_orb</sprite>
+        <sprite>sprites\spr_bh_lockon</sprite>
         <sprite>sprites\spr_trace_bhorb</sprite>
         <sprite>sprites\spr_bh_spd</sprite>
       </sprites>
@@ -231,8 +232,8 @@
         <sprite>sprites\spr_sf_out</sprite>
         <sprites name="Weapons">
           <sprite>sprites\spr_sf_shot</sprite>
-          <sprite>sprites\spr_sf_shotexp</sprite>
           <sprite>sprites\spr_sf_shothit</sprite>
+          <sprite>sprites\spr_sf_shotexp</sprite>
           <sprite>sprites\spr_sf_bomb</sprite>
           <sprite>sprites\spr_sf_bombV2</sprite>
           <sprite>sprites\spr_sf_laser</sprite>
@@ -567,6 +568,7 @@
       </objects>
       <objects name="Walls">
         <object>objects\obj_wall</object>
+        <object>objects\obj_st2_wall</object>
       </objects>
       <objects name="Generic">
         <objects name="Bomb Carrier">

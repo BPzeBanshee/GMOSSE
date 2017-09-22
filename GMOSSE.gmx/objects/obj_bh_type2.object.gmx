@@ -81,20 +81,15 @@ if program = 0
     
 if instance_exists(obj_player)
     {
-    switch position
+    if position = 1
         {
-        case 1:
-            {
-            x = obj_player.x - 25;
-            y = obj_player.y;
-            break;
-            }
-        case 2:
-            {
-            x = obj_player.x + 25;
-            y = obj_player.y;
-            break;
-            }
+        x = obj_player.x-25;
+        y = obj_player.y;
+        }
+    else
+        {
+        x = obj_player.x+25;
+        y = obj_player.y;
         }
     }
 </string>

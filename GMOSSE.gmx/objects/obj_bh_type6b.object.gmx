@@ -72,12 +72,10 @@ new_y = 0;
         }
     if moving = 2
         {
-        //mp_linear_step(obj_bh_type6a.x-new_x,obj_bh_type6a.y-new_y,10,0);
         x = obj_bh_type6a.x - new_x; y = obj_bh_type6a.y - new_y;
         }
     if size &gt; length
         {
-        //mp_linear_step(ds_queue_head(qqx),ds_queue_head(qqy),10,0); 
         if moving = 1 
             {
             x = ds_queue_head(qqx); 

@@ -161,7 +161,7 @@ switch phase
             }
         
         
-        if atk_timer &gt;= 262//262.74 //32.34
+        if atk_timer &gt;= 263//262.74 //32.34
             {
             // Attack 2
             count += 1;

@@ -261,7 +261,7 @@ else
     draw_set_alpha(1-c);
     
     draw_set_font(global.fnt_default);
-    draw_text(183,107,"MK-IX TEST");
+    draw_text(183,107,"MK-IX");
     
     if !enabled then exit;
     

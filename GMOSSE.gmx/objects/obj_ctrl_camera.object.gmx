@@ -83,7 +83,7 @@ x += spd_x;
 y += spd_y;
 
 // Bounding omnidirectional speed values within the room
-if x &lt; 0 then spd_x = min(x,1)
+if x &lt; 0 then spd_x = max(x,1)
 else if x &gt; room_width then spd_x = -min(x-room_width,1)
 else spd_x = spd_x_init;
 
@@ -91,10 +91,11 @@ else spd_x = spd_x_init;
 event_user(0);
 
 // The formula
-formula = x + (max_width * player_pc) - xo; // 80 * decimal value as percentage
+formula = (x + round(max_width * player_pc)) - xo; // 80 * decimal value as percentage
+//formula = round(x + (max_width * player_pc)) - xo; // 80 * decimal value as percentage
 
-if view_xview[0] &lt; formula then view_xview[0] += min(formula-view_xview[0],1.5);
-if view_xview[0] &gt; formula then view_xview[0] -= min(view_xview[0]-formula,1.5);
+if view_xview[0] &lt; formula then view_xview[0] += min(formula-view_xview[0],2);
+if view_xview[0] &gt; formula then view_xview[0] -= min(view_xview[0]-formula,2);
 view_yview[0] = y - yo;
 </string>
           </argument>

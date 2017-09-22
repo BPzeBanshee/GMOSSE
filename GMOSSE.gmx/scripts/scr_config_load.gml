@@ -38,12 +38,12 @@ global.keycode_button3 = ini_read_real("Keyboard","button3",vk_shift);
 global.keycode_button4 = ini_read_real("Keyboard","button4",vk_enter);
      
 /* VIDEO */
-global.use_new_renderer = ini_read_real("Video","use_new_renderer",0); // Render method
+global.use_new_renderer = ini_read_real("Video","use_new_renderer",1); // Render method
 global.fullscreen = ini_read_real("Video","fullscreen",false); // Fullscreen mode
-global.window_aspect = ini_read_real("Video","window_aspect",1); // window aspect ratio
-global.window_size = ini_read_real("Video","window_size",1); // window size
+global.window_aspect = ini_read_real("Video","window_aspect",2); // window aspect ratio
+global.window_size = ini_read_real("Video","window_size",5); // window size
 global.rotation = ini_read_real("Video","rotation",0); // Screen orientation
-global.scaling = ini_read_real("Video","scaling",0); // Scaling method
+global.scaling = ini_read_real("Video","scaling",1); // Scaling method
 global.use_wallpaper = ini_read_real("Video","wallpaper",1); // draw wallpaper
       
 global.filter = ini_read_real("Video","filter",false); // Interpolation of colours between pixels
@@ -55,7 +55,7 @@ global.alternate_sync = ini_read_real("Video","alternate_sync",0); // alternate 
   
 /* SOUND */
 // Volume levels
-global.music_volume = ini_read_real("Sound","music_volume",100);
+global.music_volume = ini_read_real("Sound","music_volume",70);
 global.sfx_volume = ini_read_real("Sound","sfx_volume",100);
 global.voice_volume = ini_read_real("Sound","voice_volume",100);
     

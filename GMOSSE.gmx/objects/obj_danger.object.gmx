@@ -70,30 +70,6 @@ if !instance_exists(obj_ctrl_gameover)
             <kind>1</kind>
             <string>// Timeline
 timer += 1;
-/*switch timer
-    {
-    case 60:
-        {
-        rnd = 15;
-        if !instance_exists(obj_ctrl_gameover) 
-        then scr_playsnd(snd_voice5,1);
-        break;
-        }
-    }*/
-
-// WARNING Text
-//if rnd &gt; 0 then rnd -= 0.5; // shaking effect
-/*if timer &lt; 90
-    { // alpha
-    if fade2 = 0
-        {
-        if alpha2 &lt; 1 then alpha2 += 0.04 else fade2 = 1;
-        }
-    if fade2 = 1
-        {
-        if alpha2 &gt; 0 then alpha2 -= 0.04 else fade2 = 0;
-        }
-    }*/
     
 // Red scanline
 if timer &lt; 90
@@ -112,7 +88,6 @@ if timer &gt; 10
 if timer &gt; 90
     {
     if rnd &gt; 0 then rnd -= 0.5;
-    //image_alpha -= 0.02;
     if alpha3 &lt;= 0.5 
         {
         image_yscale -= 0.02;

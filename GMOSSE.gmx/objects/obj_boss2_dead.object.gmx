@@ -27,9 +27,10 @@
             <kind>1</kind>
             <string>timer = 0; c = 255;
 scr_create_exp(obj_explosion,360,18); 
-scr_playsnd(snd_exp3,0);
+scr_playsnd(snd_exp3,1);
 if global.omake_enabled = 1
     {
+    tiles = tile_get_ids_at_depth(1000001);
     scr_stopallmusic();
     w = instance_create(x,y,obj_danger);
     w.msg = "4|\|71(|-|R1$7 ||#APPROACHING";
@@ -68,6 +69,10 @@ if global.omake_enabled = 1
     {
     obj_wall.image_blend = make_color_rgb(255,c,c);
     background_blend[2] = make_color_rgb(255,c,c);
+    for (i=0;i&lt;array_length_1d(tiles);i++)
+        {
+        tile_set_blend(tiles[i],make_color_rgb(255,c,c));
+        }
     if c &gt; 0 then c -= 2.5;
     }
 

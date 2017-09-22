@@ -90,21 +90,9 @@ if timer = 550
     {
     switch global.level
         {
-        case -22:
-            {
-            global.gamecomplete = 1;
-            instance_create(x,y,obj_ctrl_gameover);
-            break;
-            }
         case -11:
             {
             scr_trans(rm_omake2,3,c_black,0.025,0.05,210);
-            break;
-            }
-        case -2: // Boss 2
-            {
-            global.gamecomplete = 1;
-            instance_create(x,y,obj_ctrl_gameover);
             break;
             }
         case -1: // Boss 1
@@ -117,13 +105,11 @@ if timer = 550
             scr_trans(rm_stage2,3,c_black,0.025,0.05,210);
             break;
             }
-        case 2: // Stage 2
+        /*case 2: // Stage 2
             {
             scr_trans(rm_stage3,3,c_black,0.025,0.05,210);
-            //global.gamecomplete = 1;
-            //instance_create(x,y,obj_ctrl_gameover);
             break;
-            }
+            }*/
         default: // Test rooms, etc
             {
             global.gamecomplete = 1;
