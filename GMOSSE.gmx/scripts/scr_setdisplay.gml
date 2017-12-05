@@ -14,7 +14,7 @@ switch argument0
     case 2: set_aa = 4; break;
     case 3: set_aa = 8; break;
     }
-if set_aa > scr_max_aa()
+if argument0 > scr_max_aa()
     {
     show_message(string(set_aa)+"xAA unsupported by your card");
     return -1;

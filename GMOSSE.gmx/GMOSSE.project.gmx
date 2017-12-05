@@ -788,6 +788,7 @@
         <object>objects\obj_exp3</object>
         <object>objects\obj_exp3_gen</object>
       </objects>
+      <object>objects\obj_test</object>
     </objects>
   </objects>
   <rooms name="rooms">

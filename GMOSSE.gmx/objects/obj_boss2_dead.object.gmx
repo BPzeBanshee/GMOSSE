@@ -71,7 +71,7 @@ if global.omake_enabled = 1
     background_blend[2] = make_color_rgb(255,c,c);
     for (i=0;i&lt;array_length_1d(tiles);i++)
         {
-        tile_set_blend(tiles[i],make_color_rgb(255,c,c));
+        if tile_exists(tiles[i]) then tile_set_blend(tiles[i],make_color_rgb(255,c,c));
         }
     if c &gt; 0 then c -= 2.5;
     }

@@ -8,10 +8,12 @@ deleting the stillscreen image to not be wasteful.
 */
 for (i=0; i<=7; i+=1)
     {
-    background_vspeed[i] = bkg_vspd[i];
-    background_hspeed[i] = bkg_hspd[i];
-    background_alpha[i] = bkg_alpha[i];
+    background_vspeed[i] = global.bkg_vspd[i];
+    background_hspeed[i] = global.bkg_hspd[i];
+    background_alpha[i] = global.bkg_alpha[i];
     }
 
-if sprite_exists(pause_img) then sprite_delete(pause_img);
+if sprite_exists(global.pause_img) then sprite_delete(global.pause_img);
 instance_activate_all();
+
+global.paused = 0;

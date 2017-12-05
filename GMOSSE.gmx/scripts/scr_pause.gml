@@ -6,6 +6,7 @@ Creates a surface copy of the current screen and then deactivates all instances,
 effectively pausing the game and making an image of everything beforehand so you
 can use scr_pause_draw() to make it appear as if the objects were still present.
 */
+global.paused = 1;
 
 tate_first = global.rotation;
 var win_w,win_h;
@@ -23,9 +24,9 @@ else
 // Freeze background positions/save speeds
 for (i=0; i<=7; i+=1)
     {
-    bkg_vspd[i] = background_vspeed[i];
-    bkg_hspd[i] = background_hspeed[i];
-    bkg_alpha[i] = background_alpha[i];
+    global.bkg_vspd[i] = background_vspeed[i];
+    global.bkg_hspd[i] = background_hspeed[i];
+    global.bkg_alpha[i] = background_alpha[i];
     background_vspeed[i] = 0;
     background_hspeed[i] = 0;
     }
@@ -45,8 +46,7 @@ draw_set_blend_mode(bm_normal);
 surface_reset_target();
 
 // Then make the sprite off the surface
-globalvar pause_img;
-pause_img = sprite_create_from_surface(surf,0,0,win_w,win_h,false,false,0,0);
+global.pause_img = sprite_create_from_surface(surf,0,0,win_w,win_h,false,false,0,0);
 surface_free(surf);
 
 // Now we're done with the image, deactivate everything except core controllers

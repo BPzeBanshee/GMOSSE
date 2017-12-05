@@ -187,12 +187,10 @@ if !global.jup &amp;&amp; !global.jdown
 //scr_view_vars();
 draw_set_alpha(alpha);
 
-if alpha &lt; 1
-    {
-    scr_pause_draw();
-    draw_set_color(c_black);
-    draw_rectangle(xview,yview,xview+240,yview+320,false);
-    }
+if alpha &lt; 1 then scr_pause_draw();
+
+draw_set_color(c_black);
+draw_rectangle(xview,yview,xview+240,yview+320,false);
 
 scr_draw_vars(global.fnt_big,fa_center,c_white);
 draw_text(xview+120,yview+96,"Continue?");

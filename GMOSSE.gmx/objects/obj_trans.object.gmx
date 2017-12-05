@@ -69,6 +69,7 @@ global.levelend = 1;
             if image_index = image_number then timer += 1;
             if timer = input_delay 
                 {
+                if global.paused then scr_unpause();
                 room_goto(input_room);
                 global.levelend = 0;
                 }
@@ -87,6 +88,7 @@ global.levelend = 1;
             if alpha &lt; 1 then alpha += input_speed1 else timer += 1;
             if timer &gt; input_delay 
                 {
+                if global.paused then scr_unpause();
                 room_goto(input_room);
                 global.levelend = 0;
                 }
@@ -106,6 +108,7 @@ global.levelend = 1;
             if alpha &lt; 1 then alpha += input_speed1 else timer += 1;
             if timer &gt; input_delay 
                 {
+                if global.paused then scr_unpause();
                 room_goto(input_room);
                 global.levelend = 0;
                 }

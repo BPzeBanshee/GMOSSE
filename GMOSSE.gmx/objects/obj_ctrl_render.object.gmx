@@ -231,8 +231,7 @@ w = m_array_w[m_aspect,m_size];
 h = m_array_h[m_aspect,m_size];
 window_set_size(w,h);
 l_res = string(w)+"x"+string(h);
-//show_debug_message(l_res+" set");
-l_delay = 10 * !global.fullscreen;
+l_delay = 11;//10 * !global.fullscreen;
 
 // Restore filter use if applicable
 with obj_ctrl_filter alarm[0] = 10;

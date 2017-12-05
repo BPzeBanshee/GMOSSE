@@ -1,6 +1,4 @@
-scr_draw_vars(fnt_init,fa_left,c_white);
 instance_create(0,0,obj_debug);
-draw_text(0,10,"PLEASE WAIT...");
 
 globalvar USE_SANDBOX; USE_SANDBOX=1;
 if USE_SANDBOX=0
@@ -33,7 +31,6 @@ global.joy_id = 0;
 global.joy_pref = 0;
 global.joy_system = 2;
 
-
 /* CONFIG */
 scr_config_load("config.ini");
 
@@ -54,11 +51,14 @@ application_surface_draw_enable(true);
 if global.use_new_renderer 
 then instance_create(0,0,obj_ctrl_render)
 else instance_create(0,0,obj_ctrl_render_old);
+
+instance_create(0,0,obj_test);
     
 /* MISC. */
 global.pause = 0;
 global.update = 0; // this gets set to 1 when ending game, stops room end events in controllers
 global.pausable = 0; // define pausable/unpausable rooms with this
+global.paused = 0;
 global.nextroom = 0;  // used for transition control/preloading
 global.startstage = rm_stage1; // hidden menu function
 global.intro = 1;

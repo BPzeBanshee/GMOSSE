@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-9998</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -169,7 +169,7 @@ if (global.button1 &amp;&amp; !global.levelend &amp;&amp; !hook &amp;&amp; enabl
           <argument>
             <kind>1</kind>
             <string>scr_unpause();
-instance_destroy();
+instance_activate_all();
 </string>
           </argument>
         </arguments>
