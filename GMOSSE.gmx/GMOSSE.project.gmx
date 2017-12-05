@@ -464,7 +464,6 @@
     </scripts>
     <script>scripts\Script_List.gml</script>
   </scripts>
-  <shaders name="shaders"/>
   <fonts name="fonts">
     <font>fonts\fnt_init</font>
   </fonts>
