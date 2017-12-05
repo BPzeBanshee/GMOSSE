@@ -28,7 +28,14 @@
             <string>if image_angle &gt; 360 then image_angle = 0;
 if image_angle &lt; 0 then image_angle = 360;
 
-if (!global.button2)
+if global.button2 &amp;&amp; !hook
+    {
+    program = !program;
+    hook = 1;
+    }
+if !global.button2 then hook = 0;
+
+if program = 0
     {
     if (global.jup &amp;&amp; !global.jleft &amp;&amp; !global.jright)
         {
@@ -74,20 +81,15 @@ if (!global.button2)
     
 if instance_exists(obj_player)
     {
-    switch position
+    if position = 1
         {
-        case 1:
-            {
-            x = obj_player.x-25;
-            y = obj_player.y;
-            break;
-            }
-        case 2:
-            {
-            x = obj_player.x+25;
-            y = obj_player.y;
-            break;
-            }
+        x = obj_player.x-25;
+        y = obj_player.y;
+        }
+    else
+        {
+        x = obj_player.x+25;
+        y = obj_player.y;
         }
     }
 </string>

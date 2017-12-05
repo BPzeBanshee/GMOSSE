@@ -99,7 +99,7 @@ instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="13">
+    <event eventtype="7" enumb="14">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -125,6 +125,44 @@ adjusts angle to point up and leaves.
 if speed &gt; 5 then speed -= 1;
 scr_turntoangle(90,5);
 if y &lt; (yview-sprite_height/2) then instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>atk2_timer -= 1;
+if atk2_timer &lt;= 5
+    {
+    scr_circleattack(40,x,y,0,obj_bullet4,obj_hitbox,4,false);
+    scr_playsnd(snd_en_shot3,1);
+    }
+if atk2_timer = 0 then atk2_timer = 30;
+
+if enemyHP &lt;= 100 then atk3_timer -= 1; 
+if atk3_timer = 0
+    {
+    atk3_timer = 90;
+    var blast;
+    blast = scr_basicshot(x,y,obj_bullet_shoot,0,0);
+    blast.btype = 3;
+    }
 </string>
           </argument>
         </arguments>
@@ -236,6 +274,7 @@ Phase 0: Orb values are reset for future patterns
 */
 atk_timer = 1;
 atk2_timer = 30;
+atk3_timer = 1;
 spd = 3;
 count = 0;
 count2 = 0;

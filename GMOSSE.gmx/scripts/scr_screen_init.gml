@@ -9,10 +9,9 @@ Requires:
 call scr_loadconfig first
 or instead manually define:
 - global.fullscreen
+- global.aa
 - global.vsync
 - global.filter
-- global.tate
-- global.win_size
 - global.vertex_buffer_method
 - global.alternate_sync
 */
@@ -34,19 +33,8 @@ then display_set_windows_vertex_buffer_method(v);
 if display_get_windows_alternate_sync() != global.alternate_sync 
 then display_set_windows_alternate_sync(global.alternate_sync);
 
-// TATE offset/variable init
-scr_tate_init();
-
-// create global xview/yview vars    
-scr_view_vars();
-
-// X/Y port position within window, only change if using widescreen display stuff
-globalvar xport,yport;
-xport = 0;
-yport = 0;
-
 // Fullscreen
-window_set_fullscreen(global.fullscreen);
+scr_fullscreen(global.fullscreen);
 
 // Vsync
 scr_setdisplay(global.aa,global.vsync);
@@ -54,5 +42,4 @@ scr_setdisplay(global.aa,global.vsync);
 // Filtering
 texture_set_interpolation(global.filter);
 
-// Set room views adjusted for size multiplier
-scr_view_update();
+

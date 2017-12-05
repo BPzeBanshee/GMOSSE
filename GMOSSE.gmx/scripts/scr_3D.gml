@@ -1,9 +1,6 @@
+///scr_3D()
 /*
 scr_3D(), by BPzeBanshee
-
-Usage: 
-(in Step event)
-scr_3D();
 
 What it does:
 Adjusts your depth, scale and alpha values

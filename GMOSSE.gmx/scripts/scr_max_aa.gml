@@ -1,3 +1,4 @@
+///scr_max_aa()
 /*
 scr_max_aa(), by some dude on GMC forums
 

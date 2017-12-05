@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="3" enumb="0">
+    <event eventtype="7" enumb="10">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,13 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if y &gt; yview+320+(sprite_height/2) then instance_destroy();
+            <string>/*
+if y &gt; yview+320+(sprite_height/2) then instance_destroy();
     
 if instance_exists(obj_ctrl_clear)
     {
     image_alpha -= 0.1;
     if image_alpha = 0 then instance_destroy();
     }
+*/
 </string>
           </argument>
         </arguments>

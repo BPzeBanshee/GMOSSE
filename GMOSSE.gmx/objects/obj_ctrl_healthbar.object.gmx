@@ -49,15 +49,16 @@ init = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xview = view_xview[0] + x_o;
-yview = view_yview[0] + y_o;
-draw_set_alpha(0.5);
+            <string>draw_set_alpha(0.5);
 
 if instance_exists(boss)
     {
+    // percentage of boss health to draw
     percent = ( (boss).enemyHP / (boss).enemyHP_max ) * 100;
-    if init=0
+    
+    if init = 0
         {
+        // this is here for the "filling up" effect seen when making the healthbar
         min_hp += 2.4;
         if min_hp &gt;= percent
             {
@@ -67,7 +68,6 @@ if instance_exists(boss)
         draw_healthbar(xview,yview+29,xview+240,yview+34,min_hp,-1,255,65280,0,0,0);
         }
     else draw_healthbar(xview,yview+29,xview+240,yview+34,percent,-1,255,65280,0,0,0);
-    
     
     if global.debug = 1 &amp;&amp; (boss).timeout &gt; 0
         {

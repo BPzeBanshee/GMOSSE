@@ -120,7 +120,9 @@ if direction = 135 &amp;&amp; x &lt; spd_x
     scr_camera_spd(0,-0.33);
     }
     
-instance_activate_region(-48,yview-48,368,368,true);
+instance_deactivate_object(obj_en_wall);
+instance_deactivate_object(obj_en_parent);
+instance_activate_region(x-48,y-48,368,368,true);
 </string>
           </argument>
         </arguments>

@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-9999</depth>
+  <depth>-9998</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -168,8 +168,7 @@ if (global.button1 &amp;&amp; !global.levelend &amp;&amp; !hook &amp;&amp; enabl
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.update exit;
-scr_unpause();
+            <string>scr_unpause();
 instance_destroy();
 </string>
           </argument>
@@ -197,14 +196,12 @@ instance_destroy();
 
 // Drawing the pause menu options and cursor
 if !enabled exit;
-draw_set_font(global.fnt_default);
-draw_set_halign(fa_left);
+scr_draw_vars(global.fnt_default,fa_left,8454016);
 draw_set_alpha(1);
-draw_set_color(8454016);
 
 draw_sprite(spr_pause,-1,xview+120,yview+135);
 
-draw_set_color(make_color_rgb(50,50,50)); draw_set_alpha(0.5);
+draw_set_color(c_black); draw_set_alpha(0.5);
 draw_rectangle(xview+30,yview+110,xview+210,yview+220,0);
 draw_set_color(8454016); draw_set_alpha(1);
 

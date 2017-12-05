@@ -112,10 +112,8 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self2();
-draw_set_font(global.fnt_default);
-draw_set_color(c_black);
-draw_set_halign(fa_center);
+            <string>draw_self();
+scr_draw_vars(global.fnt_default,fa_center,c_black);
 draw_text(x,y,"DPS: "+string(dps));
 </string>
           </argument>

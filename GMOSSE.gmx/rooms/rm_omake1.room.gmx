@@ -11,17 +11,12 @@
   <colour>0</colour>
   <showcolour>-1</showcolour>
   <code>global.pausable = 1;
-global.room_id = 66;
 global.level = -11;
-scr_tate(global.tate);
 
-//global.bkg_space = background_add_background("images/backgrounds/bkg_space.gmbck");  
-//background_index[0] = global.bkg_space; 
-//background_visible[0] = 1; 
 background_vspeed[0] = 0.1;
 background_blend[0] = c_red;
 
-if !global.update then repeat 30
+repeat 30
     {
     rx = random_range(2,318);
     rs = random_range(5,15);
@@ -70,7 +65,7 @@ if !global.update then repeat 30
   </views>
   <instances>
     <instance objName="obj_ctrl_o1" x="16" y="0" name="inst_9854B3E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_camera" x="0" y="0" name="inst_AA7D8A70" locked="0" code="globalvar max_w,spd_x,spd_y;&#xA;max_w = 320; // range of player x movement&#xA;spd_x = 0; // initial x speed&#xA;spd_y = 0; // initial y speed&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ctrl_camera_old" x="0" y="0" name="inst_AA7D8A70" locked="0" code="globalvar max_w,spd_x,spd_y;&#xA;max_w = 320; // range of player x movement&#xA;spd_x = 0; // initial x speed&#xA;spd_y = 0; // initial y speed&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ctrl_game" x="160" y="240" name="inst_4C0E97EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

@@ -1,11 +1,11 @@
+///scr_create_exp(object,amount,countup)
 /* 
 "Contra Yagawa Corps Eksploshunz by Michael Bay!"
 by S20-TBL
 put into standalone script by BPzeBanshee
 
-usage:
-scr_create_exp(object,amount,countup)
-GMOSSE generally uses 'scr_create_exp(obj_explosion,360,18)'
+example usage:
+'scr_create_exp(obj_explosion,360,18)'
 
 what it does:
 picks one of six different explosion types

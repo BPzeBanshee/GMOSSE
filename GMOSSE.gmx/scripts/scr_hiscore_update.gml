@@ -1,6 +1,6 @@
 ///scr_hiscore_update(name,stage,shipused,score)
 // SETTING SCORES
-var p,n,l,s,sh,sc;
+var p,n,l,sh,sc;
 n = string(argument0);
 l = argument1;
 sh = argument2;

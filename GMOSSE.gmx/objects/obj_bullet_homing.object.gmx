@@ -51,7 +51,7 @@ image_speed = 0.5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if speed &lt;=0
+            <string>if speed &lt;= 0
     {
     direction = point_direction(x,y,obj_hitbox.x, obj_hitbox.y);
     speed = 1;

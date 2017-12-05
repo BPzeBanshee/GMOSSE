@@ -1,7 +1,8 @@
-//scr_circleshot02 (argument0, argument1, argument2, argument3, argument4, argument5);
+///scr_circleshot02(density,x,y,radius,object,speed,imageaim);
 // written by S20-TBL
 //this is for 360 attacks that aren't supposed to be aimed.
 
+var density,origin_x,origin_y,obj_dist,b_type,b_speed,imageaim;
 density = argument0;  // controls the density of the circle pattern, in degrees
 origin_x = argument1; // x coordinate of the bullet's origin
 origin_y = argument2; // y coordinate of the bullet's origin
@@ -17,8 +18,9 @@ for (i=0; i<360; i+=density)  // controls the density of the bullet ring; smalle
     _y = origin_y + lengthdir_y(obj_dist, i);
     // ^^ distance from the origin at which the bullet will spawn
     
+    // negative speed value will make bullet go towards origin of object firing it
     _bullet = instance_create(_x, _y, b_type);
-    _bullet.speed=b_speed; // negative speed value will make bullet go towards origin of object firing it
-    _bullet.direction=i;
+    _bullet.speed = b_speed; 
+    _bullet.direction = i;
     if imageaim = 1 then _bullet.image_angle = i;
     }

@@ -52,7 +52,7 @@ scr_camera_init(0,80,0,0);
           <argument>
             <kind>1</kind>
             <string>if stage_time &gt; 1000 
-&amp;&amp; !instance_exists(obj_boss2_omake) &amp;&amp; !instance_exists(obj_fade)
+&amp;&amp; !instance_exists(obj_omake2) &amp;&amp; !instance_exists(obj_fade)
 then completedelay += 1;
 
 if completedelay = 120 then instance_create(x,y,obj_ctrl_clear);
@@ -68,7 +68,7 @@ switch stage_time
         }
     case 400:
         {
-        instance_create(160,yview-16,obj_boss2_omake);
+        instance_create(160,yview-16,obj_omake2);
         break;
         }
     }

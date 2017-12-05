@@ -74,7 +74,7 @@ then instance_destroy();
           <argument>
             <kind>1</kind>
             <string>if other.z &lt;&gt; 128 exit; 
-instance_create(x,y,obj_bh_shothit);
+scr_basicshot(x,y,obj_bh_shothit,5,direction);
 instance_destroy();
 </string>
           </argument>

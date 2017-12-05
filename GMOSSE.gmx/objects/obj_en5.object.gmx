@@ -82,7 +82,7 @@ if path_index = -1 then switch mode
         shot_timer += 1;
         if shot_timer = 180
             {
-            scr_basicshot(x,y,obj_bullet3,4,direction); 
+            scr_basicshot(x,y,obj_bullet3,3.5,direction); //4
             scr_playsnd(snd_en_shot4,1);
             shot_timer = 0;
             num_of_shots -= 1;
@@ -111,10 +111,10 @@ else
     }
     
 // AESTHETICS //
-x1 = x+lengthdir_x(10,direction+90)+lengthdir_x(14,direction+180); // left thruster (top-left of sprite)
-y1 = y+lengthdir_y(10,direction+90)+lengthdir_y(14,direction+180);
-x2 = x+lengthdir_x(10,direction+270)+lengthdir_x(14,direction+180); // right thruster (bottom-left of sprite)
-y2 = y+lengthdir_y(10,direction+270)+lengthdir_y(14,direction+180);
+x1 = x+lengthdir_x(8,direction+90)+lengthdir_x(14,direction+180); // left thruster (top-left of sprite)
+y1 = y+lengthdir_y(8,direction+90)+lengthdir_y(14,direction+180);
+x2 = x+lengthdir_x(8,direction+270)+lengthdir_x(14,direction+180); // right thruster (bottom-left of sprite)
+y2 = y+lengthdir_y(8,direction+270)+lengthdir_y(14,direction+180);
 
 thr_timer += 1;
 if thr_timer = 5

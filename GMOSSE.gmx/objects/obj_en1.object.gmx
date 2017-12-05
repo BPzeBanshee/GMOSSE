@@ -56,7 +56,7 @@ event_inherited();
             <kind>1</kind>
             <string>// Attack handling (it's a simple spinning one)
 atk_timer -= 1;
-if atk_timer = 0
+if atk_timer = 0 &amp;&amp; y &lt; yview+200
     {
     scr_basicshot(x,y,obj_bullet1,2,image_angle+shoot_angle);
     scr_playsnd(snd_en_shot1,1);

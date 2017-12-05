@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,20 +27,10 @@
             <kind>1</kind>
             <string>global.pausable = 0;
 timer = 0;
-alpha = 0;
+txt_alpha = 0;
+bkg_alpha = 0;
 enabled = 0;
-s = scr_checkstages();
-
-if !instance_exists(obj_player) exit;
-with obj_ctrl_music event_user(4);
-
-p = instance_create(obj_player.x,obj_player.y,obj_player_clear);
-p.sprite_index = obj_player.sprite_index;
-p.image_angle = obj_player.image_angle;
-
-with obj_player instance_destroy();
-with obj_hitbox instance_destroy();
-enabled = 1;
+stage = scr_checkstages();
 </string>
           </argument>
         </arguments>
@@ -63,23 +53,23 @@ enabled = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(obj_player)
+            <string>/// Kick off stage clear event
+if instance_exists(obj_player)
     {
-    with obj_ctrl_music event_user(4);
+    with obj_ctrl_music event_user(4); // stage clear music
 
     p = instance_create(obj_player.x,obj_player.y,obj_player_clear);
     p.sprite_index = obj_player.sprite_index;
     p.image_angle = obj_player.image_angle;
+    p.image_speed = obj_player.image_speed;
 
     with obj_player instance_destroy();
     with obj_hitbox instance_destroy();
     enabled = 1;
     }
+    
+// Continue from here only if player is "disposed of"
 if !enabled exit;
-if background_alpha[0] &gt; 0 then background_alpha[0] -= 0.1;
-if background_alpha[1] &gt; 0 then background_alpha[1] -= 0.1;
-if background_alpha[2] &gt; 0 then background_alpha[2] -= 0.1;
-
 timer += 1;
 if timer = 390  
     {
@@ -100,21 +90,9 @@ if timer = 550
     {
     switch global.level
         {
-        case -22:
-            {
-            global.gamecomplete = 1;
-            instance_create(x,y,obj_ctrl_gameover);
-            break;
-            }
         case -11:
             {
             scr_trans(rm_omake2,3,c_black,0.025,0.05,210);
-            break;
-            }
-        case -2: // Boss 2
-            {
-            global.gamecomplete = 1;
-            instance_create(x,y,obj_ctrl_gameover);
             break;
             }
         case -1: // Boss 1
@@ -127,13 +105,11 @@ if timer = 550
             scr_trans(rm_stage2,3,c_black,0.025,0.05,210);
             break;
             }
-        case 2: // Stage 2
+        /*case 2: // Stage 2
             {
             scr_trans(rm_stage3,3,c_black,0.025,0.05,210);
-            //global.gamecomplete = 1;
-            //instance_create(x,y,obj_ctrl_gameover);
             break;
-            }
+            }*/
         default: // Test rooms, etc
             {
             global.gamecomplete = 1;
@@ -164,12 +140,23 @@ if timer = 550
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_alpha(alpha);
-draw_set_color(c_white);
-draw_set_font(global.fnt_big);
-draw_set_halign(fa_center);
-if timer &gt; 140 &amp;&amp; alpha &lt; 1 then alpha += 0.01;
-draw_text(xview+120,yview+70,"Stage "+string(s)+" Clear!");
+            <string>// GMS draw_set_alpha applies to sprites too, ensure we get existing alpha and set it back
+var old_alpha; old_alpha = draw_get_alpha();
+
+// Draw black box to cover stage background
+draw_set_alpha(bkg_alpha);
+draw_set_color(c_black);
+draw_rectangle(xview,yview,xview+240,yview+320,0);
+if bkg_alpha &lt; 1 then bkg_alpha += 0.1;
+
+// Draw stage clear text
+draw_set_alpha(txt_alpha);
+scr_draw_vars(global.fnt_big,fa_center,c_white);
+if timer &gt; 140 &amp;&amp; txt_alpha &lt; 1 then txt_alpha += 0.01;
+draw_text(xview+120,yview+70,"STAGE "+string(stage)+" CLEAR!");
+
+// Return screen alpha to previous values
+draw_set_alpha(old_alpha);
 </string>
           </argument>
         </arguments>

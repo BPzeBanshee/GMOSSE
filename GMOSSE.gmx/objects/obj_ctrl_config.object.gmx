@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-99998</depth>
-  <persistent>0</persistent>
+  <depth>-9999</depth>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -33,9 +33,10 @@ selection = 1;
 warning = "";
 max_h = 0;
 timer = 0;
+b = c_black;
 
-if room = rm_menu then b = c_black
-else b = make_color_rgb(50,50,50);
+// base position for menu
+s = 125;
 </string>
           </argument>
         </arguments>
@@ -83,7 +84,7 @@ scr_config_save("config.ini");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Hack to respond reliably when in fullscreen mode
+            <string>/// Fullscreen toggle hack for ini window
 scr_pickmusicini();
 with obj_ctrl_filter alarm[1] = 1; // return to whatever fullscreen it was before
 </string>
@@ -159,7 +160,7 @@ if !global.button1 &amp;&amp; !global.jup &amp;&amp; !global.jdown
 
 // BEHAVIOUR
 category_type = "[MISC]";
-selection_max = 5; // amount of positions in the submenu
+selection_max = 7; // amount of positions in the submenu
 max_h = 30;
 if timer &gt; 0 then timer -= 1;
 
@@ -170,8 +171,10 @@ if global.jleft &amp;&amp; !hook
     switch selection
         {
         case 1: global.debug = 0; break;
-        case 2: global.fonttype = 0; scr_fonts_set(); break;
-        case 3: if global.bulletcolour &gt; 1 then global.bulletcolour -= 1;  break;
+        case 2: global.hitbox_visible = 0; break;
+        case 3: global.fonttype = 0; scr_fonts_set(); break;
+        case 4: if global.bulletcolour &gt; 1 then global.bulletcolour -= 1;  break;
+        case 5: global.flicker = 0; break;
         }
     }
     
@@ -182,8 +185,10 @@ if global.jright &amp;&amp; !hook
     switch selection
         {
         case 1: global.debug = 1; break;
-        case 2: global.fonttype = 1; scr_fonts_set(); break;
-        case 3: if global.bulletcolour &lt; 3 then global.bulletcolour += 1;  break;
+        case 2: global.hitbox_visible = 1; break;
+        case 3: global.fonttype = 1; scr_fonts_set(); break;
+        case 4: if global.bulletcolour &lt; 3 then global.bulletcolour += 1;  break;
+        case 5: global.flicker = 1; break;
         }
     }
     
@@ -194,14 +199,14 @@ if global.button1 &amp;&amp; !hook
     scr_playsnd(snd_click,1);
     switch selection
         {
-        case 4:
+        case 6:
             {
             timer = 90;
             scr_hiscore_reset();
             scr_hiscore_save("score.gmes");
             break;
             }
-        case 5:
+        case 7:
             {
             timer = 0;
             selection = 1; 
@@ -277,7 +282,7 @@ if global.button1 &amp;&amp; !hook
         case 4:
             {
             // Hack to allow time to respond to window change
-            if global.fullscreen then window_set_fullscreen(0);
+            if global.fullscreen then scr_fullscreen(0);
             alarm[0]=2;
             break;
             }
@@ -313,15 +318,27 @@ if global.button1 &amp;&amp; !hook
             <kind>1</kind>
             <string>/// VIDEO OPTIONS MENU
 
-
 // BEHAVIOUR
 category_type = "[VIDEO]";
-selection_max = 10; // amount of positions in the submenu
+selection_max = 11; // amount of positions in the submenu
 max_h = 35;
 
-if selection = 7 then warning = "PERFORMANCE INTENSIVE,
-USE WITH CAUTION."
-else warning = "";
+warning = "";
+if !global.use_new_renderer
+    {
+    if (selection = 2 || selection = 5 || selection = 6)
+    then warning = "NEW RENDERER DISABLED.
+CERTAIN FEATURES CURRENTLY
+NOT AVAILABLE.";
+    }
+/*
+commented this out for now as I've heard of it
+second-hand but can't actually prove it.
+if selection = 10 
+then warning = "THIS MAY OR MAY NOT
+CRASH YOUR COMPUTER
+DEPENDING ON YOUR GPU.";
+*/
 
 // LEFT
 if global.jleft &amp;&amp; !hook
@@ -329,57 +346,40 @@ if global.jleft &amp;&amp; !hook
     hook = 1;
     switch selection
         {
-        case 1: 
-            {
-            global.fullscreen = 0; 
-            window_set_fullscreen(global.fullscreen); 
-            break;
-            }
+        case 1: global.fullscreen = 0; scr_fullscreen(global.fullscreen); break;
         case 2: 
             {
-            if global.win_size &gt; 1 
+            if global.use_new_renderer
                 {
-                global.win_size -= 1; 
-                scr_view_update();
-                } 
+                global.window_aspect -= 1; 
+                if global.window_aspect &lt; 0 then global.window_aspect = 3; 
+                }
             break;
             }
-        case 3: 
-            {
-            global.tate -= 1; 
-            if global.tate &lt; 0 then global.tate = 3; 
-            scr_view_update(); 
-            break;
-            }
+        case 3: if global.window_size &gt; 0 then global.window_size -= 1; break;
         case 4: 
+            {
+            global.rotation -= 90; 
+            if global.rotation &lt; 0 then global.rotation = 270; 
+            break;
+            }
+        case 5: if global.use_new_renderer then global.scaling = 0; break;
+        case 6: if global.use_new_renderer then global.use_wallpaper = 0; break;
+        case 7: global.filter = 0; texture_set_interpolation(global.filter); break;
+        case 8: 
             {
             global.scanlines -= 1; 
             if global.scanlines &lt; 0 then global.scanlines = 2; 
-            scr_scanline(global.scanlines);
+            scr_scanline(global.scanlines); 
             break;
             }
-        case 5: 
-            {
-            global.filter = 0; 
-            texture_set_interpolation(global.filter); 
-            break;
-            }
-        case 6: 
-            {
-            global.vsync = 0; 
-            scr_setdisplay(global.aa,global.vsync); 
-            with obj_ctrl_filter alarm[0] = 1;
-            break;
-            }
-        case 7: 
+        case 9: global.vsync = 0; scr_setdisplay(global.aa,global.vsync); break;
+        case 10: 
             {
             if global.aa &gt; 0 then global.aa -= 1; 
             scr_setdisplay(global.aa,global.vsync); 
-            with obj_ctrl_filter alarm[0] = 1;
             break;
             }
-        case 8: global.hitbox_visible = 0; break;
-        case 9: global.flicker = 0; break; 
         }
     }
     
@@ -389,57 +389,53 @@ if global.jright &amp;&amp; !hook
     hook = 1;
     switch selection
         {
-        case 1: 
-            {
-            global.fullscreen = 1;
-            window_set_fullscreen(global.fullscreen); 
-            break;
-            }
+        case 1: global.fullscreen = 1; scr_fullscreen(global.fullscreen); break;
         case 2: 
             {
-            if global.win_size &lt; 3 
+            if global.use_new_renderer
                 {
-                global.win_size += 1; 
-                scr_view_update();
-                } 
+                global.window_aspect += 1; 
+                if global.window_aspect &gt; 3 then global.window_aspect = 0; 
+                }
             break;
             }
         case 3: 
             {
-            global.tate += 1; 
-            if global.tate &gt; 3 then global.tate = 0; 
-            scr_view_update(); 
+            if global.use_new_renderer
+                {
+                if global.window_size &lt; obj_ctrl_render.l_max_size 
+                then global.window_size += 1; 
+                }
+            else
+                {
+                if global.window_size &lt; obj_ctrl_render_old.l_max_size 
+                then global.window_size += 1; 
+                }
             break;
             }
-        case 4:
-            { 
+        case 4: 
+            {
+            global.rotation += 90; 
+            if global.rotation &gt; 270 then global.rotation = 0; 
+            break;
+            }
+        case 5: if global.use_new_renderer then global.scaling = 1; break;
+        case 6: if global.use_new_renderer then global.use_wallpaper = 1; break;
+        case 7: global.filter = 1; texture_set_interpolation(global.filter); break;
+        case 8: 
+            {
             global.scanlines += 1; 
             if global.scanlines &gt; 2 then global.scanlines = 0; 
-            scr_scanline(global.scanlines);
-            break;
-            }   
-        case 5:
-            {
-            global.filter = 1; 
-            texture_set_interpolation(global.filter); 
+            scr_scanline(global.scanlines); 
             break;
             }
-        case 6:
-            {
-            global.vsync = 1; 
-            scr_setdisplay(global.aa,global.vsync);
-            with obj_ctrl_filter alarm[0] = 1; 
-            break;
-            }
-        case 7: 
+        case 9: global.vsync = 1; scr_setdisplay(global.aa,global.vsync); break;
+        case 10: 
             {
             if global.aa &lt; scr_max_aa() then global.aa += 1; 
-            scr_setdisplay(global.aa,global.vsync);
-            with obj_ctrl_filter alarm[0] = 1;
+            scr_setdisplay(global.aa,global.vsync); 
             break;
             }
-        case 8: global.hitbox_visible = 1; break;
-        case 9: global.flicker = 1; break;
         }
     }
     
@@ -448,8 +444,9 @@ if global.button1 &amp;&amp; !hook
     {
     hook = 1;
     scr_playsnd(snd_click,1);
-    if selection = 10
+    if selection = 11
         {
+        max_h = 0;
         selection = 1; 
         category = 0;
         }
@@ -512,7 +509,7 @@ if global.button1 &amp;&amp; !hook
     switch selection
         {
         case 1: c = instance_create(x,y,obj_ctrl_rebind); c.control = 1; break;
-        case 2: c = instance_create(x,y,obj_ctrl_rebind); c.control = 1 + global.joy_system; break;
+        case 2: c = instance_create(x,y,obj_ctrl_rebind); c.control = 2; break;
         case 5: selection = 1; category = 0; break;
         }
     }
@@ -545,7 +542,7 @@ max_h = 0;
 
 if global.button1 &amp;&amp; !hook 
     {
-    scr_playsnd(snd_click,0);
+    scr_playsnd(snd_click,1);
     hook = 1;
     switch selection
         {
@@ -580,15 +577,15 @@ if global.button1 &amp;&amp; !hook
             <kind>1</kind>
             <string>if !enabled exit;
 // INIT
-scr_view_vars();
+//scr_view_vars();
 draw_set_font(global.fnt_default);
 draw_set_halign(fa_left);
-s = 125; g = 10;
+var g; g = 10;
 
 // DRAW BLACK BOX
-draw_set_alpha(0.5);
+draw_set_alpha(0.75);
 draw_set_color(b);
-draw_rectangle(xview+30,yview+s-8,xview+210,yview+s+(g*(selection_max+3))+max_h,0);
+draw_rectangle(xview+25,yview+s-8,xview+215,yview+s+(g*(selection_max+3))+max_h,0);
 
 // DRAW CATEGORY TEXT
 draw_set_alpha(1);
@@ -614,6 +611,7 @@ if category = 0
 if category = 1
     {
     // BEHAVIOURS
+    var dz,du;
     dz = string(round(global.deadzone*100))+"%";
     if global.deadzone = 0 then dz = "EXACT";
     switch global.joytype
@@ -622,7 +620,7 @@ if category = 1
         case 1: du = "DPAD"; break;
         case 2: du = "BOTH"; break;
         }
-        
+    
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"DEFINE KEYBOARD");
     draw_text(xview+60,yview+s+(g*2),"DEFINE JOYSTICK");
@@ -636,20 +634,39 @@ if category = 1
 if category = 2
     {
     // BEHAVIOURS
+    var full_str,aspect_str,winsize_str,scale_str,wallpaper_str;
     if global.fullscreen = 0 then full_str = "OFF" else full_str = "ON";
-    switch global.tate
+    if global.use_new_renderer
         {
-        case 0: tate_str = "0*"; break;
-        case 1: tate_str = "90*"; break;
-        case 2: tate_str = "180*"; break;
-        case 3: tate_str = "270*"; break;
+        switch global.window_aspect
+            {
+            case 0: aspect_str = "3:4 (NATIVE)"; break;
+            case 1: aspect_str = "4:3"; break;
+            case 2: aspect_str = "16:9"; break;
+            case 3: aspect_str = "16:10"; break;
+            }
+        winsize_str = obj_ctrl_render.l_res;
+        if global.scaling = 0 then scale_str = "STRETCH" else scale_str = "CLEAN";
+        if global.use_wallpaper = 0 then wallpaper_str = "OFF" else wallpaper_str = "ON";
         }
+    else
+        {
+        aspect_str = "3:4 (NATIVE)";
+        winsize_str = obj_ctrl_render_old.l_res;
+        scale_str = "CLEAN";
+        wallpaper_str = "OFF";
+        }
+    
+    var tate_str,filter_str,scan_str,vsync_str,aa_str,font_str;
+    tate_str = string(global.rotation)+"*";
+    if global.filter = 0 then filter_str = "OFF" else filter_str = "ON";
     switch global.scanlines
         {
         case 0: scan_str = "NONE"; break;
         case 1: scan_str = "HORIZONTAL"; break;
         case 2: scan_str = "VERTICAL"; break;
         }
+    if global.vsync = 0 then vsync_str = "OFF" else vsync_str = "ON";
     switch global.aa
         {
         case 0: aa_str = "OFF"; break;
@@ -657,31 +674,31 @@ if category = 2
         case 2: aa_str = "4xAA"; break;
         case 3: aa_str = "8xAA"; break;
         }
-    if global.filter = 0 then filter_str = "OFF" else filter_str = "ON";
-    if global.vsync = 0 then vsync_str = "OFF" else vsync_str = "ON";
-    if global.hitbox_visible = 0 then hitbox_str = "HIDDEN" else hitbox_str = "VISIBLE";
-    if global.flicker = 0 then exp_str = "OPAQUE" else exp_str = "FLICKER";
-    
     
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"FULLSCREEN: "+string(full_str));
-    draw_text(xview+60,yview+s+(g*2),"WINDOW SIZE: x"+string(global.win_size));
-    draw_text(xview+60,yview+s+(g*3),"TATE: "+string(tate_str));
-    draw_text(xview+60,yview+s+(g*4),"SCANLINES: "+string(scan_str));
-    draw_text(xview+60,yview+s+(g*5),"FILTER: "+string(filter_str));
-    draw_text(xview+60,yview+s+(g*6),"VSYNC: "+string(vsync_str));
-    draw_text(xview+60,yview+s+(g*7),"ANTIALIASING: "+string(aa_str));
-    draw_text(xview+60,yview+s+(g*8),"HITBOX: "+string(hitbox_str));
-    draw_text(xview+60,yview+s+(g*9),"EXPLOSIONS: "+string(exp_str));
+    if !global.use_new_renderer then draw_set_color(c_red);
+    draw_text(xview+60,yview+s+(g*2),"WIN. ASPECT: "+string(aspect_str));
+    draw_set_color(8454016);
+    draw_text(xview+60,yview+s+(g*3),"WIN. SIZE: "+string(winsize_str));
+    draw_text(xview+60,yview+s+(g*4),"ROTATION: "+string(tate_str));
+    if !global.use_new_renderer then draw_set_color(c_red)
+    draw_text(xview+60,yview+s+(g*5),"SCALING: "+string(scale_str));
+    draw_text(xview+60,yview+s+(g*6),"WALLPAPER: "+string(wallpaper_str));
+    draw_set_color(8454016);
+    draw_text(xview+60,yview+s+(g*7),"FILTER: "+string(filter_str));
+    draw_text(xview+60,yview+s+(g*8),"SCANLINES: "+string(scan_str));
+    draw_text(xview+60,yview+s+(g*9),"VSYNC: "+string(vsync_str));
+    draw_text(xview+60,yview+s+(g*10),"ANTIALIASING: "+string(aa_str));
     
-    draw_text(xview+60,yview+s+(g*11),"RETURN TO MENU");
+    draw_text(xview+60,yview+s+(g*12),"RETURN TO MENU");
     
     // WARNING TEXT
     if warning != ""
         {
         draw_set_halign(fa_center);
         draw_set_color(c_red);
-        draw_text(xview+120,yview+s+(g*13),string_spacefix(warning));
+        draw_text(xview+120,yview+s+(g*14.5),string(warning));
         }
     }
 
@@ -690,6 +707,7 @@ if category = 2
 if category = 3
     {
     // BEHAVIOURS
+    var vol_music,vol_sfx,vol_voice;
     vol_music = string(round(global.music_volume))+"%";
     if global.music_volume = 100 then vol_music = "MAX";
     if global.music_volume = 0 then vol_music = "OFF";
@@ -715,30 +733,36 @@ if category = 3
 if category = 4
     {
     // BEHAVIOURS
+    var debug_str,font_str,hitbox_str,b_str,flicker_str;
     if global.debug = 1 then debug_str = "ON" else debug_str = "OFF";
     if global.fonttype = 1 then font_str = "ON" else font_str = "OFF";
+    if global.hitbox_visible = 0 then hitbox_str = "HIDDEN" else hitbox_str = "VISIBLE";
     switch global.bulletcolour
         {
         case 1: b_str = "BLUE"; break;
         case 2: b_str = "RED"; break;
         case 3: b_str = "MIXED"; break;
         }
+    if global.flicker = 1 then flicker_str = "ON" else flicker_str = "OFF";
     
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"DEBUG DISPLAY: "+string(debug_str));
-    draw_text(xview+60,yview+s+(g*2),"ALT. FONTSET: "+string(font_str));
-    draw_text(xview+60,yview+s+(g*3),"BULLET COLOUR: "+string(b_str));
-    draw_text(xview+60,yview+s+(g*4),"RESET HIGHSCORES");
+    draw_text(xview+60,yview+s+(g*2),"HITBOX: "+string(hitbox_str));
+    draw_text(xview+60,yview+s+(g*3),"ALT. FONTSET: "+string(font_str));
+    draw_text(xview+60,yview+s+(g*4),"BULLET COLOUR: "+string(b_str));
+    draw_text(xview+60,yview+s+(g*5),"EXPLOSION FLICKER: "+string(flicker_str));
+    draw_text(xview+60,yview+s+(g*6),"RESET HIGHSCORES");
     
-    draw_text(xview+60,yview+s+(g*6),"RETURN TO MENU");
+    draw_text(xview+60,yview+s+(g*8),"RETURN TO MENU");
     
     if timer &gt; 0
         {
         draw_set_color(c_white);
-        draw_text(xview+60,yview+s+(g*8),"HIGH SCORES RESET!");
+        draw_text(xview+60,yview+s+(g*10),"HIGH SCORES RESET!");
         }
     }
     
+var i;
 if selection = selection_max then i = 10 else i = 0;
 draw_sprite(spr_shipselect,-1,xview+45,yview+s+5+(g*selection+i));
     

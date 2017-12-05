@@ -3,7 +3,7 @@
   <spriteName>spr_rock</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>99</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -28,9 +28,6 @@
             <string>turnspeed = irandom_range(3,10);
 image_xscale = choose(-1,1);
 image_yscale = choose(-1,1);
-z_speed = speed;
-falling = 0;
-rising = 0;
 dead = 0;
 </string>
           </argument>

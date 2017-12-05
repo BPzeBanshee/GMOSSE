@@ -1,3 +1,4 @@
+///scr_addscore(score,time,multiplier)
 /*
 scr_addscore() by BPzeBanshee
 
@@ -29,4 +30,3 @@ else // no multiplier given, just add score
     {
     if argument0 > 0 then score += argument0;
     }
-//if argument3 = 0 then scr_logscore(argument0); // Verbose score logging

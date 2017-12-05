@@ -58,16 +58,16 @@ image_speed = 0.5;
         {
         // This emulates DDP: DFK Taisabachi/Golden Disaster's and 
         // Shooty's canister bomb pattern.
-        scr_circleshot02 (30, x, y, 0, obj_bullet2, 0.5, 0);
-        scr_circleshot02 (30, x, y, 0, obj_bullet2, 1, 0);
-        scr_circleshot02 (30, x, y, 0, obj_bullet2, 1.5, 0);
+        scr_circleshot02(30,x,y,0,obj_bullet2,0.5,false);
+        scr_circleshot02(30,x,y,0,obj_bullet2,1,false);
+        scr_circleshot02(30,x,y,0,obj_bullet2,1.5,false);
         scr_playsnd(snd_en_shot2,1);
         break;
         }
     case 3:
         {
         // Creates homing bullet rings. Oh the horror.
-        scr_circleshot02 (20, x, y, 0, obj_bullet_homing, 2.8, 0);//3
+        scr_circleshot02(20,x,y,0,obj_bullet_homing,2.8,false);
         scr_playsnd(snd_en_shot2,1);
         break;
         }
@@ -126,8 +126,10 @@ switch btype
         // Somewhat similar to Evaccaneer DOOM's shooting bullets.
         if shoot = 1
             {
-            scr_s20_shot(0,0,0,0,obj_bullet1,direction-45,0,0.25,0,-0.025,self)
-            scr_s20_shot(0,0,0,0,obj_bullet1,direction+45,0,0.25,0,-0.025,self)
+            var a,b;
+            a = scr_basicshot(x,y,obj_bullet1,0.25,direction-45);
+            b = scr_basicshot(x,y,obj_bullet1,0.25,direction+45);
+            a.friction = -0.025; b.friction = -0.025;
             shoot = 0;
             alarm[0] = 20;
             }

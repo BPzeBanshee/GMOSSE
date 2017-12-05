@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>9</depth>
+  <depth>-9998</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -68,7 +68,7 @@ enabled = 1; // End of init
             <string>/* AESTHETICS */
 if alpha &lt; 1 &amp;&amp; !has_chosen
     {
-    for (i=0;i&lt;8;i+=1;) background_alpha[i] = 0;
+    //for (i=0;i&lt;8;i+=1;) background_alpha[i] = 0;
     alpha += 0.05;
     exit;
     }
@@ -184,7 +184,7 @@ if !global.jup &amp;&amp; !global.jdown
           <argument>
             <kind>1</kind>
             <string>if !enabled then exit;
-scr_view_vars();
+//scr_view_vars();
 draw_set_alpha(alpha);
 
 if alpha &lt; 1

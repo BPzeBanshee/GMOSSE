@@ -52,7 +52,7 @@ scr_camera_init(0,80,0,0);
           <argument>
             <kind>1</kind>
             <string>if stage_time &gt; 1000 
-&amp;&amp; !instance_exists(obj_boss3_omake) &amp;&amp; !instance_exists(obj_fade)
+&amp;&amp; !instance_exists(obj_omake3) &amp;&amp; !instance_exists(obj_fade)
 then completedelay += 1;
 
 if completedelay = 120 then instance_create(x,y,obj_ctrl_clear);
@@ -63,12 +63,14 @@ switch stage_time
     {
     case 60:
         {
-        instance_create(x,y,obj_warning);
+        //instance_create(x,y,obj_warning);
+        w = instance_create(x,y,obj_danger);
+        w.msg = "/\&gt;&lt;3|&lt;I|_|_J&lt;&gt;Y |\/||&lt; ||#APPROACHING";
         break;
         }
-    case 400:
+    case 150:
         {
-        instance_create(160,yview-64,obj_boss3_omake);
+        instance_create(160,yview-64,obj_omake3);
         break;
         }
     }

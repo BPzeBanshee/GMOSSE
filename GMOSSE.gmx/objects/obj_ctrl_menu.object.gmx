@@ -253,48 +253,48 @@ if (global.button1 &amp;&amp; !global.levelend &amp;&amp; !hook &amp;&amp; enabl
     }
 else
     {
-draw_sprite_ext(spr_whitepixel,0,xview,yview,240,320,0,c_white,c);
-if c &gt; 0 then c -= 0.035;
+    draw_sprite_ext(spr_whitepixel,0,xview,yview,240,320,0,c_white,c);
+    if c &gt; 0 then c -= 0.035;
+        
+    draw_set_halign(fa_center);
+    draw_set_color(c_silver);
+    draw_set_alpha(1-c);
     
-draw_set_halign(fa_center);
-draw_set_color(c_silver);
-draw_set_alpha(1-c);
-
-draw_set_font(global.fnt_default);
-draw_text(183,107,"MK-IX TEST");
-
-if !enabled then exit;
-
-// Draw cursors
-if selection = 1
-    { 
-    draw_set_color(8454016) 
-    if selection2 &gt; 1 then 
-    draw_sprite_ext(spr_shipselect,-1,35,147,-1,1,0,c_white,1);
-    if selection2 &lt; 3 then
-    draw_sprite_ext(spr_shipselect,-1,205,147,1,1,0,c_white,1);
+    draw_set_font(global.fnt_default);
+    draw_text(183,107,"MK-IX");
+    
+    if !enabled then exit;
+    
+    // Draw cursors
+    if selection = 1
+        { 
+        draw_set_color(8454016) 
+        if selection2 &gt; 1 then 
+        draw_sprite_ext(spr_shipselect,-1,35,147,-1,1,0,c_white,1);
+        if selection2 &lt; 3 then
+        draw_sprite_ext(spr_shipselect,-1,205,147,1,1,0,c_white,1);
+        }
+    else draw_set_color(c_green);
+    
+    // Draw main menu
+    draw_set_font(global.fnt_menu);
+    switch selection2
+        {
+        case 1: draw_text(120,140,"Start Game"); break;
+        case 2: draw_text(120,140,"Start Boss Rush"); break;
+        //case 3: draw_text(120,140,"Start Omake Rush"); break;
+        case 3: draw_text(120,140,"Start Tutorial"); break;
+        }
+    
+    if selection = 2 draw_set_color(8454016) else draw_set_color(c_green);
+    draw_text(120,170,"Configure Options");
+    if selection = 3 draw_set_color(8454016) else draw_set_color(c_green);
+    draw_text(120,200,"Show Credits");
+    if selection = 4 draw_set_color(8454016) else draw_set_color(c_green);
+    draw_text(120,230,"Show Scores");
+    if selection = 5 draw_set_color(8454016) else draw_set_color(c_green);
+    draw_text(120,260,"Exit Game");
     }
-else draw_set_color(c_green);
-
-// Draw main menu
-draw_set_font(global.fnt_menu);
-switch selection2
-    {
-    case 1: draw_text(120,140,"Start Game"); break;
-    case 2: draw_text(120,140,"Start Boss Rush"); break;
-    //case 3: draw_text(120,140,"Start Omake Rush"); break;
-    case 3: draw_text(120,140,"Start Tutorial"); break;
-    }
-
-if selection = 2 draw_set_color(8454016) else draw_set_color(c_green);
-draw_text(120,170,"Configure Options");
-if selection = 3 draw_set_color(8454016) else draw_set_color(c_green);
-draw_text(120,200,"Show Credits");
-if selection = 4 draw_set_color(8454016) else draw_set_color(c_green);
-draw_text(120,230,"Show Scores");
-if selection = 5 draw_set_color(8454016) else draw_set_color(c_green);
-draw_text(120,260,"Exit Game");
-}
 </string>
           </argument>
         </arguments>

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_en_parent</parentName>
+  <parentName>obj_en_air</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,10 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>// Compulsory (health, z-handling, etc)
-enemyHP = 200; 
-enemyHP_max = enemyHP; 
-z = 128; 
-flash = 0;
+enemyHP = 400; 
+event_inherited();
+xx = x+lengthdir_x(48,direction);
+yy = y+lengthdir_y(48,direction);
 </string>
           </argument>
         </arguments>
@@ -52,13 +52,21 @@ flash = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle = direction;
-xx = x + lengthdir_x(16,direction-180);
-yy = y + lengthdir_y(16,direction-180);
-thr = scr_basicshot(xx,yy,obj_explosion,5,direction-180+random_range(-10,10));
+            <string>// AESTHETICS
+image_angle = direction;
+
+// Thrusters
+var tx,ty,thr;
+tx = x + lengthdir_x(16,direction-180);
+ty = y + lengthdir_y(16,direction-180);
+thr = scr_basicshot(tx,ty,obj_explosion,5,direction-180+random_range(-10,10));
 thr.image_xscale = 0.5;
 thr.image_yscale = 0.5;
 thr.depth = depth + 1;
+
+// HAND POSITION
+xx = x+lengthdir_x(54,direction);
+yy = y+lengthdir_y(54,direction);
 </string>
           </argument>
         </arguments>
@@ -82,9 +90,63 @@ thr.depth = depth + 1;
           <argument>
             <kind>1</kind>
             <string>scr_create_exp(obj_explosion,360,18);
-scr_playsnd(snd_exp2,0);
+scr_playsnd(snd_exp3,1);
 scr_addscore(1000,180,1);
 instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Shooting homing blast of doom
+var e;
+e = scr_basicshot(xx,yy,obj_bullet_shoot,0,direction);
+//e = scr_basicshot(xx,yy,obj_bullet_shoot,5,direction);
+e.btype = 3;
+//e.friction = 0.2;
+instance_create(xx,yy,obj_bulletcancel);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Straight basic shot
+scr_basicshot(xx,yy,obj_bullet1,4,direction);
+instance_create(xx,yy,obj_bulletcancel);
 </string>
           </argument>
         </arguments>

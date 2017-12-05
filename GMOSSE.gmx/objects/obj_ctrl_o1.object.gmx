@@ -57,7 +57,7 @@ scr_camera_init(0,80,0,0);
             <kind>1</kind>
             <string>/* STAGE CLEAR HANDLING */
 if stage_time &gt; 1000 
-&amp;&amp; !instance_exists(obj_boss1_omake) &amp;&amp; !instance_exists(obj_fade)
+&amp;&amp; !instance_exists(obj_omake1) &amp;&amp; !instance_exists(obj_fade)
 then completedelay += 1;
 
 if completedelay = 120
@@ -70,28 +70,24 @@ if completedelay = 120
 stage_time += 1;
 switch stage_time
     {
-    /*case 60:
-        {
-        instance_create(x,y,obj_warning);
-        break;
-        }*/
     case 60:
         {
+        //instance_create(x,y,obj_warning);
         w = instance_create(x,y,obj_danger);
-        w.msg = "/\X3|&lt;I|_|_J&lt;&gt;y |\/||&lt; ||#APPROACHING";
+        w.msg = "|&lt;||_|_3R &lt;|_0\/\/|\| ||#APPROACHING";
         break;
         }
     case 150://case 400:
         {
         with obj_rock dead = 1;
         bkg_timer = 1;
-        instance_create(160,88,obj_boss1_omake);
+        instance_create(160,88,obj_omake1);
         break;
         }
     }
    
 /* AESTHETICS */
-if stage_time &gt; 400 &amp;&amp; !instance_exists(obj_boss1_omake)
+if stage_time &gt; 400 &amp;&amp; !instance_exists(obj_omake1)
     {
     if background_vspeed[0]&lt; 4 then background_vspeed[0]+= 0.1;
     }

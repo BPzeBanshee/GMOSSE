@@ -66,6 +66,11 @@ if global.joy_id >= 0
         {
         if (gamepad_axis_count(global.joy_id) >= 2 && global.joytype != 1)
             {
+            // gamepad deadzone functions make this behaviour a bit odd, go old-school for now
+            //if (gamepad_axis_value(global.joy_id,gp_axislv) < 0) global.jup = true;
+            //if (gamepad_axis_value(global.joy_id,gp_axislv) > 0) global.jdown = true;
+            //if (gamepad_axis_value(global.joy_id,gp_axislh) < 0) global.jleft = true;
+            //if (gamepad_axis_value(global.joy_id,gp_axislh) > 0) global.jright = true;
             if (gamepad_axis_value(global.joy_id,gp_axislv) < -global.deadzone) global.jup = true;
             if (gamepad_axis_value(global.joy_id,gp_axislv) > global.deadzone) global.jdown = true;
             if (gamepad_axis_value(global.joy_id,gp_axislh) < -global.deadzone) global.jleft = true;

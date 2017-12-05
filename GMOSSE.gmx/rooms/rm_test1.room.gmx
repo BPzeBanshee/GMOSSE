@@ -11,11 +11,9 @@
   <colour>0</colour>
   <showcolour>-1</showcolour>
   <code>global.pausable = 1;
-global.room_id = 66;
 global.level = 61;
-scr_tate(global.tate);
 
-if !global.update then repeat 15
+repeat 15
     {
     xx = random(320);
     yy = random(320);

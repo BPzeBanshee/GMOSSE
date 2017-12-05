@@ -27,9 +27,6 @@
             <kind>1</kind>
             <string>event_inherited();
 
-program = 0;
-hook = 0;
-
 orbit_angle = 180;
 orbit_radius = 30;
 orbit_speed = 6; //change of angle per step
@@ -55,7 +52,8 @@ orbit_speed = 6; //change of angle per step
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Orbit around the player object. X and Y are offset to orbit based on center of player sprite. 
+            <string>// Orbit around the player object. 
+// X and Y are offset to orbit based on center of player sprite. 
 if instance_exists(obj_player)
     {
     orbit_angle -= orbit_speed; 
@@ -69,8 +67,7 @@ if instance_exists(obj_player)
         program = !program;
         }
     if !global.button2 then hook = 0;
-    if program = 1 then image_angle = orbit_angle;
-    if program = 0 then image_angle = 90;
+    if program = 1 then image_angle = orbit_angle else image_angle = 90;
     }
 </string>
           </argument>
