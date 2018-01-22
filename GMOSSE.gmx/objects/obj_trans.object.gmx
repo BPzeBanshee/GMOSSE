@@ -76,6 +76,7 @@ global.levelend = 1;
             }
         else
             {
+            global.nextroom = -1;
             image_index -= input_speed2;
             if image_index = 0 then instance_destroy();
             }
@@ -95,6 +96,7 @@ global.levelend = 1;
             }
         else
             {
+            global.nextroom = -1;
             alpha -= input_speed2;
             if alpha &lt;= 0 then instance_destroy();
             }
@@ -110,11 +112,13 @@ global.levelend = 1;
                 {
                 if global.paused then scr_unpause();
                 room_goto(input_room);
-                global.levelend = 0;
+                global.levelend = 0; // TODO: Does this actually work, what uses this?
+                
                 }
             }
         else
             {
+            global.nextroom = -1;
             alpha -= input_speed2;
             if alpha &lt;= 0 then instance_destroy();
             }

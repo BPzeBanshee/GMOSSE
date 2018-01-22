@@ -56,12 +56,11 @@ instance_create(0,0,obj_test);
     
 /* MISC. */
 global.pause = 0;
-global.update = 0; // this gets set to 1 when ending game, stops room end events in controllers
 global.pausable = 0; // define pausable/unpausable rooms with this
 global.paused = 0;
-global.nextroom = 0;  // used for transition control/preloading
+global.nextroom = -1;  // used for transition control/preloading
 global.startstage = rm_stage1; // hidden menu function
 global.intro = 1;
 
 /* END */
-scr_trans(rm_menu,2,c_black,0.5,1,0);
+scr_trans(rm_menu,2,c_black,1,1,0);

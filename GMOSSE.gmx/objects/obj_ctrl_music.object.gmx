@@ -26,23 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>/*
-I realise that this controller looks incredibly complicated.
+obj_ctrl_music, by BPzeBanshee
 
-It sort-of still is, but it's more organised (thus the many events)
-than what it was before, and in terms of getting stuff to work
-it is easier.
-
-Why do I say this? Because all of the GMFMODSimple-specific commands
-are called here. Other objects make this one call the User-Defined
-events to play the music that they want and they don't have to know
-what sound engine you're using. All fade effects and switching of music
-along with music information is loaded here.
-
-And as for sound effects, they don't use GMFMODSimple anymore.
-They not only have their own separate controller for loading sounds
-now, but they've been switched to GM's internal sound engine, and
-have their own playing script to get rid of the 'roar effect' present
-in older releases. You don't need to worry about them in this object.
+Other objects (ie stage controllers) make this one call the User-Defined events 
+to play the music that they want. Most music engine-specific calls are encapsulated in
+scripts to make the code easier to read here. 
+Switching of music along with music information is loaded here, while a script
+with a separate object (obj_fade) handles music fadeouts.
 */
 globalvar music; 
 music = 0;
@@ -359,9 +349,7 @@ scr_setvolmusic(music);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.update exit;
-
-/* Stop the currently playing track */
+            <string>// Stop the currently playing track
 if room != rm_scores &amp;&amp; global.nextroom != rm_scores
     {
     scr_stopallmusic();
@@ -387,7 +375,7 @@ if room = rm_stage3
     }
     
     
-/* Music to load/music info to show in certain rooms */
+// Music to load/music info to show in certain rooms
 
 if global.nextroom = rm_menu
     {
@@ -429,10 +417,13 @@ if room = rm_shipselect
     scr_freemusic(global.snd_shipselect); global.snd_shipselect = 0;
     
     // Loading generic music
-    global.snd_boss = scr_loadmusic("Boss1");
-    global.snd_stageclear = scr_loadmusic("StageComplete");
-    global.snd_continue = scr_loadmusic("Continue");
-    global.snd_gameover = scr_loadmusic("GameOver");
+    if global.nextroom != -1
+        {
+        global.snd_boss = scr_loadmusic("Boss1");
+        global.snd_stageclear = scr_loadmusic("StageComplete");
+        global.snd_continue = scr_loadmusic("Continue");
+        global.snd_gameover = scr_loadmusic("GameOver");
+        }
     }
     
 // Stage specific music to load
@@ -499,8 +490,7 @@ scr_setvolsnd();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.update exit;
-timer = 0;
+            <string>timer = 0;
 alpha = 0;
 
 // MAIN MENU

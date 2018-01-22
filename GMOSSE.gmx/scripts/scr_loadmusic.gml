@@ -23,6 +23,7 @@ m = ASourceLoad(global.music_info[1]);
 if m < 0
     {
     show_message("Error loading "+string(global.music_info[1]));
+    with obj_ctrl_filter alarm[1] = 1; // return to whatever fullscreen it was before
     return -2;
     }
 a = ASourceGetLength(m)*global.music_info[3];

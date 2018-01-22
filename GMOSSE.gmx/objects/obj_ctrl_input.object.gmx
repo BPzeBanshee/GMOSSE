@@ -205,7 +205,7 @@ h = date_get_hour(date_current_datetime());
 mi = date_get_minute(date_current_datetime());
 s = date_get_second(date_current_datetime());
 
-st = program_directory+"\"+
+st = working_directory+"\"+
 string(d)+"-"+string(m)+"-"+string(ye)+"_"
 +string(h)+"-"+string(mi)+"-"+string(s)+".bmp";
 screen_save(st);
@@ -263,8 +263,7 @@ scr_fullscreen(global.fullscreen);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.update = 1;
-scr_main_reset();
+            <string>scr_main_reset();
 </string>
           </argument>
         </arguments>
@@ -287,9 +286,7 @@ scr_main_reset();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.update = 1;
-game_end();
-// this stops obj_ctrl_music attempting to load music when game is ending
+            <string>game_end();
 </string>
           </argument>
         </arguments>

@@ -1,3 +1,4 @@
+///scr_trans(room,type,color/sprite,in_speed,out_speed,delay)
 /* 
 scr_trans, by BPzeBanshee
 

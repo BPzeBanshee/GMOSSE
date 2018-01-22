@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="6" name="datafiles">
+  <datafiles number="7" name="datafiles">
     <datafile>
       <name>GMALP.dll</name>
       <exists>-1</exists>
@@ -480,6 +480,150 @@
     <font>fonts\fnt_init</font>
   </fonts>
   <objects name="objects">
+    <objects name="Controllers">
+      <objects name="CORE">
+        <object>objects\obj_init</object>
+        <object>objects\obj_debug</object>
+        <object>objects\obj_trans</object>
+        <object>objects\obj_fade</object>
+        <object>objects\obj_ctrl_input</object>
+        <object>objects\obj_ctrl_music</object>
+        <object>objects\obj_ctrl_camera</object>
+        <object>objects\obj_ctrl_pause</object>
+        <object>objects\obj_ctrl_config</object>
+        <object>objects\obj_ctrl_rebind</object>
+        <object>objects\obj_ctrl_filter</object>
+        <object>objects\obj_ctrl_render</object>
+        <object>objects\obj_ctrl_render_old</object>
+      </objects>
+      <objects name="Generic">
+        <object>objects\obj_ctrl_game</object>
+        <object>objects\obj_ctrl_clear</object>
+        <object>objects\obj_ctrl_continue</object>
+        <object>objects\obj_ctrl_gameover</object>
+        <object>objects\obj_ctrl_scoreboard</object>
+        <object>objects\obj_ctrl_healthbar</object>
+        <object>objects\obj_warning</object>
+        <object>objects\obj_danger</object>
+      </objects>
+      <objects name="Main Menu">
+        <object>objects\obj_ctrl_menu</object>
+        <object>objects\obj_about</object>
+      </objects>
+      <objects name="Ship Selection">
+        <object>objects\obj_shipselect</object>
+        <object>objects\obj_shipselect_bh</object>
+      </objects>
+      <objects name="In-Game Stages">
+        <object>objects\obj_ctrl_stage</object>
+        <objects name="Stage 1">
+          <object>objects\obj_ctrl_st1</object>
+          <object>objects\obj_ctrl_st1b</object>
+        </objects>
+        <objects name="Stage 2">
+          <object>objects\obj_ctrl_st2</object>
+          <object>objects\obj_ctrl_st2b</object>
+        </objects>
+        <objects name="Stage 3">
+          <object>objects\obj_ctrl_st3</object>
+        </objects>
+        <objects name="Test Stages">
+          <object>objects\obj_ctrl_test1</object>
+          <object>objects\obj_ctrl_test2</object>
+          <object>objects\obj_ctrl_test3</object>
+        </objects>
+        <objects name="Tutorial">
+          <object>objects\obj_ctrl_tutorial</object>
+        </objects>
+        <objects name="Omake Rush">
+          <object>objects\obj_ctrl_o1</object>
+          <object>objects\obj_ctrl_o2</object>
+          <object>objects\obj_ctrl_o3</object>
+        </objects>
+      </objects>
+    </objects>
+    <objects name="Player">
+      <objects name="Xonochrome">
+        <object>objects\obj_xono</object>
+        <object>objects\obj_xono_shot</object>
+        <object>objects\obj_xono_shothit</object>
+        <object>objects\obj_xono_laser</object>
+        <object>objects\obj_xono_laser2</object>
+        <object>objects\obj_xono_bomb</object>
+      </objects>
+      <objects name="Warbird">
+        <object>objects\obj_warbird</object>
+        <object>objects\obj_warbird_laser</object>
+        <object>objects\obj_warbird_laser2</object>
+        <object>objects\obj_warbird_shot</object>
+        <object>objects\obj_warbird_shothit</object>
+        <object>objects\obj_warbird_bomb</object>
+        <object>objects\obj_warbird_volt</object>
+      </objects>
+      <objects name="Busterhawk">
+        <object>objects\obj_bh</object>
+        <object>objects\obj_bh_orb</object>
+        <object>objects\obj_bh_trace</object>
+        <object>objects\obj_bh_traceorb</object>
+        <object>objects\obj_bh_thrust</object>
+        <objects name="Weapons">
+          <object>objects\obj_bh_mainshot</object>
+          <object>objects\obj_bh_shot1</object>
+          <object>objects\obj_bh_shot2</object>
+          <object>objects\obj_bh_shot3</object>
+          <object>objects\obj_bh_shot4</object>
+          <object>objects\obj_bh_shot5</object>
+          <object>objects\obj_bh_shot6</object>
+          <object>objects\obj_bh_shot7</object>
+          <object>objects\obj_bh_shothit</object>
+        </objects>
+        <objects name="Orb Types">
+          <object>objects\obj_bh_type1</object>
+          <object>objects\obj_bh_type2</object>
+          <object>objects\obj_bh_type3</object>
+          <object>objects\obj_bh_type4</object>
+          <object>objects\obj_bh_type5</object>
+          <object>objects\obj_bh_type6a</object>
+          <object>objects\obj_bh_type6b</object>
+          <object>objects\obj_bh_type7a</object>
+          <object>objects\obj_bh_type7b</object>
+          <object>objects\obj_bh_lockon</object>
+        </objects>
+        <object>objects\obj_orb_dead</object>
+      </objects>
+      <objects name="Swordfish">
+        <object>objects\obj_sf</object>
+        <objects name="Weapons">
+          <object>objects\obj_sf_shot</object>
+          <object>objects\obj_sf_shothit</object>
+          <object>objects\obj_sf_shotexp</object>
+          <objects name="Bomber">
+            <object>objects\obj_sf_laser</object>
+            <object>objects\obj_sf_bomb</object>
+            <object>objects\obj_sf_tip</object>
+          </objects>
+        </objects>
+      </objects>
+      <objects name="Arxyne">
+        <object>objects\obj_arxyne</object>
+        <object>objects\obj_arxyne_shot</object>
+        <object>objects\obj_arxyne_shot2a</object>
+        <object>objects\obj_arxyne_shot2b</object>
+        <object>objects\obj_arxyne_shot2c</object>
+        <object>objects\obj_arxyne_bolt</object>
+      </objects>
+      <objects name="Generic">
+        <object>objects\obj_player</object>
+        <object>objects\obj_player_shot</object>
+        <object>objects\obj_player_clear</object>
+        <object>objects\obj_player_clear2</object>
+        <object>objects\obj_player_dead</object>
+        <object>objects\obj_hitbox</object>
+        <object>objects\obj_afterimage</object>
+        <object>objects\obj_stock_bomb</object>
+        <object>objects\obj_stock_life</object>
+      </objects>
+    </objects>
     <objects name="Enemies">
       <objects name="Stage 1">
         <objects name="Enemy Platform">
@@ -580,88 +724,6 @@
         <object>objects\obj_en_ground</object>
       </objects>
     </objects>
-    <objects name="Player">
-      <objects name="Xonochrome">
-        <object>objects\obj_xono</object>
-        <object>objects\obj_xono_shot</object>
-        <object>objects\obj_xono_shothit</object>
-        <object>objects\obj_xono_laser</object>
-        <object>objects\obj_xono_laser2</object>
-        <object>objects\obj_xono_bomb</object>
-      </objects>
-      <objects name="Warbird">
-        <object>objects\obj_warbird</object>
-        <object>objects\obj_warbird_laser</object>
-        <object>objects\obj_warbird_laser2</object>
-        <object>objects\obj_warbird_shot</object>
-        <object>objects\obj_warbird_shothit</object>
-        <object>objects\obj_warbird_bomb</object>
-        <object>objects\obj_warbird_volt</object>
-      </objects>
-      <objects name="Busterhawk">
-        <object>objects\obj_bh</object>
-        <object>objects\obj_bh_orb</object>
-        <object>objects\obj_bh_trace</object>
-        <object>objects\obj_bh_traceorb</object>
-        <object>objects\obj_bh_thrust</object>
-        <objects name="Weapons">
-          <object>objects\obj_bh_mainshot</object>
-          <object>objects\obj_bh_shot1</object>
-          <object>objects\obj_bh_shot2</object>
-          <object>objects\obj_bh_shot3</object>
-          <object>objects\obj_bh_shot4</object>
-          <object>objects\obj_bh_shot5</object>
-          <object>objects\obj_bh_shot6</object>
-          <object>objects\obj_bh_shot7</object>
-          <object>objects\obj_bh_shothit</object>
-        </objects>
-        <objects name="Orb Types">
-          <object>objects\obj_bh_type1</object>
-          <object>objects\obj_bh_type2</object>
-          <object>objects\obj_bh_type3</object>
-          <object>objects\obj_bh_type4</object>
-          <object>objects\obj_bh_type5</object>
-          <object>objects\obj_bh_type6a</object>
-          <object>objects\obj_bh_type6b</object>
-          <object>objects\obj_bh_type7a</object>
-          <object>objects\obj_bh_type7b</object>
-          <object>objects\obj_bh_lockon</object>
-        </objects>
-        <object>objects\obj_orb_dead</object>
-      </objects>
-      <objects name="Swordfish">
-        <object>objects\obj_sf</object>
-        <objects name="Weapons">
-          <object>objects\obj_sf_shot</object>
-          <object>objects\obj_sf_shothit</object>
-          <object>objects\obj_sf_shotexp</object>
-          <objects name="Bomber">
-            <object>objects\obj_sf_laser</object>
-            <object>objects\obj_sf_bomb</object>
-            <object>objects\obj_sf_tip</object>
-          </objects>
-        </objects>
-      </objects>
-      <objects name="Arxyne">
-        <object>objects\obj_arxyne</object>
-        <object>objects\obj_arxyne_shot</object>
-        <object>objects\obj_arxyne_shot2a</object>
-        <object>objects\obj_arxyne_shot2b</object>
-        <object>objects\obj_arxyne_shot2c</object>
-        <object>objects\obj_arxyne_bolt</object>
-      </objects>
-      <objects name="Generic">
-        <object>objects\obj_player</object>
-        <object>objects\obj_player_shot</object>
-        <object>objects\obj_player_clear</object>
-        <object>objects\obj_player_clear2</object>
-        <object>objects\obj_player_dead</object>
-        <object>objects\obj_hitbox</object>
-        <object>objects\obj_afterimage</object>
-        <object>objects\obj_stock_bomb</object>
-        <object>objects\obj_stock_life</object>
-      </objects>
-    </objects>
     <objects name="Bullets">
       <object>objects\obj_bullet1</object>
       <object>objects\obj_bullet2</object>
@@ -671,68 +733,6 @@
       <object>objects\obj_bullet_shoot</object>
       <object>objects\obj_bullet_homing</object>
       <object>objects\obj_bullettarget</object>
-    </objects>
-    <objects name="Controllers">
-      <objects name="CORE">
-        <object>objects\obj_init</object>
-        <object>objects\obj_debug</object>
-        <object>objects\obj_trans</object>
-        <object>objects\obj_fade</object>
-        <object>objects\obj_ctrl_input</object>
-        <object>objects\obj_ctrl_music</object>
-        <object>objects\obj_ctrl_camera</object>
-        <object>objects\obj_ctrl_pause</object>
-        <object>objects\obj_ctrl_config</object>
-        <object>objects\obj_ctrl_rebind</object>
-        <object>objects\obj_ctrl_filter</object>
-        <object>objects\obj_ctrl_render</object>
-        <object>objects\obj_ctrl_render_old</object>
-      </objects>
-      <objects name="Generic">
-        <object>objects\obj_ctrl_game</object>
-        <object>objects\obj_ctrl_clear</object>
-        <object>objects\obj_ctrl_continue</object>
-        <object>objects\obj_ctrl_gameover</object>
-        <object>objects\obj_ctrl_scoreboard</object>
-        <object>objects\obj_ctrl_healthbar</object>
-        <object>objects\obj_warning</object>
-        <object>objects\obj_danger</object>
-      </objects>
-      <objects name="Main Menu">
-        <object>objects\obj_ctrl_menu</object>
-        <object>objects\obj_about</object>
-      </objects>
-      <objects name="Ship Selection">
-        <object>objects\obj_shipselect</object>
-        <object>objects\obj_shipselect_bh</object>
-      </objects>
-      <objects name="In-Game Stages">
-        <object>objects\obj_ctrl_stage</object>
-        <objects name="Stage 1">
-          <object>objects\obj_ctrl_st1</object>
-          <object>objects\obj_ctrl_st1b</object>
-        </objects>
-        <objects name="Stage 2">
-          <object>objects\obj_ctrl_st2</object>
-          <object>objects\obj_ctrl_st2b</object>
-        </objects>
-        <objects name="Stage 3">
-          <object>objects\obj_ctrl_st3</object>
-        </objects>
-        <objects name="Test Stages">
-          <object>objects\obj_ctrl_test1</object>
-          <object>objects\obj_ctrl_test2</object>
-          <object>objects\obj_ctrl_test3</object>
-        </objects>
-        <objects name="Tutorial">
-          <object>objects\obj_ctrl_tutorial</object>
-        </objects>
-        <objects name="Omake Rush">
-          <object>objects\obj_ctrl_o1</object>
-          <object>objects\obj_ctrl_o2</object>
-          <object>objects\obj_ctrl_o3</object>
-        </objects>
-      </objects>
     </objects>
     <objects name="Others">
       <objects name="Aesthetics">
