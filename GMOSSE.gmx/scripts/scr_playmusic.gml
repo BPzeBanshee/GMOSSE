@@ -1,3 +1,4 @@
+///scr_playmusic(id,loop)
 /* 
 scr_playmusic(), by BPzeBanshee
 

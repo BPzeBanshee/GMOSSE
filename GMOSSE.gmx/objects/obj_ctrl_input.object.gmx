@@ -74,10 +74,7 @@ else
           <argument>
             <kind>1</kind>
             <string>if instance_exists(obj_ctrl_rebind) then exit;
-
-// obj_player calls scr_input for hopefully reduced lag
-if !instance_exists(obj_player) || !instance_exists(obj_hitbox) 
-then scr_input();
+scr_input();
 
 // Creates Pause object if button4 is pressed, game is not paused already and is allowed
 if global.button4 &amp;&amp; global.pausable 

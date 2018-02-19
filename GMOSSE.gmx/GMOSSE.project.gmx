@@ -488,6 +488,7 @@
         <object>objects\obj_fade</object>
         <object>objects\obj_ctrl_input</object>
         <object>objects\obj_ctrl_music</object>
+        <object>objects\obj_ctrl_music_v2</object>
         <object>objects\obj_ctrl_camera</object>
         <object>objects\obj_ctrl_pause</object>
         <object>objects\obj_ctrl_config</object>
@@ -543,6 +544,17 @@
       </objects>
     </objects>
     <objects name="Player">
+      <objects name="Generic">
+        <object>objects\obj_player</object>
+        <object>objects\obj_player_shot</object>
+        <object>objects\obj_player_clear</object>
+        <object>objects\obj_player_clear2</object>
+        <object>objects\obj_player_dead</object>
+        <object>objects\obj_hitbox</object>
+        <object>objects\obj_afterimage</object>
+        <object>objects\obj_stock_bomb</object>
+        <object>objects\obj_stock_life</object>
+      </objects>
       <objects name="Xonochrome">
         <object>objects\obj_xono</object>
         <object>objects\obj_xono_shot</object>
@@ -611,17 +623,6 @@
         <object>objects\obj_arxyne_shot2b</object>
         <object>objects\obj_arxyne_shot2c</object>
         <object>objects\obj_arxyne_bolt</object>
-      </objects>
-      <objects name="Generic">
-        <object>objects\obj_player</object>
-        <object>objects\obj_player_shot</object>
-        <object>objects\obj_player_clear</object>
-        <object>objects\obj_player_clear2</object>
-        <object>objects\obj_player_dead</object>
-        <object>objects\obj_hitbox</object>
-        <object>objects\obj_afterimage</object>
-        <object>objects\obj_stock_bomb</object>
-        <object>objects\obj_stock_life</object>
       </objects>
     </objects>
     <objects name="Enemies">

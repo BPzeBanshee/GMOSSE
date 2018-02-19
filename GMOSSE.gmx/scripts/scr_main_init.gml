@@ -45,7 +45,7 @@ scr_fonts_init();
 
 /* CONTROLLERS */
 instance_create(0,0,obj_ctrl_input);
-instance_create(0,0,obj_ctrl_music);
+instance_create(0,0,obj_ctrl_music_v2);
 instance_create(0,0,obj_ctrl_filter);
 application_surface_draw_enable(true);
 if global.use_new_renderer 
@@ -61,6 +61,15 @@ global.paused = 0;
 global.nextroom = -1;  // used for transition control/preloading
 global.startstage = rm_stage1; // hidden menu function
 global.intro = 1;
+
+global.score_stored = 0;
+global.extend_number = 1;
+global.lives_stored = 3;
+global.init_bombs = 3;
+global.max_bombs = 5;
+global.bombs_stored = global.init_bombs;
+global.continues = 0;
+global.gamecomplete = 0;
 
 /* END */
 scr_trans(rm_menu,2,c_black,1,1,0);

@@ -42,7 +42,7 @@ arm_left = -1;
 arm_right = -1;
 arms_dead = 0;
 d1 = 0; d2 = 0;
-bool = 0; 
+b = 0; 
 
 // Leg handling
 legs = instance_create(x,y,obj_omake3_legs);
@@ -398,9 +398,9 @@ timer += 1;
 if timer &lt; 180
     {
     // Handle arm directions
-    if bool = 0 d1 += 1 else d1 -= 1;
-    if d1 &gt; 30 then bool = 1;
-    if d1 &lt; -30 then bool = 0;
+    if b = 0 then d1 += 1 else d1 -= 1;
+    if d1 &gt; 30 then b = 1;
+    if d1 &lt; -30 then b = 0;
     d2 = -d1;
 
     // Attack timing

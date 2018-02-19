@@ -255,12 +255,36 @@ with obj_ctrl_filter alarm[1] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scr_hiscore_update("AYY",6,5,987654321);
+            <string>/*
+//scr_hiscore_update("AYY",6,5,987654321);
 //scr_hiscore_save("score.gmes");
-global.startstage = rm_omake3;//rm_test1;
+global.startstage = rm_test1;
 show_message("Starting Stage set to "+string(room_get_name(global.startstage)));
-
 with obj_ctrl_filter alarm[1] = 2;
+*/
+
+// Experiment at bypassing ship selection screen.
+// This will be necessary for input replay support later on
+global.shipselect = 1;
+global.startstage = rm_omake3;
+
+global.score_stored = 0;
+global.extend_number = 1;
+global.lives_stored = 3;
+global.init_bombs = 3; // I'm not so sure custom bomb values are a good idea anymore...
+global.max_bombs = 5;
+// Also having to load all the shipselect aesthetics or pluck out vars isn't ideal either
+global.bombs_stored = global.init_bombs;
+global.continues = 0;
+global.gamecomplete = 0;
+
+global.xonospr = 1; // TODO: globalvars for specific ship stats aren't ideal
+
+// Error in rm_scores from calling obj_ctrl_music.gameover,
+// perhaps a global gameover var might be useful
+
+scr_trans(global.startstage,3,c_black,0.025,0.05,210);
+scr_fademusic(0.0055);
 </string>
           </argument>
         </arguments>

@@ -1,4 +1,4 @@
-// Usage: scr_loadmusicini(inilocation,sectionofini)
+/// scr_loadmusicinfo(ini_file,ini_section)
 if file_exists(argument0) && global.music_info[1] != "NONE" // if the file exists
     {
     ini_open(argument0); // open the file
@@ -13,11 +13,11 @@ if file_exists(argument0) && global.music_info[1] != "NONE" // if the file exist
     else
         {
         ini_close();
-        show_message("Music Error: Couldn't find section");
-        return -1;
+        show_debug_message("Music Error: Couldn't find section");
+        return 1;
         }
     }
 else
     {
-    return 666;
+    return -1;
     }

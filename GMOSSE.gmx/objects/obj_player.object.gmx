@@ -28,9 +28,6 @@
             <string>// Don't bother doing anything if we're not actually playing
 if !instance_exists(obj_hitbox) then exit;
 
-// Check for inputs
-scr_input();
-
 // This gets the value that we're going to move the player
 // ship around by. The global vars are set in the player
 // ship's Create event.

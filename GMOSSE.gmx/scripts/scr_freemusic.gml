@@ -1,3 +1,4 @@
+///scr_freemusic(id)
 /*
 scr_freemusic(), by BPzeBanshee
 */

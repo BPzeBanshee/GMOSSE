@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
-  <persistent>0</persistent>
+  <depth>-9999</depth>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -26,95 +26,219 @@
           <argument>
             <kind>1</kind>
             <string>/*
-Heirarchy structure of enemies - 13/1/16
+obj_ctrl_music, by BPzeBanshee
 
-Simple diagram as follows:
-
-obj_en_parent-----///-----obj_en_wall
-     /\
-    /  \
-   /    \
-  /      \
- /        \
-air    ground
-
-*en_parent* will handle initialisation of 
-variables and handle things present in all enemies
-(health management, flash on low health, etc).
-Nothing else. If you want an enemy that you can 
-collide with, without being dragged by the camera,
-use this.
-
-en_air will be dragged with camera to be in screen 
-space in rooms larger than the view, this is the
-old behaviour of obj_en_parent in previous releases.
-For making simple objects that remain with the
-screen use this.
-
-*en_ground* will set can_collide to 0 on its Creation.
-can_damage remains 1, which in effect will mean
-you can fly over it and not die. For making ground
-enemies use this, but beware it lives in absolute
-world space and will not stay with the screen.
-
-*en_wall* is its own object, and does not inherit
-from obj_en_parent. This saves on collision event
-checks and won't trip homing objects or anything
-that iterates through enemies. This is
-the sole exception to the branch.
+Other objects (ie stage controllers) make this one call the User-Defined events 
+to play the music that they want. Most music engine-specific calls are encapsulated in
+scripts to make the code easier to read here. 
+Switching of music along with music information is loaded here, while a script
+with a separate object (obj_fade) handles music fadeouts.
 */
-z = 128;
-flash = 0;
-enemyHP_max = enemyHP;
-can_collide = 1;
-can_damage = 1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/* 
-NOTE: Any child object using something within End Step event will 
-override this and result in these lines of code having no effect.
-If you must have an object using End Step (ie. multiple turrets
-using lengthdir_x/y) then add event_inherited() to its code.
-*/
+globalvar music; 
+music = 0;
 
-if enemyHP &lt;= (enemyHP_max * 0.25) &amp;&amp; enemyHP &gt; 0 then flash += 1;
-if flash = 2 then image_blend = c_white;
-if flash = 8
+e = AInit();
+if e = -1
     {
-    image_blend = c_red;
-    flash = 0;
+    show_message("Error loading GMALP.DLL");
+    instance_destroy();
     }
-if enemyHP &lt;= 0 
+
+timer = 360;
+alpha = 0;
+info = -1; // init variable for music loading scripts
+mainmenu = 0;
+gameover = 0;
+
+scr_setvolsnd();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>AUpdate(); // Compulsory part of GMALP
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="23">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// OMAKE BOSS THEME 3
+timer = 0;
+alpha = 0;
+scr_stopmusic(music);
+
+info = scr_loadmusicinfo(global.music_ini,"Omake3");
+music = scr_playmusic(global.snd_omake3,1);
+scr_setvolmusic(music);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="22">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// OMAKE BOSS THEME 2
+timer = 0;
+alpha = 0;
+scr_stopmusic(music);
+
+// Fun fact: this one actually came first, I just named it omake2 to fit with stage order
+info = scr_loadmusicinfo(global.music_ini,"Omake2");
+music = scr_playmusic(global.snd_omake2,1);
+scr_setvolmusic(music);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="21">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// OMAKE BOSS THEME 1
+timer = 0;
+alpha = 0;
+scr_stopmusic(music);
+
+info = scr_loadmusicinfo(global.music_ini,"Omake1");
+music = scr_playmusic(global.snd_omake1,1);
+scr_setvolmusic(music);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="16">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// GAME OVER MUSIC
+timer = 0;
+alpha = 0;
+scr_stopmusic(music);
+
+info = scr_loadmusicinfo(global.music_ini,"GameOver");
+music = scr_playmusic(global.snd_gameover,0);
+scr_setvolmusic(music);
+gameover = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="15">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// CONTINUE MUSIC 
+// Call once to play, call again to stop
+if instance_exists(obj_ctrl_continue)
     {
-    image_blend = c_white; 
-    event_user(15);
+    scr_stopmusic(music2);
+    exit;
+    }
+else
+    {
+    timer = 0;
+    alpha = 0;
+    info = scr_loadmusicinfo(global.music_ini,"Continue");
+    music2 = scr_playmusic(global.snd_continue,0);
+    scr_setvolmusic(music);
     }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_arxyne_bolt">
+    <event eventtype="7" enumb="14">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -131,13 +255,20 @@ if enemyHP &lt;= 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_damage then enemyHP -= 1;
+            <string>/// STAGE CLEAR MUSIC
+timer = 0;
+alpha = 0;
+
+scr_stopmusic(music);
+info = scr_loadmusicinfo(global.music_ini,"StageComplete");
+music = scr_playmusic(global.snd_stageclear,0);
+scr_setvolmusic(music);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_arxyne_shot2a">
+    <event eventtype="7" enumb="12">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -154,13 +285,22 @@ if enemyHP &lt;= 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_damage then enemyHP -= 3;
+            <string>/// BIG BOSS THEME (STAGE 3)
+if instance_exists(obj_ctrl_gameover) then exit;
+
+timer = 0;
+alpha = 0;
+
+scr_stopmusic(music);
+info = scr_loadmusicinfo(global.music_ini,"Stage3_B");
+music = scr_playmusic(global.snd_st3b,1);
+scr_setvolmusic(music);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_arxyne_shot">
+    <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -177,13 +317,22 @@ if enemyHP &lt;= 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_damage then enemyHP -= 1.5;
+            <string>/// BOSS THEME
+if instance_exists(obj_ctrl_gameover) then exit;
+
+timer = 0;
+alpha = 0;
+
+scr_stopmusic(music);
+info = scr_loadmusicinfo(global.music_ini,"Boss1");
+music = scr_playmusic(global.snd_boss,1);
+scr_setvolmusic(music);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_sf_laser">
+    <event eventtype="7" enumb="5">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -200,13 +349,97 @@ if enemyHP &lt;= 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_damage then enemyHP -= 1.5;
+            <string>if room = rm_init
+    {
+    global.snd_intro = scr_loadmusic("Intro");
+    global.snd_shipselect = scr_loadmusic("Selection");
+    global.snd_st1 = scr_loadmusic("Stage1");
+    global.snd_st2 = scr_loadmusic("Stage2");
+    global.snd_st3 = scr_loadmusic("Stage3");
+    global.snd_st3b = scr_loadmusic("Stage3_B");
+    global.snd_boss = scr_loadmusic("Boss1");
+    global.snd_omake1 = scr_loadmusic("Omake1");
+    global.snd_omake2 = scr_loadmusic("Omake2");
+    global.snd_omake3 = scr_loadmusic("Omake3");
+    global.snd_stageclear = scr_loadmusic("StageComplete");
+    global.snd_continue = scr_loadmusic("Continue");
+    global.snd_gameover = scr_loadmusic("GameOver");
+    }
+
+// Stop the currently playing track
+if room != rm_scores &amp;&amp; global.nextroom != rm_scores
+    {
+    scr_stopallmusic();
+    music = 0;
+    } 
+
+// Music info to show in certain rooms
+if global.nextroom = rm_menu
+    {
+    // Freeing generic sounds
+    if gameover = 1 // rm_scores after game over, leaving to menu from pause menu
+        {
+        gameover = 0;
+        }
+        
+    // Loading intro music
+    if mainmenu = 0 // first start of GMOSSE
+        {
+        info = scr_loadmusicinfo(global.music_ini,"Intro");
+        }
+    }    
+    
+if global.nextroom = rm_shipselect
+    {
+    // Freeing intro if loaded
+    if mainmenu = 1
+        {
+        mainmenu = 2; // set to 0 if you want intro to be loaded/played again on return
+        }
+        
+    // Loading ship select music
+    info = scr_loadmusicinfo(global.music_ini,"Selection");
+    }
+    
+    
+// Stage specific music to load
+if global.nextroom = rm_stage1 || global.nextroom = rm_boss1
+    {
+    info = scr_loadmusicinfo(global.music_ini,"Stage1");
+    }
+        
+if global.nextroom = rm_stage2 || global.nextroom = rm_boss2
+    {
+    info = scr_loadmusicinfo(global.music_ini,"Stage2");
+    }
+    
+if global.nextroom = rm_stage3
+    {
+    info = scr_loadmusicinfo(global.music_ini,"Stage3");
+    }
+    
+if global.nextroom = rm_omake1
+    {
+    info = scr_loadmusicinfo(global.music_ini,"Omake1");
+    }
+    
+if global.nextroom = rm_omake2 || global.nextroom = rm_test2
+    {
+    info = scr_loadmusicinfo(global.music_ini,"Omake2");
+    }
+    
+if global.nextroom = rm_omake3 || global.nextroom = rm_test1
+    {
+    info = scr_loadmusicinfo(global.music_ini,"Omake3");
+    }
+    
+scr_setvolsnd();    
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_sf_shot">
+    <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -223,13 +456,48 @@ if enemyHP &lt;= 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_damage then enemyHP -= 2.5;
+            <string>timer = 0;
+alpha = 0;
+
+// MAIN MENU
+if room = rm_menu
+    {
+    timer = 360;
+    if mainmenu = 0
+        {
+        music = scr_playmusic(global.snd_intro,0);
+        mainmenu = 1;
+        }
+    }
+
+// SHIP SELECT MENU
+if room = rm_shipselect then music = scr_playmusic(global.snd_shipselect,1);
+
+// STAGE 1
+if room = rm_stage1 || room = rm_boss1 then music = scr_playmusic(global.snd_st1,1);
+    
+// STAGE 2
+if room = rm_stage2 || room = rm_boss2 then music = scr_playmusic(global.snd_st2,1);
+    
+// STAGE 3
+if room = rm_stage3 then music = scr_playmusic(global.snd_st3,1);
+    
+// TEST ROOM STAGES
+if room = rm_test1 || room = rm_test2 
+|| room = rm_omake1 || room = rm_omake2 
+|| room = rm_omake3 || room = rm_tutorial
+    {
+    scr_stopallmusic();
+    timer = 360;
+    }
+    
+scr_setvolmusic(music);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_bh_shot7">
+    <event eventtype="7" enumb="3">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -246,13 +514,15 @@ if enemyHP &lt;= 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_damage then enemyHP -= 5;
+            <string>scr_stopallmusic();
+ASourceFreeAll();
+AFree();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_bh_shot6">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -269,286 +539,33 @@ if enemyHP &lt;= 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_damage then enemyHP -= 1.2;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_bh_shot5">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if can_damage then enemyHP -= 0.5;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_bh_shot4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if can_damage then enemyHP -= 12.5;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_bh_shot3">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if can_damage then enemyHP -= 2.5;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_bh_shot2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if can_damage then enemyHP -= 0.5;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_bh_shot1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if can_damage then enemyHP -= 2;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_bh_mainshot">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if can_damage then enemyHP -= 2.5;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_warbird_bomb">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if can_damage then enemyHP -= 0.05;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_warbird_shot">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if can_damage then enemyHP -= 1.5;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_warbird_laser">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if can_damage then enemyHP -= 5;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_xono_laser">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if can_damage then enemyHP -= 3;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_xono_shot">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if can_damage then enemyHP -= 1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_hitbox">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if !can_collide exit;
-if other.invincible != 0 exit;
-if !instance_exists(obj_player) exit;
-enemyHP -= 100;
+            <string>if room = rm_init || info != 0 then exit;
+var oa; oa = draw_get_alpha();
+scr_draw_vars(global.fnt_little,fa_left,make_color_rgb(90,130,255));
+
+if !instance_exists(obj_ctrl_pause)
+    {
+    timer += 1;
+    if timer &lt; 360 &amp;&amp; alpha &lt; 1 then alpha += 0.01;
+    if timer &gt; 360 &amp;&amp; alpha &gt; 0 then alpha -= 0.01;
+    }
+draw_set_alpha(alpha);
+
+if instance_exists(obj_ctrl_game) //ingame
+    {
+    draw_text(xview,yview+284,"* "+string(global.music_info[5]));
+    if timer &lt; 180 
+    then draw_text(xview,yview+294,"* "+string(global.music_info[6]))
+    else draw_text(xview,yview+294,"* "+string(global.music_info[7]));    
+    }
+else if !instance_exists(obj_ctrl_pause) //menus
+    {
+    draw_text(xview,yview+300,"* "+string(global.music_info[5]));
+    if timer &lt; 180
+    then draw_text(xview,yview+310,"* "+string(global.music_info[6]));
+    else draw_text(xview,yview+310,"* "+string(global.music_info[7]));
+    }
+draw_set_alpha(oa);
 </string>
           </argument>
         </arguments>

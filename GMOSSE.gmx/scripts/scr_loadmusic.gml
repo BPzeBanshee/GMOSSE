@@ -1,9 +1,10 @@
+///scr_loadmusic(ini_section)
 /* 
 scr_loadmusic(), by BPzeBanshee
 
 Usage: scr_loadmusic(argument0,argument1)
-argument0 = the ini section to check for
-argument1 = the group number (default 1)
+argument0 = the ini file
+argument1 = the ini section to check for
 */
 
 // This part assumes the ini works
@@ -20,14 +21,16 @@ if global.music_info[1] = "NONE" return -1;
 // everything that's required is sorted, load and configure
 var m,a,b;
 m = ASourceLoad(global.music_info[1]);
-if m < 0
+if m < 0 // Error check
     {
     show_message("Error loading "+string(global.music_info[1]));
     with obj_ctrl_filter alarm[1] = 1; // return to whatever fullscreen it was before
     return -2;
     }
+    
+// Set loop points
 a = ASourceGetLength(m)*global.music_info[3];
 b = ASourceGetLength(m)*global.music_info[4];
 if a > 0 || b < 1 then ASourceAddLoopPoint(m,a,b,-1);
-//FMODSoundSetMaxVolume(music,(global.music_info[2]/100));
+
 return m;
