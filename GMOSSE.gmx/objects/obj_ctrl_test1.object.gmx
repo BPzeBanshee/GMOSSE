@@ -73,8 +73,8 @@ switch stage_time
     {
     case 60:
         {
-        e=instance_create(160,-32,obj_en72);
-        e.direction = 270;
+        //e=instance_create(160,-32,obj_en72);
+        //e.direction = 270;
         //instance_create(160,0,obj_3Den4s);
         //stage_time = 0;
         //a = instance_create(xview,yview+120,obj_en5);
@@ -96,6 +96,10 @@ switch stage_time
         }
     }
    
+if keyboard_check(vk_space) &amp;&amp; !instance_exists(obj_beam)
+    {
+    instance_create(160,40,obj_beam);
+    }
 /* AESTHETICS */
     
 </string>

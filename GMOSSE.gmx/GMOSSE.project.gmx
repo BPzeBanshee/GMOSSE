@@ -329,6 +329,10 @@
       <sprite>sprites\spr_warning_bkg2</sprite>
       <sprite>sprites\spr_danger_bkg2</sprite>
     </sprites>
+    <sprite>sprites\spr_beam</sprite>
+    <sprite>sprites\spr_beam_flash</sprite>
+    <sprite>sprites\spr_beam_tip</sprite>
+    <sprite>sprites\spr_beam_hitbox</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_space</background>
@@ -791,6 +795,8 @@
       </objects>
       <object>objects\obj_test</object>
     </objects>
+    <object>objects\obj_beam</object>
+    <object>objects\obj_beam_flash</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>

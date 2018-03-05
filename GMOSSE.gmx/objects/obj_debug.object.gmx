@@ -266,7 +266,7 @@ with obj_ctrl_filter alarm[1] = 2;
 // Experiment at bypassing ship selection screen.
 // This will be necessary for input replay support later on
 global.shipselect = 1;
-global.startstage = rm_omake3;
+global.startstage = rm_test1;
 
 global.score_stored = 0;
 global.extend_number = 1;
