@@ -96,9 +96,9 @@ switch stage_time
         }
     }
    
-if keyboard_check(vk_space) &amp;&amp; !instance_exists(obj_beam)
+if keyboard_check(vk_space) &amp;&amp; !instance_exists(obj_beam2)
     {
-    instance_create(160,40,obj_beam);
+    instance_create(160,40,obj_beam2);
     }
 /* AESTHETICS */
     

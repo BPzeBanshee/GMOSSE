@@ -331,7 +331,8 @@
     </sprites>
     <sprite>sprites\spr_beam</sprite>
     <sprite>sprites\spr_beam_flash</sprite>
-    <sprite>sprites\spr_beam_tip</sprite>
+    <sprite>sprites\spr_beam_flash2</sprite>
+    <sprite>sprites\spr_beam_head</sprite>
     <sprite>sprites\spr_beam_hitbox</sprite>
   </sprites>
   <backgrounds name="background">
@@ -796,7 +797,6 @@
       <object>objects\obj_test</object>
     </objects>
     <object>objects\obj_beam</object>
-    <object>objects\obj_beam_flash</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
