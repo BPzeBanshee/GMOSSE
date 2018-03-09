@@ -32,7 +32,7 @@ event_inherited();
 b_img = spr_beam;          // the beam itself
 f_img = spr_beam_flash;    // the beginning of the beam
 h_img = spr_beam_head;      // the end of the beam
-b_spd = 5;
+b_spd = 8;
 direction = 270;
 image_xscale = 0;
 image_angle = direction;
@@ -70,8 +70,8 @@ h_width = sprite_get_xoffset(h_img);
             <kind>1</kind>
             <string>if b_alpha &gt; 0
     {
-    b_alpha -= 0.05;
-    h_alpha -= 0.05;
+    b_alpha -= 0.1;
+    h_alpha -= 0.1;
     }
 else
     {
@@ -101,15 +101,14 @@ alarm[0] = 1;
           <argument>
             <kind>1</kind>
             <string>image_angle = direction;
-if mouse_check_button(mb_left) &amp;&amp; image_xscale &lt; 320 then image_xscale += 1;
-if mouse_check_button(mb_right) &amp;&amp; image_xscale &gt; 0 then image_xscale -= 1;
-/*
+//if mouse_check_button(mb_left) &amp;&amp; image_xscale &lt; 320 then image_xscale += 1;
+//if mouse_check_button(mb_right) &amp;&amp; image_xscale &gt; 0 then image_xscale -= 1;
+
 if image_xscale &lt; 320 then image_xscale += b_spd 
 else 
     {
     if alarm[0] = -1 then alarm[0] = 30;
     }
-*/
 </string>
           </argument>
         </arguments>
@@ -139,14 +138,14 @@ else
 if image_xscale &lt; 1 then exit;
 
 var i,in;
-in = b_subimg;
+in = floor(b_subimg);
 for(i=0; i&lt;image_xscale-32;i+=b_width)
     {
     var xx,yy,ss;
     xx = x + lengthdir_x(i, image_angle);
     yy = y + lengthdir_y(i, image_angle);
     draw_sprite_ext(b_img,in,xx,yy,1,image_yscale,image_angle,image_blend,b_alpha);
-    in += 0.25; if in &gt; b_subimg_max then in = 0;
+    in += 1; if in &gt; b_subimg_max then in = 0;
     }
 
 // laser head (end of laser)

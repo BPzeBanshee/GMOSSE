@@ -258,6 +258,14 @@
       </sprites>
     </sprites>
     <sprites name="Bullets">
+      <sprites name="Beams">
+        <sprite>sprites\spr_beam</sprite>
+        <sprite>sprites\spr_beam_flash</sprite>
+        <sprite>sprites\spr_beam_head</sprite>
+        <sprite>sprites\spr_beam_hitbox</sprite>
+        <sprite>sprites\spr_beam_test</sprite>
+        <sprite>sprites\spr_beam_flash2</sprite>
+      </sprites>
       <sprite>sprites\spr_bullet1</sprite>
       <sprite>sprites\spr_bullet1_alt</sprite>
       <sprite>sprites\spr_bullet2</sprite>
@@ -329,11 +337,6 @@
       <sprite>sprites\spr_warning_bkg2</sprite>
       <sprite>sprites\spr_danger_bkg2</sprite>
     </sprites>
-    <sprite>sprites\spr_beam</sprite>
-    <sprite>sprites\spr_beam_flash</sprite>
-    <sprite>sprites\spr_beam_flash2</sprite>
-    <sprite>sprites\spr_beam_head</sprite>
-    <sprite>sprites\spr_beam_hitbox</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_space</background>
@@ -731,6 +734,7 @@
       </objects>
     </objects>
     <objects name="Bullets">
+      <object>objects\obj_beam</object>
       <object>objects\obj_bullet1</object>
       <object>objects\obj_bullet2</object>
       <object>objects\obj_bullet3</object>
@@ -796,7 +800,6 @@
       </objects>
       <object>objects\obj_test</object>
     </objects>
-    <object>objects\obj_beam</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
