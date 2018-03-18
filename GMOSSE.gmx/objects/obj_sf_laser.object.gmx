@@ -61,7 +61,7 @@ global.sldiagspeed = 1;
 if instance_exists(obj_sf_bomb)
     {
     if image_xscale &lt; 1 &amp;&amp; obj_sf_bomb.timer &lt; 120 then image_xscale += 0.1;
-    if image_xscale &gt; 0 &amp;&amp; obj_sf_bomb.timer &gt;= 120 then image_xscale -= 0.1;
+    if image_xscale &gt; 0 &amp;&amp; obj_sf_bomb.timer &gt;= 120 then image_xscale -= min(0.1,image_xscale);
     x = obj_sf_bomb.x - 1;
     y = obj_sf_bomb.y - 8;
     }

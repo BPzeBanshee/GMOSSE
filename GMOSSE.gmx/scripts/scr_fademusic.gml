@@ -1,4 +1,5 @@
 ///scr_fademusic(fadespeed)
+if !instance_exists(obj_ctrl_music) then exit;
 if !instance_exists(obj_fade)
     {
     var f;

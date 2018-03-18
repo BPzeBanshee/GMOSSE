@@ -43,7 +43,7 @@ alpha3 = 1; // text
 rnd = 15;
 
 if !instance_exists(obj_ctrl_gameover) 
-then scr_playsnd(snd_voice3,0);
+then scr_playsnd(snd_voice3,1);
 </string>
           </argument>
         </arguments>
@@ -74,13 +74,13 @@ switch timer
         {
         rnd = 15;
         if !instance_exists(obj_ctrl_gameover) 
-        then scr_playsnd(snd_voice3,0);
+        then scr_playsnd(snd_voice3,1);
         break;
         }
     case 200:
         {
         if !instance_exists(obj_ctrl_gameover)
-        then scr_playsnd(snd_voice2,0);
+        then scr_playsnd(snd_voice2,1);
         break;
         }
     }
@@ -125,7 +125,7 @@ if timer &gt; 320
     image_alpha -= 0.01;
     alpha2 -= 0.01;
     alpha3 -= 0.01;
-    if alpha3 &lt;= 0 then instance_destroy();
+    if image_alpha &lt; 0.01 then instance_destroy();
     }
 </string>
           </argument>

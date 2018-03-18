@@ -6,6 +6,7 @@ Usage: scr_loadmusic(argument0,argument1)
 argument0 = the ini file
 argument1 = the ini section to check for
 */
+if !instance_exists(obj_ctrl_music) then exit;
 
 // This part assumes the ini works
 ini_open(global.music_ini);
@@ -23,7 +24,7 @@ var m,a,b;
 m = ASourceLoad(global.music_info[1]);
 if m < 0 // Error check
     {
-    show_message("Error loading "+string(global.music_info[1]));
+    scr_console("Error loading "+string(global.music_info[1]));
     with obj_ctrl_filter alarm[1] = 1; // return to whatever fullscreen it was before
     return -2;
     }

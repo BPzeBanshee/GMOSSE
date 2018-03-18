@@ -149,7 +149,7 @@ if dead_timer = 6
 image_alpha -= 0.05;
 image_xscale += 0.05;
 image_yscale += 0.05;
-if image_alpha = 0
+if image_alpha &lt; 0.05
     {
     scr_playsnd(snd_exp2,1);
     scr_create_exp(obj_explosion,360,18); 

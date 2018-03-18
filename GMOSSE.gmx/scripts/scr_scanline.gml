@@ -14,7 +14,7 @@ Display mode 2 will show vertical scanlines.
 
 // Error check
 if argument0 < 0 || argument0 > 2 
-then show_message("Error in scr_scanline: mode number not available");
+then scr_console("scr_scanline(): mode number not available");
 
 globalvar filter_image,filter_alpha;
 

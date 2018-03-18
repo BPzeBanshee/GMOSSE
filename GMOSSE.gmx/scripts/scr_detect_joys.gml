@@ -50,5 +50,5 @@ if pad = gamepad_get_device_count() && global.joy_id = -1
         count += 1;
         }
     }
-show_debug_message("scr_detect_joys(): "+string(count)+" pads found, picking id "+string(global.joy_id));
+scr_console("scr_detect_joys(): "+string(count)+" pads found, picking id "+string(global.joy_id));
 return count;

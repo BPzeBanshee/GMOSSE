@@ -117,8 +117,13 @@ if (global.button1 &amp;&amp; !global.levelend &amp;&amp; !hook &amp;&amp; enabl
                 global.bombs_stored = global.init_bombs;
                 global.chain = 0;
                 global.countdown = 0;
-                obj_ctrl_game.respawntimer = -1;
-                obj_ctrl_game.deathtimer = 0;
+                
+                // TODO: Does obj_ctrl_game even get this command? does it care?
+                with obj_ctrl_game
+                    {
+                    respawntimer = -1;
+                    deathtimer = 0;
+                    }
                 }
             break;
             }

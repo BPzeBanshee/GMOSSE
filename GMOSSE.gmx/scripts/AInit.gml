@@ -13,6 +13,7 @@ GMALP_DLL = "GMALP.dll";
 GMALP_Call = dll_cdecl;
 
 if !file_exists(GMALP_DLL) return -1;
+if os_browser != browser_not_a_browser return -2;
 
 // DLL HANDLE COMMANDS
 GMALP_Init = external_define(GMALP_DLL, "AInit", GMALP_Call, ty_real, 0);

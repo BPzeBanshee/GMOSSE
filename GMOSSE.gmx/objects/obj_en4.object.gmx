@@ -152,7 +152,7 @@ if image_alpha = 1
 image_alpha -= 0.1;
 image_xscale -= 0.1;
 image_yscale -= 0.1;
-if image_alpha = 0
+if image_alpha &lt; 0.1
     {
     // Contra Yagawa Corps Eksploshunz by Michael Bay!
     scr_create_exp(obj_explosion,360,18);

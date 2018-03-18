@@ -69,6 +69,8 @@ image_alpha -= 0.01;
 randomplace = irandom(10) - irandom(10);
 explosiontimer += 1;
 if explosiontimer &lt; 5 then instance_create(x+randomplace,y+randomplace,obj_explosion);
+
+if image_alpha &lt; 0.01 then instance_destroy();
 </string>
           </argument>
         </arguments>

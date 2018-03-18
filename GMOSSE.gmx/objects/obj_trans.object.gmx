@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-99999</depth>
+  <depth>-10000</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -107,13 +107,12 @@ global.levelend = 1;
         if global.levelend = 1
             {
             draw_timer += 1;
-            if alpha &lt; 1 then alpha += input_speed1 else timer += 1;
+            if alpha &lt; 1 then alpha += min(1-alpha,input_speed1) else timer += 1;
             if timer &gt; input_delay 
                 {
                 if global.paused then scr_unpause();
                 room_goto(input_room);
-                global.levelend = 0; // TODO: Does this actually work, what uses this?
-                
+                global.levelend = 0;
                 }
             }
         else
@@ -158,9 +157,7 @@ if mode = 3
     draw_rectangle(xview,yview,xview+240,yview+320,0);
     if alpha = 1 &amp;&amp; draw_timer &gt; 90 &amp;&amp; global.levelend = 1
         {
-        draw_set_font(global.fnt_big);
-        draw_set_halign(fa_center);
-        draw_set_color(c_white);
+        scr_draw_vars(global.fnt_big,fa_center,c_white);
         draw_text(xview+120,yview+80,"STAGE "+string(scr_checkstages())+" START");
         }
     }

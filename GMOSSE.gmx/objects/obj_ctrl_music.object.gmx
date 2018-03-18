@@ -38,9 +38,9 @@ globalvar music;
 music = 0;
 
 e = AInit();
-if e = -1
+if e != 0
     {
-    show_message("Error loading GMALP.DLL");
+    scr_console("Error loading GMALP.DLL");
     instance_destroy();
     }
 

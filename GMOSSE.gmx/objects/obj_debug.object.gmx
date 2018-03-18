@@ -8,6 +8,32 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>txt = "";
+rfps_avg = 0; 
+rfps_timer = 0;
+rfps_txt = "---";
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,11 +51,84 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(obj_ctrl_pause) exit;
+            <string>rfps_timer += 1;
+rfps_avg += max(0,fps_real);
+if rfps_timer = 60
+    {
+    rfps_txt = string(round(rfps_avg/60));
+    rfps_avg = 0;
+    rfps_timer = 0;
+    }
+
+if instance_exists(obj_ctrl_pause) exit;
 
 if instance_exists(obj_ctrl_stage) 
 then global.step = obj_ctrl_stage.stage_time 
 else global.step += 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>txt = global.debug_text;
+while string_height(txt) &gt; window_get_height()
+    {
+    txt = string_delete(txt,1,string_pos("#",txt));
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Experiment at bypassing ship selection screen.
+// This will be necessary for input replay support later on
+global.shipselect = 1;
+
+global.score_stored = 0;
+global.extend_number = 1;
+global.lives_stored = 3;
+global.init_bombs = 3; // I'm not so sure custom bomb values are a good idea anymore...
+global.max_bombs = 5;
+// Also having to load all the shipselect aesthetics or pluck out vars isn't ideal either
+global.bombs_stored = global.init_bombs;
+global.continues = 0;
+global.gamecomplete = 0;
+
+global.xonospr = 1; // TODO: globalvars for specific ship stats aren't ideal
 </string>
           </argument>
         </arguments>
@@ -54,11 +153,35 @@ else global.step += 1;
             <kind>1</kind>
             <string>if instance_exists(obj_ctrl_stage) then ingame = 1 else ingame = 0;
 global.step = 0;
-a = 1;
-
 rfps_avg = 0; 
 rfps_timer = 0;
-rfps_txt = "0";
+rfps_txt = "---";
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="77">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if os_browser = browser_not_a_browser then exit;
+scr_draw_vars(global.fnt_default,fa_left,c_white);
+draw_set_alpha(1);
+draw_text(0,0,txt);
 </string>
           </argument>
         </arguments>
@@ -97,7 +220,7 @@ rfps_txt = "0";
     else draw_set_alpha(1);
         
     // Display debug data
-    draw_text(xview+240,yview+290,string(round(fps_real))+" RFPS");
+    draw_text(xview+240,yview+290,string(rfps_txt)+" RFPS");
     draw_text(xview+240,yview+300,"S:"+string(global.step)+", I:"+string(instance_count));
     draw_text(xview+240,yview+310,string(fps)+" FPS");
     }
@@ -125,10 +248,10 @@ if draw_get_alpha()=0.5 then draw_set_alpha(1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.startstage = rm_test3;
-show_message("Starting Stage set to "+string(room_get_name(global.startstage)));
-
-with obj_ctrl_filter alarm[1] = 2;
+            <string>event_user(0);
+global.startstage = rm_test3;
+scr_trans(global.startstage,3,c_black,0.025,0.05,210);
+scr_fademusic(0.0055);
 </string>
           </argument>
         </arguments>
@@ -151,10 +274,10 @@ with obj_ctrl_filter alarm[1] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.startstage = rm_boss2;
-show_message("Starting Stage set to "+string(room_get_name(global.startstage)));
-
-with obj_ctrl_filter alarm[1] = 2;
+            <string>event_user(0);
+global.startstage = rm_boss2;
+scr_trans(global.startstage,3,c_black,0.025,0.05,210);
+scr_fademusic(0.0055);
 </string>
           </argument>
         </arguments>
@@ -177,10 +300,10 @@ with obj_ctrl_filter alarm[1] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.startstage = rm_stage2;
-show_message("Starting Stage set to "+string(room_get_name(global.startstage)));
-
-with obj_ctrl_filter alarm[1] = 2;
+            <string>event_user(0);
+global.startstage = rm_stage2;
+scr_trans(global.startstage,3,c_black,0.025,0.05,210);
+scr_fademusic(0.0055);
 </string>
           </argument>
         </arguments>
@@ -203,10 +326,10 @@ with obj_ctrl_filter alarm[1] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.startstage = rm_stage3;
-show_message("Starting Stage set to "+string(room_get_name(global.startstage)));
-
-with obj_ctrl_filter alarm[1] = 2;
+            <string>event_user(0);
+global.startstage = rm_stage3;
+scr_trans(global.startstage,3,c_black,0.025,0.05,210);
+scr_fademusic(0.0055);
 </string>
           </argument>
         </arguments>
@@ -229,10 +352,10 @@ with obj_ctrl_filter alarm[1] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.startstage = rm_test2;
-show_message("Starting Stage set to "+string(room_get_name(global.startstage)));
-
-with obj_ctrl_filter alarm[1] = 2;
+            <string>event_user(0);
+global.startstage = rm_test2;
+scr_trans(global.startstage,3,c_black,0.025,0.05,210);
+scr_fademusic(0.0055);
 </string>
           </argument>
         </arguments>
@@ -255,34 +378,8 @@ with obj_ctrl_filter alarm[1] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-//scr_hiscore_update("AYY",6,5,987654321);
-//scr_hiscore_save("score.gmes");
+            <string>event_user(0);
 global.startstage = rm_test1;
-show_message("Starting Stage set to "+string(room_get_name(global.startstage)));
-with obj_ctrl_filter alarm[1] = 2;
-*/
-
-// Experiment at bypassing ship selection screen.
-// This will be necessary for input replay support later on
-global.shipselect = 1;
-global.startstage = rm_test1;
-
-global.score_stored = 0;
-global.extend_number = 1;
-global.lives_stored = 3;
-global.init_bombs = 3; // I'm not so sure custom bomb values are a good idea anymore...
-global.max_bombs = 5;
-// Also having to load all the shipselect aesthetics or pluck out vars isn't ideal either
-global.bombs_stored = global.init_bombs;
-global.continues = 0;
-global.gamecomplete = 0;
-
-global.xonospr = 1; // TODO: globalvars for specific ship stats aren't ideal
-
-// Error in rm_scores from calling obj_ctrl_music.gameover,
-// perhaps a global gameover var might be useful
-
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
 </string>

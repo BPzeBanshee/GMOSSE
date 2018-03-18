@@ -1,3 +1,4 @@
+global.debug_text = "";
 instance_create(0,0,obj_debug);
 
 globalvar USE_SANDBOX; USE_SANDBOX=1;
@@ -29,7 +30,6 @@ global.button3 = 0;
 global.button4 = 0;
 global.joy_id = 0;
 global.joy_pref = 0;
-global.joy_system = 2;
 
 /* CONFIG */
 scr_config_load("config.ini");
@@ -45,14 +45,13 @@ scr_fonts_init();
 
 /* CONTROLLERS */
 instance_create(0,0,obj_ctrl_input);
-instance_create(0,0,obj_ctrl_music_v2);
+instance_create(0,0,obj_ctrl_music);
 instance_create(0,0,obj_ctrl_filter);
 application_surface_draw_enable(true);
-if global.use_new_renderer 
-then instance_create(0,0,obj_ctrl_render)
-else instance_create(0,0,obj_ctrl_render_old);
 
-instance_create(0,0,obj_test);
+if global.use_new_renderer then 
+instance_create(0,0,obj_ctrl_render)
+else instance_create(0,0,obj_ctrl_render_old);
     
 /* MISC. */
 global.pause = 0;

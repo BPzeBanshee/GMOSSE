@@ -170,6 +170,21 @@ x = round(window_get_width()/2);
 y = round(window_get_height()/2);
 xx = x - lengthdir_x((m_base_w/2)*l_scale,m_angle) - lengthdir_x((m_base_h/2)*l_scale,m_angle+270);
 yy = y - lengthdir_y((m_base_w/2)*l_scale,m_angle) - lengthdir_y((m_base_h/2)*l_scale,m_angle+270);
+
+if os_browser != browser_not_a_browser
+    {
+    if browser_height &gt; window_get_height() || browser_width &gt; window_get_width()
+        {
+        var wx, wy;
+        if browser_width &gt; window_get_width()
+        then wx = (browser_width - window_get_width()) / 2
+        else wx = 0;
+        if browser_height &gt; window_get_height()
+        then wy = (browser_height - window_get_height()) / 2
+        else wy = 0;
+        window_set_position(wx,wy);
+        }
+    }
 </string>
           </argument>
         </arguments>

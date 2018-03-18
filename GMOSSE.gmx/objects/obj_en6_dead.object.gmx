@@ -59,7 +59,7 @@ image_speed = 0;
     }
 image_angle += angle;
 image_alpha -= 0.01;
-if image_alpha = 0 then instance_destroy();
+if image_alpha &lt; 0.01 then instance_destroy();
 </string>
           </argument>
         </arguments>

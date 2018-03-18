@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>fade = round(global.music_volume)/100;
 vol = fade;
+if !instance_exists(obj_ctrl_music) then instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -49,7 +50,7 @@ vol = fade;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>AStreamStop(music);
+            <string>if instance_exists(obj_ctrl_music) then AStreamStop(music);
 </string>
           </argument>
         </arguments>

@@ -90,7 +90,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// CONTINUE SCREEN
+            <string>/// CONTINUE SCREEN
 switch side
     {
     case 1: // top
@@ -141,7 +141,7 @@ if image_index &lt; 1 then image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// MAIN MENU
+            <string>/// MAIN MENU
 if image_index = image_number then image_speed = 0;
 if !scr_isonscreen()
     {
@@ -189,7 +189,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// SHIP SELECT MENU
+            <string>/// SHIP SELECT MENU
 if y &gt;= yview+320+(sprite_height/2)
     {
     image_index = irandom(4);

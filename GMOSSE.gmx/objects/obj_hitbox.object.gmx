@@ -78,8 +78,8 @@ if invincible != 0
     if invincible &gt; 0 then invincible -= 1;
     if instance_exists(obj_player)
         {
-        if obj_player.image_alpha = 0 &amp;&amp; clear = 0 then clear = 1;
-        if obj_player.image_alpha = 1 &amp;&amp; clear = 1 then clear = 0;
+        if obj_player.image_alpha &lt; 0.1 &amp;&amp; clear = 0 then clear = 1;
+        if obj_player.image_alpha &gt; 0.9 &amp;&amp; clear = 1 then clear = 0;
         if clear = 0 then obj_player.image_alpha -= 0.1;
         if clear = 1 then obj_player.image_alpha += 0.1;
         }

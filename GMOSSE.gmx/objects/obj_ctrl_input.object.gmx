@@ -32,14 +32,14 @@ screenshotnum = 0;
 // New system
 if gamepad_get_device_count() &gt; 1 &amp;&amp; gamepad_is_connected(global.joy_pref)
     {
-    show_debug_message("obj_ctrl_input: locking in preferred joystick id");
+    scr_console("obj_ctrl_input: locking in preferred joystick id");
     global.joy_id = global.joy_pref;
     global.joy_system = 2;
     }
 // old system
 else if joystick_exists(1) &amp;&amp; joystick_exists(2) &amp;&amp; global.joy_pref &lt; 2
     {
-    show_debug_message("obj_ctrl_input: fell back to joystick_exists");
+    scr_console("obj_ctrl_input: fell back to joystick_exists");
     if joystick_exists(global.joy_pref)
         {
         global.joy_id = global.joy_pref+1;
@@ -49,7 +49,7 @@ else if joystick_exists(1) &amp;&amp; joystick_exists(2) &amp;&amp; global.joy_p
 else 
     {
     scr_detect_joys(); // only one device? okay we'll find the first one and accept it
-    show_debug_message("obj_ctrl_input: fell back again, should be calling scr_detect_joys()");
+    scr_console("obj_ctrl_input: fell back again, should be calling scr_detect_joys()");
     }
 </string>
           </argument>
@@ -112,8 +112,8 @@ modified to work with GMOSSE by BPzeBanshee
 
 // Debug code so you can see which event has been
 // triggered and the pad associated with it.
-show_debug_message("Event = " + async_load[? "event_type"]);        
-show_debug_message("Pad = " + string(async_load[? "pad_index"]));   
+scr_console("Event = " + async_load[? "event_type"]);        
+scr_console("Pad = " + string(async_load[? "pad_index"]));   
 
 // Parse the async_load map to see which event has been triggered
 switch(async_load[? "event_type"]) 
@@ -206,8 +206,6 @@ st = working_directory+"\"+
 string(d)+"-"+string(m)+"-"+string(ye)+"_"
 +string(h)+"-"+string(mi)+"-"+string(s)+".bmp";
 screen_save(st);
-//show_message(st);
-//FS_screen_save(st);
 </string>
           </argument>
         </arguments>

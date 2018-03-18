@@ -16,7 +16,7 @@
       <store>0</store>
       <ConfigOptions>
         <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
+          <CopyToMask>542113856</CopyToMask>
         </Config>
       </ConfigOptions>
       <filename>GMALP.dll</filename>
@@ -33,7 +33,7 @@
       <store>0</store>
       <ConfigOptions>
         <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
+          <CopyToMask>542113856</CopyToMask>
         </Config>
       </ConfigOptions>
       <filename>audiere.dll</filename>
@@ -453,6 +453,7 @@
         <script>scripts\scr_draw_gauge.gml</script>
         <script>scripts\scr_create_healthbar.gml</script>
         <script>scripts\scr_addscore.gml</script>
+        <script>scripts\scr_console.gml</script>
         <script>scripts\scr_linebreak.gml</script>
       </scripts>
       <script>scripts\scr_input.gml</script>

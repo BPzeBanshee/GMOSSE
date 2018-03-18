@@ -51,15 +51,12 @@ image_angle = random(360);
           <argument>
             <kind>1</kind>
             <string>scale += 0.05;
-if scale &lt; 2 &amp;&amp; alpha &lt; 1 then alpha += 0.015;
-if scale &gt; 2 then alpha -= 0.05;
 image_angle += 2;
-if alpha &lt;= 0
+if scale &lt; 2 &amp;&amp; alpha &lt; 1 then alpha += 0.015;
+if scale &gt; 2
     {
-    instance_destroy();
-    /*scale = 0;
-    image_angle = random(360);
-    alpha = 0;*/
+    alpha -= 0.05;
+    if alpha &lt; 0.05 then instance_destroy();
     }
 draw_set_blend_mode(bm_add);
 draw_sprite_ext(sprite_index,image_index,x,y,scale,scale,image_angle,image_blend,alpha);
