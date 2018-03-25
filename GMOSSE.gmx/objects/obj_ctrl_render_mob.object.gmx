@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_ctrl_render</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -48,43 +48,13 @@ m_aspect = global.window_aspect;    // aspect ratio, 0=3:4 (native), 1=4:3, 2=16
 m_size = global.window_size;        // selector var for resolution list (see event_user(0))
 m_angle = global.rotation;          // angle of screen in degrees
 m_clean = global.scaling;           // proportional or clean scale
-m_wallpaper = global.use_wallpaper; // draw wallpaper (y/n)?
+m_wallpaper = 0;//global.use_wallpaper; // draw wallpaper (y/n)?
 event_user(1);
 
 // Define self-configured variables
 l_scale = 1;  // automatically calculated in step
 l_delay = 0; // masks funny behaviour while changing window size
 l_res = "";
-
-// Define control aspect ratio settings for windowed mode
-// 3:4
-m_array_w[0,0] = 240; m_array_h[0,0] = 320;
-m_array_w[0,1] = 480; m_array_h[0,1] = 640;
-m_array_w[0,2] = 720; m_array_h[0,2] = 960;
-
-// 4:3
-m_array_w[1,0] = 640; m_array_h[1,0] = 480;
-m_array_w[1,1] = 800; m_array_h[1,1] = 600;
-m_array_w[1,2] = 1024; m_array_h[1,2] = 768;
-m_array_w[1,3] = 1280; m_array_h[1,3] = 1024;
-
-// 16:9
-m_array_w[2,0] = 640; m_array_h[2,0] = 360;
-m_array_w[2,1] = 720; m_array_h[2,1] = 405;
-m_array_w[2,2] = 848; m_array_h[2,2] = 480;
-m_array_w[2,3] = 960; m_array_h[2,3] = 540;
-m_array_w[2,4] = 1024; m_array_h[2,4] = 576;
-m_array_w[2,5] = 1280; m_array_h[2,5] = 720;
-m_array_w[2,6] = 1366; m_array_h[2,6] = 768;
-m_array_w[2,7] = 1600; m_array_h[2,7] = 900;
-m_array_w[2,8] = 1920; m_array_h[2,8] = 1080;
-
-// 16:10
-m_array_w[3,0] = 1280; m_array_h[3,0] = 800;
-m_array_w[3,1] = 1440; m_array_h[3,1] = 900;
-m_array_w[3,2] = 1680; m_array_h[3,2] = 1050;
-m_array_w[3,3] = 1920; m_array_h[3,3] = 1200;
-m_array_w[3,4] = 2560; m_array_h[3,4] = 1600;
 
 event_user(0); // set window size according to selected resolution
 </string>
@@ -115,11 +85,16 @@ if m_size != global.window_size
 or m_aspect != global.window_aspect 
 then event_user(0);
 
+if window_get_width() != browser_width
+|| window_get_height() != browser_height-4
+then event_user(0);
+
+/*
 if !global.fullscreen
 then if window_get_width() != m_array_w[m_aspect,m_size]
 || window_get_height() != m_array_h[m_aspect,m_size] 
 then event_user(0);
-
+*/
 // DEBUG COMMANDS
 /*
 // Adjust angle as needed (no more view_angle!)
@@ -159,7 +134,7 @@ if keyboard_check_pressed(ord("U")) then m_wallpaper = !m_wallpaper;
 // Adjust scale as needed (no more viewports, hooray!)
 m_angle = global.rotation;
 m_clean = global.scaling;
-m_wallpaper = global.use_wallpaper;
+//m_wallpaper = global.use_wallpaper;
 if m_angle = 90 || m_angle = 270
 then l_scale = min(window_get_width()/m_base_h,window_get_height()/m_base_w)
 else l_scale = min(window_get_width()/m_base_w,window_get_height()/m_base_h);
@@ -236,17 +211,20 @@ yview = view_yview[0];
 
 // First, update the maximum array iteration size
 m_aspect = global.window_aspect;
-l_max_size = array_length_2d(m_array_w,m_aspect)-1;
+l_max_size = (browser_height / m_base_h);
+if m_clean then l_max_size = floor(l_max_size);
 m_size = min(global.window_size,l_max_size);
 if global.window_size &gt; l_max_size then global.window_size = l_max_size;
 
 // Then pluck the array variables and adjust window size accordingly
 var w,h;
-w = m_array_w[m_aspect,m_size];
-h = m_array_h[m_aspect,m_size];
+w = max(240,browser_width);
+h = max(320,browser_height - 4);
+//w = clamp(m_base_w * m_size,m_base_w,browser_width);
+//h = clamp(m_base_h * m_size,m_base_h,browser_height - 4);
 window_set_size(w,h);
-l_res = string(w)+"x"+string(h);
-l_delay = 11;//10 * !global.fullscreen;
+l_res = "WEB ("+string(w)+"x"+string(h)+")";
+l_delay = 0;
 
 // Restore filter use if applicable
 with obj_ctrl_filter alarm[0] = 10;

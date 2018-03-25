@@ -504,6 +504,7 @@
         <object>objects\obj_ctrl_rebind</object>
         <object>objects\obj_ctrl_filter</object>
         <object>objects\obj_ctrl_render</object>
+        <object>objects\obj_ctrl_render_mob</object>
         <object>objects\obj_ctrl_render_old</object>
       </objects>
       <objects name="Generic">

@@ -108,3 +108,43 @@ if (keyboard_check(global.keycode_button1)) global.button1 = true;
 if (keyboard_check(global.keycode_button2)) global.button2 = true;
 if (keyboard_check(global.keycode_button3)) global.button3 = true;
 if (keyboard_check(global.keycode_button4)) global.button4 = true;
+
+if os_browser != browser_not_a_browser
+    {
+    if device_mouse_check_button(0,mb_left) // touching screen
+        {
+        if instance_exists(obj_player)
+            {
+            global.button1 = true;
+            
+            if (device_mouse_x(0) > obj_player.x-16 && device_mouse_x(0) < obj_player.x+16)
+            && (device_mouse_y(0) > obj_player.y-16 && device_mouse_y(0) < obj_player.y+16)
+                {
+                obj_player.x = clamp(device_mouse_x(0),xview+16,xview+240-16);
+                obj_player.y = clamp(device_mouse_y(0),yview+16,yview+320-16);
+                }
+            
+            if device_mouse_x(0) > xview+200 
+            && device_mouse_y(0) < yview+40 
+            then global.button4 = true;
+            }
+        else
+            {
+            if device_mouse_y(0) < yview+120 then global.jup = true;
+            if device_mouse_y(0) > yview+200 then global.jdown = true;
+            if device_mouse_x(0) < xview+90 then global.jleft = true;
+            if device_mouse_x(0) > xview+150 then global.jright = true;
+            }
+        }
+    if device_mouse_check_button_pressed(0,mb_left)
+        {
+        if instance_exists(obj_player)
+            {
+            if alarm[1] > 0 then global.button2 = true else alarm[1] = 15;
+            }
+        else
+            {
+            if alarm[0] > 0 then global.button1 = true else alarm[0] = 15;
+            }
+        }
+    }

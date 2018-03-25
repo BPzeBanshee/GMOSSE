@@ -49,8 +49,16 @@ instance_create(0,0,obj_ctrl_music);
 instance_create(0,0,obj_ctrl_filter);
 application_surface_draw_enable(true);
 
-if global.use_new_renderer then 
-instance_create(0,0,obj_ctrl_render)
+if global.use_new_renderer
+    {
+    if os_browser = browser_not_a_browser 
+    then instance_create(0,0,obj_ctrl_render)
+    else
+        {
+        device_mouse_dbclick_enable(true);
+        instance_create(0,0,obj_ctrl_render_mob);
+        }
+    }
 else instance_create(0,0,obj_ctrl_render_old);
     
 /* MISC. */

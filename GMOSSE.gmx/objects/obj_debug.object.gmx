@@ -178,10 +178,10 @@ rfps_txt = "---";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if os_browser = browser_not_a_browser then exit;
+            <string>/*if os_browser = browser_not_a_browser then exit;
 scr_draw_vars(global.fnt_default,fa_left,c_white);
 draw_set_alpha(1);
-draw_text(0,0,txt);
+draw_text(0,0,txt);*/
 </string>
           </argument>
         </arguments>
@@ -220,9 +220,18 @@ draw_text(0,0,txt);
     else draw_set_alpha(1);
         
     // Display debug data
+    var str,mx,my; str = "";
+    mx = round(device_mouse_raw_x(0));
+    my = round(device_mouse_raw_y(0));
+    str += string(mx)+", "+string(my)+"#";
+    str += string(rfps_txt)+" RFPS#";
+    str += "S:"+string(global.step)+", I:"+string(instance_count)+"#";
+    str += string(fps)+" FPS";
+    draw_text(xview+240,yview+280,str);
+    /*draw_text(xview+240,yview+280,string(device_mouse_x(0)+", "+device_mouse_y(0)));
     draw_text(xview+240,yview+290,string(rfps_txt)+" RFPS");
     draw_text(xview+240,yview+300,"S:"+string(global.step)+", I:"+string(instance_count));
-    draw_text(xview+240,yview+310,string(fps)+" FPS");
+    draw_text(xview+240,yview+310,string(fps)+" FPS");*/
     }
     
 if draw_get_alpha()=0.5 then draw_set_alpha(1);
