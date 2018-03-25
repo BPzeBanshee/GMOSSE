@@ -68,14 +68,14 @@ h_width = sprite_get_xoffset(h_img);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if b_alpha &gt; 0
+            <string>if b_alpha &gt; 0.05
     {
-    b_alpha -= 0.1;
-    h_alpha -= 0.1;
+    b_alpha -= 0.05;
+    h_alpha -= 0.05;
     }
 else
     {
-    if f_alpha &gt; 0 then f_alpha -= 0.05 else instance_destroy();
+    if f_alpha &gt; 0.05 then f_alpha -= 0.05 else instance_destroy();
     }
 alarm[0] = 1;
 </string>

@@ -120,7 +120,7 @@ global.shipselect = 1;
 
 global.score_stored = 0;
 global.extend_number = 1;
-global.lives_stored = 3;
+global.lives_stored = 1;
 global.init_bombs = 3; // I'm not so sure custom bomb values are a good idea anymore...
 global.max_bombs = 5;
 // Also having to load all the shipselect aesthetics or pluck out vars isn't ideal either
@@ -178,10 +178,11 @@ rfps_txt = "---";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*if os_browser = browser_not_a_browser then exit;
+            <string>if os_browser = browser_not_a_browser then exit;
+if window_get_width() &lt; 640 then exit;
 scr_draw_vars(global.fnt_default,fa_left,c_white);
 draw_set_alpha(1);
-draw_text(0,0,txt);*/
+draw_text(0,0,txt);
 </string>
           </argument>
         </arguments>
@@ -257,7 +258,8 @@ if draw_get_alpha()=0.5 then draw_set_alpha(1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_user(0);
+            <string>/// RM_TEST3
+event_user(0);
 global.startstage = rm_test3;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
@@ -283,7 +285,8 @@ scr_fademusic(0.0055);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_user(0);
+            <string>/// BOSS 2
+event_user(0);
 global.startstage = rm_boss2;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
@@ -309,7 +312,8 @@ scr_fademusic(0.0055);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_user(0);
+            <string>/// STAGE 2
+event_user(0);
 global.startstage = rm_stage2;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
@@ -335,7 +339,8 @@ scr_fademusic(0.0055);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_user(0);
+            <string>/// STAGE 3
+event_user(0);
 global.startstage = rm_stage3;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
@@ -361,7 +366,8 @@ scr_fademusic(0.0055);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_user(0);
+            <string>/// RM_TEST2
+event_user(0);
 global.startstage = rm_test2;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
@@ -387,7 +393,8 @@ scr_fademusic(0.0055);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_user(0);
+            <string>/// RM_TEST1
+event_user(0);
 global.startstage = rm_test1;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);

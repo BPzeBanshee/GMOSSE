@@ -111,7 +111,15 @@ if (global.button2)
     }
     
 // Image Aesthetics  
-image_index = round(img);
+// This code works with keyboard but not touch controls, odd
+/*image_index = round(img);
+if (x &lt; xprevious &amp;&amp; img &gt; 0) then img -= 0.25;
+if (x &gt; xprevious &amp;&amp; img &lt; 4) then img += 0.25;
+if (x = xprevious)
+    {
+    if img &gt; 2 then img -= 0.25;
+    if img &lt; 2 then img += 0.25;
+    }*/
 if (global.jleft &amp;&amp; img &gt; 0) then img -= 0.25;
 if (global.jright &amp;&amp; img &lt; 4) then img += 0.25;
 if (!global.jleft &amp;&amp; !global.jright)

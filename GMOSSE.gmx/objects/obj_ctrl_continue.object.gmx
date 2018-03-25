@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>enabled = 0; // Start of init
+
 // Pause game/music
 scr_pause();
 scr_pausemusic(1);
@@ -66,10 +67,14 @@ enabled = 1; // End of init
           <argument>
             <kind>1</kind>
             <string>/* AESTHETICS */
-if alpha &lt; 1 &amp;&amp; !has_chosen
+if !has_chosen &amp;&amp; alpha &lt; 1
     {
-    //for (i=0;i&lt;8;i+=1;) background_alpha[i] = 0;
     alpha += 0.05;
+    exit;
+    }
+if has_chosen &amp;&amp; alpha &gt; 0
+    {
+    alpha -= 0.05;
     exit;
     }
     
@@ -92,6 +97,7 @@ if limiter &gt; 5
 if global.jup &amp;&amp; !hook
     {
     if selection &gt; 1 then selection -= 1;
+    scr_playsnd(snd_click,1);
     hook = 1;
     } 
     
@@ -99,6 +105,7 @@ if global.jup &amp;&amp; !hook
 if global.jdown &amp;&amp; !hook
     {
     if selection &lt; 2 then selection += 1;
+    scr_playsnd(snd_click,1);
     hook = 1;
     }
     
@@ -110,10 +117,8 @@ if global.button1 &amp;&amp; !hook
     }
     
 // Actions based on chosen option
-if has_chosen = 1
+if has_chosen = 1 &amp;&amp; alpha &lt;= 0
     {
-    alpha -= 0.05;
-    if alpha &gt; 0 then exit;
     with obj_ctrl_music timer = 360;
     
     // Unpause and restore everything to look normal
@@ -184,8 +189,7 @@ if !global.jup &amp;&amp; !global.jdown
           <argument>
             <kind>1</kind>
             <string>if !enabled then exit;
-//scr_view_vars();
-draw_set_alpha(alpha);
+draw_set_alpha(clamp(alpha,0,1));
 
 if alpha &lt; 1 then scr_pause_draw();
 

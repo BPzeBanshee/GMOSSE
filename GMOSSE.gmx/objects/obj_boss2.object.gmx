@@ -186,7 +186,7 @@ switch phase
             made = 1;
             }
         timer += 1;
-        if vspeed &gt; 0 then vspeed -= 0.0375;
+        if vspeed &gt; 0.0375 then vspeed -= 0.0375;
         if timer = 200
             {
             timer = 0;
@@ -198,7 +198,11 @@ switch phase
         {
         vspeed = 0;
         spd += 0.02;
-        if spd = 1 then phase = 2;
+        if spd &gt;= 1
+            {
+            spd = 1;
+            phase = 2;
+            }
         break;
         }
     case 2:

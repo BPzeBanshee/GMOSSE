@@ -415,15 +415,15 @@ if room = rm_shipselect
     {
     // Freeing ship select music when leaving the room
     scr_freemusic(global.snd_shipselect); global.snd_shipselect = 0;
+    }
     
-    // Loading generic music
-    if global.nextroom != -1
-        {
-        global.snd_boss = scr_loadmusic("Boss1");
-        global.snd_stageclear = scr_loadmusic("StageComplete");
-        global.snd_continue = scr_loadmusic("Continue");
-        global.snd_gameover = scr_loadmusic("GameOver");
-        }
+// Loading generic music
+if global.nextroom &gt; rm_tutorial
+    {
+    global.snd_boss = scr_loadmusic("Boss1");
+    global.snd_stageclear = scr_loadmusic("StageComplete");
+    global.snd_continue = scr_loadmusic("Continue");
+    global.snd_gameover = scr_loadmusic("GameOver");
     }
     
 // Stage specific music to load

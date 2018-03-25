@@ -71,7 +71,11 @@ if path_index = -1 then switch mode
     case 0: 
         { // Intro
         speed -= 0.05; 
-        if speed = 0 then mode += 1; 
+        if speed &lt; 0.05
+            {
+            speed = 0;
+            mode += 1;
+            } 
         break;
         }
     case 1:

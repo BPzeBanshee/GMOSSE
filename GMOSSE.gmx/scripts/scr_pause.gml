@@ -49,6 +49,16 @@ surface_reset_target();
 global.pause_img = sprite_create_from_surface(surf,0,0,win_w,win_h,false,false,0,0);
 surface_free(surf);
 
+/* 
+Strange bug in HTML5 export: 
+the stage controller lasts a frame longer if this isn't included
+before the use of surface_set_target. Seems controllers that use
+instance_activate_region will wreck obj_ctrl_continue something
+shocking, and instance_deactivate_object is immediate but
+instance_deactivate_all(1) only occurs on the next frame.
+*/
+instance_deactivate_object(obj_ctrl_stage);
+
 // Now we're done with the image, deactivate everything except core controllers
 instance_deactivate_all(1);
 instance_activate_object(obj_debug);
@@ -56,6 +66,6 @@ instance_activate_object(obj_ctrl_input);
 instance_activate_object(obj_ctrl_music);
 instance_activate_object(obj_ctrl_filter);
 
-if global.use_new_renderer 
+if global.use_new_renderer
 then instance_activate_object(obj_ctrl_render)
 else instance_activate_object(obj_ctrl_render_old);

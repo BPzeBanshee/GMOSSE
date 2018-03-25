@@ -104,6 +104,7 @@ the Room Creation code event (located in rm_stage2 &gt; Settings tab).
 This line of code reactivates anything that is deactivated and is
 entering our view.
 */
+if global.paused then exit;
 instance_deactivate_object(obj_en_parent);
 instance_deactivate_object(obj_en_wall);
 instance_activate_region(-48,yview-48,368,368,true);

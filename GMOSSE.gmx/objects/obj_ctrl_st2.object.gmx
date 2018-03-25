@@ -106,9 +106,12 @@ the Room Creation code event (located in rm_stage2 &gt; Settings tab).
 This line of code reactivates anything that is deactivated and is
 entering our view.
 */
+if instance_exists(obj_ctrl_continue) then scr_console("why am I still alive?");
+if global.paused then exit;
 instance_deactivate_object(obj_en_wall);
 instance_deactivate_object(obj_en_parent);
 instance_activate_region(-48,yview-48,368,368,true);
+
 
 /**********************STAGE TIMELINE HANDLING*************************/
 /*

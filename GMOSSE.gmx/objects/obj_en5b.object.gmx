@@ -70,7 +70,11 @@ switch mode
     case 0: 
         { // Intro
         speed -= 0.1; 
-        if speed = 0 then mode = 1; 
+        if speed &lt; 0.1
+            {
+            speed = 0;
+            mode = 1; 
+            }
         break;
         }
     case 1:
