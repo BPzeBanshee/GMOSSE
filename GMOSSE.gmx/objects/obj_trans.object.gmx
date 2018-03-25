@@ -158,7 +158,7 @@ if mode = 3
     if alpha = 1 &amp;&amp; draw_timer &gt; 90 &amp;&amp; global.levelend = 1
         {
         scr_draw_vars(global.fnt_big,fa_center,c_white);
-        draw_text(xview+120,yview+80,"STAGE "+string(scr_checkstages())+" START");
+        draw_text(xview+120,yview+80,"STAGE "+string(scr_check_nextstage())+" START");
         }
     }
 </string>

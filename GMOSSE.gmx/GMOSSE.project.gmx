@@ -448,7 +448,8 @@
       <scripts name="Others">
         <script>scripts\scr_3D.gml</script>
         <script>scripts\scr_trans.gml</script>
-        <script>scripts\scr_checkstages.gml</script>
+        <script>scripts\scr_check_nextstage.gml</script>
+        <script>scripts\scr_check_stage.gml</script>
         <script>scripts\scr_draw_vars.gml</script>
         <script>scripts\scr_draw_gauge.gml</script>
         <script>scripts\scr_create_healthbar.gml</script>
