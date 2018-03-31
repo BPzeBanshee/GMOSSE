@@ -239,6 +239,9 @@
           <sprite>sprites\spr_sf_laser</sprite>
           <sprite>sprites\spr_sf_tip</sprite>
         </sprites>
+        <sprite>sprites\spr_trident</sprite>
+        <sprite>sprites\spr_trident_aft</sprite>
+        <sprite>sprites\spr_trident_out</sprite>
       </sprites>
       <sprites name="Arxyne">
         <sprite>sprites\spr_arxyne</sprite>

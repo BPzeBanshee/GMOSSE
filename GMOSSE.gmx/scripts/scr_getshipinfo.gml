@@ -67,19 +67,19 @@ extremely pathetic damage to enemies.");
         {
         global.init_bombs = 2;
         global.max_bombs = 4;
-        ship_info[0] = spr_sf;
+        ship_info[0] = spr_trident;
         ship_info[1] = 2;
-        ship_info[2] = "Swordfish";
+        ship_info[2] = "Trident";
         ship_info[3] = "Attack = ***";
         ship_info[4] = "Speed = ****";
         ship_info[5] = "Coverage = ****";
-        ship_info[6] = string_spacefix("Based on a ship in Cowboy Bebop, 
-this old Xeno Fighters R proposal 
-has been given life in G.M.O.S.S.E 
-with conventional ship behaviour.
+        ship_info[6] = string_spacefix("A human/crystal technology hybrid designed 
+to provide reasonable coverage with the 
+main shot, while allowing to hone in the 
+shot trajectory for maximum damage.
 
 The bomb, while powerful, will slow 
-you down a lot. Beware!");
+your movement speed. Beware!");
         break;
         }
     case 5:
