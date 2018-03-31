@@ -1,5 +1,5 @@
 globalvar ship_info,max_ships; // declare global variables
-for (i=0; i<8; i+=1) ship_info[i] = 0; // reset ship_info array
+for (i=0; i<6; i+=1) ship_info[i] = 0; // reset ship_info array
 switch argument0
     {
     case 1:
@@ -14,11 +14,7 @@ switch argument0
         ship_info[3] = "Attack = **";
         ship_info[4] = "Speed = *****";
         ship_info[5] = "Coverage = *";
-        ship_info[6] = string_spacefix("The original Number 1 mascot 
-of G.M.O.S.S.E. The game is balanced with
-this ship at the forefront of testing. 
-
-It is fast in every sense of the word
+        ship_info[6] = string_spacefix("Fast in every sense of the word
 but relies heavily on homing missiles 
 and its haste for coverage of the game 
 screen as the main shot lacks spread.");
@@ -34,13 +30,10 @@ screen as the main shot lacks spread.");
         ship_info[3] = "Attack = *****";
         ship_info[4] = "Speed = ***";
         ship_info[5] = "Coverage = ***";
-        ship_info[6] = string_spacefix("The new variant of the ship from 
-Warbird:A13-02 is quite the wild card.
-
-With a void bomb giving invincability
+        ship_info[6] = string_spacefix("With a void bomb giving invincibility
 against collisions it can be quite 
 powerful against enemies up close, 
-but at a distance it'll be weak.");
+which is where its weapons shine.");
         break;
         }
     case 3:
@@ -53,14 +46,13 @@ but at a distance it'll be weak.");
         ship_info[3] = "Attack = VARIED";
         ship_info[4] = "Speed = VARIED";
         ship_info[5] = "Coverage = VARIED";
-        ship_info[6] = string_spacefix("Based on the ship featured in
+        ship_info[6] = string_spacefix("Inspired by the 1992 title
 ''Advanced Busterhawk Gleylancer'',
 this ship features customisable
-options that do all the hard work.
+options and a large weapon roster.
 
-With a large and varied weapon roster, 
-this ship can deal extremely massive or 
-extremely pathetic damage to enemies.");
+Whether its configurability serves as
+a bane or boon depends on its pilot.");
         break;
         }
     case 4:
@@ -73,10 +65,11 @@ extremely pathetic damage to enemies.");
         ship_info[3] = "Attack = ***";
         ship_info[4] = "Speed = ****";
         ship_info[5] = "Coverage = ****";
-        ship_info[6] = string_spacefix("A human/crystal technology hybrid designed 
-to provide reasonable coverage with the 
-main shot, while allowing to hone in the 
-shot trajectory for maximum damage.
+        ship_info[6] = string_spacefix("A human/crystal technology hybrid 
+designed to provide reasonable 
+coverage with the main shot, while 
+allowing to hone in the shot 
+trajectory for maximum damage.
 
 The bomb, while powerful, will slow 
 your movement speed. Beware!");
@@ -93,13 +86,10 @@ your movement speed. Beware!");
         ship_info[3] = "Attack = ***";
         ship_info[4] = "Speed = ***";
         ship_info[5] = "Coverage = *****";
-        ship_info[6] = string_spacefix("For the simpler 'power is power'
-approach, Arxyne fits the bill.
-
-This ship does not get a slowdown button
-due to its slow speed. Instead it has an 
-awesome lightning gun and homing lasers 
-that can penetrate walls.");
+        ship_info[6] = string_spacefix("This ship trades speed and focus
+for raw power - it has an 
+powerful lightning gun and homing 
+lasers that can penetrate walls.");
         break;
         }
     default:
