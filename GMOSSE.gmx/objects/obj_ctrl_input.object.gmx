@@ -34,22 +34,11 @@ if gamepad_get_device_count() &gt; 1 &amp;&amp; gamepad_is_connected(global.joy_
     {
     scr_console("obj_ctrl_input: locking in preferred joystick id");
     global.joy_id = global.joy_pref;
-    global.joy_system = 2;
-    }
-// old system
-else if joystick_exists(1) &amp;&amp; joystick_exists(2) &amp;&amp; global.joy_pref &lt; 2
-    {
-    scr_console("obj_ctrl_input: fell back to joystick_exists");
-    if joystick_exists(global.joy_pref)
-        {
-        global.joy_id = global.joy_pref+1;
-        global.joy_system = 1;
-        }
     }
 else 
     {
+    scr_console("obj_ctrl_input: preferred joy/pad not found, calling scr_detect_joys()");
     scr_detect_joys(); // only one device? okay we'll find the first one and accept it
-    scr_console("obj_ctrl_input: fell back again, should be calling scr_detect_joys()");
     }
 </string>
           </argument>
@@ -171,7 +160,6 @@ switch(async_load[? "event_type"])
         if global.joy_pref = pad
             {
             global.joy_id = pad;
-            global.joy_system = 2;
             }
         
         // Set the deadzone for the analog stick and triggers
