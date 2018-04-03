@@ -56,6 +56,7 @@ instance_activate_region(0,2094,320,320,true);</code>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
+    <instance objName="obj_ctrl_st2b" x="0" y="2096" name="inst_6F07BEBD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boss2" x="160" y="720" name="inst_0692C2C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="160" y="16" name="inst_8C609794" locked="0" code="" scaleX="10" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="16" y="704" name="inst_735998B7" locked="0" code="" scaleX="1" scaleY="42" colour="4294967295" rotation="0"/>
@@ -78,8 +79,6 @@ instance_activate_region(0,2094,320,320,true);</code>
     <instance objName="obj_en5" x="240" y="1280" name="inst_2FD30FA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en5" x="224" y="1984" name="inst_16DF49FD" locked="0" code="vspeed = 4;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en7" x="160" y="1920" name="inst_7DA17424" locked="0" code="direction = 270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_st2b" x="0" y="2096" name="inst_6F07BEBD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_game" x="160" y="2320" name="inst_217FCE77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="304" y="2128" name="inst_E4033C45" locked="0" code="" scaleX="1" scaleY="17" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>

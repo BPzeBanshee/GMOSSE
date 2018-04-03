@@ -41,6 +41,8 @@ pop_count = 0;
 scr_camera_init(0,80,0,0);
 //scr_camera_init(320,0,0);
 background_vspeed[0] = 0.1; // sets background scrolling speed
+
+instance_create(x+160,y+240,obj_ctrl_game);
 </string>
           </argument>
         </arguments>

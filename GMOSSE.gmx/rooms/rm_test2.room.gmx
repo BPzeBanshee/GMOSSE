@@ -56,7 +56,6 @@ instance_deactivate_object(obj_en_parent);</code>
   </views>
   <instances>
     <instance objName="obj_ctrl_test2" x="0" y="544" name="inst_8573E513" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ctrl_game" x="160" y="744" name="inst_9AA986E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="320" y="16" name="inst_EB34605D" locked="0" code="" scaleX="10" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="16" y="640" name="inst_B80D1E6A" locked="0" code="" scaleX="1" scaleY="30" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="240" y="1136" name="inst_66D9416A" locked="0" code="" scaleX="15" scaleY="1" colour="4294967295" rotation="0"/>

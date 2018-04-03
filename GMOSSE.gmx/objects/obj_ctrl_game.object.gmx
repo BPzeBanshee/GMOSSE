@@ -33,12 +33,6 @@ obj_ctrl_game, a merge of obj_ctrl_life and obj_ctrl_score
 - not in-game yet
 */
 
-// Life handling
-global.bombs = global.bombs_stored;
-lives = global.lives_stored;
-respawntimer = -1;
-event_user(0);
-
 // Score
 score = global.score_stored; // loads score from score_stored variable
 global.chain = 0;
@@ -48,8 +42,13 @@ show_score = 0;
 
 // Display vars (required for scr_hud_p1)
 a = 0.5;
-//a2 = 1;
-//a3 = 1;
+
+// Life handling
+global.bombs = global.bombs_stored;
+lives = global.lives_stored;
+respawntimer = -1;
+
+event_user(0);
 </string>
           </argument>
         </arguments>
@@ -150,7 +149,8 @@ if lives &gt; 3
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !instance_exists(obj_hitbox) then instance_create(x,y,obj_hitbox);
+            <string>/// Create the player ship
+if !instance_exists(obj_hitbox) then instance_create(x,y,obj_hitbox);
     
 switch global.shipselect 
     {
@@ -182,7 +182,8 @@ switch global.shipselect
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.nextroom = room || room = rm_tutorial then exit;
+            <string>/// Store bombs/lives/score
+if global.nextroom = room || room = rm_tutorial then exit;
 global.bombs_stored = global.bombs;
 global.lives_stored = lives;
 global.score_stored = score;

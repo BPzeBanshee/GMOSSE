@@ -35,11 +35,10 @@ global.level = 3; // used for game completion/object deletion checking
 trans_alpha = 0;
 start = 3500;
 finish = start+1400;
-
-//scr_camera_init(320,0,0);
+global.behaviour = 4; // determines behaviour of stars (if used)
 scr_camera_init(0,80,0,0);
 
-global.behaviour = 4; // determines behaviour of stars (if used)
+instance_create(x+160,y+240,obj_ctrl_game);
 </string>
           </argument>
         </arguments>

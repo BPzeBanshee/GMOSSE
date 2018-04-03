@@ -44,10 +44,10 @@ completedelay = 0;
 
 scr_camera_init(0,room_width-240,0,-0.5);
 obj_ctrl_camera.range = room_width;
-//obj_ctrl_camera.wobble_spd = 640/240;
-//scr_camera_init2(room_width,0,-0.5);
 b = -1;
 s = 0;
+
+instance_create(room_width/2,y+240,obj_ctrl_game);
 </string>
           </argument>
         </arguments>

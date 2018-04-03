@@ -28,85 +28,116 @@
             <string>// Don't bother doing anything if we're not actually playing
 if !instance_exists(obj_hitbox) then exit;
 
-// This gets the value that we're going to move the player
-// ship around by. The global vars are set in the player
-// ship's Create event.
-// We also create the afterimage "focus" effect here
-// as the slowdown button is checked here.
+var dirx,diry,spd;
+dirx = 0;
+diry = 0;
+    
+// Directional input
+if global.jup then diry -= 1;
+if global.jdown then diry += 1;
+if global.jleft then dirx -= 1;
+if global.jright then dirx += 1;
+
+// Speed value
+if global.button3
+    {
+    instance_create(x,y,obj_afterimage);
+    spd = global.slowshipspeed;
+    }
+else spd = global.shipspeed;
+
+// Now manipulate the player position
+if dirx != 0 || diry != 0
+    {
+    var movedir = point_direction(0,0,dirx,diry);
+    x += lengthdir_x(spd,movedir);
+    y += lengthdir_y(spd,movedir);
+    }
+
+// ...but keep the player within the view
+x = clamp(x,xview+16,xview+240-16);
+y = clamp(y,yview+16,yview+320-16);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*
+// Determine speed value to use
 var spd,d_spd;
 if global.button3
     {
     instance_create(x,y,obj_afterimage);
     spd = global.slowshipspeed;
-    d_spd = global.sldiagspeed;
+    d_spd = global.slowshipspeed - 1; // originally global.sldiagspeed
     }
 else
     {
     spd = global.shipspeed;
-    d_spd = global.diagspeed;
+    d_spd = global.shipspeed - 1; // originally global.diagspeed
     }
     
-// Finally, the actual joystick/gamepad/arrow key
-// inputs. We check what's pressed first, then
-// check if the hitbox is within the appropriate
-// boundaries, and then we move using the speed
-// vars we made earlier.
-
 // Down
-if (global.jdown &amp;&amp; !global.jleft &amp;&amp; !global.jright)
-    {
-    y += spd;
-    }
+if (global.jdown &amp;&amp; !global.jleft &amp;&amp; !global.jright) then y += spd;
 
 // Down-Left
-if (global.jdown &amp;&amp; global.jleft &amp;&amp; !global.jup &amp;&amp; !global.jright)
+if (global.jdown &amp;&amp; global.jleft 
+&amp;&amp; !global.jup &amp;&amp; !global.jright)
     {
     y += d_spd;
     x -= d_spd;
     }
  
 // Down-Right
-if (global.jdown &amp;&amp; global.jright &amp;&amp; !global.jup &amp;&amp; !global.jleft)
+if (global.jdown &amp;&amp; global.jright 
+&amp;&amp; !global.jup &amp;&amp; !global.jleft)
     {
     y += d_spd;
     x += d_spd;
     }
  
 // Up
-if (global.jup &amp;&amp; !global.jleft &amp;&amp; !global.jright)
-    {
-    y -= spd;
-    }
+if (global.jup &amp;&amp; !global.jleft &amp;&amp; !global.jright) then y -= spd;
   
 // Up-Left
-if (global.jup &amp;&amp; global.jleft &amp;&amp; !global.jdown &amp;&amp; !global.jright)
+if (global.jup &amp;&amp; global.jleft 
+&amp;&amp; !global.jdown &amp;&amp; !global.jright)
     {
     y -= d_spd;
     x -= d_spd; 
     }
  
 // Up-Right
-if (global.jup &amp;&amp; global.jright &amp;&amp; !global.jdown &amp;&amp; !global.jleft)
+if (global.jup &amp;&amp; global.jright 
+&amp;&amp; !global.jdown &amp;&amp; !global.jleft)
     {
     y -= d_spd;
     x += d_spd;
     }
  
 // Left
-if (global.jleft &amp;&amp; !global.jup &amp;&amp; !global.jdown)
-    {
-    x -= spd;
-    }
+if (global.jleft &amp;&amp; !global.jup &amp;&amp; !global.jdown) x -= spd;
  
 // Right
-if (global.jright &amp;&amp; !global.jup &amp;&amp; !global.jdown)
-    {
-    x += spd;
-    }
-    
-// This keeps the player within the view.
-x = clamp(x,xview+16,xview+240-16);
-y = clamp(y,yview+16,yview+320-16);
+if (global.jright &amp;&amp; !global.jup &amp;&amp; !global.jdown) x += spd;
+*/
 </string>
           </argument>
         </arguments>

@@ -39,6 +39,8 @@ scr_camera_init(0,80,0,-0.5);
 // \/\/ MISC. GLOBAL/TIMELINE VARIABLES \/\/
 global.level = 2;
 global.behaviour = 4; // determines behaviour of stars (if used)
+
+instance_create(x+160,y+240,obj_ctrl_game);
 </string>
           </argument>
         </arguments>

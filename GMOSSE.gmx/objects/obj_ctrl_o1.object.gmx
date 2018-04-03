@@ -31,8 +31,8 @@ completedelay = 0;
 bkg_timer = -1;
 count = 0;
 
-//scr_camera_init(320,0,0);
 scr_camera_init(0,80,0,0);
+instance_create(x+160,y+240,obj_ctrl_game);
 </string>
           </argument>
         </arguments>

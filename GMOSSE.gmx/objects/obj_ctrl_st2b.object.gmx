@@ -35,9 +35,9 @@ stage_time = 5800;
 background_vspeed[0] = -0.99;
 background_vspeed[1] = -0.99;
 background_y[1] = room_height - 320;
-
-//scr_camera_init(320,0,-1);
 scr_camera_init(0,80,0,-1);
+
+instance_create(x+160,y+240,obj_ctrl_game);
 </string>
           </argument>
         </arguments>
