@@ -35,8 +35,6 @@ time_passed = 0;
 // Ship speed settings
 global.shipspeed = 3;
 global.slowshipspeed = 2;
-global.diagspeed = 3;
-global.sldiagspeed = 2;
 </string>
           </argument>
         </arguments>

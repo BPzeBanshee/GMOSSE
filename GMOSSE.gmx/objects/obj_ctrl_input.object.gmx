@@ -211,12 +211,11 @@ switch(async_load[? "event_type"])
             <kind>1</kind>
             <string>/*if USE_SANDBOX=0
     {
-    FS_file_delete(global.main_dir+"\score.gmes");
-    //FS_file_delete(global.main_dir+"\unlock.zd2");
+    file_delete_ns(global.main_dir+"\score.gmes");
     
     // this file only appears in devtests
-    if FS_file_exists(global.main_dir+"\config.ini")
-    then FS_file_delete(global.main_dir+"\config.ini");
+    if file_exists_ns(global.main_dir+"\config.ini")
+    then file_delete_ns(global.main_dir+"\config.ini");
     }*/
 </string>
           </argument>

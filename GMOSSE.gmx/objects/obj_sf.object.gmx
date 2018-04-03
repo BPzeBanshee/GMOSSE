@@ -33,10 +33,6 @@ bomb_timer = 0;
 global.shipspeed = 4; 
 global.slowshipspeed = 2; // When Button 3 is pressed
 
-// Diagonal Speed
-global.diagspeed = 4;
-global.sldiagspeed = 2; // When Button 3 is pressed
-
 // Misc. Variables
 img = 2;
 image_speed = 0;

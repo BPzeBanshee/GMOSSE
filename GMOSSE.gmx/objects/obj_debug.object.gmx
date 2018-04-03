@@ -120,7 +120,7 @@ global.shipselect = 1;
 
 global.score_stored = 0;
 global.extend_number = 1;
-global.lives_stored = 1;
+global.lives_stored = 3;
 global.init_bombs = 3; // I'm not so sure custom bomb values are a good idea anymore...
 global.max_bombs = 5;
 // Also having to load all the shipselect aesthetics or pluck out vars isn't ideal either

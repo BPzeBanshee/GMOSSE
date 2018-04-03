@@ -33,21 +33,8 @@ bomb_timer = 0;
 
 global.shipspeed = 2; // move speed
 global.slowshipspeed = 2; // slow move speed
-global.diagspeed = 2; // diagonal speed
-global.sldiagspeed = 2; // slow diagonal speed
 
 if global.arxynespr = 2 then sprite_index = spr_arxyneV2;
-/* 
-Personally I keep diagonal speed the same as the shipspeed but 
-this is customisable to tailor to your needs. Apparently limiting
-diagonal speed is a common thing in shmups but I've never noticed it.
-
-Variables that are used in the step function need to be called here
-and assigned a variable first. Sure, you can set in the Global Game
-Settings "treat uninitialised variables as value 0" but this way
-you have more control and get better error checking for complex
-equations that might go wrong and cause GM to error out.
-*/
 </string>
           </argument>
         </arguments>

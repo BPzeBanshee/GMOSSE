@@ -45,10 +45,7 @@ Apparently limiting diagonal speed is a common thing
 in shmups but I've never really noticed or liked it.
 */
 global.shipspeed = 1;
-global.slowshipspeed = 1; 
-
-global.diagspeed = 1;
-global.sldiagspeed = 1;
+global.slowshipspeed = 1;
 
 /* OPTION VARS */
 switch global.optiontype
@@ -220,9 +217,7 @@ if (global.button3 &amp;&amp; can_speed)
         case 3: global.shipspeed = 5; thrust_scale = 0.75; break;
         case 4: global.shipspeed = 7; thrust_scale = 1; speed_up = 0; break;
         }
-    global.slowshipspeed = global.shipspeed; 
-    global.diagspeed = global.shipspeed;
-    global.sldiagspeed = global.shipspeed;
+    global.slowshipspeed = global.shipspeed;
     }
 if (!global.button3) then can_speed = 1;
 </string>
