@@ -22,7 +22,7 @@ if global.chain > 0
 if global.countdown < 90 then a -= 0.005 else a = 0.5;
 draw_set_alpha(a); 
     
-if instance_exists(obj_hitbox) && instance_exists(obj_player) then 
+if global.countdown > 0 && instance_exists(obj_hitbox) && instance_exists(obj_player) then 
 scr_draw_gauge(obj_hitbox.x,obj_hitbox.y,20,4,360+90,90,-1,(global.countdown/180)*100,c_blue,16777088);
     
 /* LIVES DISPLAY */

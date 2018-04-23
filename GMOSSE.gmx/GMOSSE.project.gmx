@@ -265,6 +265,7 @@
         <sprite>sprites\spr_beam</sprite>
         <sprite>sprites\spr_beam_flash</sprite>
         <sprite>sprites\spr_beam_head</sprite>
+        <sprite>sprites\spr_beam_head2</sprite>
         <sprite>sprites\spr_beam_hitbox</sprite>
         <sprite>sprites\spr_beam_test</sprite>
         <sprite>sprites\spr_beam_flash2</sprite>
@@ -741,6 +742,7 @@
     </objects>
     <objects name="Bullets">
       <object>objects\obj_beam</object>
+      <object>objects\obj_beam_s</object>
       <object>objects\obj_bullet1</object>
       <object>objects\obj_bullet2</object>
       <object>objects\obj_bullet3</object>
@@ -806,6 +808,7 @@
       </objects>
       <object>objects\obj_test</object>
     </objects>
+    <object>objects\obj_warp_test</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>

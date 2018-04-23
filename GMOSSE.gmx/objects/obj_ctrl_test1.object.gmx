@@ -94,13 +94,15 @@ switch stage_time
         break;
         }
     }
-   
-if keyboard_check(vk_space) &amp;&amp; !instance_exists(obj_beam)
+
+if keyboard_check(vk_space) &amp;&amp; !instance_exists(obj_warp_test)
+then instance_create(xview,yview,obj_warp_test);
+/*if keyboard_check(vk_space) &amp;&amp; !instance_exists(obj_beam_s)
     {
     var b;
-    b = instance_create(160,40,obj_beam);
-    b.direction = point_direction(b.x,b.y,obj_hitbox.x,obj_hitbox.y);
-    }
+    b = instance_create(160,40,obj_beam_s);
+    b.direction = point_direction(c.x,c.y,obj_hitbox.x,obj_hitbox.y);
+    }*/
 /* AESTHETICS */
     
 </string>
