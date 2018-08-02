@@ -48,7 +48,7 @@ m_aspect = global.window_aspect;    // aspect ratio, 0=3:4 (native), 1=4:3, 2=16
 m_size = global.window_size;        // selector var for resolution list (see event_user(0))
 m_angle = global.rotation;          // angle of screen in degrees
 m_clean = global.scaling;           // proportional or clean scale
-m_wallpaper = 0;//global.use_wallpaper; // draw wallpaper (y/n)?
+m_wallpaper = global.use_wallpaper; // draw wallpaper (y/n)?
 event_user(1);
 
 // Define self-configured variables

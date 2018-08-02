@@ -178,7 +178,7 @@ rfps_txt = "---";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if os_browser = browser_not_a_browser then exit;
+            <string>if os_browser = browser_not_a_browser || os_type = os_windows then exit;
 if window_get_width() &lt; 640 then exit;
 scr_draw_vars(global.fnt_default,fa_left,c_white);
 draw_set_alpha(1);
@@ -395,8 +395,9 @@ scr_fademusic(0.0055);
             <kind>1</kind>
             <string>/// RM_TEST1
 event_user(0);
-global.startstage = rm_test1;
-scr_trans(global.startstage,3,c_black,0.025,0.05,210);
+global.startstage = room16;
+scr_trans(global.startstage,2,c_black,0.025,0.05,0);
+//scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
 </string>
           </argument>

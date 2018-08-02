@@ -12,8 +12,9 @@ GMALP_StreamSetPitch,GMALP_StreamStopAll;
 GMALP_DLL = "GMALP.dll";
 GMALP_Call = dll_cdecl;
 
-if !file_exists(GMALP_DLL) return -1;
-if os_browser != browser_not_a_browser return -2;
+if !file_exists(GMALP_DLL) return -1; // File Not Found
+if os_browser != browser_not_a_browser return -2; // Running In Browser
+if os_type != os_windows return -3; // Running on Android etc without GMALP port
 
 // DLL HANDLE COMMANDS
 GMALP_Init = external_define(GMALP_DLL, "AInit", GMALP_Call, ty_real, 0);

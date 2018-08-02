@@ -341,6 +341,7 @@
       <sprite>sprites\spr_warning_bkg2</sprite>
       <sprite>sprites\spr_danger_bkg2</sprite>
     </sprites>
+    <sprite>sprites\sprite185</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_space</background>
@@ -809,6 +810,7 @@
       <object>objects\obj_test</object>
     </objects>
     <object>objects\obj_warp_test</object>
+    <object>objects\obj_camera_test</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
@@ -829,6 +831,7 @@
     </rooms>
     <rooms name="Test Stages">
       <room>rooms\rm_test1</room>
+      <room>rooms\room16</room>
       <room>rooms\rm_test2</room>
       <room>rooms\rm_test3</room>
       <rooms name="Omake Rush">

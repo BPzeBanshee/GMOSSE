@@ -4,17 +4,13 @@ instance_create(0,0,obj_debug);
 globalvar USE_SANDBOX; USE_SANDBOX=1;
 if USE_SANDBOX=0
     {
-    /*// GMFileSystem Handling
-    FS_gmfilesystem_initialize(0);
-    
-    // get the directory name of GM's appdata folder
-    pn = string_replace_all(FS_guess_project_filename()," ","_");
-    pn = string_replace_all(pn,"(","_");
-    pn = string_replace_all(pn,")","_");
-    pn = string_replace_all(pn,"-","_");
-    global.main_dir = "%localappdata%\"+string(pn);
-    FS_set_gm_save_area(global.main_dir); // set where to pull GM's shit from
-    FS_set_working_directory(global.main_dir);*/
+    /*
+    TODO: find free non-sandboxed alternative,
+    originally Team Grybanser Fox (me and Kaiser)
+    used GMFileSystem which started having dependency issues
+    with Windows 10 so we switched to YellowAfterlife's NSFS
+    which has a charge for using it.
+    */
     }
 math_set_epsilon(0.01);
 
@@ -51,11 +47,11 @@ application_surface_draw_enable(true);
 
 if global.use_new_renderer
     {
-    if os_browser = browser_not_a_browser 
+    if os_browser = browser_not_a_browser && os_type = os_windows
     then instance_create(0,0,obj_ctrl_render)
     else
         {
-        device_mouse_dbclick_enable(true);
+        device_mouse_dbclick_enable(false);
         instance_create(0,0,obj_ctrl_render_mob);
         }
     }

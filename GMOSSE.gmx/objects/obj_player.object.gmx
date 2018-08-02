@@ -52,6 +52,7 @@ if dirx != 0 || diry != 0
     var movedir = point_direction(0,0,dirx,diry);
     x += lengthdir_x(spd,movedir);
     y += lengthdir_y(spd,movedir);
+    direction = movedir;
     }
 
 // ...but keep the player within the view
