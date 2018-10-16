@@ -40,6 +40,3 @@ scr_fullscreen(global.fullscreen);
 var aa_max; aa_max = scr_max_aa();
 if global.aa > aa_max then global.aa = scr_max_aa();
 scr_setdisplay(global.aa,global.vsync);
-
-// Filtering
-texture_set_interpolation(global.filter);

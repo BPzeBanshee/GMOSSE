@@ -27,29 +27,8 @@
             <kind>1</kind>
             <string>selection = 1;
 selection2 = 1;
-enabled = !global.intro;
+enabled = 1;
 hook = 1;
-
-c = 0;
-if global.intro
-    {
-    a = instance_create(-120,75,obj_logo2);
-    b = instance_create(360,75,obj_logo2);
-    }
-else 
-    {
-    instance_create(119,75,obj_title);
-    instance_create(120,160,obj_warp_gen);
-    global.behaviour = 2;
-    repeat 30 star = instance_create(room_width/2,room_height/2,obj_star);
-    
-    /*if instance_exists(obj_bkg_menu)
-        {
-        if obj_bkg_menu.visible = 1 
-        then obj_star.image_alpha = 0.25
-        else obj_star.image_alpha = 1;
-        }*/
-    }
 </string>
           </argument>
         </arguments>
@@ -231,70 +210,39 @@ if (global.button1 &amp;&amp; !global.levelend &amp;&amp; !hook &amp;&amp; enabl
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.intro
-    {
-    if a.x=120 &amp;&amp; b.x=120
-        {
-        draw_sprite_ext(spr_whitepixel,0,xview,yview,240,320,0,c_white,c);
-        //if !instance_exists(obj_warp_gen) &amp;&amp; c &gt;= 0.5 then 
-        if c &lt; 1 then c += 0.035;
-        if c &gt;= 1
-            {
-            with a instance_destroy(); 
-            with b instance_destroy();
-            global.behaviour = 2;
-            instance_create(119,75,obj_title);
-            instance_create(120,160,obj_warp_gen);
-            repeat 30 instance_create(room_width/2,room_height/2,obj_star);
-            global.intro = 0;
-            enabled = 1;
-            }
-        }
+            <string>if !enabled then exit;
+scr_draw_vars(global.fnt_default,fa_center,c_silver);
+draw_set_alpha(1);
+draw_text(183,107,global.version_str);
+draw_set_font(global.fnt_menu);
+// Draw cursors
+if selection = 1
+    { 
+    draw_set_color(8454016) 
+    if selection2 &gt; 1 then 
+    draw_sprite_ext(spr_shipselect,-1,35,147,-1,1,0,c_white,1);
+    if selection2 &lt; 3 then
+    draw_sprite_ext(spr_shipselect,-1,205,147,1,1,0,c_white,1);
     }
-else
+else draw_set_color(c_green);
+
+// Draw main menu
+switch selection2
     {
-    draw_sprite_ext(spr_whitepixel,0,xview,yview,240,320,0,c_white,c);
-    if c &gt; 0 then c -= 0.035;
-        
-    draw_set_halign(fa_center);
-    draw_set_color(c_silver);
-    draw_set_alpha(1-c);
-    
-    draw_set_font(global.fnt_default);
-    draw_text(183,107,"MK-IX");
-    
-    if !enabled then exit;
-    
-    // Draw cursors
-    if selection = 1
-        { 
-        draw_set_color(8454016) 
-        if selection2 &gt; 1 then 
-        draw_sprite_ext(spr_shipselect,-1,35,147,-1,1,0,c_white,1);
-        if selection2 &lt; 3 then
-        draw_sprite_ext(spr_shipselect,-1,205,147,1,1,0,c_white,1);
-        }
-    else draw_set_color(c_green);
-    
-    // Draw main menu
-    draw_set_font(global.fnt_menu);
-    switch selection2
-        {
-        case 1: draw_text(120,140,"Start Game"); break;
-        case 2: draw_text(120,140,"Start Boss Rush"); break;
-        //case 3: draw_text(120,140,"Start Omake Rush"); break;
-        case 3: draw_text(120,140,"Start Tutorial"); break;
-        }
-    
-    if selection = 2 draw_set_color(8454016) else draw_set_color(c_green);
-    draw_text(120,170,"Configure Options");
-    if selection = 3 draw_set_color(8454016) else draw_set_color(c_green);
-    draw_text(120,200,"Show Credits");
-    if selection = 4 draw_set_color(8454016) else draw_set_color(c_green);
-    draw_text(120,230,"Show Scores");
-    if selection = 5 draw_set_color(8454016) else draw_set_color(c_green);
-    draw_text(120,260,"Exit Game");
+    case 1: draw_text(120,140,"Start Game"); break;
+    case 2: draw_text(120,140,"Start Boss Rush"); break;
+    //case 3: draw_text(120,140,"Start Omake Rush"); break;
+    case 3: draw_text(120,140,"Start Tutorial"); break;
     }
+
+if selection = 2 draw_set_color(8454016) else draw_set_color(c_green);
+draw_text(120,170,"Configure Options");
+if selection = 3 draw_set_color(8454016) else draw_set_color(c_green);
+draw_text(120,200,"Show Credits");
+if selection = 4 draw_set_color(8454016) else draw_set_color(c_green);
+draw_text(120,230,"Show Scores");
+if selection = 5 draw_set_color(8454016) else draw_set_color(c_green);
+draw_text(120,260,"Exit Game");
 </string>
           </argument>
         </arguments>

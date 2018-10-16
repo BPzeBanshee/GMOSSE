@@ -13,4 +13,6 @@ if f
 then window_set_cursor(cr_none)
 else window_set_cursor(cr_default);
 
-with obj_ctrl_filter alarm[0] = 1;
+if global.use_new_renderer
+then with obj_ctrl_render alarm[1] = 1;
+else with obj_ctrl_render_old alarm[1] = 1;

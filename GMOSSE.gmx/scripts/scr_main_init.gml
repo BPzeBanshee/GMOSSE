@@ -30,9 +30,6 @@ global.joy_pref = 0;
 /* CONFIG */
 scr_config_load("config.ini");
 
-/* SCREEN */
-scr_screen_init();
-
 /* SCORES */
 scr_hiscore_load("score.gmes");
 
@@ -42,7 +39,6 @@ scr_fonts_init();
 /* CONTROLLERS */
 instance_create(0,0,obj_ctrl_input);
 instance_create(0,0,obj_ctrl_music);
-instance_create(0,0,obj_ctrl_filter);
 application_surface_draw_enable(true);
 
 if global.use_new_renderer
@@ -61,6 +57,7 @@ else instance_create(0,0,obj_ctrl_render_old);
 global.pause = 0;
 global.pausable = 0; // define pausable/unpausable rooms with this
 global.paused = 0;
+global.levelend = 0;
 global.nextroom = -1;  // used for transition control/preloading
 global.startstage = rm_stage1; // hidden menu function
 global.intro = 1;
@@ -73,6 +70,11 @@ global.max_bombs = 5;
 global.bombs_stored = global.init_bombs;
 global.continues = 0;
 global.gamecomplete = 0;
+global.version_str = "MK-X BETA";
+
+globalvar xview,yview;
+xview = view_xview[0];
+yview = view_yview[0];
 
 /* END */
 scr_trans(rm_menu,2,c_black,1,1,0);

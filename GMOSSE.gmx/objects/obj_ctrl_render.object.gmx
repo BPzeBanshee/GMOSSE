@@ -48,13 +48,23 @@ m_aspect = global.window_aspect;    // aspect ratio, 0=3:4 (native), 1=4:3, 2=16
 m_size = global.window_size;        // selector var for resolution list (see event_user(0))
 m_angle = global.rotation;          // angle of screen in degrees
 m_clean = global.scaling;           // proportional or clean scale
-m_wallpaper = global.use_wallpaper; // draw wallpaper (y/n)?
-event_user(1);
+m_wallpaper = global.use_wallpaper; // draw wallpaper (off/1-5)?
+m_scanlines = global.scanlines;     // scanlines (off/horizontal/vertical)
+m_filter_bi = global.filter;        // interpolation of textures/bilinear filter (off/on)
 
 // Define self-configured variables
+l_firstrun = 0;
 l_scale = 1;  // automatically calculated in step
-l_delay = 0; // masks funny behaviour while changing window size
+l_delay = 12; // masks funny behaviour while changing window size
 l_res = "";
+l_wall_img[0] = bkg_wallpaper;
+//l_wall_w = 1920;
+//l_wall_h = 1080;
+//l_wall_s = 1;
+//l_wall_max_s = 1;
+l_scan = -1;
+l_scan_scale = l_scale;
+l_scan_a = global.scanline_alpha / 100;
 
 // Define control aspect ratio settings for windowed mode
 // 3:4
@@ -78,6 +88,8 @@ m_array_w[2,5] = 1280; m_array_h[2,5] = 720;
 m_array_w[2,6] = 1366; m_array_h[2,6] = 768;
 m_array_w[2,7] = 1600; m_array_h[2,7] = 900;
 m_array_w[2,8] = 1920; m_array_h[2,8] = 1080;
+m_array_w[2,9] = 2560; m_array_h[2,9] = 1440;
+m_array_w[2,10] = 3840; m_array_h[2,10] = 2160;
 
 // 16:10
 m_array_w[3,0] = 1280; m_array_h[3,0] = 800;
@@ -86,7 +98,80 @@ m_array_w[3,2] = 1680; m_array_h[3,2] = 1050;
 m_array_w[3,3] = 1920; m_array_h[3,3] = 1200;
 m_array_w[3,4] = 2560; m_array_h[3,4] = 1600;
 
+alarm[2] = 5;
+alarm[0] = l_delay;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Window_set_size needs to wait a bit at the start
 event_user(0); // set window size according to selected resolution
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Bilinear filtering
+texture_set_interpolation(global.filter);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Call scr_screen_init AFTER window size is set
+scr_screen_init();
 </string>
           </argument>
         </arguments>
@@ -111,13 +196,9 @@ event_user(0); // set window size according to selected resolution
             <kind>1</kind>
             <string>if l_delay &gt; 0 then l_delay -= 1;
 
-if m_size != global.window_size 
-or m_aspect != global.window_aspect 
-then event_user(0);
-
-if !global.fullscreen
-then if window_get_width() != m_array_w[m_aspect,m_size]
-|| window_get_height() != m_array_h[m_aspect,m_size] 
+if (m_size != global.window_size 
+or m_aspect != global.window_aspect)
+&amp;&amp; l_delay = 0
 then event_user(0);
 
 // DEBUG COMMANDS
@@ -155,15 +236,25 @@ if keyboard_check_pressed(ord("Y"))
 if keyboard_check_pressed(ord("U")) then m_wallpaper = !m_wallpaper;
 */
 
-/// Update x/y and scale size
-// Adjust scale as needed (no more viewports, hooray!)
+/// Update options
 m_angle = global.rotation;
 m_clean = global.scaling;
 m_wallpaper = global.use_wallpaper;
+if m_filter_bi != global.filter
+    {
+    m_filter_bi = global.filter;
+    alarm[1] = 1;
+    }
+
+// Adjust scale as needed (no more viewports, hooray!)
 if m_angle = 90 || m_angle = 270
 then l_scale = min(window_get_width()/m_base_h,window_get_height()/m_base_w)
 else l_scale = min(window_get_width()/m_base_w,window_get_height()/m_base_h);
 if m_clean then l_scale = max(1,floor(l_scale));
+
+if m_scanlines != global.scanlines
+|| l_scan_scale != l_scale
+then event_user(1);
 
 // Offset x/y for centering the drawn surface
 x = round(window_get_width()/2);
@@ -171,20 +262,21 @@ y = round(window_get_height()/2);
 xx = x - lengthdir_x((m_base_w/2)*l_scale,m_angle) - lengthdir_x((m_base_h/2)*l_scale,m_angle+270);
 yy = y - lengthdir_y((m_base_w/2)*l_scale,m_angle) - lengthdir_y((m_base_h/2)*l_scale,m_angle+270);
 
-/*if os_browser != browser_not_a_browser
+// Update wallpaper draw scale if necessary
+/*var w,h; w = window_get_width(); h = window_get_height();
+l_wall_x = (w - l_wall_w)/2;
+l_wall_y = 0;
+if w &gt; h 
     {
-    if browser_height &gt; window_get_height() || browser_width &gt; window_get_width()
-        {
-        var wx, wy;
-        if browser_width &gt; window_get_width()
-        then wx = (browser_width - window_get_width()) / 2
-        else wx = 0;
-        if browser_height &gt; window_get_height()
-        then wy = (browser_height - window_get_height()) / 2
-        else wy = 0;
-        window_set_position(wx,wy);
-        }
-    }*/
+    l_wall_s = (w/l_wall_w);
+    //l_wall_s = l_wall_w / l_wall_max_s;
+    } 
+else 
+    {
+    l_wall_s = (h/l_wall_h);
+    //l_wall_s = l_wall_h / l_wall_max_s;
+    }
+//show_message(string(l_wall_x)+", "+string(l_wall_y))
 </string>
           </argument>
         </arguments>
@@ -207,9 +299,51 @@ yy = y - lengthdir_y((m_base_w/2)*l_scale,m_angle) - lengthdir_y((m_base_h/2)*l_
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar xview,yview;
-xview = view_xview[0];
-yview = view_yview[0];
+            <string>/// Generating scanlines
+if !window_has_focus()
+    {
+    /*show_debug_message("event_user(1) called while focus lost, l_scan_scale: "
+    +string(l_scan_scale)
+    +", l_scale: "+string(l_scan_scale)
+    +", application surface size at: "+string(surface_get_width(application_surface))
+    +"x"+string(surface_get_height(application_surface)));*/
+    exit;
+    }
+
+/// Create scanlines
+if surface_exists(l_scan) then surface_free(l_scan);
+
+var w,h; 
+w = surface_get_width(application_surface)*l_scale; 
+h = surface_get_height(application_surface)*l_scale;
+
+l_scan = surface_create(w,h);
+m_scanlines = global.scanlines;
+l_scan_scale = l_scale; // for changing from clean to stretch
+
+surface_set_target(l_scan);
+draw_clear_alpha(c_black,0);
+draw_set_color(c_black);
+draw_set_alpha(1);
+if m_scanlines = 1 // Horizontal
+    {
+    for(i=0;i&lt;h;i+=2) draw_line(-1,i,w,i);
+    }
+if m_scanlines = 2 // Vertical
+    {
+    for(i=0;i&lt;w;i+=2) draw_line(i,-1,i,h);
+    }
+/*if m_scanlines = 3 // Static drawing
+    {
+    for(i=0;i&lt;w;i+=2)
+        {
+        for(j=0;j&lt;h;j+=2)
+            {
+            if random(2)&gt;1 then draw_point(i,j);
+            }
+        }
+    }*/
+surface_reset_target();
 </string>
           </argument>
         </arguments>
@@ -233,23 +367,55 @@ yview = view_yview[0];
           <argument>
             <kind>1</kind>
             <string>/// Set Window size according to aspect etc
+if !window_has_focus()
+    {
+    /*show_debug_message("event_user(0) called while focus lost, m_size: "
+    +string(m_size)
+    +", global.window_size: "+string(global.window_size)
+    +", m_aspect: "+string(m_aspect)
+    +", global.window_aspect: "+string(global.window_aspect));*/
+    exit;
+    }
 
 // First, update the maximum array iteration size
 m_aspect = global.window_aspect;
 l_max_size = array_length_2d(m_array_w,m_aspect)-1;
-m_size = min(global.window_size,l_max_size);
 if global.window_size &gt; l_max_size then global.window_size = l_max_size;
+
+// Then check the maximum size for our current display, and bound global.window_size to it
+if m_array_w[m_aspect,global.window_size] &gt; display_get_width() then
+while m_array_w[m_aspect,global.window_size] &gt; display_get_width() global.window_size -= 1;
+m_size = min(global.window_size,l_max_size);
 
 // Then pluck the array variables and adjust window size accordingly
 var w,h;
 w = m_array_w[m_aspect,m_size];
 h = m_array_h[m_aspect,m_size];
 window_set_size(w,h);
-l_res = string(w)+"x"+string(h);
-l_delay = 11;//10 * !global.fullscreen;
 
-// Restore filter use if applicable
-with obj_ctrl_filter alarm[0] = 10;
+if !l_firstrun 
+    {
+    // if we center in consecutive runs on Win7 we get garbage graphics
+    // and if we just use window_center it's even worse
+    var xx,yy,dw,dh;
+    dw = display_get_width();
+    dh = display_get_height();
+    xx = (dw / 2) - (w / 2);
+    yy = (dh / 2) - (h / 2);
+    if window_get_x() != xx || window_get_y() != yy
+    then window_set_position(xx,yy);
+    l_firstrun = 1;
+    }
+
+l_res = string(w)+"x"+string(h);
+if !window_get_fullscreen()
+    {
+    l_delay = 11;
+    alarm[1] = 11;
+    }
+else alarm[1] = 2;
+
+//show_debug_message("obj_ctrl_render: event user 0, w: "+string(w)+", h: "+string(h));
 </string>
           </argument>
         </arguments>
@@ -272,7 +438,7 @@ with obj_ctrl_filter alarm[0] = 10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_user(1);
+            <string>alarm[1] = 1; // bilinear filter seems to reset on room change
 </string>
           </argument>
         </arguments>
@@ -298,23 +464,28 @@ with obj_ctrl_filter alarm[0] = 10;
             <string>if l_delay &gt; 0 then exit;
 draw_set_alpha(1);
 
-if m_wallpaper &amp;&amp; (m_aspect &gt; 0 || (m_aspect = 0 &amp;&amp; (m_angle = 90 || m_angle = 270)))
+if m_wallpaper &gt; 0
     {
-    draw_background_stretched(bkg_wallpaper,0,0,window_get_width(),window_get_height());
+    // TODO: Scale to aspect rather than squishing 1920x1080 images in 4:3 windows
+    //draw_background_ext(l_wall_img[m_wallpaper-1],l_wall_x,l_wall_y,l_wall_s,l_wall_s,0,c_white,1);
+    draw_background_stretched(l_wall_img[m_wallpaper-1],0,0,window_get_width(),window_get_height());
+    draw_set_alpha(1 - min(0.9,global.wallbrightness/100));
+    draw_sprite_stretched(spr_blackpixel,0,0,0,window_get_width(),window_get_height());
+    draw_set_alpha(1);
     draw_sprite_ext(spr_outline,0,x,y,l_scale,l_scale,m_angle,c_white,1);
     }
 
 draw_set_blend_mode_ext(bm_one,bm_zero);
-draw_surface_ext(application_surface,xx,yy,l_scale,l_scale,m_angle,c_white,1);
+draw_surface_ext(application_surface,round(xx),round(yy),l_scale,l_scale,m_angle,c_white,1);
 draw_set_blend_mode(bm_normal);
 
-/*scr_draw_vars(global.fnt_little,fa_right,c_black);
-var s1 = "Win. Size: "+string(window_get_width())+"x"+string(window_get_height());
-var s2 = "GUI. Size: "+string(display_get_width())+"x"+string(display_get_height());
-draw_rectangle(window_get_width()-string_width(s1),0,window_get_width(),12,0);
-draw_set_color(c_white);
-draw_text(window_get_width(),0,s1);
-draw_text(window_get_width(),12,s2);*/
+// Apply scanlines if necessary
+if m_scanlines &gt; 0
+    {
+    if !surface_exists(l_scan)
+    then event_user(1)
+    else draw_surface_ext(l_scan,round(xx),round(yy),1,1,m_angle,c_white,global.scanline_alpha/100);
+    }
 </string>
           </argument>
         </arguments>
@@ -337,7 +508,9 @@ draw_text(window_get_width(),12,s2);*/
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_user(1);
+            <string>globalvar xview,yview;
+xview = view_xview[0];
+yview = view_yview[0];
 </string>
           </argument>
         </arguments>

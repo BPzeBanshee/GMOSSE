@@ -22,19 +22,33 @@ ini_write_real("Keyboard","button4",global.keycode_button4);
 
 // [VIDEO]
 ini_write_real("Video","use_new_renderer",global.use_new_renderer);
-ini_write_real("Video","fullscreen",global.fullscreen);
-ini_write_real("Video","window_aspect",global.window_aspect);
-ini_write_real("Video","window_size",global.window_size);
-ini_write_real("Video","rotation",global.rotation);
-ini_write_real("Video","scaling",global.scaling);
-ini_write_real("Video","wallpaper",global.use_wallpaper);
-
-ini_write_real("Video","filter",global.filter);
-ini_write_real("Video","scanlines",global.scanlines);
-ini_write_real("Video","vsync",global.vsync);
-ini_write_real("Video","antialiasing",global.aa);
 ini_write_real("Video","vertex_buffer_method",global.vertex_buffer_method);
 ini_write_real("Video","alternate_sync",global.alternate_sync);
+ini_write_real("Video","fullscreen",global.fullscreen);
+ini_write_real("Video","vsync",global.vsync);
+ini_write_real("Video","antialiasing",global.aa);
+
+ini_write_real("Video_Display","window_aspect",global.window_aspect);
+ini_write_real("Video_Display","window_size",global.window_size);
+ini_write_real("Video_Display","rotation",global.rotation);
+ini_write_real("Video_Display","scaling",global.scaling);
+ini_write_real("Video_Display","wallpaper",global.use_wallpaper);
+
+ini_write_real("Video_Filters","wallbrightness",global.wallbrightness);
+ini_write_real("Video_Filters","filter",global.filter);
+ini_write_real("Video_Filters","scanlines",global.scanlines);
+ini_write_real("Video_Filters","scanline_alpha",global.scanline_alpha);
+
+/*
+// [GAMEPLAY]
+ini_write_real("Gameplay","hitboxvisible",global.hitbox_visible);
+ini_write_real("Gameplay","hitboxcolor",global.hitbox_color);
+
+ini_write_real("Gameplay_Bullets","bullet1_color",global.bullet_color[0]);
+ini_write_real("Gameplay_Bullets","bullet2_color",global.bullet_color[1]);
+ini_write_real("Gameplay_Bullets","bullet3_color",global.bullet_color[2]);
+ini_write_real("Gameplay_Bullets","bullet4_color",global.bullet_color[3]);
+*/
 
 // [SOUND]
 ini_write_real("Sound","music_volume",global.music_volume);

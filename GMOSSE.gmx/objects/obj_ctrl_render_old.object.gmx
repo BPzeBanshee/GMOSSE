@@ -50,8 +50,42 @@ l_win_w = 240;
 l_win_h = 320;
 l_max_size = 3;
 
+m_scanlines = global.scanlines;
+switch m_scanlines
+    {
+    default: l_scanline_img = -1; break;
+    case 1: l_scanline_img = spr_scanline_hori; break;
+    case 2: l_scanline_img = spr_scanline_vert; break;
+    case 3: l_scanline_img = spr_static; break;
+    }
+
+scr_screen_init();
+
 event_user(0); // Initialise control values
 event_user(1); // room_set_view the game to do what we want
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>texture_set_interpolation(global.filter);
 </string>
           </argument>
         </arguments>
@@ -76,6 +110,16 @@ event_user(1); // room_set_view the game to do what we want
             <kind>1</kind>
             <string>if m_angle != global.rotation then event_user(0);
 if m_scale != global.window_size+1 then event_user(1);
+if m_scanlines != global.scanlines
+    {
+    switch m_scanlines
+        {
+        default: l_scanline_img = -1; break;
+        case 1: l_scanline_img = spr_scanline_hori; break;
+        case 2: l_scanline_img = spr_scanline_vert; break;
+        case 3: l_scanline_img = spr_static; break;
+        }
+    }
 
 // DEBUG BUTTONS
 /*
@@ -262,6 +306,7 @@ event_user(1);
             <kind>1</kind>
             <string>event_user(2);
 view_angle[0] = m_angle;
+alarm[1] = 1;
 </string>
           </argument>
         </arguments>
@@ -285,6 +330,30 @@ view_angle[0] = m_angle;
           <argument>
             <kind>1</kind>
             <string>event_user(2);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if m_scanlines &gt; 0
+then draw_background_tiled_ext(l_scanline_img,0,0,1,1,c_white,global.scanline_alpha/100);
 </string>
           </argument>
         </arguments>

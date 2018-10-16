@@ -62,6 +62,29 @@ event_user(0); // set window size according to selected resolution
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>texture_set_interpolation(global.filter);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -182,7 +205,8 @@ yy = y - lengthdir_y((m_base_w/2)*l_scale,m_angle) - lengthdir_y((m_base_h/2)*l_
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar xview,yview;
+            <string>/// Update xview/yview globalvars
+globalvar xview,yview;
 xview = view_xview[0];
 yview = view_yview[0];
 </string>
@@ -227,7 +251,7 @@ l_res = "WEB ("+string(w)+"x"+string(h)+")";
 l_delay = 0;
 
 // Restore filter use if applicable
-with obj_ctrl_filter alarm[0] = 10;
+alarm[1] = 10;
 </string>
           </argument>
         </arguments>

@@ -38,29 +38,41 @@ global.keycode_button3 = ini_read_real("Keyboard","button3",vk_shift);
 global.keycode_button4 = ini_read_real("Keyboard","button4",vk_enter);
      
 /* VIDEO */
-global.use_new_renderer = ini_read_real("Video","use_new_renderer",1); // Render method
+global.use_new_renderer = ini_read_real("Video","use_new_renderer",true); // Render method
+global.vertex_buffer_method = ini_read_real("Video","vertex_buffer_method",0); // vertex buffer method (windows only)
+global.alternate_sync = ini_read_real("Video","alternate_sync",false); // alternate sync method (windows only)
 global.fullscreen = ini_read_real("Video","fullscreen",false); // Fullscreen mode
-global.window_aspect = ini_read_real("Video","window_aspect",2); // window aspect ratio
-global.window_size = ini_read_real("Video","window_size",5); // window size
-global.rotation = ini_read_real("Video","rotation",0); // Screen orientation
-global.scaling = ini_read_real("Video","scaling",1); // Scaling method
-global.use_wallpaper = ini_read_real("Video","wallpaper",1); // draw wallpaper
-      
-global.filter = ini_read_real("Video","filter",false); // Interpolation of colours between pixels
-global.scanlines = ini_read_real("Video","scanlines",0); // scanlines
 global.vsync = ini_read_real("Video","vsync",false); // vertical sync
-global.aa = ini_read_real("Video","antialiasing",0); // Surfaces
-global.vertex_buffer_method = ini_read_real("Video","vertex_buffer_method",2); // vertex buffer method
-global.alternate_sync = ini_read_real("Video","alternate_sync",0); // alternate sync method (windows only)
-  
+global.aa = ini_read_real("Video","antialiasing",0); // Anti-aliasing 
+
+global.window_aspect = ini_read_real("Video_Display","window_aspect",2); // window aspect ratio
+global.window_size = ini_read_real("Video_Display","window_size",5); // window size
+global.rotation = ini_read_real("Video_Display","rotation",0); // Screen orientation
+global.scaling = ini_read_real("Video_Display","scaling",1); // Scaling method
+global.use_wallpaper = ini_read_real("Video_Display","wallpaper",1); // draw wallpaper
+
+global.wallbrightness = ini_read_real("Video_Filters","wallbrightness",100); // Side art Brightness
+global.filter = ini_read_real("Video_Filters","filter",false); // Interpolation of colours between pixels
+global.scanlines = ini_read_real("Video_Filters","scanlines",0); // scanlines
+global.scanline_alpha = ini_read_real("Video_Filters","scanline_alpha",50); // scanline alpha
+
 /* SOUND */
 // Volume levels
 global.music_volume = ini_read_real("Sound","music_volume",70);
 global.sfx_volume = ini_read_real("Sound","sfx_volume",70);
 global.voice_volume = ini_read_real("Sound","voice_volume",70);
-    
+
 // Music INI location
 global.music_ini = ini_read_string("Sound","musicmodfile","music.ini");
+
+/*
+TODO:
+// GAMEPLAY //
+global.bullet_color[0] = ini_read_real("Gameplay_Bullets","bullet1_color",0);
+global.bullet_color[1] = ini_read_real("Gameplay_Bullets","bullet2_color",0);
+global.bullet_color[2] = ini_read_real("Gameplay_Bullets","bullet3_color",0);
+global.bullet_color[3] = ini_read_real("Gameplay_Bullets","bullet4_color",0);
+*/
 
 /* MISC */
 global.debug = ini_read_real("Misc","debug",true); // Debug display

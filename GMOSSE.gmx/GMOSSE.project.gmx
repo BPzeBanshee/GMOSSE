@@ -400,6 +400,7 @@
       <scripts name="Config">
         <script>scripts\scr_config_load.gml</script>
         <script>scripts\scr_config_save.gml</script>
+        <script>scripts\scr_config_reset.gml</script>
       </scripts>
       <scripts name="Music">
         <script>scripts\scr_loadmusic.gml</script>
@@ -436,7 +437,6 @@
       </scripts>
       <scripts name="Screen">
         <script>scripts\scr_screen_init.gml</script>
-        <script>scripts\scr_scanline.gml</script>
         <script>scripts\scr_setdisplay.gml</script>
         <script>scripts\scr_max_aa.gml</script>
         <script>scripts\scr_fullscreen.gml</script>
@@ -508,7 +508,6 @@
         <object>objects\obj_ctrl_pause</object>
         <object>objects\obj_ctrl_config</object>
         <object>objects\obj_ctrl_rebind</object>
-        <object>objects\obj_ctrl_filter</object>
         <object>objects\obj_ctrl_render</object>
         <object>objects\obj_ctrl_render_mob</object>
         <object>objects\obj_ctrl_render_old</object>
@@ -524,6 +523,7 @@
         <object>objects\obj_danger</object>
       </objects>
       <objects name="Main Menu">
+        <object>objects\obj_ctrl_intro</object>
         <object>objects\obj_ctrl_menu</object>
         <object>objects\obj_about</object>
       </objects>
@@ -810,7 +810,6 @@
       <object>objects\obj_test</object>
     </objects>
     <object>objects\obj_warp_test</object>
-    <object>objects\obj_camera_test</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
@@ -831,7 +830,6 @@
     </rooms>
     <rooms name="Test Stages">
       <room>rooms\rm_test1</room>
-      <room>rooms\room16</room>
       <room>rooms\rm_test2</room>
       <room>rooms\rm_test3</room>
       <rooms name="Omake Rush">

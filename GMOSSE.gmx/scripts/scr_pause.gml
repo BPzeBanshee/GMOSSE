@@ -64,7 +64,6 @@ instance_deactivate_all(1);
 instance_activate_object(obj_debug);
 instance_activate_object(obj_ctrl_input);
 instance_activate_object(obj_ctrl_music);
-instance_activate_object(obj_ctrl_filter);
 
 if global.use_new_renderer
 then instance_activate_object(obj_ctrl_render)

@@ -86,7 +86,9 @@ scr_config_save("config.ini");
             <kind>1</kind>
             <string>/// Fullscreen toggle hack for ini window
 scr_pickmusicini();
-with obj_ctrl_filter alarm[1] = 1; // return to whatever fullscreen it was before
+if global.use_new_renderer
+then with obj_ctrl_render alarm[1] = 1
+else with obj_ctrl_render_old alarm[1] = 1;
 </string>
           </argument>
         </arguments>
@@ -369,8 +371,7 @@ if global.jleft &amp;&amp; !hook
         case 8: 
             {
             global.scanlines -= 1; 
-            if global.scanlines &lt; 0 then global.scanlines = 2; 
-            scr_scanline(global.scanlines); 
+            if global.scanlines &lt; 0 then global.scanlines = 2;
             break;
             }
         case 9: global.vsync = 0; scr_setdisplay(global.aa,global.vsync); break;
@@ -425,8 +426,7 @@ if global.jright &amp;&amp; !hook
         case 8: 
             {
             global.scanlines += 1; 
-            if global.scanlines &gt; 2 then global.scanlines = 0; 
-            scr_scanline(global.scanlines); 
+            if global.scanlines &gt; 2 then global.scanlines = 0;
             break;
             }
         case 9: global.vsync = 1; scr_setdisplay(global.aa,global.vsync); break;

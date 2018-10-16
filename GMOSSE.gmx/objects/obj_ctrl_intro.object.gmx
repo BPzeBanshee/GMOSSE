@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-9999</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,76 +25,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-For now this does nothing.
-Eventually it'll be used for various effects
-including scanlines etc.
-*/
-globalvar filter_img,filter_alpha;
-filter_image = -1;
-filter_alpha = 1;
-scr_scanline(global.scanlines);
-//filter_image = spr_static;
-//filter_alpha = 0.25;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Fullscreen toggle
-if window_get_fullscreen() != global.fullscreen 
-then scr_fullscreen(global.fullscreen);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Bilinear filtering
-texture_set_interpolation(global.filter);
+            <string>c = 0;
+timer = 0;
+if global.intro then mode = 1 else mode = 2;
 
-/*
-In my experiments with Game Maker I've noticed that interpolation 
-*/
+if mode = 1
+    {
+    a = instance_create(-120,75,obj_logo2);
+    b = instance_create(360,75,obj_logo2);
+    }
+else 
+    {
+    instance_create(119,75,obj_title);
+    instance_create(120,160,obj_warp_gen);
+    global.behaviour = 2;
+    repeat 30 star = instance_create(room_width/2,room_height/2,obj_star);
+    /*if instance_exists(obj_bkg_menu)
+        {
+        if obj_bkg_menu.visible = 1 
+        then obj_star.image_alpha = 0.25
+        else obj_star.image_alpha = 1;
+        }*/
+    }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="4">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -111,13 +69,47 @@ In my experiments with Game Maker I've noticed that interpolation
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[0] = 7;
+            <string>if mode = 1
+    {
+    if a.x=120 &amp;&amp; b.x=120
+        {
+        if c &lt; 1 then c += 0.035;
+        if c &gt;= 1
+            {
+            with a instance_destroy(); 
+            with b instance_destroy();
+            global.behaviour = 2;
+            instance_create(119,75,obj_title);
+            instance_create(120,160,obj_warp_gen);
+            repeat 30 instance_create(room_width/2,room_height/2,obj_star);
+            mode = 2;
+            }
+        }
+    }
+else
+    {
+    if c &gt; 0 then c -= 0.035;
+    if c &lt;= 0 then timer += 1;
+    if timer = 200
+        {
+        //var snd = choose(snd_voice1,snd_voice2,snd_voice3,snd_voice4,snd_pain);
+        //scr_playsnd(snd,1);
+        timer = 0;
+        //instance_create(0,0,obj_ctrl_attract);
+        }
+    if keyboard_check_pressed(vk_anykey)
+        {
+        instance_create(0,0,obj_ctrl_menu);
+        global.intro = 0;
+        instance_destroy();
+        }
+    }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -134,8 +126,18 @@ In my experiments with Game Maker I've noticed that interpolation
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if sprite_exists(filter_image)
-then draw_sprite_tiled_ext(filter_image,image_index,0,0,1,1,c_white,filter_alpha);
+            <string>if c &gt; 0 then draw_sprite_ext(spr_whitepixel,0,xview,yview,240,320,0,c_white,c);
+draw_set_alpha(1-c);
+
+if mode = 2 
+    {
+    scr_draw_vars(global.fnt_default,fa_center,c_silver);
+    draw_text(183,107,global.version_str);
+    
+    draw_set_font(global.fnt_menu);
+    draw_set_color(8454016);
+    draw_text(xview+120,yview+160,"PRESS A BUTTON TO START");
+    }
 </string>
           </argument>
         </arguments>

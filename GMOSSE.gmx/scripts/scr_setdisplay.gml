@@ -20,10 +20,15 @@ if argument0 > scr_max_aa()
     return -1;
     }
 display_reset(set_aa,argument1);
-if global.use_new_renderer then with obj_ctrl_render event_user(0);
-with obj_ctrl_filter 
+
+// Update obj_ctrl_render accordingly
+// display_reset resets texture_set_interpolation
+if global.use_new_renderer then with obj_ctrl_render 
     {
-    alarm[0] = 1;
-    alarm[1] = 1;
+    event_user(0); // display_reset also resets window size apparently, goddamn
+    alarm[1] = 2;
     }
+else with obj_ctrl_render_old alarm[1] = 2;
+
+// Done!
 return 0;
