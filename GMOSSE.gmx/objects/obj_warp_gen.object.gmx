@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>// image based on http://www.hypernovadesign.com/tutorials/fire-orb-in-photoshop
-timer = 9;
+timer = 19;
 v = spr_warp2;
 </string>
           </argument>
@@ -51,9 +51,9 @@ v = spr_warp2;
           <argument>
             <kind>1</kind>
             <string>timer += 1;
-if timer = 15
+if timer = 20
     {
-    w = instance_create(x+random_range(-10,10),y+random_range(-10,10),obj_warp);
+    w = instance_create(x+random_range(-5,5),y+random_range(-5,5),obj_warp);
     w.sprite_index = v;
     timer = 0;
     }

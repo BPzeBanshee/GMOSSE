@@ -77,4 +77,4 @@ xview = view_xview[0];
 yview = view_yview[0];
 
 /* END */
-scr_trans(rm_menu,2,c_black,1,1,0);
+//scr_trans(rm_menu,2,c_black,1,1,0);

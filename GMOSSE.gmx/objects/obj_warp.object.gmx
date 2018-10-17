@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scale = 0;
+            <string>scale = 0.22;
 alpha = 0;
 image_angle = random(360);
 </string>
@@ -50,11 +50,13 @@ image_angle = random(360);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scale += 0.05;
+            <string>scale *= (1+scale/20);
+//scale += 0.05;
 image_angle += 2;
-if scale &lt; 2 &amp;&amp; alpha &lt; 1 then alpha += 0.015;
-if scale &gt; 2
+if scale &lt; 4 &amp;&amp; alpha &lt; 1 then alpha += 0.0075;
+if scale &gt; 4
     {
+    //instance_destroy();
     alpha -= 0.05;
     if alpha &lt; 0.05 then instance_destroy();
     }

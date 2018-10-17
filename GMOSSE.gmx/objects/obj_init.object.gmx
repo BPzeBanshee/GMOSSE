@@ -49,7 +49,17 @@
           <argument>
             <kind>1</kind>
             <string>scr_draw_vars(fnt_init,fa_left,c_white);
-draw_text(10,10,"PLEASE WAIT...");
+//draw_text(10,10,"PLEASE WAIT...");
+
+if instance_exists(obj_trans) then exit;
+if global.use_new_renderer
+    {
+    if obj_ctrl_render.l_delay = 0 then scr_trans(rm_menu,2,c_black,1,1,0);
+    }
+else
+    {
+    scr_trans(rm_menu,2,c_black,1,1,0);
+    }
 </string>
           </argument>
         </arguments>
