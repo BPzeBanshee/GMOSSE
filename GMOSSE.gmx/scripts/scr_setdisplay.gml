@@ -22,11 +22,10 @@ if argument0 > scr_max_aa()
 display_reset(set_aa,argument1);
 
 // Update obj_ctrl_render accordingly
-// display_reset resets texture_set_interpolation
 if global.use_new_renderer then with obj_ctrl_render 
     {
-    event_user(0); // display_reset also resets window size apparently, goddamn
-    alarm[1] = 2;
+    alarm[1] = 2; // not only does it reset the filter, but
+    alarm[2] = 2; // display_reset also resets window size apparently, goddamn
     }
 else with obj_ctrl_render_old alarm[1] = 2;
 

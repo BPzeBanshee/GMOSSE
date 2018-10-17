@@ -341,7 +341,6 @@
       <sprite>sprites\spr_warning_bkg2</sprite>
       <sprite>sprites\spr_danger_bkg2</sprite>
     </sprites>
-    <sprite>sprites\sprite185</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_space</background>
@@ -796,6 +795,7 @@
           <object>objects\obj_ctrl_camera_old</object>
           <object>objects\gradius_options</object>
         </objects>
+        <object>objects\obj_warp_test</object>
         <object>objects\obj_en72</object>
         <object>objects\obj_en72_tur</object>
         <object>objects\obj_en10_old</object>
@@ -807,9 +807,7 @@
         <object>objects\obj_exp3</object>
         <object>objects\obj_exp3_gen</object>
       </objects>
-      <object>objects\obj_test</object>
     </objects>
-    <object>objects\obj_warp_test</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>

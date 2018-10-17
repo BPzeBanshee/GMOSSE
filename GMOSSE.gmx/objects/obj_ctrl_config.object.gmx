@@ -33,7 +33,6 @@ selection = 1;
 warning = "";
 max_h = 0;
 timer = 0;
-b = c_black;
 
 // base position for menu
 s = 125;
@@ -59,7 +58,8 @@ s = 125;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(obj_ctrl_menu) then obj_ctrl_menu.enabled = 1;
+            <string>/// Save config on termination, reenable main/pause
+if instance_exists(obj_ctrl_menu) then obj_ctrl_menu.enabled = 1;
 if instance_exists(obj_ctrl_pause) then obj_ctrl_pause.enabled = 1;
 scr_config_save("config.ini");
 </string>
@@ -111,7 +111,7 @@ else with obj_ctrl_render_old alarm[1] = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// MENU BEHAVIOUR (PER MODE)
+            <string>/// MENU BEHAVIOUR (PER MODE)
 event_user(category);
 enabled = 1;
 
@@ -141,7 +141,7 @@ if !global.button1 &amp;&amp; !global.jup &amp;&amp; !global.jdown
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="14">
+    <event eventtype="7" enumb="15">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -161,7 +161,7 @@ if !global.button1 &amp;&amp; !global.jup &amp;&amp; !global.jdown
             <string>/// MISC. SETTINGS MENU
 
 // BEHAVIOUR
-category_type = "[MISC]";
+category_type = "MISC. SETTINGS";
 selection_max = 7; // amount of positions in the submenu
 max_h = 30;
 if timer &gt; 0 then timer -= 1;
@@ -222,7 +222,7 @@ if global.button1 &amp;&amp; !hook
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="13">
+    <event eventtype="7" enumb="14">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -242,7 +242,7 @@ if global.button1 &amp;&amp; !hook
             <string>/// VOLUME OPTIONS MENU
 
 // BEHAVIOUR
-category_type = "[AUDIO]";
+category_type = "AUDIO SETTINGS";
 selection_max = 5; // amount of positions in the submenu
 max_h = 0;
 
@@ -301,6 +301,73 @@ if global.button1 &amp;&amp; !hook
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// FILTER OPTIONS MENU
+
+// BEHAVIOUR
+category_type = "DISPLAY FILTERS";//"[FILTERS]";
+selection_max = 5; // amount of positions in the submenu
+max_h = 0;
+
+// LEFT
+if global.jleft &amp;&amp; !hook
+    {
+    hook = 1;
+    switch selection
+        {
+        case 1: if global.wallbrightness &gt; 5 then global.wallbrightness -= 5; break;
+        case 2: global.filter = 0; break;
+        case 3: global.scanlines -= 1; if global.scanlines &lt; 0 then global.scanlines = 2; break;
+        case 4: if global.scanline_alpha &gt; 5 then global.scanline_alpha -= 5; break;
+        }
+    }
+    
+// RIGHT
+if global.jright &amp;&amp; !hook
+    {
+    hook = 1;
+    switch selection
+        {
+        case 1: if global.wallbrightness &lt; 100 then global.wallbrightness += 5; break;
+        case 2: global.filter = 1; break;
+        case 3: global.scanlines += 1; if global.scanlines &gt; 2 then global.scanlines = 0; break;
+        case 4: if global.scanline_alpha &lt; 100 then global.scanline_alpha += 5; break;
+        }
+    }
+    
+// BUTTON 1
+if global.button1 &amp;&amp; !hook 
+    {
+    hook = 1;
+    scr_playsnd(snd_click,1);
+    if selection = selection_max
+        {
+        max_h = 0;
+        selection = 1; 
+        category = 2;
+        }
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="12">
       <action>
         <libid>1</libid>
@@ -321,26 +388,21 @@ if global.button1 &amp;&amp; !hook
             <string>/// VIDEO OPTIONS MENU
 
 // BEHAVIOUR
-category_type = "[VIDEO]";
-selection_max = 11; // amount of positions in the submenu
-max_h = 35;
+category_type = "VIDEO SETTINGS";//"[VIDEO]";
+selection_max = 10; // amount of positions in the submenu
+max_h = 0;
 
 warning = "";
 if !global.use_new_renderer
     {
-    if (selection = 2 || selection = 5 || selection = 6)
-    then warning = "NEW RENDERER DISABLED.
+    if (selection = 5 || selection = 7 || selection = 8)
+        {
+        max_h = 45;
+        warning = "NEW RENDERER DISABLED.
 CERTAIN FEATURES CURRENTLY
 NOT AVAILABLE.";
+        }
     }
-/*
-commented this out for now as I've heard of it
-second-hand but can't actually prove it.
-if selection = 10 
-then warning = "THIS MAY OR MAY NOT
-CRASH YOUR COMPUTER
-DEPENDING ON YOUR GPU.";
-*/
 
 // LEFT
 if global.jleft &amp;&amp; !hook
@@ -349,38 +411,13 @@ if global.jleft &amp;&amp; !hook
     switch selection
         {
         case 1: global.fullscreen = 0; scr_fullscreen(global.fullscreen); break;
-        case 2: 
-            {
-            if global.use_new_renderer
-                {
-                global.window_aspect -= 1; 
-                if global.window_aspect &lt; 0 then global.window_aspect = 3; 
-                }
-            break;
-            }
-        case 3: if global.window_size &gt; 0 then global.window_size -= 1; break;
-        case 4: 
-            {
-            global.rotation -= 90; 
-            if global.rotation &lt; 0 then global.rotation = 270; 
-            break;
-            }
-        case 5: if global.use_new_renderer then global.scaling = 0; break;
-        case 6: if global.use_new_renderer then global.use_wallpaper = 0; break;
-        case 7: global.filter = 0; texture_set_interpolation(global.filter); break;
-        case 8: 
-            {
-            global.scanlines -= 1; 
-            if global.scanlines &lt; 0 then global.scanlines = 2;
-            break;
-            }
-        case 9: global.vsync = 0; scr_setdisplay(global.aa,global.vsync); break;
-        case 10: 
-            {
-            if global.aa &gt; 0 then global.aa -= 1; 
-            scr_setdisplay(global.aa,global.vsync); 
-            break;
-            }
+        case 2: global.vsync = 0; scr_setdisplay(global.aa,global.vsync); break;
+        case 3: if global.aa &gt; 0 then global.aa -= 1; scr_setdisplay(global.aa,global.vsync); break;
+        case 4: global.rotation -= 90; if global.rotation &lt; 0 then global.rotation = 270; break;
+        case 5: if global.use_new_renderer then global.window_aspect -= 1; if global.window_aspect &lt; 0 then global.window_aspect = 3; break; 
+        case 6: if global.window_size &gt; 0 then global.window_size -= 1; break; 
+        case 7: if global.use_new_renderer then global.scaling = 0; break;
+        case 8: if global.use_new_renderer then global.use_wallpaper = 0; break;
         }
     }
     
@@ -391,51 +428,29 @@ if global.jright &amp;&amp; !hook
     switch selection
         {
         case 1: global.fullscreen = 1; scr_fullscreen(global.fullscreen); break;
-        case 2: 
+        case 2: global.vsync = 1; scr_setdisplay(global.aa,global.vsync); break;
+        case 3: if global.aa &lt; scr_max_aa() then global.aa += 1; scr_setdisplay(global.aa,global.vsync); break;
+        case 4: global.rotation += 90; if global.rotation &gt; 270 then global.rotation = 0; break;
+        case 5: if global.use_new_renderer then global.window_aspect += 1; if global.window_aspect &gt; 3 then global.window_aspect = 0; break;
+        case 6: 
             {
             if global.use_new_renderer
                 {
-                global.window_aspect += 1; 
-                if global.window_aspect &gt; 3 then global.window_aspect = 0; 
+                var r = obj_ctrl_render;
+                var max_s = -1;
+                if r.m_size+1 &lt;= r.l_max_size
+                    {
+                    if r.m_array_w[r.m_aspect,r.m_size+1] &lt;= display_get_width()
+                    &amp;&amp; r.m_array_h[r.m_aspect,r.m_size+1] &lt;= display_get_height()
+                    then max_s = r.l_max_size;
+                    }
                 }
+            else var max_s = 2;
+            if global.window_size &lt; max_s then global.window_size += 1; 
             break;
             }
-        case 3: 
-            {
-            if global.use_new_renderer
-                {
-                if global.window_size &lt; obj_ctrl_render.l_max_size 
-                then global.window_size += 1; 
-                }
-            else
-                {
-                if global.window_size &lt; obj_ctrl_render_old.l_max_size 
-                then global.window_size += 1; 
-                }
-            break;
-            }
-        case 4: 
-            {
-            global.rotation += 90; 
-            if global.rotation &gt; 270 then global.rotation = 0; 
-            break;
-            }
-        case 5: if global.use_new_renderer then global.scaling = 1; break;
-        case 6: if global.use_new_renderer then global.use_wallpaper = 1; break;
-        case 7: global.filter = 1; texture_set_interpolation(global.filter); break;
-        case 8: 
-            {
-            global.scanlines += 1; 
-            if global.scanlines &gt; 2 then global.scanlines = 0;
-            break;
-            }
-        case 9: global.vsync = 1; scr_setdisplay(global.aa,global.vsync); break;
-        case 10: 
-            {
-            if global.aa &lt; scr_max_aa() then global.aa += 1; 
-            scr_setdisplay(global.aa,global.vsync); 
-            break;
-            }
+        case 7: if global.use_new_renderer then global.scaling = 1; break;
+        case 8: if global.use_new_renderer then global.use_wallpaper = 1; break;
         }
     }
     
@@ -444,7 +459,13 @@ if global.button1 &amp;&amp; !hook
     {
     hook = 1;
     scr_playsnd(snd_click,1);
-    if selection = 11
+    if selection = selection_max - 1 // Filter Options
+        {
+        max_h = 0;
+        selection = 1;
+        category = 3;
+        }
+    if selection = selection_max // Return to Config Menu
         {
         max_h = 0;
         selection = 1; 
@@ -476,7 +497,7 @@ if global.button1 &amp;&amp; !hook
             <string>/// CONTROL OPTIONS MENU
 
 // BEHAVIOUR
-category_type = "[CONTROLS]";
+category_type = "CONTROLS SETTINGS";
 selection_max = 5; // amount of positions in the submenu
 max_h = 0;
 
@@ -536,7 +557,7 @@ if global.button1 &amp;&amp; !hook
           <argument>
             <kind>1</kind>
             <string>/// MAIN OPTIONS MENU
-category_type = "[CONFIG]";
+category_type = "CONFIGURATION MENU";
 selection_max = 5;
 max_h = 0;
 
@@ -544,12 +565,13 @@ if global.button1 &amp;&amp; !hook
     {
     scr_playsnd(snd_click,1);
     hook = 1;
+    
     switch selection
         {
         case 1: selection = 1; category = 1; break;
         case 2: selection = 1; category = 2; break;
-        case 3: selection = 1; category = 3; break;
-        case 4: selection = 1; category = 4; break;
+        case 3: selection = 1; category = 4; break;
+        case 4: selection = 1; category = 5; break;
         case 5: instance_destroy(); break;
         }
     }
@@ -575,16 +597,14 @@ if global.button1 &amp;&amp; !hook
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !enabled exit;
+            <string>/// DRAW MENU CODE
+if !enabled exit;
 // INIT
-//scr_view_vars();
-draw_set_font(global.fnt_default);
-draw_set_halign(fa_left);
+scr_draw_vars(global.fnt_default,fa_left,c_black);
 var g; g = 10;
 
 // DRAW BLACK BOX
 draw_set_alpha(0.75);
-draw_set_color(b);
 draw_rectangle(xview+25,yview+s-8,xview+215,yview+s+(g*(selection_max+3))+max_h,0);
 
 // DRAW CATEGORY TEXT
@@ -634,8 +654,17 @@ if category = 1
 if category = 2
     {
     // BEHAVIOURS
-    var full_str,aspect_str,winsize_str,scale_str,wallpaper_str;
-    if global.fullscreen = 0 then full_str = "OFF" else full_str = "ON";
+    if global.fullscreen = 1 then full_str = "ON" else full_str = "OFF";
+    if global.vsync = 1 then vsync_str = "ON" else vsync_str = "OFF";
+    switch global.aa
+        {
+        case 0: aa_str = "OFF"; break;
+        case 1: aa_str = "2xAA"; break;
+        case 2: aa_str = "4xAA"; break;
+        case 3: aa_str = "8xAA"; break;
+        }
+    tate_str = string(global.rotation)+"*";
+    
     if global.use_new_renderer
         {
         switch global.window_aspect
@@ -657,54 +686,59 @@ if category = 2
         wallpaper_str = "OFF";
         }
     
-    var tate_str,filter_str,scan_str,vsync_str,aa_str,font_str;
-    tate_str = string(global.rotation)+"*";
-    if global.filter = 0 then filter_str = "OFF" else filter_str = "ON";
-    switch global.scanlines
-        {
-        case 0: scan_str = "NONE"; break;
-        case 1: scan_str = "HORIZONTAL"; break;
-        case 2: scan_str = "VERTICAL"; break;
-        }
-    if global.vsync = 0 then vsync_str = "OFF" else vsync_str = "ON";
-    switch global.aa
-        {
-        case 0: aa_str = "OFF"; break;
-        case 1: aa_str = "2xAA"; break;
-        case 2: aa_str = "4xAA"; break;
-        case 3: aa_str = "8xAA"; break;
-        }
-    
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"FULLSCREEN: "+string(full_str));
-    if !global.use_new_renderer then draw_set_color(c_red);
-    draw_text(xview+60,yview+s+(g*2),"WIN. ASPECT: "+string(aspect_str));
-    draw_set_color(8454016);
-    draw_text(xview+60,yview+s+(g*3),"WIN. SIZE: "+string(winsize_str));
+    draw_text(xview+60,yview+s+(g*2),"VSYNC: "+string(vsync_str));
+    draw_text(xview+60,yview+s+(g*3),"ANTIALIASING: "+string(aa_str));
     draw_text(xview+60,yview+s+(g*4),"ROTATION: "+string(tate_str));
-    if !global.use_new_renderer then draw_set_color(c_red)
-    draw_text(xview+60,yview+s+(g*5),"SCALING: "+string(scale_str));
-    draw_text(xview+60,yview+s+(g*6),"WALLPAPER: "+string(wallpaper_str));
+    if !global.use_new_renderer then draw_set_color(c_red);
+    draw_text(xview+60,yview+s+(g*5),"WIN. ASPECT: "+string(aspect_str));
     draw_set_color(8454016);
-    draw_text(xview+60,yview+s+(g*7),"FILTER: "+string(filter_str));
-    draw_text(xview+60,yview+s+(g*8),"SCANLINES: "+string(scan_str));
-    draw_text(xview+60,yview+s+(g*9),"VSYNC: "+string(vsync_str));
-    draw_text(xview+60,yview+s+(g*10),"ANTIALIASING: "+string(aa_str));
+    draw_text(xview+60,yview+s+(g*6),"WIN. SIZE: "+string(winsize_str));
+    if !global.use_new_renderer then draw_set_color(c_red);
+    draw_text(xview+60,yview+s+(g*7),"SCALING: "+string(scale_str));
+    draw_text(xview+60,yview+s+(g*8),"WALLPAPER: "+string(wallpaper_str));
+    draw_set_color(8454016);
     
-    draw_text(xview+60,yview+s+(g*12),"RETURN TO MENU");
+    draw_text(xview+60,yview+s+(g*10),"CONFIGURE FILTERS");
+    draw_text(xview+60,yview+s+(g*11),"RETURN TO MENU");
     
     // WARNING TEXT
     if warning != ""
         {
         draw_set_halign(fa_center);
         draw_set_color(c_red);
-        draw_text(xview+120,yview+s+(g*14.5),string(warning));
+        draw_text(xview+120,yview+s+(g*15),string(warning));
         }
+    }
+    
+// ------ FILTER OPTIONS SUB-MENU ------
+if category = 3
+    {
+    // BEHAVIOURS
+    wallbright_str = string(round(global.wallbrightness))+"%";
+    if global.filter = 1 then filter_str = "ON" else filter_str = "OFF";
+    switch global.scanlines
+        {
+        case 0: scan_str = "NONE"; break;
+        case 1: scan_str = "HORIZONTAL"; break;
+        case 2: scan_str = "VERTICAL"; break;
+        case 3: scan_str = "STATIC"; break;
+        }
+    alpha_str = string(round(global.scanline_alpha))+"%";
+        
+    // TEXT
+    draw_text(xview+60,yview+s+(g*1),"WALLPAPER ALPHA: "+string(wallbright_str));
+    draw_text(xview+60,yview+s+(g*2),"BILINEAR FILTER: "+string(filter_str));
+    draw_text(xview+60,yview+s+(g*3),"SCANLINES: "+string(scan_str));
+    draw_text(xview+60,yview+s+(g*4),"SCANLINE ALPHA: "+string(alpha_str));
+    
+    draw_text(xview+60,yview+s+(g*6),"RETURN TO VIDEO");
     }
 
 
 // ------ VOLUME CONFIG MENU ------
-if category = 3
+if category = 4
     {
     // BEHAVIOURS
     var vol_music,vol_sfx,vol_voice;
@@ -730,7 +764,7 @@ if category = 3
     }
     
 // ------ MISC. OPTIONS MENU ------
-if category = 4
+if category = 5
     {
     // BEHAVIOURS
     var debug_str,font_str,hitbox_str,b_str,flicker_str;
@@ -762,8 +796,9 @@ if category = 4
         }
     }
     
-var i;
-if selection = selection_max then i = 10 else i = 0;
+var i; i = 0;
+if selection = selection_max then i = 10;
+if category = 2 then if selection = selection_max - 1 then i = 10;
 draw_sprite(spr_shipselect,-1,xview+45,yview+s+5+(g*selection+i));
     
 // ----------------- END MAIN EVENT --------------

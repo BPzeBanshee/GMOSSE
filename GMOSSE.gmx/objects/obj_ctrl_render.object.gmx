@@ -63,6 +63,7 @@ l_wall_img[0] = bkg_wallpaper;
 //l_wall_s = 1;
 //l_wall_max_s = 1;
 l_scan = -1;
+l_scan_img = -1;
 l_scan_scale = l_scale;
 l_scan_a = global.scanline_alpha / 100;
 
@@ -309,37 +310,59 @@ if !window_has_focus()
     +"x"+string(surface_get_height(application_surface)));*/
     exit;
     }
-
-/// Create scanlines
-if surface_exists(l_scan) then surface_free(l_scan);
-
-var w,h; 
+    
+var w,h,s,sw,sh; 
+// Get surface values
 w = surface_get_width(application_surface)*l_scale; 
 h = surface_get_height(application_surface)*l_scale;
 
-l_scan = surface_create(w,h);
+// Decide what kind of scanline to use
 m_scanlines = global.scanlines;
 l_scan_scale = l_scale; // for changing from clean to stretch
+switch m_scanlines
+    {
+    default: s = -1; break;
+    case 1: s = spr_scanline_hori; break;
+    case 2: s = spr_scanline_vert; break;
+    case 3: s = spr_static; break;
+    }
+sw = sprite_get_width(s);
+sh = sprite_get_height(s);
+si = 0;
 
+// Create surface
+if surface_exists(l_scan)
+    {
+    if surface_get_width(l_scan) != w || surface_get_height(l_scan) != h
+    then surface_resize(l_scan,w,h);
+    }
+else l_scan = surface_create(w,h);
+
+// Draw scanlines onto surface
 surface_set_target(l_scan);
 draw_clear_alpha(c_black,0);
 draw_set_color(c_black);
 draw_set_alpha(1);
-if m_scanlines = 1 // Horizontal
+
+if sprite_exists(s) 
+then for (i=0;i&lt;w;i+=sw)
     {
-    for(i=0;i&lt;h;i+=2) draw_line(-1,i,w,i);
-    }
-if m_scanlines = 2 // Vertical
-    {
-    for(i=0;i&lt;w;i+=2) draw_line(i,-1,i,h);
-    }
-/*if m_scanlines = 3 // Static drawing
-    {
-    for(i=0;i&lt;w;i+=2)
+    for (j=0;j&lt;h;j+=sh)
         {
-        for(j=0;j&lt;h;j+=2)
+        if m_scanlines = 3 then si = irandom_range(0,sprite_get_number(spr_static)-1);
+        draw_sprite(s,si,i,j);
+        }
+    }
+
+/*if m_scanlines = 1 then for(i=0;i&lt;h;i+=2) draw_line(-1,i,w,i); // Horizontal
+if m_scanlines = 2 then for(i=0;i&lt;w;i+=2) draw_line(i,-1,i,h); // Vertical
+if m_scanlines = 3 // Static drawing
+    {
+    for (i=0;i&lt;w;i+=sprite_get_width(spr_static))
+        {
+        for (j=0;j&lt;h;j+=sprite_get_height(spr_static))
             {
-            if random(2)&gt;1 then draw_point(i,j);
+            draw_sprite(spr_static,irandom_range(0,sprite_get_number(spr_static)-1),i,j);
             }
         }
     }*/
@@ -478,6 +501,7 @@ if m_wallpaper &gt; 0
 draw_set_blend_mode_ext(bm_one,bm_zero);
 draw_surface_ext(application_surface,round(xx),round(yy),l_scale,l_scale,m_angle,c_white,1);
 draw_set_blend_mode(bm_normal);
+//draw_set_blend_mode_ext(bm_src_alpha, bm_inv_src_alpha);
 
 // Apply scanlines if necessary
 if m_scanlines &gt; 0
@@ -486,6 +510,8 @@ if m_scanlines &gt; 0
     then event_user(1)
     else draw_surface_ext(l_scan,round(xx),round(yy),1,1,m_angle,c_white,global.scanline_alpha/100);
     }
+    
+
 </string>
           </argument>
         </arguments>
