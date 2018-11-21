@@ -449,6 +449,10 @@
         <script>scripts\scr_camera_spd.gml</script>
         <script>scripts\scr_camera_bound.gml</script>
       </scripts>
+      <scripts name="Replays">
+        <script>scripts\scr_replay_load.gml</script>
+        <script>scripts\scr_replay_save.gml</script>
+      </scripts>
       <scripts name="Others">
         <script>scripts\scr_3D.gml</script>
         <script>scripts\scr_trans.gml</script>
@@ -460,6 +464,7 @@
         <script>scripts\scr_addscore.gml</script>
         <script>scripts\scr_console.gml</script>
         <script>scripts\scr_linebreak.gml</script>
+        <script>scripts\scr_timestr.gml</script>
       </scripts>
       <script>scripts\scr_input.gml</script>
       <script>scripts\scr_detect_joys.gml</script>

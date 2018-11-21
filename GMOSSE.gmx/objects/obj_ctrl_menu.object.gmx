@@ -141,15 +141,6 @@ if (keyboard_check(vk_f12) &amp;&amp; !hook)
         }
     }
     
-// Stage select
-switch selection2
-    {
-    case 1: global.startstage = rm_stage1; break;
-    case 2: global.startstage = rm_boss1; break;
-    //case 3: global.startstage = rm_omake1; break;
-    case 3: global.startstage = rm_tutorial; break;
-    }
-
 // Button 1
 if (global.button1 &amp;&amp; !global.levelend &amp;&amp; !hook &amp;&amp; enabled)
     {
@@ -160,6 +151,14 @@ if (global.button1 &amp;&amp; !global.levelend &amp;&amp; !hook &amp;&amp; enabl
         case 0: break;
         case 1: // starting the damn game! :D
             {
+            // Stage select
+            switch selection2
+                {
+                case 1: global.startstage = rm_stage1; break;
+                case 2: global.startstage = rm_boss1; break;
+                //case 3: global.startstage = rm_omake1; break;
+                case 3: global.startstage = rm_tutorial; break;
+                }
             // transition handling
             scr_trans(rm_shipselect,2,c_black,0.025,0.05,0);
             break;
