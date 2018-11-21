@@ -6,9 +6,9 @@ if USE_SANDBOX=0
     {
     /*
     TODO: find free non-sandboxed alternative,
-    originally Team Grybanser Fox (me and Kaiser)
-    used GMFileSystem which started having dependency issues
-    with Windows 10 so we switched to YellowAfterlife's NSFS
+    originally Team Grybanser Fox used GMFileSystem 
+    which started having dependency issues with 
+    Windows 10 so we switched to YellowAfterlife's NSFS
     which has a charge for using it.
     */
     }

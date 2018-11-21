@@ -795,7 +795,8 @@
           <object>objects\obj_ctrl_camera_old</object>
           <object>objects\gradius_options</object>
         </objects>
-        <object>objects\obj_warp_test</object>
+        <object>objects\obj_ctrl_attract</object>
+        <object>objects\obj_static_test</object>
         <object>objects\obj_en72</object>
         <object>objects\obj_en72_tur</object>
         <object>objects\obj_en10_old</object>

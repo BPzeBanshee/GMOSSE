@@ -27,25 +27,23 @@
             <kind>1</kind>
             <string>c = 0;
 timer = 0;
+global.behaviour = 2;
 if global.intro then mode = 1 else mode = 2;
-
+instance_create(120,160,obj_warp_gen);
+repeat 30 star = instance_create(room_width/2,room_height/2,obj_star);
 if mode = 1
     {
     a = instance_create(-120,75,obj_logo2);
     b = instance_create(360,75,obj_logo2);
+    with obj_warp_gen visible = false;
+    with obj_star visible = false;
     }
 else 
     {
     instance_create(119,75,obj_title);
-    instance_create(120,160,obj_warp_gen);
-    global.behaviour = 2;
-    repeat 30 star = instance_create(room_width/2,room_height/2,obj_star);
-    /*if instance_exists(obj_bkg_menu)
-        {
-        if obj_bkg_menu.visible = 1 
-        then obj_star.image_alpha = 0.25
-        else obj_star.image_alpha = 1;
-        }*/
+    with obj_warp_gen visible = true;
+    with obj_warp visible = true;
+    with obj_star visible = true;
     }
 </string>
           </argument>
@@ -80,8 +78,9 @@ else
             with b instance_destroy();
             global.behaviour = 2;
             instance_create(119,75,obj_title);
-            instance_create(120,160,obj_warp_gen);
-            repeat 30 instance_create(room_width/2,room_height/2,obj_star);
+            with obj_warp_gen visible = true;
+            with obj_warp visible = true;
+            with obj_star visible = true;
             mode = 2;
             }
         }
@@ -90,14 +89,11 @@ else
     {
     if c &gt; 0 then c -= 0.035;
     if c &lt;= 0 then timer += 1;
-    if timer = 200
+    if timer = 600
         {
-        //var snd = choose(snd_voice1,snd_voice2,snd_voice3,snd_voice4,snd_pain);
-        //scr_playsnd(snd,1);
-        timer = 0;
-        //instance_create(0,0,obj_ctrl_attract);
+        instance_create(0,0,obj_ctrl_attract); // start attract mode, leave room
         }
-    if keyboard_check_pressed(vk_anykey)
+    if global.button1 &amp;&amp; timer &lt; 600
         {
         instance_create(0,0,obj_ctrl_menu);
         global.intro = 0;
@@ -136,7 +132,9 @@ if mode = 2
     
     draw_set_font(global.fnt_menu);
     draw_set_color(8454016);
-    draw_text(xview+120,yview+160,"PRESS A BUTTON TO START");
+    var st;
+    st = "PRESS "+string(chr(global.keycode_button1))+" OR BUTTON 1# TO START";
+    draw_text(xview+120,yview+160,st);//"PRESS A BUTTON TO START");
     }
 </string>
           </argument>

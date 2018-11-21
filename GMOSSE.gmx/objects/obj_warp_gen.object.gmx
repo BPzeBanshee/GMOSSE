@@ -55,6 +55,7 @@ if timer = 20
     {
     w = instance_create(x+random_range(-5,5),y+random_range(-5,5),obj_warp);
     w.sprite_index = v;
+    w.visible = visible;
     timer = 0;
     }
 /*if keyboard_check_pressed(vk_space)

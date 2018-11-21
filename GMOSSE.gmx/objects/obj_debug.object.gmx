@@ -128,7 +128,9 @@ global.bombs_stored = global.init_bombs;
 global.continues = 0;
 global.gamecomplete = 0;
 
-global.xonospr = 1; // TODO: globalvars for specific ship stats aren't ideal
+// TODO: globalvars for specific ship stats aren't ideal
+global.xonospr = 1; 
+global.arxynespr = 1;
 </string>
           </argument>
         </arguments>
@@ -395,9 +397,8 @@ scr_fademusic(0.0055);
             <kind>1</kind>
             <string>/// RM_TEST1
 event_user(0);
-global.startstage = rm_omake3;
+global.startstage = rm_test1;//rm_omake3;
 scr_trans(global.startstage,2,c_black,0.025,0.05,0);
-//scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
 </string>
           </argument>

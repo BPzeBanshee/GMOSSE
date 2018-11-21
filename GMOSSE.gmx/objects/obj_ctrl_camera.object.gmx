@@ -37,6 +37,8 @@ spd_x_init = spd_x;
 event_user(0);
 view_xview[0] = ((range - view_width) * 0.5) - xo;
 view_yview[0] = y - yo;
+xview = view_xview[0];
+yview = view_yview[0];
 event_user(1);
 </string>
           </argument>

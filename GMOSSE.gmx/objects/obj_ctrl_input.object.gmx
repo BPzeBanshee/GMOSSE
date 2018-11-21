@@ -108,7 +108,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(obj_ctrl_rebind) then exit;
+            <string>if instance_exists(obj_ctrl_rebind) || instance_exists(obj_ctrl_attract) then exit;
 scr_input();
 
 // Creates Pause object if button4 is pressed, game is not paused already and is allowed

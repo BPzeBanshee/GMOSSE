@@ -87,6 +87,7 @@ switch stage_time
         }
     case 300:
         {
+        instance_create(0,0,obj_textbox);
         //a = instance_create(xview,yview+120,obj_en5);
         //with a path_start(pth_test,5,0,0);
         //instance_create(160,yview-64,obj_omake3);
@@ -95,16 +96,14 @@ switch stage_time
         }
     }
 
-if keyboard_check(vk_space) &amp;&amp; !instance_exists(obj_warp_test)
-then instance_create(xview,yview,obj_warp_test);
+if keyboard_check(vk_space) &amp;&amp; !instance_exists(obj_static_test)
+then instance_create(xview,yview,obj_static_test);
 /*if keyboard_check(vk_space) &amp;&amp; !instance_exists(obj_beam_s)
     {
     var b;
     b = instance_create(160,40,obj_beam_s);
     b.direction = point_direction(c.x,c.y,obj_hitbox.x,obj_hitbox.y);
     }*/
-/* AESTHETICS */
-    
 </string>
           </argument>
         </arguments>
