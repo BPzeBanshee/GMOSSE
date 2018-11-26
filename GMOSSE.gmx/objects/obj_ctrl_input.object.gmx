@@ -38,52 +38,6 @@ else
     scr_console("obj_ctrl_input: preferred joy/pad not found, calling scr_detect_joys()");
     scr_detect_joys(); // only one device? okay we'll find the first one and accept it
     }
-
-// binary compare values
-l_inp_up = 1;
-l_inp_down = 2;
-l_inp_left = 4;
-l_inp_right = 8;
-l_inp_b1 = 16;
-l_inp_b2 = 32;
-l_inp_b3 = 64;
-
-l_step = 0;
-stagenum = 0;
-log_str = "";
-recording = 0;
-replaying = 0;
-
-// initialise replay grid and input list
-replay = ds_grid_create(10,6); // # array, grid large enough for 10 stages
-// replay = ds_grid_create(room_last,6); // if we want to have replays for even main menu
-ds_grid_clear(replay,0);
-input = ds_list_create(); // | array which will have current_input saved into each "frame"
-
-/*
-The replay file system format I've devised works as follows:
-
-replay[#0,y]
-0,0 = version number (real)
-0,1 = starting stage (string, room_get_name(room) saved, asset_get_index(replay[0,1] load)
-0,2 = unused (useful for gamemode/difficulty?)
-0,3 = unused (ending stage?)
-0,4 = unused
-0,5 = unused
-
-example: 
-s = asset_get_index(replay[#0,1]) for starting stage
-
-replay[#x,y]
-x = stage (eventually use something like global.level, for now we just use x=1)
-
-x,0 = input array saved via ds_list_write
-x,1 = random seed taken from room start
-x,2 = ship id (1&gt;)
-x,3 = lives remaining
-x,4 = current score
-x,5 = current bomb stock
-*/
 </string>
           </argument>
         </arguments>
@@ -135,7 +89,7 @@ x,5 = current bomb stock
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -152,74 +106,13 @@ x,5 = current bomb stock
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//if instance_exists(obj_ctrl_rebind) || instance_exists(obj_ctrl_attract) then exit;
-if !enabled then exit;
+            <string>if !enabled then exit;
 scr_input();
 
 // Creates Pause object if button4 is pressed, game is not paused already and is allowed
 if global.button4 &amp;&amp; global.pausable 
 &amp;&amp; !instance_exists(obj_ctrl_pause)
 then instance_create(0,0,obj_ctrl_pause);
-
-if replaying &amp;&amp; stagenum &gt; 0
-    {
-    if instance_exists(obj_ctrl_clear) 
-    || instance_exists(obj_ctrl_gameover)
-    then exit;
-    
-    var l_input_value = input[|l_step];
-    global.jup = ((l_input_value &amp; l_inp_up)==l_inp_up);
-    global.jdown = ((l_input_value &amp; l_inp_down)==l_inp_down);
-    global.jleft = ((l_input_value &amp; l_inp_left)==l_inp_left);
-    global.jright = ((l_input_value &amp; l_inp_right)==l_inp_right);
-    global.button1 = ((l_input_value &amp; l_inp_b1)==l_inp_b1);
-    global.button2 = ((l_input_value &amp; l_inp_b2)==l_inp_b2);
-    global.button3 = ((l_input_value &amp; l_inp_b3)==l_inp_b3);
-    
-    if l_step &lt; ds_list_size(input)-1
-        {
-        l_step += 1;
-        // logging
-        /*if l_input_value &gt; 0 
-        then log_str += string(room_get_name(room))+" - "
-        +string(l_step)+":"+string(l_input_value)
-        +" (x:"+string(obj_player.x)+",y:"+string(obj_player.y)
-        +",rng:"+string(random_get_seed())+")"+chr(10);*/
-        }
-    }
-else
-    {
-    if recording &amp;&amp; stagenum &gt; 0
-        {
-        var l_input_value = 0;
-        if global.jup then l_input_value += l_inp_up;
-        if global.jdown then l_input_value += l_inp_down;
-        if global.jleft then l_input_value += l_inp_left;
-        if global.jright then l_input_value += l_inp_right;
-        if global.button1 then l_input_value += l_inp_b1;
-        if global.button2 then l_input_value += l_inp_b2;
-        if global.button3 then l_input_value += l_inp_b3;
-        input[|l_step] = l_input_value;
-        if !instance_exists(obj_ctrl_clear) &amp;&amp; !instance_exists(obj_ctrl_gameover)
-            {
-            l_step += 1;
-            // logging
-            /*if l_input_value &gt; 0 then 
-            log_str += string(room_get_name(room))+" - "
-            +string(l_step)+":"+string(l_input_value)
-            +" (x:"+string(obj_player.x)+",y:"+string(obj_player.y)
-            +",rng:"+string(random_get_seed())+")"+chr(10);*/
-            }
-        else
-            {
-            if !is_string(replay[#stagenum,0])
-                {
-                replay[#stagenum,0] = ds_list_write(input);
-                show_debug_message("obj_ctrl_input: Writing replay input to list");
-                }
-            }
-        }
-    }
 </string>
           </argument>
         </arguments>
@@ -285,205 +178,6 @@ switch(async_load[? "event_type"])
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="12">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// SAVE REPLAY
-var l; 
-l = get_save_filename("*.inp","replay.inp");
-if l = "" then l = "replay.inp";
-
-scr_replay_save(replay,l);
-
-ds_grid_clear(replay,0);
-ds_list_clear(input);
-stagenum = 0;
-log_str = "";
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="11">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// LOAD REPLAY
-var l;
-l = get_open_filename("*.inp","replay.inp");
-if l = "" then exit;
-replay = scr_replay_load(replay,l);
-show_message("Replay file version: "+string(replay[#0,0])+"#Starting stage: "+string(replay[#0,1]));
-var n; n = asset_get_index(replay[#0,1]);
-if room_exists(n) then global.startstage = n;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="5">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if recording = 1
-    {
-    //show_debug_message("global.nextroom = "+string(global.nextroom)+", global.startstage = "+string(global.startstage));
-    if global.nextroom = global.startstage
-        {
-        show_debug_message("replay[#0,0] thru [#0,5] being set");
-        replay[#0,0] = 1;
-        replay[#0,1] = room_get_name(global.startstage); // starting room
-        replay[#0,2] = global.xonospr; 
-        replay[#0,3] = global.arxynespr;
-        replay[#0,4] = global.optiontype;
-        replay[#0,5] = global.weapontype;
-        stagenum = 1;
-        show_debug_message("obj_ctrl_input: replay[#0,1] set to "+string(replay[#0,1]));
-        }
-    else stagenum += 1;
-    replay[#stagenum,2] = global.shipselect;
-    replay[#stagenum,3] = global.lives_stored;
-    replay[#stagenum,4] = global.score_stored;
-    replay[#stagenum,5] = global.bombs_stored;
-    
-    if instance_exists(obj_ctrl_gameover)
-        {
-        event_user(2);
-        recording = 0;
-        }
-    if global.nextroom = rm_menu
-        {
-        recording = 0;
-        stagenum = 0;
-        ds_grid_clear(replay,0);
-        ds_list_clear(input);
-        }
-    }
-
-if replaying = 1
-    {
-    if instance_exists(obj_ctrl_gameover)
-        {
-        replaying = 0;
-        //clipboard_set_text(sha1_string_utf8(log_str)+chr(10)+log_str);
-        //log_str = "";
-        stagenum = 0;
-        ds_grid_clear(replay,0);
-        ds_list_clear(input);
-        }
-    else 
-        {
-        if global.nextroom = global.startstage
-            {
-            stagenum = 1;
-            global.shipselect = replay[#stagenum,2];
-            switch global.shipselect
-                {
-                default: global.init_bombs = 3; global.max_bombs = 5; break;
-                case 2: global.init_bombs = 2; global.max_bombs = 4; break;
-                case 3: global.init_bombs = 0; global.max_bombs = 0; break;
-                case 4: global.init_bombs = 2; global.max_bombs = 4; break;
-                case 5: global.init_bombs = 3; global.max_bombs = 3; break; 
-                }
-            global.extend_number = 1;
-            global.continues = 0;
-            global.gamecomplete = 0;
-            global.xonospr = replay[#0,2]; 
-            global.arxynespr = replay[#0,3];
-            global.optiontype = replay[#0,4];
-            global.weapontype = replay[#0,5];
-            }
-        else stagenum += 1;
-        global.lives_stored = replay[#stagenum,3];
-        global.score_stored = replay[#stagenum,4];
-        global.bombs_stored = replay[#stagenum,5];
-        ds_list_read(input,replay[#stagenum,0]);
-        if ds_list_size(input)&gt;0 then show_debug_message("obj_ctrl_input: loading from replay grid to list successful.");
-        }
-    }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>l_step = 0;
-l_input_value = 0;
-
-if stagenum = 0 then exit;
-if replaying
-    {
-    random_set_seed(replay[#stagenum,1]);
-    if !ds_exists(replay[#stagenum,0],ds_type_list) then
-    show_debug_message("replay["+string(stagenum)+",0] not returning a list");
-    }
-if recording
-    {
-    replay[#stagenum,0] = 0;
-    replay[#stagenum,1] = random_get_seed(); // rng seed
-    show_debug_message("obj_ctrl_input: replay["+string(stagenum)+",2] returning "+string(replay[#stagenum,2]));
-    }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="7" enumb="3">
       <action>
         <libid>1</libid>
@@ -501,9 +195,7 @@ if recording
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ds_list_destroy(input);
-ds_grid_destroy(replay);
-/*if USE_SANDBOX=0
+            <string>/*if USE_SANDBOX=0
     {
     file_delete_ns(global.main_dir+"\score.gmes");
     
@@ -533,7 +225,8 @@ ds_grid_destroy(replay);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var dir,f;
+            <string>/// SAVE SCREENSHOT
+var dir,f;
 f = scr_timestr()+".bmp";
 dir = global.main_dir+"\"+f;
 
@@ -576,9 +269,8 @@ else screen_save_part(dir,0,0,window_get_width(),window_get_height());
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Make global.fullscreen the reverse
-// of whatever it currently is, then
-// use the function with the given value.
+            <string>/// TOGGLE FULLSCREEN
+// Not if alt keys are pressed, that'll terminate the game! :P
 if keyboard_check_direct(vk_ralt) or keyboard_check_direct(vk_lalt) exit;
 
 if window_get_fullscreen() = global.fullscreen 
@@ -606,7 +298,8 @@ scr_fullscreen(global.fullscreen);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_main_reset();
+            <string>/// RESET GAME
+scr_main_reset();
 </string>
           </argument>
         </arguments>
@@ -629,7 +322,8 @@ scr_fullscreen(global.fullscreen);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_end();
+            <string>/// EXIT GAME
+game_end();
 </string>
           </argument>
         </arguments>

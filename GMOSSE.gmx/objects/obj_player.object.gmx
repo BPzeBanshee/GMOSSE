@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>// Don't bother doing anything if we're not actually playing
 if !instance_exists(obj_hitbox) then exit;
-
 var dirx,diry,spd;
 dirx = 0;
 diry = 0;

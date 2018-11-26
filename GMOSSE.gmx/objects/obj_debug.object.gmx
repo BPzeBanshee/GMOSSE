@@ -87,7 +87,8 @@ else global.step += 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>txt = global.debug_text;
+            <string>/// CONSOLE TEXT FORMATTING
+txt = global.debug_text;
 while string_height(txt) &gt; window_get_height()
     {
     txt = string_delete(txt,1,string_pos("#",txt));
@@ -114,8 +115,7 @@ while string_height(txt) &gt; window_get_height()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Experiment at bypassing ship selection screen.
-// This will be necessary for input replay support later on
+            <string>/// Bypassing ship selection screen
 global.shipselect = 1;
 
 // I'm not so sure custom bomb values are a good idea anymore...
@@ -190,7 +190,8 @@ rfps_txt = "---";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if os_browser = browser_not_a_browser || os_type = os_windows then exit;
+            <string>/// DRAW DEBUG TEXT (HTML5/ANDROID)
+if os_browser = browser_not_a_browser || os_type = os_windows then exit;
 if window_get_width() &lt; 640 then exit;
 scr_draw_vars(global.fnt_default,fa_left,c_white);
 draw_set_alpha(1);
@@ -270,9 +271,9 @@ if draw_get_alpha()=0.5 then draw_set_alpha(1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// RM_TEST3
+            <string>/// BOSS 1
 event_user(0);
-global.startstage = rm_test3;
+global.startstage = rm_boss1;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
 </string>
@@ -351,11 +352,11 @@ scr_fademusic(0.0055);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-/*event_user(0);
+            <string>/// STAGE 3
+event_user(0);
 global.startstage = rm_stage3;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
-scr_fademusic(0.0055);*/
+scr_fademusic(0.0055);
 </string>
           </argument>
         </arguments>
@@ -378,20 +379,11 @@ scr_fademusic(0.0055);*/
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// LOAD REPLAY
-/*event_user(0);
+            <string>/// TEST 2
+event_user(0);
 global.startstage = rm_test2;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
-scr_fademusic(0.0055);*/
-global.startstage = -1;
-with obj_ctrl_input event_user(1);
-if global.startstage != -1
-    {
-    scr_trans(global.startstage,3,c_black,0.025,0.05,210);
-    scr_fademusic(0.0055);
-    with obj_ctrl_input replaying = 1;
-    }
-else global.startstage = rm_stage1;
+scr_fademusic(0.0055);
 </string>
           </argument>
         </arguments>
@@ -414,11 +406,9 @@ else global.startstage = rm_stage1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// RECORD RUN
-with obj_ctrl_input recording = 1;
-show_debug_message("obj_ctrl_input.recording set to 1");
+            <string>/// OMAKE 3
 event_user(0);
-global.startstage = rm_boss2;//rm_omake3;
+global.startstage = rm_omake3;
 scr_trans(global.startstage,2,c_black,0.025,0.05,0);
 scr_fademusic(0.0055);
 </string>
@@ -443,7 +433,8 @@ scr_fademusic(0.0055);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if window_get_cursor() = cr_none
+            <string>/// SET CURSOR VISIBILITY
+if window_get_cursor() = cr_none
 then window_set_cursor(cr_default)
 else window_set_cursor(cr_none);
 </string>
