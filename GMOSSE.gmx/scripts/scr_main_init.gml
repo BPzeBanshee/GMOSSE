@@ -38,6 +38,7 @@ scr_fonts_init();
 
 /* CONTROLLERS */
 instance_create(0,0,obj_ctrl_input);
+//instance_create(0,0,obj_ctrl_input2); // for experimental replay support
 instance_create(0,0,obj_ctrl_music);
 application_surface_draw_enable(true);
 

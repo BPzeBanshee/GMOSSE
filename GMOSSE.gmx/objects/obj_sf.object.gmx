@@ -35,6 +35,7 @@ global.slowshipspeed = 2; // When Button 3 is pressed
 
 // Misc. Variables
 img = 2;
+img_bank_spd = 0.2;
 image_speed = 0;
 </string>
           </argument>
@@ -108,12 +109,12 @@ if (global.button2)
     
 // Image Aesthetics  
 image_index = round(img);
-if (global.jleft &amp;&amp; img &gt; 0) then img -= 0.25;
-if (global.jright &amp;&amp; img &lt; 4) then img += 0.25;
+if (global.jleft &amp;&amp; img &gt; 0) then img -= img_bank_spd;
+if (global.jright &amp;&amp; img &lt; 4) then img += img_bank_spd;
 if (!global.jleft &amp;&amp; !global.jright)
     {
-    if img &gt; 2 then img -= 0.25;
-    if img &lt; 2 then img += 0.25;
+    if img &gt; 2 then img -= img_bank_spd;
+    if img &lt; 2 then img += img_bank_spd;
     }
 // This code works with keyboard but not touch controls, odd
 /*

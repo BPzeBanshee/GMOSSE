@@ -64,7 +64,9 @@ that iterates through enemies. This is
 the sole exception to the branch.
 */
 z = 128;
-flash = 0;
+flash_hit = 0;
+flash_low = 0;
+enemyHP_last = enemyHP;
 enemyHP_max = enemyHP;
 can_collide = 1;
 can_damage = 1;
@@ -96,14 +98,24 @@ override this and result in these lines of code having no effect.
 If you must have an object using End Step (ie. multiple turrets
 using lengthdir_x/y) then add event_inherited() to its code.
 */
+// Flash on hit
+if flash_hit &gt; 0 then flash_hit -= 1;
+if enemyHP &lt; enemyHP_last &amp;&amp; flash_hit = 0
+    {
+    flash_hit = 2;
+    enemyHP_last = enemyHP;
+    }
 
-if enemyHP &lt;= (enemyHP_max * 0.25) &amp;&amp; enemyHP &gt; 0 then flash += 1;
-if flash = 2 then image_blend = c_white;
-if flash = 8
+// Flash when health is low
+if enemyHP &lt;= (enemyHP_max * 0.25) &amp;&amp; enemyHP &gt; 0 then flash_low += 1;
+if flash_low = 2 then image_blend = c_white;
+if flash_low = 8
     {
     image_blend = c_red;
-    flash = 0;
+    flash_low = 0;
     }
+    
+// Call user event 15 for death when enemyHP is at 0
 if enemyHP &lt;= 0 
     {
     image_blend = c_white; 
@@ -549,6 +561,37 @@ if enemyHP &lt;= 0
 if other.invincible != 0 exit;
 if !instance_exists(obj_player) exit;
 enemyHP -= 100;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+if flash_hit = 2
+    {
+    var b;
+    if flash_low &gt; 0 then b = c_red else b = image_blend;
+    draw_set_blend_mode(bm_add);
+    draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,b,image_alpha);
+    draw_set_blend_mode(bm_normal);
+    }
 </string>
           </argument>
         </arguments>

@@ -205,7 +205,7 @@ instance_activate_region(0,12478,320,320,true);</code>
     <instance objName="obj_en9" x="240" y="2224" name="inst_02EF4E81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en9" x="272" y="2224" name="inst_F3EE88AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en9b" x="320" y="2960" name="inst_9EB19BD1" locked="0" code="path_start(pth_st2b,1,0,1);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_en9b" x="320" y="5680" name="inst_B45479FE" locked="0" code="path_start(pth_st2a,2,0,1);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_en9b" x="320" y="5680" name="inst_B45479FE" locked="0" code="path_start(pth_st2a,2,0,1);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en7" x="160" y="11056" name="inst_CB4C590B" locked="0" code="direction = 270;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en7" x="160" y="3392" name="inst_714FB4F3" locked="0" code="direction = 270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_en7" x="160" y="1936" name="inst_9E73DDEC" locked="0" code="direction = 270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

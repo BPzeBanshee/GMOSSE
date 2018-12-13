@@ -147,13 +147,12 @@
           <sprite>sprites\sprite163</sprite>
         </sprites>
         <sprites name="Boss 2">
-          <sprite>sprites\spr_boss2</sprite>
           <sprite>sprites\spr_boss2v2</sprite>
           <sprite>sprites\spr_boss2v2_blank</sprite>
           <sprite>sprites\spr_boss2_orbA</sprite>
           <sprite>sprites\spr_boss2_orbB</sprite>
           <sprite>sprites\spr_boss2_orbC</sprite>
-          <sprite>sprites\sprite167</sprite>
+          <sprite>sprites\spr_boss2_orbA_old</sprite>
           <sprite>sprites\spr_boss2_orbB_old</sprite>
           <sprite>sprites\spr_boss2_orbC_old</sprite>
           <sprite>sprites\spr_boss2_omake</sprite>
@@ -240,6 +239,7 @@
           <sprite>sprites\spr_sf_tip</sprite>
         </sprites>
         <sprite>sprites\spr_trident</sprite>
+        <sprite>sprites\sprite185</sprite>
         <sprite>sprites\spr_trident_aft</sprite>
         <sprite>sprites\spr_trident_out</sprite>
       </sprites>

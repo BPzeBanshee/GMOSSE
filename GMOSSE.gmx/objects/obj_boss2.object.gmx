@@ -109,7 +109,6 @@ if instance_exists(pod1)
     hp1 = pod1.enemyHP;
     pod1.x = x + lengthdir_x(37,image_angle+45);
     pod1.y = y + lengthdir_y(37,image_angle+45);
-    //pod1.image_angle = image_angle;
     pod1.image_alpha = image_alpha;
     }
     
@@ -118,7 +117,6 @@ if instance_exists(pod2)
     hp2 = pod2.enemyHP;
     pod2.x = x + lengthdir_x(37,image_angle+135);
     pod2.y = y + lengthdir_y(37,image_angle+135);
-    //pod2.image_angle = image_angle;
     pod2.image_alpha = image_alpha;
     }
 
@@ -127,7 +125,6 @@ if instance_exists(pod3)
     hp3 = pod3.enemyHP;
     pod3.x = x + lengthdir_x(37,image_angle+225);
     pod3.y = y + lengthdir_y(37,image_angle+225);
-    //pod3.image_angle = image_angle;
     pod3.image_alpha = image_alpha;
     }
 
@@ -136,11 +133,11 @@ if instance_exists(pod4)
     hp4 = pod4.enemyHP;
     pod4.x = x + lengthdir_x(37,image_angle+315);
     pod4.y = y + lengthdir_y(37,image_angle+315);
-    //pod4.image_angle = image_angle;
     pod4.image_alpha = image_alpha;
     }
 
 enemyHP = hp1 + hp2 + hp3 + hp4;
+enemyHP_last = enemyHP;
 // ^^ sets health ^^
 </string>
           </argument>
