@@ -32,7 +32,7 @@ event_inherited();
 b_img = spr_beam;          // the beam itself
 f_img = spr_beam_flash;    // the beginning of the beam
 h_img = spr_beam_head;      // the end of the beam
-b_spd = 8;
+b_spd = 4;
 direction = 270;
 image_xscale = 0;
 image_angle = direction;
@@ -150,18 +150,22 @@ for(i=0; i&lt;image_xscale-32;i+=b_width)
 
 // laser head (end of laser)
 var hl,hx,hy;
-if image_xscale &gt; 32
+if image_xscale &gt; sprite_get_width(h_img)-sprite_get_xoffset(h_img)
     {
-    hl = max(h_width,image_xscale);
+    // Drawing head at end of laser as per normal
+    hl = image_xscale-sprite_get_xoffset(h_img);
     hx = x + lengthdir_x(hl, image_angle);
     hy = y + lengthdir_y(hl, image_angle);
     draw_sprite_ext(h_img,h_subimg,hx,hy,1,1,image_angle,image_blend,h_alpha);
     }
 else
     {
-    hl = 4; // 36 (sprite width) - 32 (sprite xoffset)
-    hx = x + lengthdir_x(hl, image_angle) - lengthdir_x(10,image_angle - 90);
-    hy = y + lengthdir_y(hl, image_angle) - lengthdir_y(10,image_angle - 90);
+    // If laser is smaller than the head, draw only part of the head
+    // Because of draw_sprite_general not using sprite offsets we do it manually
+    // If you don't care for this minute detail you could probably get rid of this bit
+    hl = image_xscale-sprite_get_xoffset(h_img);
+    hx = x + lengthdir_x(hl, image_angle) - lengthdir_x(sprite_get_xoffset(h_img)/2,image_angle - 90);
+    hy = y + lengthdir_y(hl, image_angle) - lengthdir_y(sprite_get_yoffset(h_img)/2,image_angle - 90);
     draw_sprite_general(h_img,h_subimg,clamp(36-image_xscale,0,36),0,clamp(image_xscale,0,36),20,hx,hy,1,1,image_angle,image_blend,image_blend,image_blend,image_blend,h_alpha);
     }
 

@@ -26,13 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>/*
-obj_ctrl_music, by BPzeBanshee
+obj_ctrl_music_v2, by BPzeBanshee
 
-Other objects (ie stage controllers) make this one call the User-Defined events 
-to play the music that they want. Most music engine-specific calls are encapsulated in
-scripts to make the code easier to read here. 
-Switching of music along with music information is loaded here, while a script
-with a separate object (obj_fade) handles music fadeouts.
+EXPERIMENTAL CONTROLLER THAT LOADS ALL MUSIC HANDLES AT ONCE.
+USE AT YOUR OWN RISK.
+
+TODO: DE-DUPLICATE CODE BY INHERITING FROM OBJ_CTRL_MUSIC
 */
 globalvar music; 
 music = 0;

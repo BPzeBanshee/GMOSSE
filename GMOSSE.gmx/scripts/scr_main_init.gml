@@ -2,6 +2,7 @@ global.debug_text = "";
 instance_create(0,0,obj_debug);
 
 globalvar USE_SANDBOX; USE_SANDBOX=1;
+global.main_dir = game_save_id;
 if USE_SANDBOX=0
     {
     /*

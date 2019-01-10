@@ -26,14 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>/*
-obj_ctrl_render, by BPzeBanshee
+obj_ctrl_render_mob, by BPzeBanshee
 
-At last, a modern render system that doesn't chew up a
-stupid amount of performance in the process of handling surfaces!
-
-This render system's end result is designed to be very similar to that
-of Blue Revolver's video options: free control of the game scale and
-rotation without GM's stupid view_angle glitches while looking pretty.
+HIGHLY EXPERIMENTAL RENDERER FOR HTML5 TARGET, USE AT YOUR OWN PERIL
 */
 // Define base resolution (modify event_user(0)'s smaller entries if changing this though)
 m_base_w = 240;

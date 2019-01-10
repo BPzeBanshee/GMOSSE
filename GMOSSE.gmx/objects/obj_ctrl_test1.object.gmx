@@ -96,14 +96,20 @@ switch stage_time
         }
     }
 
-if keyboard_check(vk_space) &amp;&amp; !instance_exists(obj_static_test)
+if keyboard_check(ord("Q")) &amp;&amp; !instance_exists(obj_static_test)
 then instance_create(xview,yview,obj_static_test);
-/*if keyboard_check(vk_space) &amp;&amp; !instance_exists(obj_beam_s)
+if keyboard_check(ord("W")) &amp;&amp; !instance_exists(obj_beam_s)
     {
     var b;
     b = instance_create(160,40,obj_beam_s);
-    b.direction = point_direction(c.x,c.y,obj_hitbox.x,obj_hitbox.y);
-    }*/
+    b.direction = point_direction(b.x,b.y,obj_hitbox.x,obj_hitbox.y);
+    }
+if keyboard_check(ord("E")) &amp;&amp; !instance_exists(obj_beam)
+    {
+    var b;
+    b = instance_create(160,40,obj_beam);
+    b.direction = point_direction(b.x,b.y,obj_hitbox.x,obj_hitbox.y);
+    }
 </string>
           </argument>
         </arguments>

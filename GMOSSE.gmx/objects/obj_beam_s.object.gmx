@@ -32,7 +32,7 @@ event_inherited();
 b_img = spr_beam;          // the beam itself
 f_img = spr_beam_flash;    // the beginning of the beam
 h_img = spr_beam_head2;      // the end of the beam
-b_spd = 4;
+b_spd = 8;
 direction = 270;
 image_xscale = 0;
 image_angle = direction;
@@ -130,7 +130,7 @@ alarm[0] = 1;
 if image_xscale &lt; 320 then image_xscale += b_spd
 else 
     {
-    direction += 1;
+    direction += 0.5;
     if alarm[0] = -1 then alarm[0] = 30;
     }
 </string>
@@ -192,7 +192,7 @@ surface_reset_target();
           <argument>
             <kind>1</kind>
             <string>// debug line
-draw_self();
+//draw_self();
 
 // laser draw stack
 if image_xscale &lt; 1 then exit;
