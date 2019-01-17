@@ -11,10 +11,15 @@ and fnt_litscore.
 
 var p,s;
 p = 1; // proportional font
-s = 1; // separation between font sprites in pixels?
+s = 1; // separation between font sprites in pixels
+/* 
+Studio 2.2.1.375 works best with s = -1 but still kinda borked,
+requires manually resizing font subimages to add space,
+confirmed fix incoming next release by YoYo
+*/
 
 // font used in Main Menu
-global.fnt_menu=font_add_sprite(spr_fnt_menu,ord(" "),p,s);
+global.fnt_menu = font_add_sprite(spr_fnt_menu,ord(" "),p,s);
 
 // default font set
 if global.fonttype = 0  

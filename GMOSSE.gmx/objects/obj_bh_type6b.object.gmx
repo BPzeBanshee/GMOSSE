@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-4</depth>
   <persistent>0</persistent>
-  <parentName>obj_bh_orb</parentName>
+  <parentName>obj_bh_type6a</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,37 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-
-size = 1;
 length = 7;
-qqx=ds_queue_create();
-qqy=ds_queue_create();
-new_x = 0;
-new_y = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>ds_queue_destroy(qqx);
-ds_queue_destroy(qqy);
+target = obj_bh_type6a;
 </string>
           </argument>
         </arguments>
@@ -79,38 +50,8 @@ ds_queue_destroy(qqy);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(obj_player)
-    {
-    moving = obj_bh_type6a.moving;
-    if moving &gt; 0
-        { 
-        ds_queue_enqueue(qqx,obj_bh_type6a.x); 
-        ds_queue_enqueue(qqy,obj_bh_type6a.y);
-
-        if moving = 1 
-            {
-            new_x = obj_bh_type6a.x - ds_queue_head(qqx);
-            new_y = obj_bh_type6a.y - ds_queue_head(qqy);
-            }
-        size += 1;
-        }
-    if moving = 2
-        {
-        x = obj_bh_type6a.x - new_x; y = obj_bh_type6a.y - new_y;
-        }
-    if size &gt; length
-        {
-        if moving = 1 
-            {
-            x = ds_queue_head(qqx); 
-            y = ds_queue_head(qqy);
-            }
-        ds_queue_dequeue(qqx); 
-        ds_queue_dequeue(qqy);
-        size -= 1;
-        }
-    }
-else instance_destroy();
+            <string>if instance_exists(target) then moving = target.moving;
+event_user(1);
 </string>
           </argument>
         </arguments>

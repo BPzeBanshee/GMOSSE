@@ -116,7 +116,7 @@ while string_height(txt) &gt; window_get_height()
           <argument>
             <kind>1</kind>
             <string>/// Bypassing ship selection screen
-global.shipselect = 1;
+global.shipselect = 3;
 
 // I'm not so sure custom bomb values are a good idea anymore...
 switch global.shipselect
@@ -139,7 +139,7 @@ global.gamecomplete = 0;
 // TODO: globalvars for specific ship stats aren't ideal
 global.xonospr = 1; 
 global.arxynespr = 1;
-global.optiontype = 1;
+global.optiontype = 6;
 global.weapontype = 1;
 </string>
           </argument>

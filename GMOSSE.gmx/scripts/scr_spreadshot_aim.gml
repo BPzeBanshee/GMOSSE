@@ -1,13 +1,10 @@
-///scr_spreadshot_aim(origin_x,origin_y,bullettype,shootsound,arc,numbullets,bulletspeed,imagedir,direction)
+///scr_spreadshot_aim(origin_x,origin_y,bullettype,shootsound,arc,numbullets,bulletspeed,imagedir,shootdir)
 /*
-Aimed bullet spread shot script
-by Alluro
+Aimed bullet spread shot script by Alluro,
+with modifications by BPzeBanshee
     
 Function:
 Shoots an arc of bullets aimed at the player.
-    
-Usage:
-aimedspreadshot(origin_x,origin_y,bullettype,shootsound,arc,numbullets,bulletspeed)
         
 Arguments:
 originx,     : the x/y location where the shot will originate

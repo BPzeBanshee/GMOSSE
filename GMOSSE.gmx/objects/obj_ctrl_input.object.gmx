@@ -241,7 +241,7 @@ switch(async_load[? "event_type"])
             <kind>1</kind>
             <string>/// SAVE SCREENSHOT
 var dir,f;
-f = scr_timestr()+".bmp";
+f = scr_timestr()+".png";
 dir = global.main_dir+"\"+f;
 
 if !global.use_new_renderer
