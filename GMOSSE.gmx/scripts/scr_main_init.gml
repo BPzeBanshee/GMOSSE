@@ -1,9 +1,18 @@
 global.debug_text = "";
 instance_create(0,0,obj_debug);
-
-globalvar USE_SANDBOX; USE_SANDBOX=1;
+/*
+if parameter_count() > 0 && parameter_string(1) != "-game"
+    {
+    var s;
+    s = "";
+    for (i=0;i<parameter_count();i++) s += parameter_string(i+1) + " ";
+    show_message(s);
+    }
+*/
 global.main_dir = game_save_id;
-if USE_SANDBOX=0
+globalvar USE_SANDBOX; 
+USE_SANDBOX = 1;
+if USE_SANDBOX = 0
     {
     /*
     TODO: find free non-sandboxed alternative,

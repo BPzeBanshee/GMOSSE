@@ -812,6 +812,7 @@
         <object>objects\obj_exp3_gen</object>
         <object>objects\obj_ctrl_attract</object>
         <object>objects\obj_ctrl_input2</object>
+        <object>objects\obj_lerp_test</object>
       </objects>
     </objects>
   </objects>

@@ -135,8 +135,6 @@ if room != rm_menu
             <kind>1</kind>
             <string>/// Terminate attract mode, go to main menu
 scr_trans(rm_menu,2,c_black,0.025,0.05,0);
-with obj_ctrl_input enabled = 1;
-instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -208,7 +206,8 @@ global.weapontype = irandom_range(1,7);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_user(0); // Load global player ship select variables
+            <string>if global.nextroom = rm_menu then exit;
+event_user(0); // Load global player ship select variables
 stagenum = choose(1,2,3); // see Create re: ds_map data, this is a hack
 /*switch global.nextroom
     {
@@ -241,10 +240,17 @@ ds_list_read(input,replay[#stagenum,0]);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>timer = 0;
-with obj_hitbox invincible = -999; // HACK to keep things interesting
-
-//random_set_seed(replay[#stagenum,1]);
+            <string>if room != rm_menu
+    {
+    timer = 0;
+    with obj_hitbox invincible = -999; // HACK to keep things interesting
+    //random_set_seed(replay[#stagenum,1]);
+    }
+else
+    {
+    with obj_ctrl_input enabled = 1;
+    instance_destroy();
+    }
 </string>
           </argument>
         </arguments>
