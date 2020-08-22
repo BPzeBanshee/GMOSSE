@@ -53,6 +53,7 @@ global.level = 61;</code>
   </views>
   <instances>
     <instance objName="obj_ctrl_test3" x="0" y="784" name="inst_2C9E47DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_e2" x="144" y="864" name="inst_FB6FB772" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_wall" x="0" y="0" w="32" h="32" xo="0" yo="32" id="10000362" name="inst_6921084D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

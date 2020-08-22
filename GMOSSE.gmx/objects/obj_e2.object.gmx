@@ -72,6 +72,8 @@ if !made
 if made
     {
     // Maintain Leg info
+    var yscroll;
+    if spd_y = 0 then yscroll = true else yscroll = false; // spd_y is a globalvar declared by scr_camera_init iirc
     for(i=0;i&lt;=2;i+=1)
         {
         for (j=0;j&lt;=1;j+=1)
@@ -79,7 +81,7 @@ if made
             leg[i,j].x = x; leg[i,j].y = y;
             leg[i,j].direction = point_direction(leg[i,j].x,leg[i,j].y,foot[i,j].x,foot[i,j].y);
             leg[i,j].image_xscale = point_distance(leg[i,j].x,leg[i,j].y,foot[i,j].x,foot[i,j].y);
-            foot[i,j].y += 0.5; foot[i,j].yy += 0.5; // fake yscroll for test
+            if yscroll {foot[i,j].y += 0.5; foot[i,j].yy += 0.5;} // fake yscroll for test
             }
         }
         
@@ -89,7 +91,7 @@ if made
 
     
     if timer &gt; 0 then timer -= 1;
-    if y &gt;= 130 &amp;&amp; timer = 0
+    if y &gt;= yview+130 &amp;&amp; timer = 0
         {
         timer = 60;
         

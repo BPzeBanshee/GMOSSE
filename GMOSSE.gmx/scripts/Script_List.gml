@@ -129,8 +129,6 @@ CORE
                 - Adds amount to the current score value.
         * scr_input()
             - Processes player input.
-        * scr_detect_joys()
-            - Detects usable joystick ID to use, see script for more info.
         * scr_main_init()
             - Responsible for all game-start operations, including DLL loading.
         * scr_main_reset()

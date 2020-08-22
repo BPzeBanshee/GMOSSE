@@ -3,7 +3,7 @@
   <spriteName>spr_bh_shot3</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-3</depth>
   <persistent>0</persistent>
   <parentName>obj_player_shot</parentName>
   <maskName>&lt;undefined&gt;</maskName>

@@ -25,20 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>enabled = 1;
-
-// TODO: This should not be needed anymore thanks to System event, commented out for now
-// Find preferred ID if there's multiple devices connected
-/*if gamepad_get_device_count() &gt; 1 &amp;&amp; gamepad_is_connected(global.joy_pref)
-    {
-    scr_console("obj_ctrl_input: locking in preferred joystick id");
-    global.joy_id = global.joy_pref;
-    }
-else 
-    {
-    scr_console("obj_ctrl_input: preferred joy/pad not found, calling scr_detect_joys()");
-    scr_detect_joys(); // only one device? okay we'll find the first one and accept it
-    }*/
+            <string>enabled = true; // toggle this to false to disable universal input
 </string>
           </argument>
         </arguments>
@@ -140,12 +127,15 @@ then instance_create(0,0,obj_ctrl_pause);
 /*
 System Event
 
-Taken from YoYoGames' Twin Stick Shooter example code
+Portions of this code taken from YoYoGames' Twin Stick Shooter example code
 modified to work with GMOSSE by BPzeBanshee
 */
 
+// Precaution to preserve joystick/gamepad state if disabled
+if !enabled then exit;
+
 // Debug code so you can see which event has been triggered
-scr_console("Event = " + async_load[? "event_type"]);        
+scr_console("Event: " + async_load[? "event_type"]);        
 
 // Parse the async_load map to see which event has been triggered
 switch(async_load[? "event_type"]) 
@@ -155,12 +145,12 @@ switch(async_load[? "event_type"])
         // Get the pad index value from the async_load map
         var pad;
         pad = async_load[? "pad_index"];
-        scr_console("Pad = " + string(pad));
+        scr_console("Pad ID: " + string(pad));
         
         // If multiple pads are connected, pick the preferred one defined via config
         if gamepad_get_device_count() &gt; 1
             {
-            if global.joy_pref = pad
+            if global.joy_pref == pad
                 {
                 global.joy_id = pad;
                 scr_console("Pad set to preferred ID "+string(pad)+" ("+string(gamepad_get_description(pad))+")");
@@ -174,16 +164,42 @@ switch(async_load[? "event_type"])
         
         // Set the deadzone for the analog stick and triggers
         //gamepad_set_axis_deadzone(pad,global.deadzone); // not needed, done manually
-        gamepad_set_button_threshold(pad,global.deadzone); // used for triggers I think
         
+        // used for certain triggers like DualShock4 L2/R2, needs alt variable of some kind
+        //gamepad_set_button_threshold(pad,global.deadzone); 
         break;
         }
     case "gamepad lost":
         {
         // Get the pad index
         var pad = async_load[? "pad_index"];
-        scr_console("Pad = " + string(pad));  
-        if global.joy_id = pad then scr_detect_joys(); // fall back if current pad lost
+        scr_console("Pad ID: " + string(pad));
+        
+        // If lost pad is currently used/preferred, find us a new one!
+        if global.joy_id == pad
+            {
+            global.joy_id = -1; // Nuke old ID
+            
+            var pad,count; 
+            pad = 0; 
+            count = 0;
+
+            // Try to find and pick the first available gamepad
+            while pad &lt; gamepad_get_device_count()
+                {
+                if gamepad_is_connected(pad) 
+                    {
+                    if global.joy_id = -1 then global.joy_id = pad;
+                    count += 1;
+                    }
+                pad += 1;
+                }
+                
+            // Report result to console
+            if pad == gamepad_get_device_count() &amp;&amp; global.joy_id == -1
+            then scr_console("Failed to find any joystick/gamepads")
+            else scr_console(string(count)+" Pads found, picked ID: "+string(global.joy_id));
+            }
         break;
         }
     }

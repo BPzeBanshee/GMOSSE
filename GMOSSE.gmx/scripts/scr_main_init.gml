@@ -1,6 +1,7 @@
 global.debug_text = "";
 instance_create(0,0,obj_debug);
 /*
+// Test code for parameters, can't think of any real uses at the moment
 if parameter_count() > 0 && parameter_string(1) != "-game"
     {
     var s;
@@ -20,6 +21,10 @@ if USE_SANDBOX = 0
     which started having dependency issues with 
     Windows 10 so we switched to YellowAfterlife's NSFS
     which has a charge for using it.
+    
+    Note: GMS2 now allows sandbox to be switched off in
+    project preferences. If migrating to GMS2 setting up
+    a DLL to break out of sandbox will be a waste of time.
     */
     }
 math_set_epsilon(0.01);
@@ -50,6 +55,7 @@ scr_fonts_init();
 instance_create(0,0,obj_ctrl_input);
 //instance_create(0,0,obj_ctrl_input2); // for experimental replay support
 instance_create(0,0,obj_ctrl_music);
+//instance_create(0,0,obj_ctrl_music_v2); // for loading all handles at once
 application_surface_draw_enable(true);
 
 if global.use_new_renderer

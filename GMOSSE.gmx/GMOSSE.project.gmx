@@ -467,7 +467,6 @@
         <script>scripts\scr_timestr.gml</script>
       </scripts>
       <script>scripts\scr_input.gml</script>
-      <script>scripts\scr_detect_joys.gml</script>
       <script>scripts\scr_main_init.gml</script>
       <script>scripts\scr_main_reset.gml</script>
     </scripts>
@@ -494,6 +493,7 @@
       <script>scripts\string_spacefix.gml</script>
     </scripts>
     <script>scripts\Script_List.gml</script>
+    <script>scripts\Depth_List.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_init</font>

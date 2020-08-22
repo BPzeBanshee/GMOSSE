@@ -26,11 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>// variable initialisation
+control = 1; // overridden by obj_ctrl_config
 mode = 1;
 timer = 0;
 msg = "";
 desc = "";
 joy_key = -1;
+pad_list[0] = 0;
 rect_h = 20;
 with obj_ctrl_input enabled = 0;
 </string>
@@ -111,7 +113,6 @@ switch mode
     case 3: msg = "Press a button for FOCUS"; break;
     case 4: msg = "Press a button for PAUSE"; break;
     case 5: instance_destroy(); break;
-    case 6: msg = "Gamepad not found!"; break; // error
     }
 
 timer += 1;
@@ -120,8 +121,9 @@ if timer &gt; 30
     if mode &lt; 6
         {
         // gamepad_* buttons range from 0 upward
-        for (i=0;i&lt;gamepad_button_count(global.joy_id);i+=1) 
+        for (var i=0; i&lt;gamepad_button_count(global.joy_id); i+=1) 
             {
+            //gamepad_button_value exists for analog buttons/triggers with button states
             if gamepad_button_check(global.joy_id,i) then joy_key = i;
             }
         if joy_key &lt; 0 then exit;
@@ -136,7 +138,7 @@ if timer &gt; 30
         timer = 0;
         joy_key = -1;
         }
-    else if timer = 60 instance_destroy();
+    else if timer == 60 then instance_destroy();
     }
 </string>
           </argument>
@@ -162,24 +164,53 @@ if timer &gt; 30
             <kind>1</kind>
             <string>/// FIND ID(S) TO USE
 rect_h = 60;
-if mode = 1
+if mode == 1
     {
+    // Fail this event if gamepads aren't even supported in this environment
+    if gamepad_is_supported() == false
+        {
+        mode = 6;
+        control = 3;
+        msg = "Gamepads not supported# on this system!";
+        }  
+    else mode = 2;
+    }
+if mode == 2
+    {
+    // Record old ID setting/preference in case, then reset ID
     old_id = global.joy_id;
     old_pr = global.joy_pref;
-    num_of_pads = scr_detect_joys();
+    global.joy_id = -1;
     
-    if num_of_pads = 0
+    // Get number of pads, and their IDs, and stick them into an array
+    var pad,num_of_pads;
+    pad = 0;
+    num_of_pads = 0;
+    while pad &lt; gamepad_get_device_count()
+        {
+        if gamepad_is_connected(pad)
+            {
+            pad_list[num_of_pads] = pad;
+            num_of_pads += 1;
+            }
+        pad += 1;
+        }
+    
+    if num_of_pads == 0
         {
         // get out of this event and give an error
         mode = 6;
         control = 3;
+        msg = "Gamepad not found!";
         }
         
-    if num_of_pads = 1
+    if num_of_pads == 1
         {
         // get out of this event and go to the rebind sequence
+        global.joy_id = pad_list[0];
         global.joy_pref = global.joy_id;
         desc = scr_linebreak(gamepad_get_description(global.joy_id),32,99);
+        mode = 1;
         control = 3;
         }
         
@@ -191,29 +222,29 @@ if mode = 1
         max_s = num_of_pads - 1;
         desc = "";
         select = min_s;
-        mode = 2;
+        mode = 3;
         }
     }
     
 // Go to submenu if more than one controller is detected
-if mode = 2
+if mode == 3
     {
     // Selection keys
     if (keyboard_check_pressed(global.keycode_left)) &amp;&amp; select &gt; min_s then select -= 1;
     if (keyboard_check_pressed(global.keycode_right)) &amp;&amp; select &lt; max_s then select += 1;
     
     // Display vars for current joy id
-    if gamepad_is_connected(select) 
-    then desc = scr_linebreak(gamepad_get_description(select),32,99)
+    if gamepad_is_connected(pad_list[select]) 
+    then desc = scr_linebreak(gamepad_get_description(pad_list[select]),32,99)
     else desc = "N/A";
     
     // Accept
     if (keyboard_check_pressed(global.keycode_button1))
         {
-        global.joy_id = select;
+        global.joy_id = pad_list[select];
         global.joy_pref = global.joy_id;
         mode = 1;
-        control = 3; // 1 if old, 2 if new
+        control = 3;
         }
         
     // Cancel
@@ -300,27 +331,27 @@ if timer &gt; 30 &amp;&amp; keyboard_key != 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_alpha(0.75);
+            <string>// Draw cover rectangle
+draw_set_alpha(0.75);
 draw_set_color(c_black);
 draw_rectangle(xview+20,yview+235,xview+220,yview+235+rect_h,0);
 
-draw_set_font(global.fnt_default); // sets the font
-draw_set_halign(fa_center); // centers the text
-draw_set_color(make_color_rgb(170,170,255)); // sets the colour to blue
+// Set text vars
+scr_draw_vars(global.fnt_default,fa_center,make_color_rgb(170,170,255));
 draw_set_alpha(1);
 draw_text(xview+120,yview+240,string(msg)); // draws the message
 
 if control &gt; 1 // Non-keyboard display
     {
-    var pad;
-    if control = 2 &amp;&amp; mode = 2
+    var pad_str;
+    if control == 2 &amp;&amp; mode == 3
         {
-        pad = string(select);
+        pad_str = string(pad_list[select]);
         if select &gt; min_s then draw_sprite_ext(spr_shipselect,-1,xview+50,yview+265,-1,1,0,c_white,1);
         if select &lt; max_s then draw_sprite_ext(spr_shipselect,-1,xview+190,yview+265,1,1,0,c_white,1);
         } 
-    else pad = string(global.joy_id);
-    draw_text(xview+120,yview+260,"ID: "+pad);
+    else pad_str = string(global.joy_id);
+    draw_text(xview+120,yview+260,"ID: "+pad_str);
     draw_text(xview+120,yview+270,string(desc));
     }
 </string>
