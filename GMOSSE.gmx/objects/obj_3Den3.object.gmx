@@ -56,8 +56,9 @@ image_angle += 2;
 z += z_speed;
 if z &gt;= 128
     {
-    new = instance_create(x,y,obj_3Den3a);
-    new.image_angle = image_angle;
+    var en;
+    en = instance_create(x,y,obj_3Den3a);
+    en.image_angle = image_angle;
     instance_destroy();
     }
 </string>
