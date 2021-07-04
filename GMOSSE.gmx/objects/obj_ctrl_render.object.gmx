@@ -148,7 +148,7 @@ event_user(0); // set window size according to selected resolution
           <argument>
             <kind>1</kind>
             <string>/// Bilinear filtering
-texture_set_interpolation(global.filter);
+//texture_set_interpolation(global.filter);
 </string>
           </argument>
         </arguments>
@@ -498,9 +498,11 @@ if m_wallpaper &gt; 0
     draw_sprite_ext(spr_outline,0,x,y,l_scale,l_scale,m_angle,c_white,1);
     }
 
+if global.filter then texture_set_interpolation(true);
 draw_set_blend_mode_ext(bm_one,bm_zero);
 draw_surface_ext(application_surface,round(xx),round(yy),l_scale,l_scale,m_angle,c_white,1);
 draw_set_blend_mode(bm_normal);
+if global.filter then texture_set_interpolation(false);
 //draw_set_blend_mode_ext(bm_src_alpha, bm_inv_src_alpha);
 
 // Apply scanlines if necessary

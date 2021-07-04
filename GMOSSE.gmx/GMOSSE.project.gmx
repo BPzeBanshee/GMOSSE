@@ -39,7 +39,9 @@
       <filename>audiere.dll</filename>
     </datafile>
   </datafiles>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\GMSched</extension>
+  </NewExtensions>
   <sounds name="sound">
     <sound>sound\snd_yoyo_bug</sound>
     <sounds name="Player">

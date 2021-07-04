@@ -469,7 +469,7 @@
     <option_showprogress>1</option_showprogress>
     <option_sizeable>False</option_sizeable>
     <option_stayontop>false</option_stayontop>
-    <option_sync_vertex>2147483648</option_sync_vertex>
+    <option_sync_vertex>0</option_sync_vertex>
     <option_textureGroup0_border>2</option_textureGroup0_border>
     <option_textureGroup0_nocropping>0</option_textureGroup0_nocropping>
     <option_textureGroup0_parent>&lt;none&gt;</option_textureGroup0_parent>
@@ -515,7 +515,7 @@
     <option_version>MK-IX</option_version>
     <option_version_build>0</option_version_build>
     <option_version_company>BPzeBanshee</option_version_company>
-    <option_version_copyright>(C)2015, BPzeBanshee </option_version_copyright>
+    <option_version_copyright>(C)2021, BPzeBanshee </option_version_copyright>
     <option_version_description>Game Maker Open-Source Shmup Engine</option_version_description>
     <option_version_major>1</option_version_major>
     <option_version_minor>9</option_version_minor>
@@ -595,7 +595,7 @@
     <option_windows_alternate_sync_method>False</option_windows_alternate_sync_method>
     <option_windows_build_version>0</option_windows_build_version>
     <option_windows_company_info>BPzeBanshee</option_windows_company_info>
-    <option_windows_copyright_info>(C)2015, BPzeBanshee </option_windows_copyright_info>
+    <option_windows_copyright_info>(C)2021, BPzeBanshee </option_windows_copyright_info>
     <option_windows_create_textures_on_demand>False</option_windows_create_textures_on_demand>
     <option_windows_description_info>Game Maker Open-Source Shmup Engine</option_windows_description_info>
     <option_windows_enable_steam>0</option_windows_enable_steam>
@@ -609,7 +609,7 @@
     <option_windows_runner_finished>Configs\Default\windows\Runner_finish.bmp</option_windows_runner_finished>
     <option_windows_runner_header>Configs\Default\windows\Runner_header.bmp</option_windows_runner_header>
     <option_windows_save_location>0</option_windows_save_location>
-    <option_windows_sleep_margin>10</option_windows_sleep_margin>
+    <option_windows_sleep_margin>5</option_windows_sleep_margin>
     <option_windows_splash_background_colour>#000000</option_windows_splash_background_colour>
     <option_windows_splash_screen>Configs\Default\windows\splash.png</option_windows_splash_screen>
     <option_windows_steam_app_id>0</option_windows_steam_app_id>

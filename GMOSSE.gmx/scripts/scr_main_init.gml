@@ -29,6 +29,14 @@ if USE_SANDBOX = 0
     }
 math_set_epsilon(0.01);
 
+
+var res;
+res = scheduler_resolution_set(1);
+if res != 0 then show_message("scheduler_resolution_set(1) returned error code "+string(res));
+scr_console("scheduler_resolution_get_min(): "+string(scheduler_resolution_get_min()));
+scr_console("scheduler_resolution_get_max(): "+string(scheduler_resolution_get_max()));
+
+
 /* INPUT */
 //Set vars and clear the joystick buttons
 global.jup = 0;

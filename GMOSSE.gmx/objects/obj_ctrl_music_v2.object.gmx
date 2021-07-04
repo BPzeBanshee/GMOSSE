@@ -230,7 +230,7 @@ else
     alpha = 0;
     info = scr_loadmusicinfo(global.music_ini,"Continue");
     music2 = scr_playmusic(global.snd_continue,0);
-    scr_setvolmusic(music);
+    scr_setvolmusic(music2);
     }
 </string>
           </argument>

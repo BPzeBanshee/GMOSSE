@@ -43,8 +43,10 @@ in this object via event_user(2). Originally it was in scr_view_vars().
 
 m_base_w = 240;
 m_base_h = 320;
+m_fullscreen = global.fullscreen;
 m_angle = global.rotation;
 m_scale = global.window_size + 1;
+m_filter = global.filter;
 l_res = "";
 l_win_w = 240;
 l_win_h = 320;
@@ -59,10 +61,10 @@ switch m_scanlines
     case 3: l_scanline_img = spr_static; break;
     }
 
-scr_screen_init();
-
 event_user(0); // Initialise control values
 event_user(1); // room_set_view the game to do what we want
+
+alarm[0] = 11; // Fullscreen
 </string>
           </argument>
         </arguments>
@@ -85,7 +87,35 @@ event_user(1); // room_set_view the game to do what we want
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>texture_set_interpolation(global.filter);
+            <string>/// Bilinear filtering
+m_filter = global.filter;
+texture_set_interpolation(m_filter);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Call scr_screen_init AFTER all window adjustments have been made
+scr_screen_init();
+display_set_gui_size(window_get_width(),window_get_height());
+display_set_gui_maximise(1,1);
 </string>
           </argument>
         </arguments>
@@ -108,10 +138,19 @@ event_user(1); // room_set_view the game to do what we want
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if m_angle != global.rotation then event_user(0);
+            <string>if m_fullscreen != global.fullscreen
+    {
+    m_fullscreen = global.fullscreen;
+    scr_fullscreen(m_fullscreen);
+    display_set_gui_size(window_get_width(),window_get_height());
+    display_set_gui_maximise(1,1);
+    }
+if m_filter != global.filter &amp;&amp; alarm[1] = -1 then alarm[1] = 1;
+if m_angle != global.rotation then event_user(0);
 if m_scale != global.window_size+1 then event_user(1);
 if m_scanlines != global.scanlines
     {
+    m_scanlines = global.scanlines;
     switch m_scanlines
         {
         default: l_scanline_img = -1; break;
@@ -205,6 +244,7 @@ m_scale = clamp(global.window_size+1,1,l_max_size);
 w = l_win_w * m_scale;
 h = l_win_h * m_scale;
 window_set_size(w,h);
+window_set_position((display_get_width()/2)-(w/2),display_get_height()/2-(h/2));
 surface_resize(application_surface,w,h);
 view_angle[0] = m_angle;
 l_res = string(w)+"x"+string(h);
@@ -240,6 +280,8 @@ while i != -1
         }
     i = room_next(i);
     }
+    
+display_set_gui_maximise(1,1);
 </string>
           </argument>
         </arguments>
@@ -352,8 +394,9 @@ alarm[1] = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if m_scanlines &gt; 0
-then draw_background_tiled_ext(l_scanline_img,0,0,1,1,c_white,global.scanline_alpha/100);
+            <string>/// Draw Scanlines
+if m_scanlines &gt; 0
+then draw_sprite_tiled_ext(l_scanline_img,0,0,0,1,1,c_white,global.scanline_alpha/100);
 </string>
           </argument>
         </arguments>
