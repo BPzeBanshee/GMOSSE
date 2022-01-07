@@ -40,7 +40,7 @@ music = 0;
 e = AInit();
 if e != 0
     {
-    scr_console("Error loading GMALP.DLL");
+    trace("Error loading GMALP.DLL");
     instance_destroy();
     }
 

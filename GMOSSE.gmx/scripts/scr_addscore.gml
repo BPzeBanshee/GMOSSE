@@ -23,10 +23,10 @@ for points in the first place.
 if argument2 != 0 // if a multiplier is given
     {
     global.chain += argument2;
-    if argument0 > 0 then score += argument0 * global.chain;
+    if argument0 > 0 then global.myscore += argument0 * global.chain;
     global.countdown += argument1;
     }
 else // no multiplier given, just add score
     {
-    if argument0 > 0 then score += argument0;
+    if argument0 > 0 then global.myscore += argument0;
     }

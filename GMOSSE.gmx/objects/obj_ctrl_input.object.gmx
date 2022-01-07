@@ -135,7 +135,7 @@ modified to work with GMOSSE by BPzeBanshee
 if !enabled then exit;
 
 // Debug code so you can see which event has been triggered
-scr_console("Event: " + async_load[? "event_type"]);        
+trace("Event: " + async_load[? "event_type"]);        
 
 // Parse the async_load map to see which event has been triggered
 switch(async_load[? "event_type"]) 
@@ -145,7 +145,7 @@ switch(async_load[? "event_type"])
         // Get the pad index value from the async_load map
         var pad;
         pad = async_load[? "pad_index"];
-        scr_console("Pad ID: " + string(pad));
+        trace("Pad ID: " + string(pad));
         
         // If multiple pads are connected, pick the preferred one defined via config
         if gamepad_get_device_count() &gt; 1
@@ -153,13 +153,13 @@ switch(async_load[? "event_type"])
             if global.joy_pref == pad
                 {
                 global.joy_id = pad;
-                scr_console("Pad set to preferred ID "+string(pad)+" ("+string(gamepad_get_description(pad))+")");
+                trace("Pad set to preferred ID "+string(pad)+" ("+string(gamepad_get_description(pad))+")");
                 }
             }
         else 
             {
             global.joy_id = pad; // otherwise if it's the only pad, use it
-            scr_console("Pad set to only available ID "+string(pad)+" ("+string(gamepad_get_description(pad))+")");
+            trace("Pad set to only available ID "+string(pad)+" ("+string(gamepad_get_description(pad))+")");
             }
         
         // Set the deadzone for the analog stick and triggers
@@ -173,7 +173,7 @@ switch(async_load[? "event_type"])
         {
         // Get the pad index
         var pad = async_load[? "pad_index"];
-        scr_console("Pad ID: " + string(pad));
+        trace("Pad ID: " + string(pad));
         
         // If lost pad is currently used/preferred, find us a new one!
         if global.joy_id == pad
@@ -197,8 +197,8 @@ switch(async_load[? "event_type"])
                 
             // Report result to console
             if pad == gamepad_get_device_count() &amp;&amp; global.joy_id == -1
-            then scr_console("Failed to find any joystick/gamepads")
-            else scr_console(string(count)+" Pads found, picked ID: "+string(global.joy_id));
+            then trace("Failed to find any joystick/gamepads")
+            else trace(string(count)+" Pads found, picked ID: "+string(global.joy_id));
             }
         break;
         }

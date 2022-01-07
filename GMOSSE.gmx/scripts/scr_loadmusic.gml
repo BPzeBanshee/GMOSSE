@@ -24,7 +24,7 @@ var m,a,b;
 m = ASourceLoad(global.music_info[1]);
 if m < 0 // Error check
     {
-    scr_console("Error loading "+string(global.music_info[1]));
+    trace("Error loading "+string(global.music_info[1]));
     return -2;
     }
     

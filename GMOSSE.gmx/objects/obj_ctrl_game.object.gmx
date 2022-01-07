@@ -34,7 +34,7 @@ obj_ctrl_game, a merge of obj_ctrl_life and obj_ctrl_score
 */
 
 // Score
-score = global.score_stored; // loads score from score_stored variable
+global.myscore = global.score_stored; // loads score from score_stored variable
 global.chain = 0;
 global.countdown = 0;
 chaincount = "";
@@ -83,7 +83,7 @@ if respawntimer &gt; 0
         instance_destroy();
         }
     }
-if respawntimer = 0 
+if respawntimer == 0 
     {
     if lives &gt; 0 then event_user(0) else
         {
@@ -92,7 +92,7 @@ if respawntimer = 0
         }
     respawntimer = -1;
     }
-if lives = 0 
+if lives == 0 
     {
     with obj_hitbox
         {
@@ -109,7 +109,7 @@ if global.countdown &gt; 180 then global.countdown = 180;
 if global.countdown = 0 then global.chain = 0;
 
 // Extends    
-if score &gt;= (3000000 * global.extend_number)
+if global.myscore &gt;= (3000000 * global.extend_number)
     {
     scr_playsnd(snd_1up,1);
     lives += 1;
@@ -122,7 +122,7 @@ if score &gt;= (3000000 * global.extend_number)
 // You can just comment this out if you're not fussed about capacity 
 if lives &gt; 3
     {
-    score += 500000;
+    global.myscore += 500000;
     lives = 3;
     a = instance_create(x,y,obj_popup);
     a.msg = "##OVERFLOW BONUS#+500000";
@@ -183,10 +183,10 @@ switch global.shipselect
           <argument>
             <kind>1</kind>
             <string>/// Store bombs/lives/score
-if global.nextroom = room || room = rm_tutorial then exit;
+if global.nextroom == room || room == rm_tutorial then exit;
 global.bombs_stored = global.bombs;
 global.lives_stored = lives;
-global.score_stored = score;
+global.score_stored = global.myscore;
 </string>
           </argument>
         </arguments>

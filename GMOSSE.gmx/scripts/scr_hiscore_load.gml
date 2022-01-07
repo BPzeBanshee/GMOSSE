@@ -36,7 +36,7 @@ else // if the file is there, as expected
     file_text_readln(scorefile);
     if str_a != str_b
         {
-        scr_console("Error loading file, likely corrupted. Resetting "+string(argument0));
+        trace("Error loading file, likely corrupted. Resetting "+string(argument0));
         file_text_close(scorefile);
         file_rename(argument0,"broke_"+argument0);
         scr_hiscore_reset();

@@ -1,10 +1,10 @@
-///scr_console(str)
+///trace(str)
 var s;
 s = string(argument0); // string itself
 
 if os_browser = browser_not_a_browser
     {
-    show_debug_message(s);
+    debug_event(string(object_get_name(object_index))+": "+string(s));
     return 0;
     }
 else

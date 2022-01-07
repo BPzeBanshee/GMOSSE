@@ -303,7 +303,7 @@ else
             <string>/// Generating scanlines
 if !window_has_focus()
     {
-    /*show_debug_message("event_user(1) called while focus lost, l_scan_scale: "
+    /*trace("event_user(1) called while focus lost, l_scan_scale: "
     +string(l_scan_scale)
     +", l_scale: "+string(l_scan_scale)
     +", application surface size at: "+string(surface_get_width(application_surface))
@@ -392,7 +392,7 @@ surface_reset_target();
             <string>/// Set Window size according to aspect etc
 if !window_has_focus()
     {
-    /*show_debug_message("event_user(0) called while focus lost, m_size: "
+    /*trace("event_user(0) called while focus lost, m_size: "
     +string(m_size)
     +", global.window_size: "+string(global.window_size)
     +", m_aspect: "+string(m_aspect)
@@ -438,7 +438,7 @@ if !window_get_fullscreen()
     }
 else alarm[1] = 2;
 
-//show_debug_message("obj_ctrl_render: event user 0, w: "+string(w)+", h: "+string(h));
+//trace("obj_ctrl_render: event user 0, w: "+string(w)+", h: "+string(h));
 </string>
           </argument>
         </arguments>

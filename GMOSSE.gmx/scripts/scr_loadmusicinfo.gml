@@ -13,7 +13,7 @@ if file_exists(argument0) && global.music_info[1] != "NONE" // if the file exist
     else
         {
         ini_close();
-        scr_console("Music Error: Couldn't find section");
+        trace("Music Error: Couldn't find section");
         return 1;
         }
     }

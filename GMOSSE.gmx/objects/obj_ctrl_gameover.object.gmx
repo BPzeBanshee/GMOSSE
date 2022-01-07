@@ -44,13 +44,13 @@ name = "";
 hassaved = 0;
 
 newscore = 0;
-if score &gt;= global.hiscore[9,3] 
+if global.myscore &gt;= global.hiscore[9,3] 
 &amp;&amp; (!instance_exists(obj_ctrl_input2) || (instance_exists(obj_ctrl_input2) &amp;&amp; obj_ctrl_input2.replaying=0)) 
 then newscore = 1;
 
 scr_pause();
 
-if global.gamecomplete = 0
+if global.gamecomplete == 0
     {
     str = "Game Over";
     with obj_ctrl_music event_user(6);
@@ -188,7 +188,7 @@ else
 if newscore &amp;&amp; !hassaved
     {
     name = letter1+letter2+letter3;
-    scr_hiscore_update(name,global.level,global.shipselect,score);
+    scr_hiscore_update(name,global.level,global.shipselect,global.myscore);
     scr_hiscore_save("score.gmes");
     hassaved = 1;
     } 

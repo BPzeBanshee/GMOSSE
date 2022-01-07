@@ -12,7 +12,7 @@ and do not keep the rest. Make sure the global vars
 aren't used anywhere else though!
 */
 if !file_exists(argument0)
-then scr_console(string(argument0)+" not found, using defaults.#Go to Options Menu to adjust settings.");
+then trace(string(argument0)+" not found, using defaults.#Go to Options Menu to adjust settings.");
 
 ini_open(argument0);
     

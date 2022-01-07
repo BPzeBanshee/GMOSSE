@@ -48,9 +48,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.bombs = global.max_bombs
+            <string>if global.bombs == global.max_bombs
     {
-    score += 5000;
+    global.myscore += 5000;
     a = instance_create(x,y,obj_popup);
     a.msg = "BONUS#+5000";
     }

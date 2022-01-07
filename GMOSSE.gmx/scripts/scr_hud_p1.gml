@@ -8,7 +8,7 @@ if instance_exists(obj_player)
     if obj_player.x < xview+64 && obj_player.y < yview+96//32 
     then draw_set_alpha(0.5);
     }
-draw_text(xview+1,yview,string(score));
+draw_text(xview+1,yview,string(global.myscore));
     
 /* MULTIPLIER */
 if global.chain > 0

@@ -180,7 +180,7 @@ else
             if !is_string(replay[#stagenum,0])
                 {
                 replay[#stagenum,0] = ds_list_write(input);
-                show_debug_message("obj_ctrl_input: Writing replay input to list");
+                trace("Writing replay input to list");
                 }
             }
         }
@@ -270,19 +270,19 @@ if room_exists(n) then global.startstage = n;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if recording = 1
+            <string>if recording == 1
     {
-    if global.nextroom = -1
+    if global.nextroom == -1
         {
         recording = 0;
         stagenum = 0;
         ds_grid_clear(replay,0);
         ds_list_clear(input);
         }
-    //show_debug_message("global.nextroom = "+string(global.nextroom)+", global.startstage = "+string(global.startstage));
-    if global.nextroom = global.startstage
+    //trace("global.nextroom = "+string(global.nextroom)+", global.startstage = "+string(global.startstage));
+    if global.nextroom == global.startstage
         {
-        show_debug_message("replay[#0,0] thru [#0,5] being set");
+        trace("replay[#0,0] thru [#0,5] being set");
         replay[#0,0] = 1;
         replay[#0,1] = room_get_name(global.startstage); // starting room
         replay[#0,2] = global.xonospr; 
@@ -290,7 +290,7 @@ if room_exists(n) then global.startstage = n;
         replay[#0,4] = global.optiontype;
         replay[#0,5] = global.weapontype;
         stagenum = 1;
-        show_debug_message("obj_ctrl_input: replay[#0,1] set to "+string(replay[#0,1]));
+        trace("replay[#0,1] set to "+string(replay[#0,1]));
         }
     else stagenum += 1;
     replay[#stagenum,2] = global.shipselect;
@@ -300,12 +300,12 @@ if room_exists(n) then global.startstage = n;
     
     if instance_exists(obj_ctrl_gameover)
         {
-        replay[#0,0] = score;
-        show_debug_message("replay[#0,0] set to score "+string(score));
+        replay[#0,0] = global.myscore;
+        trace("replay[#0,0] set to score "+string(global.myscore));
         event_user(2);
         recording = 0;
         }
-    if global.nextroom = rm_menu
+    if global.nextroom == rm_menu
         {
         recording = 0;
         stagenum = 0;
@@ -314,13 +314,13 @@ if room_exists(n) then global.startstage = n;
         }
     }
 
-if replaying = 1
+if replaying == 1
     {
     if instance_exists(obj_ctrl_gameover)
         {
         replaying = 0;
-        if score != replay[#0,0] then
-        show_message("DESYNC FAILED! replay[#0,0] did not match score "+string(score));
+        if global.myscore != replay[#0,0] then
+        show_message("DESYNC FAILED! replay[#0,0] did not match score "+string(global.myscore));
         //clipboard_set_text(sha1_string_utf8(log_str)+chr(10)+log_str);
         //log_str = "";
         stagenum = 0;
@@ -329,7 +329,7 @@ if replaying = 1
         }
     else 
         {
-        if global.nextroom = global.startstage
+        if global.nextroom == global.startstage
             {
             stagenum = 1;
             global.shipselect = replay[#stagenum,2];
@@ -354,7 +354,7 @@ if replaying = 1
         global.score_stored = replay[#stagenum,4];
         global.bombs_stored = replay[#stagenum,5];
         ds_list_read(input,replay[#stagenum,0]);
-        if ds_list_size(input)&gt;0 then show_debug_message("obj_ctrl_input: loading from replay grid to list successful.");
+        if ds_list_size(input)&gt;0 then trace("loading from replay grid to list successful.");
         }
     }
 </string>
@@ -382,7 +382,7 @@ if replaying = 1
             <string>l_step = 0;
 l_input_value = 0;
 
-if stagenum = 0 then exit;
+if stagenum == 0 then exit;
 if replaying
     {
     random_set_seed(replay[#stagenum,1]);
@@ -391,7 +391,7 @@ if recording
     {
     replay[#stagenum,0] = 0;
     replay[#stagenum,1] = random_get_seed(); // rng seed
-    show_debug_message("obj_ctrl_input: replay["+string(stagenum)+",2] returning "+string(replay[#stagenum,2]));
+    trace("replay["+string(stagenum)+",2] returning "+string(replay[#stagenum,2]));
     }
 </string>
           </argument>
@@ -474,10 +474,10 @@ else global.startstage = old_startstage;
           <argument>
             <kind>1</kind>
             <string>/// RECORD REPLAY
-if (room = rm_menu || room = rm_shipselect)
+if (room == rm_menu || room == rm_shipselect)
     {
     recording = !recording;
-    show_debug_message("obj_ctrl_input2.recording set to "+string(recording));
+    trace("recording set to "+string(recording));
     }
 </string>
           </argument>

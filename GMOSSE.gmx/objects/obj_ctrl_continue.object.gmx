@@ -143,8 +143,8 @@ if has_chosen = 1 &amp;&amp; alpha &lt;= 0
             global.bombs = global.init_bombs;
             global.continues += 1;
             if global.continues &lt; 9 
-            then score = global.continues 
-            else score = 9;
+            then global.myscore = global.continues 
+            else global.myscore = 9;
             global.countdown = 0;
             global.chain = 0;
             with obj_ctrl_game respawntimer = 1;

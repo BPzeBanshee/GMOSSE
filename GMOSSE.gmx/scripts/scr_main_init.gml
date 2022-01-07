@@ -33,8 +33,8 @@ math_set_epsilon(0.01);
 var res;
 res = scheduler_resolution_set(1);
 if res != 0 then show_message("scheduler_resolution_set(1) returned error code "+string(res));
-scr_console("scheduler_resolution_get_min(): "+string(scheduler_resolution_get_min()));
-scr_console("scheduler_resolution_get_max(): "+string(scheduler_resolution_get_max()));
+trace("scheduler_resolution_get_min(): "+string(scheduler_resolution_get_min()));
+trace("scheduler_resolution_get_max(): "+string(scheduler_resolution_get_max()));
 
 
 /* INPUT */
@@ -87,6 +87,7 @@ global.nextroom = -1;  // used for transition control/preloading
 global.startstage = rm_stage1; // hidden menu function
 global.intro = 1;
 
+global.myscore = 0;
 global.score_stored = 0;
 global.extend_number = 1;
 global.lives_stored = 3;

@@ -464,7 +464,7 @@
         <script>scripts\scr_draw_gauge.gml</script>
         <script>scripts\scr_create_healthbar.gml</script>
         <script>scripts\scr_addscore.gml</script>
-        <script>scripts\scr_console.gml</script>
+        <script>scripts\trace.gml</script>
         <script>scripts\scr_linebreak.gml</script>
         <script>scripts\scr_timestr.gml</script>
       </scripts>

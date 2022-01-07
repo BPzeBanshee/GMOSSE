@@ -55,8 +55,9 @@ lock = 0;
             <kind>1</kind>
             <string>// Aesthetics
 image_angle = direction;
-trace = instance_create(x,y,obj_warbird_laser2);
-trace.image_angle = image_angle;
+var yee;
+yee = instance_create(x,y,obj_warbird_laser2);
+yee.image_angle = image_angle;
 
 // Change from player target to enemy
 timer += 1;
@@ -70,25 +71,6 @@ if instance_exists(attacktarget)
     }
 else angle = 90;
 scr_turntoangle(angle,turnrate);
-/*if instance_exists(attacktarget)
-    {
-    lock = 1;
-    target = instance_nearest(x,y,attacktarget);
-    scr_turntoangle(point_direction(x,y,target.x,target.y),turnrate);
-    if direction != point_direction(x,y,target.x,target.y)  
-        {
-        if turnrate &lt; max_turnrate then turnrate += 1;
-        }
-    else 
-        {
-        if turnrate &gt; min_turnrate then turnrate -= 1;    
-        }
-    }
-else
-    {
-    lock = 0;
-    scr_turntoangle(90,turnrate);
-    }*/
     
 // Outside room check
 if x &lt; xview-sprite_width || x &gt; xview+240+sprite_width
@@ -117,6 +99,7 @@ then instance_destroy();
           <argument>
             <kind>1</kind>
             <string>if other.z != 128 then exit;
+var s;
 s = instance_create(x,y,obj_warbird_shothit);
 s.image_xscale = 0.75;
 s.image_yscale = 0.75;
