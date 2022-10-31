@@ -154,7 +154,7 @@ if !(global.button1)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.nextroom = 0 then exit;
+            <string>if global.nextroom == 0 then exit;
 global.score_stored = 0;
 global.extend_number = 1;
 global.lives_stored = 3;

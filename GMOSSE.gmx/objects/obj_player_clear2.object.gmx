@@ -55,13 +55,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if speed = 0 instance_destroy();
+            <string>if speed == 0 then instance_destroy();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="0">
+    <event eventtype="7" enumb="40">
       <action>
         <libid>1</libid>
         <id>603</id>

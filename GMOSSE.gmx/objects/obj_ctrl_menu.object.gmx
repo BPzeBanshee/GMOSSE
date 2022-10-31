@@ -127,18 +127,8 @@ if (global.jright &amp;&amp; !hook &amp;&amp; enabled)
 if (keyboard_check(vk_f12) &amp;&amp; !hook)
     {
     hook = 1;
-    if visible = true
-        {
-        //enabled = 0;
-        visible = false;
-        obj_title.visible = false;
-        }
-    else
-        {
-        //enabled = 1;
-        visible = true;
-        obj_title.visible = true;
-        }
+    visible = !visible;
+    with obj_title visible = !visible;
     }
     
 // Button 1
@@ -210,14 +200,12 @@ if (global.button1 &amp;&amp; !global.levelend &amp;&amp; !hook &amp;&amp; enabl
           <argument>
             <kind>1</kind>
             <string>if !enabled then exit;
-scr_draw_vars(global.fnt_default,fa_center,c_silver);
+scr_draw_vars(global.fnt_menu,fa_center,8454016);
 draw_set_alpha(1);
-draw_text(183,107,global.version_str);
-draw_set_font(global.fnt_menu);
+
 // Draw cursors
-if selection = 1
-    { 
-    draw_set_color(8454016) 
+if selection == 1
+    {
     if selection2 &gt; 1 then 
     draw_sprite_ext(spr_shipselect,-1,35,147,-1,1,0,c_white,1);
     if selection2 &lt; 3 then
@@ -234,13 +222,13 @@ switch selection2
     case 3: draw_text(120,140,"Start Tutorial"); break;
     }
 
-if selection = 2 draw_set_color(8454016) else draw_set_color(c_green);
+if selection == 2 draw_set_color(8454016) else draw_set_color(c_green);
 draw_text(120,170,"Configure Options");
-if selection = 3 draw_set_color(8454016) else draw_set_color(c_green);
+if selection == 3 draw_set_color(8454016) else draw_set_color(c_green);
 draw_text(120,200,"Show Credits");
-if selection = 4 draw_set_color(8454016) else draw_set_color(c_green);
+if selection == 4 draw_set_color(8454016) else draw_set_color(c_green);
 draw_text(120,230,"Show Scores");
-if selection = 5 draw_set_color(8454016) else draw_set_color(c_green);
+if selection == 5 draw_set_color(8454016) else draw_set_color(c_green);
 draw_text(120,260,"Exit Game");
 </string>
           </argument>

@@ -33,7 +33,7 @@ if instance_exists(obj_player)
     && obj_player.y < yview+96//24 
     then a2 = 0.25;
     }
-for (i=0;i<lives;i+=1)
+for (var i=0;i<lives;i+=1)
     {
     k = sprite_get_width(spr_lives) * i;
     draw_sprite_ext(spr_lives,0,xview+5+k,yview+19,1,1,0,c_white,a2);
@@ -47,7 +47,7 @@ if instance_exists(obj_player)
     && obj_player.y > yview+294 
     then a3 = 0.25;
     }
-if global.shipselect = 3 && instance_exists(obj_player)
+if global.shipselect == 3 && instance_exists(obj_player)
     {
     // Speed Level and Weapon Display
     var spd,op,md;
@@ -66,7 +66,7 @@ if global.shipselect = 3 && instance_exists(obj_player)
     draw_set_color(make_color_rgb(90,218,90));
     draw_set_alpha(a3);
     draw_text(xview,yview+302,op + md);
-    for (i=0;i<spd;i+=1)
+    for (var i=0;i<spd;i+=1)
         {
         k = sprite_get_width(spr_bh_spd) * i;
         draw_sprite_ext(spr_bh_spd,-1,xview+4+k,yview+316,1,1,0,c_white,a3);
@@ -75,7 +75,7 @@ if global.shipselect = 3 && instance_exists(obj_player)
 else
     {
     // Bomb Display
-    for (i=0;i<global.bombs;i+=1)
+    for (var i=0;i<global.bombs;i+=1)
         {
         k = sprite_get_width(spr_bombs) * i;
         draw_sprite_ext(spr_bombs,0,xview+8+k,yview+312,1,1,0,c_white,a3);

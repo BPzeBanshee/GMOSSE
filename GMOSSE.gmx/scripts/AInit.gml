@@ -8,7 +8,7 @@ GMALP_StreamPlay,GMALP_StreamStop,GMALP_StreamPause,GMALP_StreamResume,GMALP_Str
 GMALP_StreamGetLength,GMALP_StreamGetPosition,GMALP_StreamGetVolume,GMALP_StreamGetPitch,
 GMALP_StreamGetRepeat,GMALP_StreamGetPan,GMALP_StreamGetPitch,GMALP_StreamSetPosition,
 GMALP_StreamSetVolume,GMALP_StreamSetPitch,GMALP_StreamSetRepeat,GMALP_StreamSetPan,
-GMALP_StreamSetPitch,GMALP_StreamStopAll;
+GMALP_StreamSetPitch,GMALP_StreamStopAll,GMALP_GetDevices;
 GMALP_DLL = "GMALP.dll";
 GMALP_Call = dll_cdecl;
 
@@ -21,6 +21,7 @@ GMALP_Init = external_define(GMALP_DLL, "AInit", GMALP_Call, ty_real, 0);
 GMALP_Update = external_define(GMALP_DLL, "AUpdate", GMALP_Call, ty_real, 1, ty_real);
 GMALP_Free = external_define(GMALP_DLL, "AFree", GMALP_Call, ty_real, 0);
 GMALP_Version = external_define(GMALP_DLL, "AVersion", GMALP_Call, ty_string, 0);
+GMALP_GetDevices = external_define(GMALP_DLL, "AGetSupportedAudioDevices", GMALP_Call, ty_string, 0);
 
 // SOURCE COMMANDS
 GMALP_SourceLoad = external_define(GMALP_DLL, "ASourceLoad", GMALP_Call, ty_real, 1, ty_string);

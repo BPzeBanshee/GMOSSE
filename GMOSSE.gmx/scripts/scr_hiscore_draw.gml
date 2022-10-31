@@ -7,7 +7,7 @@ vgap = 24;
 shipscale = 0.8;
 shippos = 202;
 
-for (i=vgap; i<vgap*10; i+= vgap)
+for (var i=vgap; i<vgap*10; i+= vgap)
     {
     place = i/vgap;
     name_location = string(global.hiscore[place,0]);

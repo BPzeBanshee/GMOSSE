@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="7" name="datafiles">
+  <datafiles number="8" name="datafiles">
     <datafile>
       <name>GMALP.dll</name>
       <exists>-1</exists>
@@ -396,6 +396,7 @@
           <script>scripts\AStreamSetRepeat.gml</script>
           <script>scripts\AStreamSetPan.gml</script>
           <script>scripts\AStreamSetPitch.gml</script>
+          <script>scripts\AGetSupportedAudioDevices.gml</script>
         </scripts>
       </scripts>
       <scripts name="Config">
@@ -418,7 +419,6 @@
       </scripts>
       <scripts name="Sounds">
         <script>scripts\scr_playsnd.gml</script>
-        <script>scripts\scr_loopsnd.gml</script>
         <script>scripts\scr_setvolsnd.gml</script>
         <script>scripts\scr_stopsnd.gml</script>
       </scripts>
@@ -802,8 +802,6 @@
           <object>objects\obj_ctrl_camera_old</object>
         </objects>
         <object>objects\obj_static_test</object>
-        <object>objects\obj_en72</object>
-        <object>objects\obj_en72_tur</object>
         <object>objects\obj_en10_old</object>
         <object>objects\obj_en10_beam</object>
         <object>objects\obj_en10</object>
@@ -846,9 +844,16 @@
       </rooms>
     </rooms>
   </rooms>
+  <constants number="1">
+    <constant name="const_version_str">"MK-X BETA"</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
+  <audiogroups name="audiogroups">
+    <audiogroup name="audiogroup_default"/>
+    <audiogroup name="audiogroup_voice"/>
+  </audiogroups>
   <TutorialState>
     <IsTutorial>0</IsTutorial>
     <TutorialName></TutorialName>

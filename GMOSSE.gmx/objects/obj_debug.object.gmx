@@ -271,9 +271,9 @@ if draw_get_alpha()=0.5 then draw_set_alpha(1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// BOSS 1
+            <string>/// OMAKE 3
 event_user(0);
-global.startstage = rm_boss1;
+global.startstage = rm_omake3;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
 </string>
@@ -298,9 +298,9 @@ scr_fademusic(0.0055);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// BOSS 2
+            <string>/// OMAKE 2
 event_user(0);
-global.startstage = rm_boss2;
+global.startstage = rm_omake2;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
 </string>
@@ -325,9 +325,9 @@ scr_fademusic(0.0055);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// STAGE 2
+            <string>/// OMAKE 1
 event_user(0);
-global.startstage = rm_stage2;
+global.startstage = rm_omake1;
 scr_trans(global.startstage,3,c_black,0.025,0.05,210);
 scr_fademusic(0.0055);
 </string>
@@ -436,7 +436,7 @@ scr_fademusic(0.0055);
           <argument>
             <kind>1</kind>
             <string>/// SET CURSOR VISIBILITY
-if window_get_cursor() = cr_none
+if window_get_cursor() == cr_none
 then window_set_cursor(cr_default)
 else window_set_cursor(cr_none);
 </string>

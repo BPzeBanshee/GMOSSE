@@ -70,7 +70,7 @@ if !made
 if made
     {
     // Maintain Leg info
-    for(i=0;i&lt;=3;i+=1)
+    for(var i=0;i&lt;=3;i+=1)
         {
         leg[i].x = x; leg[i].y = y;
         leg[i].direction = point_direction(leg[i].x,leg[i].y,foot[i].x,foot[i].y);
@@ -104,8 +104,8 @@ if made
         foot[n2].yy = foot[n2].y - 64;
         
         // Set new foot x positions to move sideways
-        if keyboard_check(ord("J")) &amp;&amp; c = 0 then c = 1;
-        if keyboard_check(ord("L")) &amp;&amp; d = 0 then d = 1;
+        if keyboard_check(ord("J")) &amp;&amp; c == 0 then c = 1;
+        if keyboard_check(ord("L")) &amp;&amp; d == 0 then d = 1;
         if c &gt; 0
             {
             foot[n1].xx = foot[n1].x - 32;

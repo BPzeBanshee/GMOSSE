@@ -22,7 +22,7 @@ else
     }
 
 // Freeze background positions/save speeds
-for (i=0; i<=7; i+=1)
+for (var i=0; i<=7; i+=1)
     {
     global.bkg_vspd[i] = background_vspeed[i];
     global.bkg_hspd[i] = background_hspeed[i];

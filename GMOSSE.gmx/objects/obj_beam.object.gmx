@@ -139,7 +139,7 @@ if image_xscale &lt; 1 then exit;
 
 var i,in;
 in = floor(b_subimg);
-for(i=0; i&lt;image_xscale-32;i+=b_width)
+for(var i=0; i&lt;image_xscale-32;i+=b_width)
     {
     var xx,yy,ss;
     xx = x + lengthdir_x(i, image_angle);

@@ -40,7 +40,7 @@ p[4,2] = obj_en_tur1;
 p[5,2] = obj_en_tur1;
 
 // enemy value to set to enemy spawners
-for (i=0;i&lt;=5;i+=1) spawner_en[i]=0;
+for (var i=0;i&lt;=5;i+=1) spawner_en[i]=0;
 
 spawner_en[2] = obj_en5b;
 spawner_en[3] = obj_en5b;
@@ -67,9 +67,9 @@ spawner_en[3] = obj_en5b;
           <argument>
             <kind>1</kind>
             <string>// kill remaining turrets
-for (i=0;i&lt;=2;i+=1) //turret[i]
+for (var i=0;i&lt;=2;i+=1) //turret[i]
     {
-    for (j=0;j&lt;=m[i];j+=1) //turret[i,j]
+    for (var j=0;j&lt;=m[i];j+=1) //turret[i,j]
         {
         if instance_exists(turret[i,j])
         then with turret[i,j] instance_destroy();
@@ -102,7 +102,7 @@ else scr_playsnd(snd_exp3,1);
           <argument>
             <kind>1</kind>
             <string>// aesthetics
-thr = scr_basicshot(x,y+sprite_height/2-5,obj_en_thr,8,270);
+var thr = scr_basicshot(x,y+sprite_height/2-5,obj_en_thr,8,270);
 thr.image_xscale = 6;
 thr.image_yscale = 6;
 thr.image_angle = random(360);
@@ -117,20 +117,20 @@ event_user(0);
 if !made
     {
     b=0; 
-    for (i=0;i&lt;=2;i+=1) 
+    for (var i=0;i&lt;=2;i+=1) 
         {
-        for (j=0;j&lt;=m[i];j+=1) 
+        for (var j=0;j&lt;=m[i];j+=1) 
             {
-            turret[i,j]=instance_create(p[b,0],p[b,1],p[b,2]);
+            turret[i,j] = instance_create(p[b,0],p[b,1],p[b,2]);
             turret[i,j].active = 1;
             
             // set directions left or right depending on side of carrier
-            if b = 0 || b = 2 || b = 4 
+            if b == 0 || b == 2 || b == 4 
             then turret[i,j].direction = 180
             else turret[i,j].direction = 0;
             
             // pass through enemy to spawn for enemy spawners
-            if p[b,2] = obj_en_spawner
+            if p[b,2] == obj_en_spawner
                 {
                 dead[i,j]=1;
                 turret[i,j].spawn = spawner_en[b];
@@ -147,7 +147,7 @@ if !made
     }    
 
 // movement handling
-if hscroll=1 then hspeed = background_hspeed[0];
+if hscroll==1 then hspeed = background_hspeed[0];
 switch phase
     {
     case 1:
@@ -175,9 +175,9 @@ if !instance_exists(box) &amp;&amp; made
     {
     // Set everything that's still alive red
     image_blend = c_red;
-    for (i=0;i&lt;=2;i+=1) //turret[i]
+    for (var i=0;i&lt;=2;i+=1) //turret[i]
         {
-        for (j=0;j&lt;=m[i];j+=1) //turret[i,j]
+        for (var j=0;j&lt;=m[i];j+=1) //turret[i,j]
             {
             if instance_exists(turret[i,j]) 
             then turret[i,j].image_blend = c_red;
@@ -201,9 +201,9 @@ else // if still alive
     if !made exit;
     // set craters to colour of ship if ship colour has changed
     if image_blend != blend then 
-    for (i=0;i&lt;=2;i+=1) //turret[i]
+    for (var i=0;i&lt;=2;i+=1) //turret[i]
         {
-        for (j=0;j&lt;=m[i];j+=1) //turret[i,j]
+        for (var j=0;j&lt;=m[i];j+=1) //turret[i,j]
             {
             if instance_exists(turret[i,j]) &amp;&amp; dead[i,j]
             then turret[i,j].image_blend = image_blend;
@@ -222,9 +222,9 @@ if made = 1
         }
     
     b = 0;
-    for (i=0;i&lt;=2;i+=1) //turret[i]
+    for (var i=0;i&lt;=2;i+=1) //turret[i]
         {
-        for (j=0;j&lt;=m[i];j+=1) //turret[i,j]
+        for (var j=0;j&lt;=m[i];j+=1) //turret[i,j]
             {
             if instance_exists(turret[i,j])
                 {

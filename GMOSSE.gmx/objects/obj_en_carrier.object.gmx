@@ -55,15 +55,18 @@ timer = 120;
           <argument>
             <kind>1</kind>
             <string>// Aesthetics
-thrust = scr_basicshot(x,y-12,obj_en_thr,2,90);
-thrust.image_xscale = 4;
-thrust.image_yscale = 4;
-thrust.image_angle = irandom(360);
-thrust.z = 128;
+if !dead
+    {
+    var thrust = scr_basicshot(x,y-12,obj_en_thr,2,90);
+    thrust.image_xscale = 4;
+    thrust.image_yscale = 4;
+    thrust.image_angle = irandom(360);
+    thrust.z = 128;
+    }
 
 // Attack-related
 timer -= 1;
-if timer = 0
+if timer == 0
     {
     scr_spreadshot(x,y+16,obj_bullet2,-1,30,3,4,false); // bullet script
     scr_playsnd(snd_en_shot2,1);
@@ -96,18 +99,17 @@ if y &gt; yview+360 then instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if dead = 0
+            <string>if dead == false
     {
     scr_playsnd(snd_exp2,0);
-    with thrust instance_destroy();
     scr_addscore(100,180,1);
-    if stocktype = 1
+    if stocktype == 1
         {
-        bomb = scr_basicshot(x,y,obj_stock_bomb,3.5,90);
+        var bomb = scr_basicshot(x,y,obj_stock_bomb,3.5,90);
         bomb.gravity = 0.1;
         bomb.image_angle = 0;
         }
-    dead = 1;
+    dead = true;
     }
 
 scr_basicshot(x,y,obj_explosion,2.5,random(360));

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>// Contra Yagawa Corps Eksploshunz by Michael Bay!
 var _x, _y, _bullet;
-for (i = 0; i &lt;= 360; i+=18)
+for (var i = 0; i &lt;= 360; i+=18)
     {
     _x = lengthdir_x(0,i)+x;
     _y = lengthdir_y(0,i)+y;

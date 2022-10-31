@@ -52,21 +52,21 @@ draw_set_color(make_color_hsv(color_get_hue(mincol)+v_dif_h*v_am,color_get_satur
 draw_primitive_begin(pr_trianglestrip);
 draw_vertex(x1+lengthdir_x(r,v_st),y1+lengthdir_y(r,v_st));
 draw_vertex(x1+lengthdir_x(r+w,v_st),y1+lengthdir_y(r+w,v_st));
-for(i=1;i<floor(v_size*v_am)/forloopres;i+=1)
-{
- draw_vertex(x1+lengthdir_x(r,v_st+i*forloopres*v_dr),y1+lengthdir_y(r,v_st+i*forloopres*v_dr));
- draw_vertex(x1+lengthdir_x(r+w,v_st+i*forloopres*v_dr),y1+lengthdir_y(r+w,v_st+i*forloopres*v_dr));
-}
-if(v_am>.98)
-{
- draw_vertex(x1+lengthdir_x(r,v_en),y1+lengthdir_y(r,v_en));
- draw_vertex(x1+lengthdir_x(r+w,v_en),y1+lengthdir_y(r+w,v_en));
-}
+for(var i=1; i<floor(v_size*v_am)/forloopres; i+=1)
+    {
+    draw_vertex(x1+lengthdir_x(r,v_st+i*forloopres*v_dr),y1+lengthdir_y(r,v_st+i*forloopres*v_dr));
+    draw_vertex(x1+lengthdir_x(r+w,v_st+i*forloopres*v_dr),y1+lengthdir_y(r+w,v_st+i*forloopres*v_dr));
+    }
+if(v_am > 0.98)
+    {
+    draw_vertex(x1+lengthdir_x(r,v_en),y1+lengthdir_y(r,v_en));
+    draw_vertex(x1+lengthdir_x(r+w,v_en),y1+lengthdir_y(r+w,v_en));
+    }
 else
-{
- draw_vertex(x1+lengthdir_x(r,v_st+v_size*v_am*v_dr),y1+lengthdir_y(r,v_st+v_size*v_am*v_dr));
- draw_vertex(x1+lengthdir_x(r+w,v_st+v_size*v_am*v_dr),y1+lengthdir_y(r+w,v_st+v_size*v_am*v_dr));
-}
+    {
+    draw_vertex(x1+lengthdir_x(r,v_st+v_size*v_am*v_dr),y1+lengthdir_y(r,v_st+v_size*v_am*v_dr));
+    draw_vertex(x1+lengthdir_x(r+w,v_st+v_size*v_am*v_dr),y1+lengthdir_y(r+w,v_st+v_size*v_am*v_dr));
+    }
 draw_primitive_end();
 draw_set_color(c_white);
 draw_set_blend_mode(bm_normal);

@@ -168,7 +168,7 @@ switch phase
             if count &gt;= 17 then count = 9;
             if count = 9 || count &gt;= 15
                 {
-                for (i=2;i&lt;=6;i+=1) 
+                for (var i=2;i&lt;=6;i+=1) 
                     {
                     scr_basicshot(x,y,obj_bullet2,i,image_angle);
                     scr_basicshot(x,y,obj_bullet2,i,image_angle+45);
@@ -185,7 +185,7 @@ switch phase
                 {
                  // Attack 1
                 scr_playsnd(snd_en_shot1,1);
-                for (i=2;i&lt;=7;i+=1) {scr_basicshot(x,y,obj_bullet1,i,aim);}
+                for (var i=2;i&lt;=7;i+=1) {scr_basicshot(x,y,obj_bullet1,i,aim);}
                 }
                 
             atk_timer = 230;//.4;

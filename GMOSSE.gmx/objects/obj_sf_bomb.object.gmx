@@ -28,7 +28,7 @@
             <string>timer = 0;
 image_speed = 0.5;
 instance_create(x,y-12,obj_sf_tip);
-scr_loopsnd(snd_sf_laser,1);
+scr_playsnd(snd_sf_laser,1,true);
 </string>
           </argument>
         </arguments>

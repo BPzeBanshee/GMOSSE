@@ -119,14 +119,14 @@ if left_bound != right_bound // if scrolling not disabled
 // Wobble-agnostic Scrolling
 if spd_x != 0
     {
-    for (i=0;i&lt;m_o;i++) with objects_to_scroll[i] x += spd_x;
+    for (var i=0;i&lt;m_o;i++) with objects_to_scroll[i] x += spd_x;
     x += spd_x;
     left_bound += spd_x;
     right_bound += spd_x;
     }
 if spd_y != 0
     {
-    for (i=0;i&lt;m_o;i++) with objects_to_scroll[i] y += spd_y;
+    for (var i=0;i&lt;m_o;i++) with objects_to_scroll[i] y += spd_y;
     y += spd_y;
     }
 

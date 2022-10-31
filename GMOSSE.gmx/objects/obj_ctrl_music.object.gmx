@@ -40,15 +40,17 @@ music = 0;
 e = AInit();
 if e != 0
     {
-    trace("Error loading GMALP.DLL");
+    show_debug_message("Error loading GMALP.DLL");
     instance_destroy();
     }
-
+//show_message("AVersion(): "+AVersion());
+//show_message("AGetSupportedDevices(): "+AGetSupportedAudioDevices());
 timer = 360;
 alpha = 0;
 info = -1; // init variable for music loading scripts
 mainmenu = 0;
 gameover = 0;
+debug = false;
 
 scr_setvolsnd();
 </string>
@@ -74,6 +76,11 @@ scr_setvolsnd();
           <argument>
             <kind>1</kind>
             <string>AUpdate(); // Compulsory part of GMALP
+
+if keyboard_check_pressed(vk_space)
+    {
+    debug = !debug;
+    }
 </string>
           </argument>
         </arguments>
@@ -599,6 +606,16 @@ else if !instance_exists(obj_ctrl_pause) //menus
     then draw_text(xview,yview+310,"* "+string(global.music_info[6]));
     else draw_text(xview,yview+310,"* "+string(global.music_info[7]));
     }
+    
+if debug
+    {
+    var l,p;
+    l = AStreamGetLength(music);
+    p = AStreamGetPosition(music);
+    draw_set_alpha(1);
+    draw_text(xview,yview+280,string(p)+" / "+string(l));
+    }
+    
 draw_set_alpha(oa);
 </string>
           </argument>

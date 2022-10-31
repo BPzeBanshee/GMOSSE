@@ -6,7 +6,7 @@ scr_unpause()
 setting the backgrounds back to normal and
 deleting the stillscreen image to not be wasteful.
 */
-for (i=0; i<=7; i+=1)
+for (var i=0; i<=7; i+=1)
     {
     background_vspeed[i] = global.bkg_vspd[i];
     background_hspeed[i] = global.bkg_hspd[i];

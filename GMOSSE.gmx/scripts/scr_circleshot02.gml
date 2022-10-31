@@ -12,7 +12,7 @@ b_speed = argument5;  // bullet speed
 imageaim = argument6; // whether to set image_angle to direction or not
 
 var _x, _y, bullet;
-for (i=0; i<360; i+=density)  // controls the density of the bullet ring; smaller numbers mean tighter patterns
+for (var i=0; i<360; i+=density)  // controls the density of the bullet ring; smaller numbers mean tighter patterns
     {
     _x = origin_x + lengthdir_x(obj_dist, i);   
     _y = origin_y + lengthdir_y(obj_dist, i);

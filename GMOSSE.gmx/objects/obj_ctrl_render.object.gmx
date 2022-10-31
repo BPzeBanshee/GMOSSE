@@ -345,9 +345,9 @@ draw_set_color(c_black);
 draw_set_alpha(1);
 
 if sprite_exists(s) 
-then for (i=0;i&lt;w;i+=sw)
+then for (var i=0;i&lt;w;i+=sw)
     {
-    for (j=0;j&lt;h;j+=sh)
+    for (var j=0;j&lt;h;j+=sh)
         {
         if m_scanlines = 3 then si = irandom_range(0,sprite_get_number(spr_static)-1);
         draw_sprite(s,si,i,j);

@@ -63,7 +63,7 @@ chr1 += 1;
 text = string_copy(msg,1,chr1);
 
 // Dialog behaviour
-if room = rm_test1
+if room == rm_test1
     {
     if !global.button1 then hook = 0;
     if global.button1 &amp;&amp; !hook 
@@ -77,13 +77,13 @@ if room = rm_test1
     event_user(0);
     }
     
-if room = rm_tutorial
+if room == rm_tutorial
     {
     if !global.button1 then hook = 0;
     
     if global.button1 &amp;&amp; !hook 
-    &amp;&amp; string_length(text) = string_length(msg)
-    &amp;&amp; (mode &lt; 4 || mode = 5 || mode &gt;= 7)
+    &amp;&amp; string_length(text) == string_length(msg)
+    &amp;&amp; (mode &lt; 4 || mode == 5 || mode &gt;= 7)
         {
         hook = 1; 
         chr1 = 0;
@@ -100,7 +100,7 @@ if room = rm_tutorial
         mode += 1;
         }
         
-    if mode = 4
+    if mode == 4
         {
         if global.jup then jup_p += 1;
         if global.jdown then jdown_p += 1;
@@ -114,11 +114,9 @@ if room = rm_tutorial
             }
         }
         
-    if mode = 6
+    if mode == 6
         {
         if global.button1 then j1_p += 1;
-        //if global.button2 then j2_p += 1;
-        //if global.button3 then j3_p += 1;
         if j1_p &gt; 20 
             {
             mode += 1;
@@ -364,10 +362,8 @@ break;
           <argument>
             <kind>1</kind>
             <string>// This will draw the message
-draw_set_font(global.fnt_little);
+scr_draw_vars(global.fnt_little,fa_left,c_white);
 draw_set_alpha(1);
-draw_set_halign(fa_left);
-draw_set_color(c_white);
 x = xview;
 y = yview+200;
 draw_text(x+40,y,string_spacefix(text));

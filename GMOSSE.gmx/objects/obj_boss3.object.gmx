@@ -50,9 +50,9 @@ path_start(pth_st3_boss,2,0,1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for (i=0;i&lt;=2;i+=1) //turret[i]
+            <string>for (var i=0;i&lt;=2;i+=1) //turret[i]
         {
-        for (j=0;j&lt;=4;j+=1) //turret[i,j]
+        for (var j=0;j&lt;=4;j+=1) //turret[i,j]
             {
             if instance_exists(turret[i,j])
                 {
@@ -89,13 +89,13 @@ if keyboard_check(ord("J")) {speed = 1; direction=180;}
 if keyboard_check(ord("L")) {speed = 1; direction=0;}
 if keyboard_check(ord("K")) {speed = 1; direction=270;}
 if keyboard_check(ord("I")) {speed = 1; direction=90;}
-if keyboard_check(vk_space) speed=0;
-if made = 0
+if keyboard_check(vk_space) speed = 0;
+if made == 0
     {
     b=0; 
-    for (i=0;i&lt;=2;i+=1) 
+    for (var i=0; i&lt;=2; i+=1) 
         {
-        for (j=0;j&lt;=m[i];j+=1) 
+        for (var j=0; j&lt;=m[i]; j+=1) 
             {
             turret[i,j]=instance_create(p[b,0],p[b,1],p[b,2]);
             turret[i,j].active = 0;
@@ -108,9 +108,9 @@ if made = 0
 if made = 1
     {
     b = 0;
-    for (i=0;i&lt;=2;i+=1) //turret[i]
+    for (var i=0; i&lt;=2; i+=1) //turret[i]
         {
-        for (j=0;j&lt;=m[i];j+=1) //turret[i,j]
+        for (var j=0; j&lt;=m[i]; j+=1) //turret[i,j]
             {
             if instance_exists(turret[i,j])
                 {
@@ -134,7 +134,7 @@ if made = 1
 
 if keyboard_check_pressed(vk_alt)
     {
-    for (i=0;i&lt;=2;i+=1) {for (j=0;j&lt;=m[i];j+=1) turret[i,j].active = 1;}
+    for (var i=0;i&lt;=2;i+=1) {for (var j=0;j&lt;=m[i];j+=1) turret[i,j].active = 1;}
     }
 </string>
           </argument>

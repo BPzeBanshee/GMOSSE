@@ -1,5 +1,3 @@
-global.debug_text = "";
-instance_create(0,0,obj_debug);
 /*
 // Test code for parameters, can't think of any real uses at the moment
 if parameter_count() > 0 && parameter_string(1) != "-game"
@@ -10,32 +8,18 @@ if parameter_count() > 0 && parameter_string(1) != "-game"
     show_message(s);
     }
 */
-global.main_dir = game_save_id;
-globalvar USE_SANDBOX; 
-USE_SANDBOX = 1;
-if USE_SANDBOX = 0
-    {
-    /*
-    TODO: find free non-sandboxed alternative,
-    originally Team Grybanser Fox used GMFileSystem 
-    which started having dependency issues with 
-    Windows 10 so we switched to YellowAfterlife's NSFS
-    which has a charge for using it.
-    
-    Note: GMS2 now allows sandbox to be switched off in
-    project preferences. If migrating to GMS2 setting up
-    a DLL to break out of sandbox will be a waste of time.
-    */
-    }
-math_set_epsilon(0.01);
+math_set_epsilon(0.0001);
 
+global.debug_text = "";
+instance_create(0,0,obj_debug);
 
+// Schedule fix (not needed in GMS2)
 var res;
 res = scheduler_resolution_set(1);
-if res != 0 then show_message("scheduler_resolution_set(1) returned error code "+string(res));
+if res != 0 
+then show_message("scheduler_resolution_set(1) returned error code "+string(res));
 trace("scheduler_resolution_get_min(): "+string(scheduler_resolution_get_min()));
 trace("scheduler_resolution_get_max(): "+string(scheduler_resolution_get_max()));
-
 
 /* INPUT */
 //Set vars and clear the joystick buttons
@@ -63,12 +47,13 @@ scr_fonts_init();
 instance_create(0,0,obj_ctrl_input);
 //instance_create(0,0,obj_ctrl_input2); // for experimental replay support
 instance_create(0,0,obj_ctrl_music);
+if !audio_group_is_loaded(audiogroup_voice) then audio_group_load(audiogroup_voice);
 //instance_create(0,0,obj_ctrl_music_v2); // for loading all handles at once
 application_surface_draw_enable(true);
 
 if global.use_new_renderer
     {
-    if os_browser = browser_not_a_browser && os_type = os_windows
+    if os_browser == browser_not_a_browser && os_type == os_windows
     then instance_create(0,0,obj_ctrl_render)
     else
         {
@@ -96,7 +81,6 @@ global.max_bombs = 5;
 global.bombs_stored = global.init_bombs;
 global.continues = 0;
 global.gamecomplete = 0;
-global.version_str = "MK-X BETA";
 
 globalvar xview,yview;
 xview = view_xview[0];

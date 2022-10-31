@@ -28,14 +28,10 @@
             <string>shiptype = 0;
 deathtimer = 0;
 img = round(image_index);
-switch global.shipselect 
-    {
-    case 4: 
-        { 
-        image_index = obj_player.image_index;
-        img = obj_player.image_index;
-        break;
-        }
+if global.shipselect == 4 
+    { 
+    image_index = obj_player.image_index;
+    img = obj_player.image_index;
     }
 </string>
           </argument>
@@ -60,15 +56,13 @@ switch global.shipselect
           <argument>
             <kind>1</kind>
             <string>mp_linear_step(xview+120,yview+200,1,0);
-switch global.shipselect 
+
+// Clutch fix for Trident (banking anim)
+if global.shipselect == 4
     {
-    case 4: 
-        {
-        image_index = round(img);
-        if img &gt; 2 then img -= 0.25;
-        if img &lt; 2 then img += 0.25;
-        break;
-        }
+    image_index = round(img);
+    if img &gt; 2 then img -= 0.25;
+    if img &lt; 2 then img += 0.25;
     }
 </string>
           </argument>

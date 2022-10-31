@@ -55,7 +55,7 @@ dps = 0;
           <argument>
             <kind>1</kind>
             <string>timer += 1;
-if timer = 60
+if timer == 60
     {
     dps = enemyHP_max - enemyHP;
     enemyHP = enemyHP_max;
@@ -83,7 +83,7 @@ if timer = 60
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>dead = instance_create(x,y,obj_en1_dead);
+            <string>var dead = instance_create(x,y,obj_en1_dead);
 dead.image_angle = image_angle;
 
 // adding points to score based on chain count and adding to chain.

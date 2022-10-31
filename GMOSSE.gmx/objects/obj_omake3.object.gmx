@@ -291,10 +291,10 @@ instance_destroy();
 if x != 160 || y != yview+65 then mp_linear_step(160,yview+65,0.5,0);
 
 atk_timer += 1;
-if atk_timer = 8
+if atk_timer == 8
     {
-    for (i=2;i&lt;=6;i+=1) scr_basicshot(x1,y1,obj_bullet2,i,image_angle+(d1*12));
-    for (i=2;i&lt;=6;i+=1) scr_basicshot(x2,y2,obj_bullet2,i,image_angle-(d2*12));
+    for (var i=2;i&lt;=6;i+=1) scr_basicshot(x1,y1,obj_bullet2,i,image_angle+(d1*12));
+    for (var i=2;i&lt;=6;i+=1) scr_basicshot(x2,y2,obj_bullet2,i,image_angle-(d2*12));
     d1 += 1;
     d2 += 1;
     scr_playsnd(snd_en_shot2,1);

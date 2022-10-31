@@ -71,7 +71,7 @@ if instance_exists(obj_player)
 // Continue from here only if player is "disposed of"
 if !enabled exit;
 timer += 1;
-if timer = 390  
+if timer == 390  
     {
     scr_basicshot(p.x,p.y,obj_player_clear2,1.25,0);
     scr_basicshot(p.x,p.y,obj_player_clear2,2,0);
@@ -86,7 +86,7 @@ if timer = 390
     with obj_player_clear2 image_angle = 0;
     }
         
-if timer = 550 
+if timer == 550 
     {
     switch global.level
         {

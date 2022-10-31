@@ -57,10 +57,10 @@ if timer &gt; 60
     {
     direction += 2;
     if spd &lt; 10 then spd += 0.25;
-    shot1 = scr_basicshot(x,y,obj_en10_beam,spd,direction);
-    shot2 = scr_basicshot(x,y,obj_en10_beam,spd,direction+90);
-    shot3 = scr_basicshot(x,y,obj_en10_beam,spd,direction+180);
-    shot4 = scr_basicshot(x,y,obj_en10_beam,spd,direction+270);
+    scr_basicshot(x,y,obj_en10_beam,spd,direction);
+    scr_basicshot(x,y,obj_en10_beam,spd,direction+90);
+    scr_basicshot(x,y,obj_en10_beam,spd,direction+180);
+    scr_basicshot(x,y,obj_en10_beam,spd,direction+270);
     }
 </string>
           </argument>
@@ -88,16 +88,18 @@ if timer &gt; 60
 scr_create_exp(obj_explosion,360,18);
 scr_playsnd(global.explosion2,0);
 
-dead1 = instance_create(x,y,obj_en6_dead);
-dead1.mode = 1;
-dead2 = instance_create(x,y,obj_en6_dead);
-dead2.mode = 2;
-dead3 = instance_create(x,y,obj_en6_dead);
-dead3.mode = 2;
-dead4 = instance_create(x,y,obj_en6_dead);
-dead4.mode = 3;
-dead5 = instance_create(x,y,obj_en6_dead);
-dead5.mode = 3;
+var dead;
+dead[1] = instance_create(x,y,obj_en6_dead);
+dead[1].mode = 1;
+dead[2] = instance_create(x,y,obj_en6_dead);
+dead[2].mode = 2;
+dead[3] = instance_create(x,y,obj_en6_dead);
+dead[3].mode = 2;
+dead[4] = instance_create(x,y,obj_en6_dead);
+dead[4].mode = 3;
+dead[5] = instance_create(x,y,obj_en6_dead);
+dead[5].mode = 3;
+dead = noone;
 
 scr_addscore(600,180,1);
 instance_destroy();

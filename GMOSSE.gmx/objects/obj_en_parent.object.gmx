@@ -108,8 +108,8 @@ if enemyHP &lt; enemyHP_last &amp;&amp; flash_hit = 0
 
 // Flash when health is low
 if enemyHP &lt;= (enemyHP_max * 0.25) &amp;&amp; enemyHP &gt; 0 then flash_low += 1;
-if flash_low = 2 then image_blend = c_white;
-if flash_low = 8
+if flash_low == 2 then image_blend = c_white;
+if flash_low == 8
     {
     image_blend = c_red;
     flash_low = 0;
@@ -584,7 +584,7 @@ enemyHP -= 100;
           <argument>
             <kind>1</kind>
             <string>draw_self();
-if flash_hit = 2
+if flash_hit == 2
     {
     var b;
     if flash_low &gt; 0 then b = c_red else b = image_blend;

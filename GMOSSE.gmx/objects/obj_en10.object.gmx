@@ -55,19 +55,25 @@ if timer &gt; 60
     {
     direction += 2;
     if spd &lt; 10 then spd += 0.25;
-    if made = 0
+    if !made
         {
-        for (i=1;i&lt;=16;i+=1) shot[i] = instance_create(x,y,obj_en10_orb);
-        made = 1;
+        for (var i=1;i&lt;=16;i++) shot[i] = instance_create(x,y,obj_en10_orb);
+        made = true;
         }
     else
         {
-        p = 1; q = 1;
-        for (i=1;i&lt;=16;i+=1)
+        p = 1; 
+        q = 1;
+        for (var i=1;i&lt;=16;i++)
             {
             shot[i].x = x + lengthdir_x(spd*p,direction + (90*q));
             shot[i].y = y + lengthdir_y(spd*p,direction + (90*q));
-            p += 1; if p &gt; 4 {p = 1; q += 1;}
+            p += 1; 
+            if p &gt; 4 
+                {
+                p = 1; 
+                q += 1;
+                }
             }
         }
     }

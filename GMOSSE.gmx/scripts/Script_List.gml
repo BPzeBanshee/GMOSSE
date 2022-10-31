@@ -44,13 +44,14 @@ CORE
                 - Opens a dialog box where you can pick a music INI file.
         >
         Sounds
-            * scr_playsnd(sound,stop)
+            * scr_playsnd(sound,stop,[looping])
                 - Plays sound. "stop" indicates whether to stop any previous
-                  iterations of sound before playing it again.
-            * scr_loopsnd(sound,stop)
-                - Same as scr_playsnd, but makes a looping sound instead.
-            * scr_setvolsnd(vol)
-                - Sets the volume for all individual sound effects.
+                  iterations of sound before playing it again. Looping is
+                  an option argument and will loop the sound indefinitely
+                  if set to true.
+            * scr_setvolsnd()
+                - Sets the volume for all individual sound effects to a decimal
+                value calculated from global.sfx_volume.
             * scr_stopsnd(snd)
                 - Stops given sound.
 

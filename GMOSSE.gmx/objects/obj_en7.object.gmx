@@ -63,9 +63,9 @@ event_user(0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if made = 1
+            <string>if made
     {
-    for (i=0;i&lt;=3;i+=1) {with tur[i] instance_destroy()};
+    for (var i=0;i&lt;4;i++) {with tur[i] instance_destroy()};
     }
 </string>
           </argument>
@@ -91,7 +91,6 @@ event_user(0);
             <kind>1</kind>
             <string>// Update turret positions
 event_user(0);
-
 event_inherited();
 </string>
           </argument>
@@ -117,8 +116,8 @@ event_inherited();
             <kind>1</kind>
             <string>// Aesthetics/Thrusters
 image_angle = direction;
-thr_aim = direction+180+irandom_range(-25,25);
-thr=scr_basicshot(x+lengthdir_x(18,direction+180),y,obj_en5_thr,5,thr_aim);
+var thr_aim = direction+180+irandom_range(-25,25);
+var thr = scr_basicshot(x+lengthdir_x(18,direction+180),y,obj_en5_thr,5,thr_aim);
 thr.image_xscale = 2;
 thr.image_yscale = 2;
 thr.image_angle = irandom(360);
@@ -126,7 +125,7 @@ thr.image_angle = irandom(360);
 // Pod control
 if y &gt;= yview-(sprite_width/2) &amp;&amp; !made
     {
-    for (i=0;i&lt;=3;i+=1)
+    for (var i=0;i&lt;4;i++)
         {
         tur[i] = instance_create(p[i,0],p[i,1],obj_en7_tur);
         tur[i].parent = (self).id;
@@ -136,9 +135,9 @@ if y &gt;= yview-(sprite_width/2) &amp;&amp; !made
 
 // Attack/Move pattern
 if phase &gt; 0 then timer += 1;
-if timer = 120 &amp;&amp; phase &lt; 3
+if timer == 120 &amp;&amp; phase &lt; 3
     {
-    if phase = 1 then phase = 2 else phase = 1; 
+    if phase == 1 then phase = 2 else phase = 1; 
     timer = 0;
     }
     
@@ -152,12 +151,12 @@ switch phase
         }
     case 1: 
         {
-        if y &gt; yview+150 then phase = 3;
+        if y &gt; yview+240 then phase = 3;
         
         atk_timer += 1;
-        if atk_timer &gt;= 30 &amp;&amp; made = 1
+        if atk_timer == 30 &amp;&amp; made
             {
-            for (i=0;i&lt;=3;i+=1) {with tur[i] event_user(1)};
+            for (var i=0;i&lt;4;i++) {with tur[i] event_user(1)};
             scr_playsnd(snd_en_shot4,1);
             atk_timer = 0;
             }
@@ -165,12 +164,12 @@ switch phase
         }
     case 2: 
         {
-        if y &gt; yview+150 then phase = 3;
+        if y &gt; yview+240 then phase = 3;
         
         atk_timer += 1;
-        if atk_timer &gt;= 4 &amp;&amp; made = 1
+        if atk_timer == 4 &amp;&amp; made
             {
-            for (i=0;i&lt;=3;i+=1) {with tur[i] event_user(2)};
+            for (var i=0;i&lt;4;i++) {with tur[i] event_user(2)};
             scr_playsnd(snd_en_shot1,1);
             atk_timer = 0;
             }
@@ -209,17 +208,19 @@ then instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with thr instance_destroy();
-if made = 1
+            <string>if made
     {
-    for (i=0;i&lt;=3;i+=1) {with tur[i] visible = 0;};
+    for (var i=0;i&lt;4;i++)
+        {
+        with tur[i] visible = false;
+        }
     }
-if image_alpha = 1
+if image_alpha == 1
     {
     scr_playsnd(snd_exp2,0);
     scr_addscore(800,180,1);
     }
-e = instance_create(x,y,obj_explosion);
+var e = instance_create(x,y,obj_explosion);
 e.direction = random(360);
 e.speed = 2.5;
 
@@ -266,7 +267,7 @@ p[2,1] = y + lengthdir_y(7,direction) + lengthdir_y(7,direction-90);
 p[3,0] = x + lengthdir_x(7,direction) + lengthdir_x(7,direction+90);
 p[3,1] = y + lengthdir_y(7,direction) + lengthdir_y(7,direction+90);
 
-if made then for(i=0;i&lt;=3;i+=1)
+if made then for(var i=0; i&lt;4; i++)
     {
     tur[i].x = p[i,0];
     tur[i].y = p[i,1];

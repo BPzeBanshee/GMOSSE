@@ -55,7 +55,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth += 1;
+            <string>if place_meeting(x,y,object_index) then depth += 1;
 if !instance_exists(obj_player) then instance_destroy();
 </string>
           </argument>

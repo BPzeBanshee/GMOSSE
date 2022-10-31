@@ -6,7 +6,7 @@ l = argument1;
 sh = argument2;
 sc = argument3;//global.myscore;
 
-for (i=10;i>0;i-=1) // see GM's manual for details on for-loops
+for (var i=10;i>0;i-=1) // see GM's manual for details on for-loops
     {
     if sc > global.hiscore[i,3] // if score is more than the current array value
         {

@@ -30,8 +30,8 @@ timer = 0;
 global.behaviour = 2;
 if global.intro then mode = 1 else mode = 2;
 instance_create(120,160,obj_warp_gen);
-repeat 30 star = instance_create(room_width/2,room_height/2,obj_star);
-if mode = 1
+repeat 30 instance_create(room_width/2,room_height/2,obj_star);
+if mode == 1
     {
     a = instance_create(-120,75,obj_logo2);
     b = instance_create(360,75,obj_logo2);
@@ -69,10 +69,9 @@ else
             <kind>1</kind>
             <string>if mode = 1
     {
-    if a.x=120 &amp;&amp; b.x=120
+    if a.x == 120 &amp;&amp; b.x == 120
         {
-        if c &lt; 1 then c += 0.035;
-        if c &gt;= 1
+        if c &lt; 1 then c += 0.035 else
             {
             with a instance_destroy(); 
             with b instance_destroy();
@@ -87,9 +86,8 @@ else
     }
 else
     {
-    if c &gt; 0 then c -= 0.035;
-    if c &lt;= 0 then timer += 1;
-    if timer = 600
+    if c &gt; 0 then c -= 0.035 else timer += 1;
+    if timer == 600
         {
         instance_create(0,0,obj_ctrl_attract); // start attract mode, leave room
         }
@@ -125,16 +123,12 @@ else
             <string>if c &gt; 0 then draw_sprite_ext(spr_whitepixel,0,xview,yview,240,320,0,c_white,c);
 draw_set_alpha(1-c);
 
-if mode = 2 
+if mode == 2 
     {
-    scr_draw_vars(global.fnt_default,fa_center,c_silver);
-    draw_text(183,107,global.version_str);
-    
-    draw_set_font(global.fnt_menu);
-    draw_set_color(8454016);
+    scr_draw_vars(global.fnt_menu,fa_center,8454016);
     var st;
     st = "PRESS "+string(chr(global.keycode_button1))+" OR BUTTON 1# TO START";
-    draw_text(xview+120,yview+160,st);//"PRESS A BUTTON TO START");
+    draw_text(xview+120,yview+160,st);
     }
 </string>
           </argument>

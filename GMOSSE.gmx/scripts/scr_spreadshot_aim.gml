@@ -41,13 +41,13 @@ else arcstart = shootdir;
 if shootsound >= 0 then scr_playsnd(shootsound,1);
 
 var mybullet;
-for (bulletloop = 0; bulletloop < numbullets; bulletloop += 1)
+for (var bulletloop = 0; bulletloop < numbullets; bulletloop += 1)
     {
     mybullet = instance_create(origin_x, origin_y, bullettype);
     mybullet.direction = arcstart;
     mybullet.speed = bulletspeed;
     
-    if imagedir = 1 then mybullet.image_angle = arcstart;
+    if imagedir == 1 then mybullet.image_angle = arcstart;
     
     if numbullets > 1 then arcstart += arc / (numbullets - 1);
     }

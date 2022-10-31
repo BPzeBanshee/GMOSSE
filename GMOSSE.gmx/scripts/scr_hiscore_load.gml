@@ -4,14 +4,7 @@ scr_hiscore_load(), by BPzeBanshee
 */
 var a,c;
 c = "aLKJDalksjdalKJSDLKAJdLAJLKSDJlKASJdlkaJSDlkjakJLd";
-if USE_SANDBOX=0 
-    {
-    // READING FROM FILE
-    var b; 
-    a = program_directory+"\"+argument0;
-    b = global.main_dir+"\"+argument0;
-    }
-else a = argument0;
+a = argument0;
 if !file_exists(a) // If the file isn't there
     { // give the arrays their own default values
     // Sets default values for each position in the highscore and name arrays
@@ -20,13 +13,7 @@ if !file_exists(a) // If the file isn't there
     exit;
     }
 else // if the file is there, as expected
-    { 
-    if USE_SANDBOX=0
-        {
-        //if FS_file_exists(b) then FS_file_delete(b);
-        //FS_file_copy(a,b);
-        }
-    
+    {
     scorefile = file_text_open_read(argument0);
     
     // Error checking
@@ -45,23 +32,23 @@ else // if the file is there, as expected
         }
     
     // Normal Mode
-    for (i=1;i<=10;i+=1) // Name
+    for (var i=1; i<=10; i++) // Name
         {
         global.hiscore[i,0] = scr_decrypt(file_text_read_string(scorefile),c);
         file_text_readln(scorefile);
         }
-    for (i=1;i<=10;i+=1) // Level Reached
+    for (var i=1; i<=10; i++) // Level Reached
         {
         global.hiscore[i,1] = real(scr_decrypt(file_text_read_string(scorefile),c));
         //global.hiscore[i,1] = file_text_read_real(scorefile);
         file_text_readln(scorefile);
         }
-    for (i=1;i<=10;i+=1) // Ship Used
+    for (var i=1; i<=10; i++) // Ship Used
         {
         global.hiscore[i,2] = real(scr_decrypt(file_text_read_string(scorefile),c));
         file_text_readln(scorefile);
         }
-    for (i=1;i<=10;i+=1) // Score
+    for (var i=1; i<=10; i++) // Score
         {
         global.hiscore[i,3] = real(scr_decrypt(file_text_read_string(scorefile),c));
         file_text_readln(scorefile);

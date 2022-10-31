@@ -19,7 +19,7 @@ switch choice
     case 1: // explode_spiral01
         {
         var _x, _y, _bullet;
-        for (i = 0; i <= argument1; i+=argument2)
+        for (var i = 0; i <= argument1; i+=argument2)
             {
             _x = lengthdir_x(0,i)+x;
             _y = lengthdir_y(0,i)+y;
@@ -35,7 +35,7 @@ switch choice
     case 2: // explode_spiral02
         {
         var _x, _y, _bullet;
-        for (i = 0; i <= argument1; i+=argument2)
+        for (var i = 0; i <= argument1; i+=argument2)
             {
             _x = lengthdir_x(0,i)+x;
             _y = lengthdir_y(0,i)+y;
@@ -55,7 +55,7 @@ switch choice
         _lead = instance_create(x,y,argument0);
         _lead.speed = (argument1/42)+0.5;
         _lead.direction = random (360);
-        for (i = 0; i <= argument1; i+=argument2)
+        for (var i = 0; i <= argument1; i+=argument2)
             {
             _x = lengthdir_x(0,i)+x;
             _y = lengthdir_y(0,i)+y;
@@ -71,7 +71,7 @@ switch choice
     case 4: // explode_scatter
         {
         var _x, _y, _bullet;
-        for (i = 0; i <= argument1; i+=argument2)
+        for (var i = 0; i <= argument1; i+=argument2)
             {
             _x = lengthdir_x(0,i)+x;
             _y = lengthdir_y(0,i)+y;
@@ -87,7 +87,7 @@ switch choice
     case 5: // explode_circle01
         {
         var _x, _y, _bullet;
-        for (i = 0; i <= argument1; i+=argument2)
+        for (var i = 0; i <= argument1; i+=argument2)
             {
             _x = lengthdir_x(0,i)+x;
             _y = lengthdir_y(0,i)+y;
@@ -103,7 +103,7 @@ switch choice
     case 6: // explode_circle02
         {
         var _x, _y, _bullet;
-        for (i = 0; i <= argument1; i+=argument2)
+        for (var i = 0; i <= argument1; i+=argument2)
             {
             _x = lengthdir_x(0,i)+x;
             _y = lengthdir_y(0,i)+y;

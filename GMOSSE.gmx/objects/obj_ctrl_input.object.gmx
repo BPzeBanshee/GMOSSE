@@ -208,36 +208,6 @@ switch(async_load[? "event_type"])
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="3">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/*if USE_SANDBOX=0
-    {
-    file_delete_ns(global.main_dir+"\score.gmes");
-    
-    // this file only appears in devtests
-    if file_exists_ns(global.main_dir+"\config.ini")
-    then file_delete_ns(global.main_dir+"\config.ini");
-    }*/
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="9" enumb="120">
       <action>
         <libid>1</libid>
@@ -258,7 +228,7 @@ switch(async_load[? "event_type"])
             <string>/// SAVE SCREENSHOT
 var dir,f;
 f = scr_timestr()+".png";
-dir = global.main_dir+"\"+f;
+dir = working_directory+f;
 
 if !global.use_new_renderer
     {

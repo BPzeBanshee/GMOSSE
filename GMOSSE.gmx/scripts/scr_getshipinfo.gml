@@ -1,5 +1,5 @@
 globalvar ship_info,max_ships; // declare global variables
-for (i=0; i<6; i+=1) ship_info[i] = 0; // reset ship_info array
+for (var i=0; i<6; i+=1) ship_info[i] = 0; // reset ship_info array
 switch argument0
     {
     case 1:

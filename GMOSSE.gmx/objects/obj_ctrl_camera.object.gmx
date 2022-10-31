@@ -73,7 +73,7 @@ player_pc = player_rp / range; // player position as decimal percentage
 max_width = range - view_width; // 80 assuming playable area of 320 wide
 
 // Scrolling
-for (i=0;i&lt;array_length_1d(objects_to_scroll);i++)
+for (var i=0;i&lt;array_length_1d(objects_to_scroll);i++)
     {
     with objects_to_scroll[i]
         {
