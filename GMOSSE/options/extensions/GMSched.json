@@ -1,0 +1,9 @@
+{
+  "extensionId": {
+    "name": "GMSched",
+    "path": "extensions/GMSched/GMSched.yy"
+  },
+  "resourceVersion": "1.0",
+  "resourceType": "GMExtensionConfigSet",
+  "configurables": null
+}

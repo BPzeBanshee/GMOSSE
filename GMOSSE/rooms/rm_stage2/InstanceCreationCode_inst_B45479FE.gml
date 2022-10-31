@@ -1,0 +1,1 @@
+path_start(pth_st2a,2,0,1);

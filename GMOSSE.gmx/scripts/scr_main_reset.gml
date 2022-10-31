@@ -1,2 +1,0 @@
-AFree();
-game_restart();

@@ -1,0 +1,1 @@
+scr_playsnd(snd_bh_shothit,1);

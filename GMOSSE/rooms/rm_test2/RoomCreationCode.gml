@@ -1,0 +1,2 @@
+instance_deactivate_object(obj_en_wall);
+instance_deactivate_object(obj_en_parent);

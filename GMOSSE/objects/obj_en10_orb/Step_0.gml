@@ -1,0 +1,2 @@
+enemyHP = enemyHP_max;
+
