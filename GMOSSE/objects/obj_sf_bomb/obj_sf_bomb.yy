@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_sf_bomb",
   "spriteId": {
-    "name": "spr_sf_bombV2",
-    "path": "sprites/spr_sf_bombV2/spr_sf_bombV2.yy",
+    "name": "spr_trident_bombV2",
+    "path": "sprites/spr_trident_bombV2/spr_trident_bombV2.yy",
   },
   "solid": false,
   "visible": true,

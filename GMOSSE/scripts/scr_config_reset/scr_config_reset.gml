@@ -13,7 +13,4 @@ function scr_config_reset(argument0) {
 	scr_config_load(argument0); 
 	scr_config_save(argument0);
 	return 0;
-
-
-
 }

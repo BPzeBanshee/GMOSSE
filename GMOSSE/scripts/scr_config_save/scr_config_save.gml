@@ -22,8 +22,8 @@ function scr_config_save(argument0) {
 	ini_write_real("Keyboard","button4",global.keycode_button4);
 
 	// [VIDEO]
-	ini_write_real("Video","vertex_buffer_method",global.vertex_buffer_method);
 	ini_write_real("Video","alternate_sync",global.alternate_sync);
+	ini_write_real("Video","sleep_margin",global.sleep_margin);
 	ini_write_real("Video","fullscreen",global.fullscreen);
 	ini_write_real("Video","vsync",global.vsync);
 	ini_write_real("Video","antialiasing",global.aa);
@@ -63,7 +63,4 @@ function scr_config_save(argument0) {
 	ini_write_real("Misc","bulletcolour",global.bulletcolour);
 	ini_write_real("Misc","flicker",global.flicker);
 	ini_close();
-
-
-
 }

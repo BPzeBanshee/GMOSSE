@@ -2,8 +2,7 @@
 image_angle = direction;
 
 // Attack phases + entry and exit
-// path_index would return a path name 
-if path_index == -1 then switch mode
+switch mode
     {
     case 0: 
         { // Intro
@@ -47,13 +46,6 @@ if path_index == -1 then switch mode
         break;
         }
     }
-else
-    {
-    mode = 2;
-    // specific behaviour to enemies when set on a path
-    if x > xview+240+(sprite_width/2) || x < xview-(sprite_width/2)
-    || y > yview+320+sprite_width/2 then instance_destroy();
-    }
     
 // AESTHETICS //
 var x1,y1,x2,y2;
@@ -69,4 +61,3 @@ if thr_timer == 5
     scr_basicshot(x2,y2,layer,obj_en5_thr,3,direction+180);
     thr_timer = 0;
     }
-

@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_sf_tip",
   "spriteId": {
-    "name": "spr_sf_tip",
-    "path": "sprites/spr_sf_tip/spr_sf_tip.yy",
+    "name": "spr_trident_tip",
+    "path": "sprites/spr_trident_tip/spr_trident_tip.yy",
   },
   "solid": false,
   "visible": true,

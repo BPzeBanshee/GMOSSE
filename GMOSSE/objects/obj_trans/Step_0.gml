@@ -12,8 +12,8 @@ switch mode
         if global.levelend == 1
             {
             image_index += input_speed1;
-            if image_index = image_number then timer += 1;
-            if timer = input_delay 
+            if image_index == image_number then timer += 1;
+            if timer == input_delay 
                 {
                 if global.paused then scr_unpause();
                 room_goto(input_room);
@@ -24,7 +24,7 @@ switch mode
             {
             global.nextroom = -1;
             image_index -= input_speed2;
-            if image_index = 0 then instance_destroy();
+            if image_index == 0 then instance_destroy();
             }
         break;
         }

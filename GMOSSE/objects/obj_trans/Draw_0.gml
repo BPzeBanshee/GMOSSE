@@ -10,7 +10,6 @@ if mode == 3
     if alpha == 1 && draw_timer > 90 && global.levelend
         {
         scr_draw_vars(global.fnt_big,fa_center,c_white);
-        draw_text(xview+120,yview+80,"STAGE "+string(scr_check_nextstage())+" START");
+        draw_text(xview+120,yview+80,"STAGE "+scr_check_stage(global.nextroom)+" START");
         }
     }
-

@@ -15,7 +15,7 @@ if txt_alpha > 0
 	{
 	draw_set_alpha(txt_alpha);
 	scr_draw_vars(global.fnt_big,fa_center,c_white);
-	draw_text(xview+120,yview+70,"STAGE "+string(stage)+" CLEAR!");
+	draw_text(xview+120,yview+70,"STAGE "+stage+" CLEAR!");
 	}
 
 // Return screen alpha to previous values

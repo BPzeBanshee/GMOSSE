@@ -1,7 +1,7 @@
 /// @description scr_setdisplay(aa,vsync)
-/// @param aa
-/// @param vsync
-function scr_setdisplay(argument0, argument1) {
+/// @param {real} aa
+/// @param {bool} vsync
+function scr_setdisplay(aa, vsync) {
 	/*
 	scr_setdisplay(aa,vsync)
 	by BPzeBanshee
@@ -10,19 +10,19 @@ function scr_setdisplay(argument0, argument1) {
 	as well as the vsync function.
 	*/
 	var set_aa;
-	switch argument0
+	switch aa
 	    {
 	    default: set_aa = 0; break;
 	    case 1: set_aa = 2; break;
 	    case 2: set_aa = 4; break;
 	    case 3: set_aa = 8; break;
 	    }
-	if argument0 > scr_max_aa()
+	if aa > scr_max_aa()
 	    {
 	    trace(string(set_aa)+"xAA unsupported by your card");
 	    return -1;
 	    }
-	display_reset(set_aa,argument1);
+	display_reset(set_aa,vsync);
 
 	// Update obj_ctrl_render accordingly
 	with obj_ctrl_render 

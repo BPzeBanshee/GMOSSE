@@ -21,7 +21,6 @@ if global.myscore >= global.hiscore[9,3]
 && (!instance_exists(obj_ctrl_input2) || (instance_exists(obj_ctrl_input2) && obj_ctrl_input2.replaying=0)) 
 then newscore = 1;
 
-
 str = "Game Complete!";
 if !instance_exists(obj_ctrl_clear)
     {

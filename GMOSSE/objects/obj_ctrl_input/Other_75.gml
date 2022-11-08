@@ -1,4 +1,4 @@
-/// @description  Controller Hotplug Support
+/// @desc Controller Hotplug Support
 /*
 System Event
 
@@ -63,7 +63,7 @@ switch(async_load[? "event_type"])
                 {
                 if gamepad_is_connected(pad) 
                     {
-                    if global.joy_id = -1 then global.joy_id = pad;
+                    if global.joy_id == -1 then global.joy_id = pad;
                     count += 1;
                     }
                 pad += 1;

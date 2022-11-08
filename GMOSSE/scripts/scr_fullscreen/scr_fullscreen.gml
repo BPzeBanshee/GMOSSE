@@ -1,13 +1,10 @@
-/// @description scr_fullscreen(full)
+/*
+scr_fullscreen() by BPzeBanshee
+*/
+/// @desc Simple toggle switch, call once to go fullscreen, call again to go back windowed. 
+/// Disables display of cursor when fullscreen.
 /// @param full
 function scr_fullscreen(full) {
-	/*
-	scr_fullscreen() by BPzeBanshee
-
-	Simple toggle switch, call once to go fullscreen,
-	call again to go back windowed.
-	Disables display of cursor when fullscreen.
-	*/
 	window_set_fullscreen(full);
 
 	if full

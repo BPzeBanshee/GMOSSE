@@ -40,8 +40,8 @@ function scr_config_load(argument0) {
 	global.keycode_button4 = ini_read_real("Keyboard","button4",vk_enter);
      
 	/* VIDEO */
-	global.vertex_buffer_method = ini_read_real("Video","vertex_buffer_method",0); // vertex buffer method (windows only)
-	global.alternate_sync = ini_read_real("Video","alternate_sync",false); // alternate sync method (windows only)
+	global.alternate_sync = ini_read_real("Video","alternate_sync",false); // alternate sync method
+	global.sleep_margin = ini_read_real("Video","sleep_margin",10); // sleep margin when using alt timing
 	global.fullscreen = ini_read_real("Video","fullscreen",false); // Fullscreen mode
 	global.vsync = ini_read_real("Video","vsync",false); // vertical sync
 	global.aa = ini_read_real("Video","antialiasing",0); // Anti-aliasing 

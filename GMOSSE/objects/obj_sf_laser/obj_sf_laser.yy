@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_sf_laser",
   "spriteId": {
-    "name": "spr_sf_laser",
-    "path": "sprites/spr_sf_laser/spr_sf_laser.yy",
+    "name": "spr_trident_laser",
+    "path": "sprites/spr_trident_laser/spr_trident_laser.yy",
   },
   "solid": false,
   "visible": true,

@@ -23,7 +23,7 @@ function scr_fonts_init() {
 	global.fnt_menu = font_add_sprite(spr_fnt_menu,ord(" "),p,s);
 
 	// default font set
-	if global.fonttype = 0  
+	if global.fonttype == 0  
 	    {
 	    global.fnt_default = font_add_sprite(spr_fnt_default,ord(" "),p,s);
 	    global.fnt_debug = font_add_sprite(spr_fnt_debug,ord(" "),p,s);
@@ -33,7 +33,7 @@ function scr_fonts_init() {
 	    }
     
 	// Emerald Master's alternate font set    
-	if global.fonttype = 1
+	if global.fonttype == 1
 	    {
 	    global.fnt_default = font_add_sprite(spr_fnt_default_alt,ord(" "),p,s);
 	    global.fnt_debug = font_add_sprite(spr_fnt_debug_alt,ord(" "),p,s);
@@ -41,7 +41,4 @@ function scr_fonts_init() {
 	    global.fnt_big = font_add_sprite(spr_fnt_big_alt,ord(" "),p,s);
 	    global.fnt_shipselect = font_add_sprite(spr_fnt_shipselect_alt,ord(" "),p,s);
 	    }
-
-
-
 }

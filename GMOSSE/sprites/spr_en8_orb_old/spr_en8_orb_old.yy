@@ -48,7 +48,7 @@
             {"id":"7bbfabbe-9bbd-48c2-9512-5a0aa8a4a686","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ea0c1308-2a70-4b93-ae3d-29747579d8a4","path":"sprites/spr_en8_orb_old/spr_en8_orb_old.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "lockOrigin": false,
     "showBackdrop": true,
     "showBackdropImage": false,
@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Stage 2",
-    "path": "folders/Sprites/Enemies/Stage 2.yy",
+    "name": "old",
+    "path": "folders/Sprites/Others/old.yy",
   },
 }

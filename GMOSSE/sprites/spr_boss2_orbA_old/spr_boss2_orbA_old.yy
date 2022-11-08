@@ -80,7 +80,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Boss 2",
-    "path": "folders/Sprites/Enemies/Stage 2/Boss 2.yy",
+    "name": "old",
+    "path": "folders/Sprites/Others/old.yy",
   },
 }

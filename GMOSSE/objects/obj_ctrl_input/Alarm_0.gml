@@ -1,2 +1,1 @@
-// do nothing
-
+///@desc HTML5-only timer

@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_sf_shothit",
   "spriteId": {
-    "name": "spr_sf_shothit",
-    "path": "sprites/spr_sf_shothit/spr_sf_shothit.yy",
+    "name": "spr_trident_shothit",
+    "path": "sprites/spr_trident_shothit/spr_trident_shothit.yy",
   },
   "solid": false,
   "visible": true,

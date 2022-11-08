@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_sf_shotexp",
   "spriteId": {
-    "name": "spr_sf_shotexp",
-    "path": "sprites/spr_sf_shotexp/spr_sf_shotexp.yy",
+    "name": "spr_trident_shotexp",
+    "path": "sprites/spr_trident_shotexp/spr_trident_shotexp.yy",
   },
   "solid": false,
   "visible": true,
