@@ -37,7 +37,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "CORE",
-    "path": "folders/Objects/Controllers/CORE.yy",
+    "name": "EXPERIMENTAL",
+    "path": "folders/Objects/Others/EXPERIMENTAL.yy",
   },
 }

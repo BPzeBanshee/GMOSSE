@@ -40,7 +40,6 @@ function scr_main_init() {
 	instance_create_layer(0,0,layer,obj_ctrl_input);
 	//instance_create_layer(0,0,layer,obj_ctrl_input2); // for experimental replay support
 	instance_create_layer(0,0,layer,obj_ctrl_music);
-	if !audio_group_is_loaded(audiogroup_voice) then audio_group_load(audiogroup_voice);
 	//instance_create_layer(0,0,layer,obj_ctrl_music_v2); // for loading all handles at once
 	
 	application_surface_draw_enable(true);
@@ -70,6 +69,5 @@ function scr_main_init() {
 	global.bombs_stored = global.init_bombs;
 	global.continues = 0;
 
-	/* END */
-	//scr_trans(rm_menu,2,c_black,1,1,0);
+	/* END SCR_MAIN_INIT() - SEE OBJ_INIT FOR ROOM TRANSITION */
 }

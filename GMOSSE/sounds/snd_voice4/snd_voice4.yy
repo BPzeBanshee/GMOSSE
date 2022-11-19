@@ -11,11 +11,11 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_voice",
-    "path": "audiogroups/audiogroup_voice",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_voice4",
-  "duration": 0.0,
+  "duration": 1.478229,
   "parent": {
     "name": "Voices",
     "path": "folders/Sounds/Voices.yy",

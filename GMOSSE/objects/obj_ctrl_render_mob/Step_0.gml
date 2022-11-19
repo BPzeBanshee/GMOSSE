@@ -79,6 +79,3 @@ yy = y - lengthdir_y((m_base_w/2)*l_scale,m_angle) - lengthdir_y((m_base_h/2)*l_
         window_set_position(wx,wy);
         }
     }*/
-
-/* */
-/*  */

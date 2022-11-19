@@ -1,5 +1,5 @@
 if room == rm_init || info != 0 then exit;
-var oa; oa = draw_get_alpha();
+var oa = draw_get_alpha();
 scr_draw_vars(global.fnt_little,fa_left,make_color_rgb(90,130,255));
 
 if !instance_exists(obj_ctrl_pause)
@@ -14,9 +14,16 @@ if !instance_exists(obj_ctrl_pause) //menus
 	var yy = yview+300;
 	if instance_exists(obj_ctrl_game) then yy = yview+284;  //ingame
 	
-	draw_text(xview,yy,"* "+string(music_info[5]));
+	draw_text(xview,yy,"* "+string(music_info[4]));
     if timer < 180
-    then draw_text(xview,yy+10,"* "+string(music_info[6]));
-    else draw_text(xview,yy+10,"* "+string(music_info[7]));
+    then draw_text(xview,yy+10,"* "+string(music_info[5]));
+    else draw_text(xview,yy+10,"* "+string(music_info[6]));
 	} 
+/*
+var l,p;
+l = AStreamGetLength(music);
+p = AStreamGetPosition(music);
+draw_set_alpha(1);
+draw_text(xview,yview+280,(string(p)+" / "+string(l)));
+*/
 draw_set_alpha(oa);

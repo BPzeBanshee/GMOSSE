@@ -12,17 +12,17 @@ draw_set_alpha(alpha);
 
 if instance_exists(obj_ctrl_game) //ingame
     {
-    draw_text(xview,yview+284,"* "+string(global.music_info[5]));
+    draw_text(xview,yview+284,"* "+string(global.music_info[4]));
     if timer < 180 
-    then draw_text(xview,yview+294,"* "+string(global.music_info[6]))
-    else draw_text(xview,yview+294,"* "+string(global.music_info[7]));    
+    then draw_text(xview,yview+294,"* "+string(global.music_info[5]))
+    else draw_text(xview,yview+294,"* "+string(global.music_info[6]));    
     }
 else if !instance_exists(obj_ctrl_pause) //menus
     {
-    draw_text(xview,yview+300,"* "+string(global.music_info[5]));
+    draw_text(xview,yview+300,"* "+string(global.music_info[4]));
     if timer < 180
-    then draw_text(xview,yview+310,"* "+string(global.music_info[6]));
-    else draw_text(xview,yview+310,"* "+string(global.music_info[7]));
+    then draw_text(xview,yview+310,"* "+string(global.music_info[5]));
+    else draw_text(xview,yview+310,"* "+string(global.music_info[6]));
     }
     
 if debug

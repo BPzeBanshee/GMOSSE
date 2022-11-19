@@ -7,7 +7,13 @@ scripts to make the code easier to read here.
 Switching of music along with music information is loaded here, while a script
 with a separate object (obj_fade) handles music fadeouts.
 */
-
+music = -1;
+music2 = -1;
+fade_in = false;
+fade_out = false;
+fade_amount = 0;
+fade_value = -1;
+fade_song = -1; //clutch to stop music switching getting faded out
 
 var e = AInit();
 if e != 0
@@ -19,11 +25,7 @@ if e != 0
 //show_message("AGetSupportedDevices(): "+AGetSupportedAudioDevices());
 timer = 360;
 alpha = 0;
-
-music = -1;
-music2 = -1;
 info = -1; // init variable for music loading scripts
-
 mainmenu = 0;
 gameover = 0;
 debug = false;
