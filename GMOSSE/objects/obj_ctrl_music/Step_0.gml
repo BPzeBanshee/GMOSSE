@@ -1,6 +1,6 @@
 AUpdate(); // Compulsory part of GMALP
 
-// FADE OUT EFFECT (REPLACES OBJ_FADE)
+// FADE OUT EFFECT
 if fade_out == true && !fade_in
 	{
 	// get current volume, and start process

@@ -3,7 +3,7 @@ function scr_setvolsnd() {
 
 	// First, get a decimal value to work with based on global setting
 	var vol = round(global.sfx_volume)/100;
-	var vol2 = round(global.voice_volume/100);
+	var vol2 = round(global.voice_volume)/100;
 
 	// Set most of the sounds to begin with
 	audio_group_set_gain(audiogroup_default,vol,0);

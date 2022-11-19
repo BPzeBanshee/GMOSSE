@@ -2,10 +2,10 @@
 obj_ctrl_music, by BPzeBanshee
 
 Other objects (ie stage controllers) make this one call the User-Defined events 
-to play the music that they want. Most music engine-specific calls are encapsulated in
-scripts to make the code easier to read here. 
-Switching of music along with music information is loaded here, while a script
-with a separate object (obj_fade) handles music fadeouts.
+to play the music that they want. Most music engine-specific calls are 
+encapsulated in scripts to make the code easier to read here. 
+Switching of music along with music information is loaded here,
+along with music fadeouts via setting variable flags.
 */
 music = -1;
 music2 = -1;

@@ -36,7 +36,7 @@ CORE
 	        * scr_setvolmusic(volume)
 	            - Sets the volume to be used by GMALP. Range from 0 to 1.
 	        * scr_fademusic(musictofade,amount)
-	            - Creates obj_fade, which fades out the music.
+	            - Fades the music out via a flag in obj_ctrl_music.
 	        * scr_playmusic(music)
 	            - Plays given music.
 	        * scr_pickmusicini()
