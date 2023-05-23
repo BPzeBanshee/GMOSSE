@@ -132,7 +132,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
   ],
   "IncludedFiles": [
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"music_old.ini","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"boss1.ogg","CopyToMask":-1,"filePath":"datafiles/music_old",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"complete.ogg","CopyToMask":-1,"filePath":"datafiles/music_old",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"continue.ogg","CopyToMask":-1,"filePath":"datafiles/music_old",},
@@ -146,7 +145,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"stage2.ogg","CopyToMask":-1,"filePath":"datafiles/music_old",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"stage3.ogg","CopyToMask":-1,"filePath":"datafiles/music_old",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"stage3b.ogg","CopyToMask":-1,"filePath":"datafiles/music_old",},
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"music.ini","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"boss1_v5.ogg","CopyToMask":-1,"filePath":"datafiles/music",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"complete_v3.ogg","CopyToMask":-1,"filePath":"datafiles/music",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"continue_v3.ogg","CopyToMask":-1,"filePath":"datafiles/music",},
