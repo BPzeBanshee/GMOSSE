@@ -3,7 +3,8 @@
 /*/
 !/GMOSSE
 !/.gitignore
-!/sounds
+!/music
+!/music_old
 !/TODO.txt
 !/README.md
 !/*.ini
