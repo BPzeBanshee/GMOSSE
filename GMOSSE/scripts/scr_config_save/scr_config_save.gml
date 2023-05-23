@@ -1,6 +1,6 @@
-function scr_config_save(argument0) {
+function scr_config_save(location) {
 	// Saves settings to config
-	ini_open(argument0);
+	ini_open(location);
 
 	// [JOYSTICK]
 	ini_write_real("Joystick","joy_pref",global.joy_pref);

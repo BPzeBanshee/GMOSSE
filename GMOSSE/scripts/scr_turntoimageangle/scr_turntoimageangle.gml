@@ -1,4 +1,4 @@
-function scr_turntoimageangle(argument0, argument1) {
+function scr_turntoimageangle(angle,turnspeed) {
 	/*
 	**  Usage:
 	**      scr_turntoangle(angle,turnspeed)
@@ -12,42 +12,34 @@ function scr_turntoimageangle(argument0, argument1) {
 	**      a desired image_angle by a given number of degrees
 	**
 	**  GMLscripts.com
-	**  renamed by BPzeBanshee to conform to standard
-	**  modified by BPzeBanshee to alter image_angle instead 
+	**  modified by BPzeBanshee for consistency and to alter image_angle 
 	*/
-	{
-	    var wdir, tempdir, turnspeed;
-	    wdir = argument0;
-	    turnspeed = argument1;
-	    if (abs(wdir-image_angle) > 180) {
-	        if (wdir > 180) {
-	            tempdir = wdir - 360;
-	            if (abs(tempdir-image_angle) > turnspeed) {
-	                image_angle -= turnspeed;
-	            } else {
-	                image_angle = wdir;
-	            }
-	        } else {
-	            tempdir = wdir + 360;
-	            if (abs(tempdir-image_angle) > turnspeed) {
-	                image_angle += turnspeed;
-	            } else {
-	                image_angle = wdir;
-	            }
-	        }
-	    } else {
-	        if (abs(wdir - image_angle) > turnspeed) {
-	            if (wdir > image_angle) {
-	                image_angle += turnspeed;
-	            } else {
-	                image_angle -= turnspeed;
-	            }
-	        } else {
-	            image_angle = wdir;
-	        }
-	    }
-	}
-
-
-
+	var tempdir;
+	if (abs(angle-image_angle) > 180) 
+		{
+		if (angle > 180) 
+			{
+		    tempdir = angle - 360;
+		    if (abs(tempdir-image_angle) > turnspeed) 
+			then image_angle -= turnspeed
+			else image_angle = angle;
+		    } 
+		else 
+			{
+		    tempdir = angle + 360;
+		    if (abs(tempdir-image_angle) > turnspeed)
+		    then image_angle += turnspeed
+		    else image_angle = angle;
+		    }
+		} 
+	else 
+		{
+	    if (abs(angle - image_angle) > turnspeed) 
+			{
+	        if (angle > image_angle)
+	        then image_angle += turnspeed
+	        else image_angle -= turnspeed;
+			} 
+		else image_angle = angle;
+		}
 }

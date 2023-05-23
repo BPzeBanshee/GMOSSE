@@ -1,5 +1,3 @@
-AUpdate(); // Compulsory part of GMALP
-
 // FADE OUT EFFECT
 if fade_out == true && !fade_in
 	{
@@ -20,12 +18,12 @@ if fade_out == true && !fade_in
 	
 	// decrement value relative to volume setting
 	fade_value -= (vol_current * fade_amount);
-	AStreamSetVolume(music,max(0,fade_value));
+	audio_sound_gain(music,max(0,fade_value),0);
 	
 	// and stop track when fully silent
 	if fade_value <= 0
 		{
-		AStreamStop(music);
+		audio_stop_sound(music);
 		fade_value = -1;
 		fade_out = false;
 		}
@@ -50,7 +48,7 @@ if fade_in == true && !fade_out
 		}
 	
 	fade_value += (vol_current * fade_amount);
-	AStreamSetVolume(music,min(1,fade_value));
+	audio_sound_gain(music,min(1,fade_value),0);
 	
 	if fade_value >= 1
 		{

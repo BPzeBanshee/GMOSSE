@@ -1,21 +1,16 @@
 /// @description scr_decrypt(str,key)
 /// @param str
 /// @param key
-function scr_decrypt(argument0, argument1) {
+function scr_decrypt(str,key) {
 	/*
 	rc4_decrypt_b64
 
 	based off the rc4 script by xot
 	with modifications for GMS use by NailBuster
 	*/
-	var str,key,out,len,strlen,i,S,j,temp,pos,t,pad,b64,bin,tab,outsize;
-
-	str = argument0;
-	key = argument1;
-
+	var out,len,strlen,i,S,j,temp,pos,t,pad,b64,bin,tab,outsize;
 
 	//base64_decode string to array of bytes for decryption
-
 	strlen = string_length(str);
 	for (i=0; i<strlen; i+=1) out[i] = 0;
 	outsize=0;
@@ -38,9 +33,7 @@ function scr_decrypt(argument0, argument1) {
 	    if (bin[3] >= 0) { out[outsize] = (255&(bin[2]<<6)|(bin[3])); outsize +=1;}
 	    }
 
-
-	outst="";
-
+	var outst="";
 	len = string_length(key);
 	for (i=0; i<256; i+=1) S[i] = i;
 	j = 0;
@@ -63,9 +56,5 @@ function scr_decrypt(argument0, argument1) {
 	    t = (S[i] + S[j]) mod 256;
 	    outst += chr(out[pos] ^ S[t]);
 	    }
-
 	return (outst);
-
-
-
 }

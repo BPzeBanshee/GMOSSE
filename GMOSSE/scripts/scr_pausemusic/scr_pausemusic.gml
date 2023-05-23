@@ -7,6 +7,6 @@ function scr_pausemusic(_bool) {
 	if instance_exists(obj_ctrl_music)
 		{
 		var m = obj_ctrl_music.music;
-		if _bool then AStreamPause(m) else AStreamResume(m);
+		if _bool then audio_pause_sound(m) else audio_resume_sound(m);
 		}
 }

@@ -15,14 +15,6 @@ fade_amount = 0;
 fade_value = -1;
 fade_song = -1; //clutch to stop music switching getting faded out
 
-var e = AInit();
-if e != 0
-    {
-    show_debug_message("Error loading GMALP.DLL");
-    instance_destroy();
-    }
-//show_message("AVersion(): "+AVersion());
-//show_message("AGetSupportedDevices(): "+AGetSupportedAudioDevices());
 timer = 360;
 alpha = 0;
 info = -1; // init variable for music loading scripts

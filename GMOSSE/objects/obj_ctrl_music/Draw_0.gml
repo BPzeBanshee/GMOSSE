@@ -19,11 +19,4 @@ if !instance_exists(obj_ctrl_pause) //menus
     then draw_text(xview,yy+10,"* "+string(music_info[5]));
     else draw_text(xview,yy+10,"* "+string(music_info[6]));
 	} 
-/*
-var l,p;
-l = AStreamGetLength(music);
-p = AStreamGetPosition(music);
-draw_set_alpha(1);
-draw_text(xview,yview+280,(string(p)+" / "+string(l)));
-*/
 draw_set_alpha(oa);

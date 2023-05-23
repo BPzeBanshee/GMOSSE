@@ -176,13 +176,14 @@ if category == 5
     draw_text(xview+60,yview+s+(g*4),"BULLET COLOUR: "+string(b_str));
     draw_text(xview+60,yview+s+(g*5),"EXPLOSION FLICKER: "+string(flicker_str));
     draw_text(xview+60,yview+s+(g*6),"RESET HIGHSCORES");
+	draw_text(xview+60,yview+s+(g*7),"RESET CONFIG");
     
-    draw_text(xview+60,yview+s+(g*8),"RETURN TO MENU");
+    draw_text(xview+60,yview+s+(g*9),"RETURN TO MENU");
     
     if timer > 0
         {
         draw_set_color(c_white);
-        draw_text(xview+60,yview+s+(g*10),"HIGH SCORES RESET!");
+        draw_text(xview+60,yview+s+(g*11),reset_msg);
         }
     }
     

@@ -6,6 +6,7 @@ selection = 1;
 selection_max = 1;
 warning = "";
 category_type = "";
+reset_msg = "";
 max_h = 0;
 timer = 0;
 

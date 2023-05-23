@@ -52,3 +52,7 @@ if keyboard_check(ord("E")) && !instance_exists(obj_beam)
     b = instance_create_layer(160,40,global.lay_bullets,obj_beam);
     b.direction = point_direction(b.x,b.y,obj_hitbox.x,obj_hitbox.y);
     }
+
+/*z += 0.1;
+var xx = obj_hitbox.x/320;
+fx_set_parameter(fx,"g_ParallaxPosition",[-xx,2,-z]);*/

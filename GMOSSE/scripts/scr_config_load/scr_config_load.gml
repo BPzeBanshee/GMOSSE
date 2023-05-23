@@ -1,6 +1,6 @@
-/// @description scr_config_load(ini)
-/// @param ini
-function scr_config_load(argument0) {
+/// @description scr_config_load(location)
+/// @param location
+function scr_config_load(location) {
 	/*
 	scr_config_load(), by BPzeBanshee
 
@@ -13,10 +13,10 @@ function scr_config_load(argument0) {
 	and do not keep the rest. Make sure the global vars
 	aren't used anywhere else though!
 	*/
-	if !file_exists(argument0)
-	then trace(string(argument0)+" not found, using defaults.\nGo to Options Menu to adjust settings.");
+	if !file_exists(location)
+	then trace(string(location)+" not found, using defaults.\nGo to Options Menu to adjust settings.");
 
-	ini_open(argument0);
+	ini_open(location);
     
 	/* JOYSTICK */
 	// joystick button numbers

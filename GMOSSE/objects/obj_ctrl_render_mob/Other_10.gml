@@ -19,4 +19,3 @@ l_delay = 0;
 
 // Restore filter use if applicable
 alarm[1] = 10;
-

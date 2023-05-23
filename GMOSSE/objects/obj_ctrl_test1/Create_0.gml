@@ -20,3 +20,7 @@ repeat 15
 
 scr_camera_init(0,80,0,0);
 instance_create_layer(x+160,y+240,layer,obj_ctrl_game);
+
+/*z = 0;
+fx = layer_get_fx("Effect_1");
+show_debug_message(fx_get_parameters(fx));*/

@@ -1,18 +1,14 @@
 /// @description scr_encrypt(str,key)
 /// @param str
 /// @param key
-function scr_encrypt(argument0, argument1) {
+function scr_encrypt(str,key) {
 	/*
 	rc4_encrypt_b64
 
 	based off the rc4 script by xot
 	with modifications for GMS use by NailBuster
 	*/
-	var str,key,out,len,strlen,i,S,j,temp,pos,t,pad,b64,bin,tab;
-
-
-	str = argument0;
-	key = argument1;
+	var out,len,strlen,i,S,j,temp,pos,t,pad,b64,bin,tab;
 
 	strlen = string_length(str);
 	for (i=0; i<strlen; i+=1) out[i] = 0;
@@ -67,7 +63,4 @@ function scr_encrypt(argument0, argument1) {
 	    else pad +="=";
 	    }
 	return b64 + pad;
-
-
-
 }

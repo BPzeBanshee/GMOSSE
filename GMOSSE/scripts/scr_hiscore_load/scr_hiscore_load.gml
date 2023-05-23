@@ -1,22 +1,22 @@
 /// @description scr_hiscore_load(file)
-/// @param file
-function scr_hiscore_load(argument0) {
+/// @param myfile
+function scr_hiscore_load(myfile) {
 	/*
 	scr_hiscore_load(), by BPzeBanshee
 	*/
 	var a,c;
 	c = "aLKJDalksjdalKJSDLKAJdLAJLKSDJlKASJdlkaJSDlkjakJLd";
-	a = argument0;
+	a = myfile;
 	if !file_exists(a) // If the file isn't there
 	    { // give the arrays their own default values
 	    // Sets default values for each position in the highscore and name arrays
 	    scr_hiscore_reset();
-	    scr_hiscore_save(argument0);
+	    scr_hiscore_save(myfile);
 	    exit;
 	    }
 	else // if the file is there, as expected
 	    {
-	    scorefile = file_text_open_read(argument0);
+	    var scorefile = file_text_open_read(myfile);
     
 	    // Error checking
 	    var str_a,str_b;
@@ -25,11 +25,11 @@ function scr_hiscore_load(argument0) {
 	    file_text_readln(scorefile);
 	    if str_a != str_b
 	        {
-	        trace("Error loading file, likely corrupted. Resetting "+string(argument0));
+	        trace("Error loading file, likely corrupted. Resetting "+string(myfile));
 	        file_text_close(scorefile);
-	        file_rename(argument0,"broke_"+argument0);
+	        file_rename(myfile,"broke_"+myfile);
 	        scr_hiscore_reset();
-	        scr_hiscore_save(argument0);
+	        scr_hiscore_save(myfile);
 	        return -1;
 	        }
     
@@ -57,7 +57,4 @@ function scr_hiscore_load(argument0) {
 	        }
 	    file_text_close(scorefile);
 	    }
-
-
-
 }

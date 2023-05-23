@@ -6,6 +6,6 @@ function scr_stopmusic(music_id) {
 	*/
 	if music_id > -1
 	    {
-	    if AStreamIsPlaying(music_id) then AStreamStop(music_id);
-	    }
+		if audio_is_playing(music_id) then audio_stop_sound(music_id);
+		}
 }

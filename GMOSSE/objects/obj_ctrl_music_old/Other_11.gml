@@ -8,4 +8,3 @@ scr_stopmusic(music);
 info = scr_loadmusicinfo("Boss1");
 music = scr_playmusic(snd_boss,1);
 scr_setvolmusic(music);
-

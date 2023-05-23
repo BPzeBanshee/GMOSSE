@@ -40,7 +40,7 @@ function scr_main_init() {
 	instance_create_layer(0,0,layer,obj_ctrl_input);
 	//instance_create_layer(0,0,layer,obj_ctrl_input2); // for experimental replay support
 	instance_create_layer(0,0,layer,obj_ctrl_music);
-	//instance_create_layer(0,0,layer,obj_ctrl_music_v2); // for loading all handles at once
+	//instance_create_layer(0,0,layer,obj_ctrl_music_old); // for loading streams per-room
 	
 	application_surface_draw_enable(true);
 	if os_browser == browser_not_a_browser && os_type == os_windows
@@ -52,7 +52,6 @@ function scr_main_init() {
 	    }
     
 	/* MISC. */
-	global.pause = 0;
 	global.pausable = false; // define pausable/unpausable rooms with this
 	global.paused = false;
 	global.levelend = false;

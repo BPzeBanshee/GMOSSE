@@ -28,8 +28,8 @@ else if !instance_exists(obj_ctrl_pause) //menus
 if debug
     {
     var l,p;
-    l = AStreamGetLength(music);
-    p = AStreamGetPosition(music);
+    l = audio_sound_length(music);
+    p = audio_sound_get_track_position(music);
     draw_set_alpha(1);
     draw_text(xview,yview+280,(string(p)+" / "+string(l)));
     }

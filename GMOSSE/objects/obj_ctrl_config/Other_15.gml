@@ -2,7 +2,7 @@
 
 // BEHAVIOUR
 category_type = "MISC. SETTINGS";
-selection_max = 7; // amount of positions in the submenu
+selection_max = 8; // amount of positions in the submenu
 max_h = 30;
 if timer > 0 then timer -= 1;
 
@@ -46,9 +46,17 @@ if global.button1 && !hook
             timer = 90;
             scr_hiscore_reset();
             scr_hiscore_save("score.gmes");
+			reset_msg = "HIGH SCORES RESET!";
             break;
             }
-        case 7:
+		case 7:
+			{
+			timer = 90;
+			scr_config_reset("config.ini");
+			reset_msg = "CONFIG RESET!";
+			break;
+			}
+        case 8:
             {
             timer = 0;
             selection = 1; 

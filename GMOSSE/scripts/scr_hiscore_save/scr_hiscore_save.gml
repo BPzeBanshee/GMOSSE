@@ -1,11 +1,10 @@
-/// @description scr_hiscore_save(file)
-/// @param file
-function scr_hiscore_save(argument0) {
+/// @description scr_hiscore_save(myfile)
+/// @param myfile
+function scr_hiscore_save(myfile) {
 	/*
 	scr_hiscore_save(), by BPzeBanshee
 	*/
-
-	scorefile = file_text_open_write(argument0);
+	var scorefile = file_text_open_write(myfile);
 	var c = "aLKJDalksjdalKJSDLKAJdLAJLKSDJlKASJdlkaJSDlkjakJLd";
 
 	// Test string
@@ -34,9 +33,5 @@ function scr_hiscore_save(argument0) {
 	    file_text_write_string(scorefile,scr_encrypt(string(global.hiscore[i,3]),c));
 	    file_text_writeln(scorefile);
 	    }
-
 	file_text_close(scorefile);
-
-
-
 }

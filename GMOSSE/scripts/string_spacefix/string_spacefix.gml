@@ -1,6 +1,6 @@
 /// @description string_spacefix(str)
 /// @param str
-function string_spacefix(argument0) {
+function string_spacefix(str) {
 	/*
 	string_spacefix, by BPzeBanshee
 
@@ -12,6 +12,6 @@ function string_spacefix(argument0) {
 	Usage: mystr = string_spacefix(str);
 	*/
 
-	return string_replace_all(argument0,@"
+	return string_replace_all(str,@"
 	","\n");
 }

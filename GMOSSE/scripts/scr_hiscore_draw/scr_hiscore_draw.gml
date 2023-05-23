@@ -35,7 +35,7 @@ function scr_hiscore_draw() {
 	        case 1: draw_sprite_ext(spr_xono,0,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1); break;
 	        case 2: draw_sprite_ext(spr_warbird,1,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1); break;
 	        case 3: draw_sprite_ext(spr_bh,0,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1); break;
-	        case 4: draw_sprite_ext(spr_sf,2,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1); break;
+	        case 4: draw_sprite_ext(spr_trident,2,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1); break;
 	        case 5: draw_sprite_ext(spr_arxyne,0,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1); break;
 	        default: break;
 	        }

@@ -14,27 +14,21 @@ CORE
 	        - Saves the player-configured controls, screen options,
 	        sound options, and the font type.
 	    >
-	DLLs
-	    GMALP
-	        Documentation TBA
-	    >
 	>
         
 	    Music
 	        * scr_loadmusic(sectionofini, groupnumber)
-	            - Makes use of GMALP to load a music file.
+	            - Loads a music file.
 	        * scr_loadmusicinfo(inilocation, sectionofini)
 	            - Loads an ini file containing all of the music information.
 	        * scr_stopallmusic()
-	            - Stops all the music currently being played by GMALP.
+	            - Stops all the music currently being played.
 	        * scr_freemusic(file)
 	            - Frees given music from memory.
-	        * scr_freeallmusic()
-	            - Frees all the music currently being played by GMALP.    
 	        * scr_pausemusic(num)
 	            - Pauses the music if set to 1, unpauses if 0.
 	        * scr_setvolmusic(volume)
-	            - Sets the volume to be used by GMALP. Range from 0 to 1.
+	            - Sets the volume to be used. Range from 0 to 1.
 	        * scr_fademusic(musictofade,amount)
 	            - Fades the music out via a flag in obj_ctrl_music.
 	        * scr_playmusic(music)
@@ -84,7 +78,7 @@ CORE
 	    >
 	    Screen
 	        * scr_screen_init()
-	            - Sets up the screen based on the results of scr_loadconfig().
+	            - Sets up the screen based on the results of scr_config_load().
 	        * scr_scanline(mode)
 	            - Draws scanlines to the screen.
 	        * scr_setdisplay(aa,vsync)

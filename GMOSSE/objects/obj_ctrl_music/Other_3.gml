@@ -1,4 +1,2 @@
 scr_stopallmusic();
-ASourceFreeAll();
-AFree();
-
+scr_freemusic(music);

@@ -2,14 +2,8 @@
 /// @param sound
 /// @param stopfirst
 /// @param [looping]
-function scr_playsnd() {
+function scr_playsnd(sound_id,stopfirst=false,loop=false) {
 	if global.sfx_volume == 0 then exit;
-	if argument[1] == 1 then scr_stopsnd(argument[0]);
-
-	var loop;
-	if argument_count == 3 then loop = argument[2] else loop = false;
-	audio_play_sound(argument[0],0,loop);
-
-
-
+	if stopfirst then scr_stopsnd(sound_id);
+	audio_play_sound(sound_id,0,loop);
 }

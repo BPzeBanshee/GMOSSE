@@ -1,4 +1,4 @@
-/// @description scr_draw_gauge(x1,y1,r,width,start,end,dir,value,mincol,maxcol)
+/// @desc scr_draw_gauge(x1,y1,r,width,start,end,dir,value,mincol,maxcol)
 /// @param x1
 /// @param y1
 /// @param r
@@ -9,7 +9,7 @@
 /// @param value
 /// @param mincol
 /// @param maxcol
-function scr_draw_gauge(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9) {
+function scr_draw_gauge(x1,y1,r,w,v_st,v_en,v_dr,v_am,mincol,maxcol) {
 	/*
 	scr_draw_gauge, by SINAZ
 
@@ -22,19 +22,11 @@ function scr_draw_gauge(argument0, argument1, argument2, argument3, argument4, a
 	Value is the current value of the healthbar (between 0 and 100)
 	and mincol and maxcol are the minimum and maximum value colors
 	*/
-
-	var x1,y1,r,w,v_st,v_en,v_dr,v_am,mincol,maxcol,v_dif_h,v_dif_s,v_dif_v,v_size;
-	x1 = argument0;
-	y1 = argument1;
-	r = argument2;
-	w = argument3;
-	v_st = argument4 + 360;
-	v_en = argument5 + 360;
-	v_dr = argument6;
-	v_am = argument7 * .01;
-	mincol = argument8;
-	maxcol = argument9;
-	forloopres = 10; // added in by BPzeBanshee, was originally hardcoded 10
+	v_st += 360;
+	v_en += 360;
+	v_am *= 0.01;
+	var forloopres = 10; // added in by BPzeBanshee, was originally hardcoded 10
+	var v_dif_h,v_dif_s,v_dif_v,v_size;
 	v_dif_h = color_get_hue(maxcol) - color_get_hue(mincol);
 	v_dif_s = color_get_saturation(maxcol) - color_get_saturation(mincol);
 	v_dif_v = color_get_value(maxcol) - color_get_value(mincol);
@@ -56,7 +48,7 @@ function scr_draw_gauge(argument0, argument1, argument2, argument3, argument4, a
 	        }
 	    }
 
-	v_size=abs(v_st-v_en);
+	v_size = abs(v_st-v_en);
 
 	gpu_set_blendmode(bm_add);
 	draw_set_color(make_color_hsv(color_get_hue(mincol)+v_dif_h*v_am,color_get_saturation(mincol)+v_dif_s*v_am,color_get_value(mincol)+v_dif_v*v_am));
@@ -81,7 +73,4 @@ function scr_draw_gauge(argument0, argument1, argument2, argument3, argument4, a
 	draw_primitive_end();
 	draw_set_color(c_white);
 	gpu_set_blendmode(bm_normal);
-
-
-
 }

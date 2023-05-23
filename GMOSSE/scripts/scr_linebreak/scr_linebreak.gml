@@ -2,7 +2,7 @@
 /// @param string
 /// @param maxLength
 /// @param maxWordLength
-function scr_linebreak(argument0, argument1, argument2) {
+function scr_linebreak(text,maxLength,maxWordLength) {
 	//Takes a string and automatically inserts linebreaks into it after a certain amount of characters.
 	//string = string to automatically linebreak
 	//maxLength = maximum length a line can be before breaking
@@ -10,15 +10,14 @@ function scr_linebreak(argument0, argument1, argument2) {
 	//Created by Spasman
 	//spasman@spasmangames.com
  
-	var insert,go,prev,text,str;
+	var insert,go,prev,str;
 	insert = 0;
 	go = 0;
 	prev = 0;
-	text = argument0;
 	str = "";
 	repeat(string_length(text)) 
 	    {
-	    if insert > argument1 
+	    if insert > maxLength
 	        {
 	        while(1) 
 	            {
@@ -31,7 +30,7 @@ function scr_linebreak(argument0, argument1, argument2) {
 	                {
 	                break;
 	                }
-	            if prev > argument2 
+	            if prev > maxWordLength
 	                {
 	                prev = 0;
 	                break;

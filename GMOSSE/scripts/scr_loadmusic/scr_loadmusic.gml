@@ -1,5 +1,6 @@
 /// @description scr_loadmusic(ini_section)
 /// @param ini_section
+/// @returns {real}
 function scr_loadmusic(ini_section) {
 	/* 
 	scr_loadmusic(), by BPzeBanshee
@@ -19,16 +20,22 @@ function scr_loadmusic(ini_section) {
 
 	// everything that's required is sorted, load and configure
 	var m,a,b;
-	m = ASourceLoad(music_info[0]);
+	m = audio_create_stream(music_info[0]);
 	if m < 0 // Error check
 	    {
 	    trace("Error loading "+string(music_info[0]));
 	    return -2;
 	    }
-    
+		
+	// Set volume
+	audio_sound_gain(m,music_info[1]/100,0);
+	
 	// Set loop points
-	a = ASourceGetLength(m) * music_info[2];
-	b = ASourceGetLength(m) * music_info[3];
-	if a > 0 || b < 1 then ASourceAddLoopPoint(m,a,b,-1);
+	var l = audio_sound_length(m);
+	a = l * music_info[2];
+	b = l * music_info[3];
+	//trace("a: "+string(a)+", b: "+string(b));
+	if a > 0 then audio_sound_loop_start(m,a);
+	if b < 1 then audio_sound_loop_end(m,b);
 	return m;
 }

@@ -1,4 +1,4 @@
-function scr_turntoangle(argument0, argument1) {
+function scr_turntoangle(angle, turnspeed) {
 	/*
 	Usage: scr_turntoangle(direction,turnspeed)
 	Arguments:
@@ -10,45 +10,34 @@ function scr_turntoangle(argument0, argument1) {
 	a desired direction by a given number of degrees
 
 	GMLscripts.com
-	renamed by BPzeBanshee to conform to standard
+	modified by BPzeBanshee to conform to standard
 	*/
-	var wdir, tempdir, turnspeed;
-	wdir = argument0;
-	turnspeed = argument1;
-	if (abs(wdir-direction) > 180) 
+	var tempdir;
+	if (abs(angle-direction) > 180) 
 	    {
-	    if (wdir > 180) 
+	    if (angle > 180) 
 	        {
-	        tempdir = wdir - 360;
+	        tempdir = angle - 360;
 	        if (abs(tempdir-direction) > turnspeed) 
-	            {
-	            direction -= turnspeed;
-	            } 
-	        else direction = wdir;
+	        then direction -= turnspeed
+	        else direction = angle;
 	        } 
 	    else 
 	        {
-	        tempdir = wdir + 360;
+	        tempdir = angle + 360;
 	        if (abs(tempdir-direction) > turnspeed) 
-	            {
-	            direction += turnspeed;
-	            } 
-	        else direction = wdir;
+	        then direction += turnspeed
+	        else direction = angle;
 	        }
 	    } 
 	else 
 	    {
-	    if (abs(wdir - direction) > turnspeed) 
+	    if (abs(angle - direction) > turnspeed) 
 	        {
-	        if (wdir > direction) 
-	            {
-	            direction += turnspeed;
-	            } 
+	        if (angle > direction) 
+	        then direction += turnspeed
 	        else direction -= turnspeed;
 	        } 
-	    else direction = wdir;
+	    else direction = angle;
 	    }
-
-
-
 }

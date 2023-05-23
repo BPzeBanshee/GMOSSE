@@ -2,7 +2,7 @@
 /// @param font
 /// @param align
 /// @param color
-function scr_draw_vars(argument0, argument1, argument2) {
+function scr_draw_vars(font,align,color) {
 	/*
 	scr_draw_vars(), by BPzeBanshee
 
@@ -12,10 +12,7 @@ function scr_draw_vars(argument0, argument1, argument2) {
 
 	Call at the beginning of every Draw event
 	*/
-	draw_set_font(argument0);
-	draw_set_halign(argument1);
-	draw_set_color(argument2);
-
-
-
+	draw_set_font(font);
+	draw_set_halign(align);
+	draw_set_color(color);
 }
