@@ -15,8 +15,11 @@ if global.jleft && !hook
         case 2: if global.sfx_volume > 0 then global.sfx_volume -= 10; break;
         case 3: if global.voice_volume > 0 then global.voice_volume -= 10; break;
         }
-    with obj_ctrl_music scr_setvolmusic(music);
-    scr_setvolsnd();    
+    with obj_ctrl_music 
+		{
+		scr_setvolmusic(music);
+	    scr_setvolsnd();    
+		}
     }
     
 // RIGHT
@@ -29,8 +32,11 @@ if global.jright && !hook
         case 2: if global.sfx_volume < 100 then global.sfx_volume += 10; break;
         case 3: if global.voice_volume < 100 then global.voice_volume += 10; break;
         }
-    with obj_ctrl_music scr_setvolmusic(music);
-    scr_setvolsnd();
+    with obj_ctrl_music 
+		{
+		scr_setvolmusic(music);
+	    scr_setvolsnd();
+		}
     }
     
 // BUTTON 1

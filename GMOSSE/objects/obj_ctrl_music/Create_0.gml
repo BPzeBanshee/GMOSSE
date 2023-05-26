@@ -20,6 +20,9 @@ info = -1; // init variable for music loading scripts
 mainmenu = 0;
 gameover = 0;
 
+// There's no list function so we just calculate how many sounds we have manually
+num_sfx = 0;
+while audio_exists(num_sfx) num_sfx += 1;
 scr_setvolsnd();
 
 snd_intro = -1;

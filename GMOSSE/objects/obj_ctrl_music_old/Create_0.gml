@@ -22,6 +22,8 @@ mainmenu = 0;
 gameover = 0;
 debug = false;
 
+sfx_num = 0;
+while audio_exists(sfx_num) sfx_num += 1;
 scr_setvolsnd();
 
 snd_intro = -1;
