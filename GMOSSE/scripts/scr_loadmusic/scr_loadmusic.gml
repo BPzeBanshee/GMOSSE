@@ -23,8 +23,8 @@ function scr_loadmusic(ini_section) {
 	m = audio_create_stream(music_info[0]);
 	if m < 0 // Error check
 	    {
-	    trace("Error loading "+string(music_info[0]));
-	    return -2;
+	    trace("Error loading "+string(music_info[0])+", return code "+string(m));
+	    return m;
 	    }
 		
 	// Set volume

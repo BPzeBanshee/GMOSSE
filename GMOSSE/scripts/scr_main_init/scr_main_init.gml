@@ -43,13 +43,9 @@ function scr_main_init() {
 	//instance_create_layer(0,0,layer,obj_ctrl_music_old); // for loading streams per-room
 	
 	application_surface_draw_enable(true);
-	if os_browser == browser_not_a_browser && os_type == os_windows
-	then instance_create_layer(0,0,layer,obj_ctrl_render)
-	else
-	    {
-	    device_mouse_dbclick_enable(false);
-	    instance_create_layer(0,0,layer,obj_ctrl_render_mob);
-	    }
+	if os_browser != browser_not_a_browser
+	then instance_create_layer(0,0,layer,obj_ctrl_render_mob)
+	else instance_create_layer(0,0,layer,obj_ctrl_render);
     
 	/* MISC. */
 	global.pausable = false; // define pausable/unpausable rooms with this

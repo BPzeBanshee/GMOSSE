@@ -3,6 +3,10 @@ obj_ctrl_render_mob, by BPzeBanshee
 
 HIGHLY EXPERIMENTAL RENDERER FOR HTML5 TARGET, USE AT YOUR OWN PERIL
 */
+
+// Disable double click support (historically messes with inputs, pending rework)
+device_mouse_dbclick_enable(false);
+
 // Define base resolution (modify event_user(0)'s smaller entries if changing this though)
 m_base_w = 240;
 m_base_h = 320;
@@ -27,6 +31,3 @@ xx = x;
 yy = y;
 
 event_user(0); // set window size according to selected resolution
-
-/* */
-/*  */
