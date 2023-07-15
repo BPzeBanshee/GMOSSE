@@ -1,5 +1,4 @@
 step_towards_point(xview+120,yview+200,1);
-//mp_linear_step(xview+120,yview+200,1,0);
 
 // Clutch fix for Trident (banking anim)
 if global.shipselect == 4
@@ -8,4 +7,3 @@ if global.shipselect == 4
     if img > 2 then img -= 0.25;
     if img < 2 then img += 0.25;
     }
-

@@ -36,7 +36,7 @@ if (global.button1 && !global.levelend && !hook && enabled)
         {
         case 1: // resume game
             {
-            scr_pausemusic(0);
+            scr_pausemusic(false);
             scr_unpause();
             instance_destroy();
             break;
@@ -44,7 +44,7 @@ if (global.button1 && !global.levelend && !hook && enabled)
         case 2: // restarting room
             {
             if restart_locked exit; // Do not allow restarts after stage 1
-            scr_pausemusic(0);
+            scr_pausemusic(false);
             scr_stopallmusic();
             scr_trans(room,2,c_black,0.025,0.05,0);
             if global.nextroom == rm_stage1
@@ -67,24 +67,24 @@ if (global.button1 && !global.levelend && !hook && enabled)
             }
         case 3: // restarting and going to Ship Selection menu
             {
-            scr_pausemusic(0);
+            scr_pausemusic(false);
             scr_stopallmusic();
             scr_trans(rm_shipselect,2,c_black,0.025,0.05,0);
-            with obj_ctrl_music gameover = 1; // Free generic music
+            with obj_ctrl_music gameover = true; // Free generic music
             break;
             }
         case 4: // going to Config menu
             {
             instance_create_depth(xview,yview,depth-1,obj_ctrl_config);
-            enabled = 0;
+            enabled = false;
             break;
             }
         case 5: // exiting to Main Menu
             {
-            scr_pausemusic(0);
+            scr_pausemusic(false);
             scr_stopallmusic();
             scr_trans(rm_menu,2,c_white,0.025,0.05,0);
-            with obj_ctrl_music gameover = 1; // Free generic music
+            with obj_ctrl_music gameover = true; // Free generic music
             break;
             }
         }

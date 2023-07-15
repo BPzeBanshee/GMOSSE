@@ -7,8 +7,14 @@ function scr_loadmusic(ini_section) {
 	*/
 	if !instance_exists(obj_ctrl_music) then exit;
 
-	// This part assumes the ini works
-	ini_open(global.music_ini);
+	// Open INI file
+	// (Ubuntu has problems with comment lines in INIs)
+	if os_type == os_linux
+		{
+		var inistring = file_to_string(global.music_ini);
+		if inistring != "ERROR" then ini_open_from_string(inistring);
+		}
+	else ini_open(global.music_ini);
 	music_info[0] = ini_read_string(ini_section,"Path","NONE"); // file location
 	music_info[1] = ini_read_real(ini_section,"Volume",100); // reads volume
 	music_info[2] = real(ini_read_string(ini_section,"LoopStart","0")); // reads start of loop

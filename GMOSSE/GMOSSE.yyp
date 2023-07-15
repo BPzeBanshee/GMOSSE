@@ -135,7 +135,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.4.0.84",
+    "IDEVersion": "2023.6.0.89",
   },
   "resources": [
     {"id":{"name":"spr_wall1","path":"sprites/spr_wall1/spr_wall1.yy",},},
@@ -535,6 +535,7 @@
     {"id":{"name":"obj_sf_tip","path":"objects/obj_sf_tip/obj_sf_tip.yy",},},
     {"id":{"name":"obj_arxyne","path":"objects/obj_arxyne/obj_arxyne.yy",},},
     {"id":{"name":"obj_arxyne_shot2b","path":"objects/obj_arxyne_shot2b/obj_arxyne_shot2b.yy",},},
+    {"id":{"name":"file_to_string","path":"scripts/file_to_string/file_to_string.yy",},},
     {"id":{"name":"obj_arxyne_shot2c","path":"objects/obj_arxyne_shot2c/obj_arxyne_shot2c.yy",},},
     {"id":{"name":"obj_en_plat","path":"objects/obj_en_plat/obj_en_plat.yy",},},
     {"id":{"name":"obj_en_platEXP","path":"objects/obj_en_platEXP/obj_en_platEXP.yy",},},

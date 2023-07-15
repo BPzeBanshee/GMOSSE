@@ -13,7 +13,6 @@ atk_timer = 0;
 made = 0;
 arm_left = noone;
 arm_right = noone;
-arms_dead = 0;
 x1 = x; y1 = y;
 x2 = x; y2 = y;
 d1 = 0; d2 = 0;

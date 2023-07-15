@@ -12,6 +12,5 @@ tur = noone;
 
 // Definable vars
 speed = 3.75;
-move_with_bkg = 0;
 
 event_user(0);

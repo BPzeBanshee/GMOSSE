@@ -23,7 +23,7 @@ if lives == 0
     {
     with obj_hitbox
         {
-        invincibility = -1;
+        invincible = -1;
         visible = 0;
         }
     respawntimer += 0.5;

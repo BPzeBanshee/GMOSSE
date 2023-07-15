@@ -25,7 +25,7 @@ if made
         // Set which feet to move
         // upper-left & lower-right
         // upper-right & lower-left
-        var n1a,n1b,n2a,n2b,n3a,n3b;
+        var n1a,n1b,n2a,n2b;//,n3a,n3b;
         if b == 0
             {
             n1a = 0; n1b = 0;

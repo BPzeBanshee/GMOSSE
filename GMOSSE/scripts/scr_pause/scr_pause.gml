@@ -9,7 +9,6 @@ function scr_pause() {
 	*/
 	global.paused = true;
 
-	tate_first = global.rotation;
 	var win_w,win_h;
 	win_w = obj_ctrl_render.m_base_w;
 	win_h = obj_ctrl_render.m_base_h;

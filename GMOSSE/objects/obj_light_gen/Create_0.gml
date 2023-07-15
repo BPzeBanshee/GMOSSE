@@ -16,4 +16,4 @@ layer_background_sprite(l2b,bkg_light_gen);
 layer_background_alpha(l2b,0);
 
 //layer_background_blend(l1b,make_color_rgb(208,226,255)); // background_color didn't respect background_alpha
-xview_last = xview;
+//xview_last = xview;

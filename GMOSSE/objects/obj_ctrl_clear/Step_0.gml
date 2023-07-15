@@ -10,11 +10,11 @@ if instance_exists(obj_player)
 
     with obj_player instance_destroy();
     with obj_hitbox instance_destroy();
-    enabled = 1;
+    enabled = true;
     }
     
 // Continue from here only if player is "disposed of"
-if !enabled exit;
+if !enabled then exit;
 
 if bkg_alpha < 1 then bkg_alpha += 0.1;
 if timer > 140 && txt_alpha < 1 then txt_alpha += 0.01;

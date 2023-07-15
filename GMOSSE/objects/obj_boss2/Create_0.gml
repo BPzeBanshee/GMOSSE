@@ -11,10 +11,6 @@ neg = 0;
 // Pod-related
 made = 0;
 pods_killed = 0;
-hp1 = 300;
-hp2 = 300;
-hp3 = 300;
-hp4 = 300;
 
 // Attack-related
 phase = 0;

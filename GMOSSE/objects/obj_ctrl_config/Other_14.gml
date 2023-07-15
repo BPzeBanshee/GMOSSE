@@ -12,7 +12,7 @@ if global.jleft && !hook
     switch selection
         {
         case 1: if global.music_volume > 0 then global.music_volume -= 10; break;
-        case 2: if global.sfx_volume > 0 then global.sfx_volume -= 10; break;
+        case 2: if global.sfx_volume > 0 then global.sfx_volume -= 10; scr_playsnd(snd_click,1); break;
         case 3: if global.voice_volume > 0 then global.voice_volume -= 10; break;
         }
     with obj_ctrl_music 
@@ -29,7 +29,7 @@ if global.jright && !hook
     switch selection
         {
         case 1: if global.music_volume < 100 then global.music_volume += 10; break;
-        case 2: if global.sfx_volume < 100 then global.sfx_volume += 10; break;
+        case 2: if global.sfx_volume < 100 then global.sfx_volume += 10; scr_playsnd(snd_click,1); break;
         case 3: if global.voice_volume < 100 then global.voice_volume += 10; break;
         }
     with obj_ctrl_music 
@@ -50,7 +50,7 @@ if global.button1 && !hook
             {
             // Hack to allow time to respond to window change
             if global.fullscreen then scr_fullscreen(0);
-            alarm[0]=10;
+            alarm[0] = 10;
             break;
             }
         case 5:

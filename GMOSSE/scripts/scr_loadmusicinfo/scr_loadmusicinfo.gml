@@ -4,7 +4,14 @@
 function scr_loadmusicinfo(ini_section) {
 	if file_exists(global.music_ini) && music_info[0] != "NONE" // if the file exists
 	    {
-	    ini_open(global.music_ini); // open the file
+		// Open INI file
+		// (Ubuntu has problems with comment lines in INIs)
+		if os_type == os_linux
+			{
+			var inistring = file_to_string(global.music_ini);
+			if inistring != "ERROR" then ini_open_from_string(inistring);
+			}
+	    else ini_open(global.music_ini); // open the file
 	    if ini_section_exists(ini_section)
 	        {
 	        music_info[4] = ini_read_string(ini_section,"Title",""); // reads title

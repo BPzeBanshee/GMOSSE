@@ -38,9 +38,7 @@ l_wall_img[0] = bkg_wallpaper;
 //l_wall_s = 1;
 //l_wall_max_s = 1;
 l_scan = -1;
-l_scan_img = -1;
 l_scan_scale = l_scale;
-l_scan_a = global.scanline_alpha / 100;
 
 // Define control aspect ratio settings for windowed mode
 // 3:4

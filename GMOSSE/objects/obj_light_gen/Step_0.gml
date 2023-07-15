@@ -24,7 +24,7 @@ if timer >= r3
 timer2 += 1;
 if timer2 >= r4
     {
-    var l = instance_create_layer(xview+random_range(80,160),random_range(yview+40,yview+280),layer,obj_lightning2);
+    instance_create_layer(xview+random_range(80,160),random_range(yview+40,yview+280),layer,obj_lightning2);
     r4 = irandom_range(80,240);
     timer2 = 0;
     }

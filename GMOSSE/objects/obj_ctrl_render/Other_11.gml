@@ -43,28 +43,12 @@ draw_set_alpha(1);
 
 var si = 0;
 if sprite_exists(s) 
-then for (var i=0;i<w;i+=sw)
+then for (var i=0; i<w; i+=sw)
     {
-    for (var j=0;j<h;j+=sh)
+    for (var j=0; j<h; j+=sh)
         {
         if m_scanlines == 3 then si = irandom_range(0,sprite_get_number(spr_static)-1);
         draw_sprite(s,si,i,j);
         }
     }
-
-/*if m_scanlines = 1 then for(i=0;i<h;i+=2) draw_line(-1,i,w,i); // Horizontal
-if m_scanlines = 2 then for(i=0;i<w;i+=2) draw_line(i,-1,i,h); // Vertical
-if m_scanlines = 3 // Static drawing
-    {
-    for (i=0;i<w;i+=sprite_get_width(spr_static))
-        {
-        for (j=0;j<h;j+=sprite_get_height(spr_static))
-            {
-            draw_sprite(spr_static,irandom_range(0,sprite_get_number(spr_static)-1),i,j);
-            }
-        }
-    }*/
 surface_reset_target();
-
-/* */
-/*  */

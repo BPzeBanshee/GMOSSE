@@ -8,7 +8,6 @@ shot_angle_add = 1;
 
 can_shoot = 1;
 can_shoot2 = 1;
-can_shoot_bomb = 1;
 
 /* SPEED VARS */
 /* 
@@ -43,7 +42,6 @@ switch weapon
     case 7: blend = 16744703; break; // pink
     }
 
-shootingtime = 0;
 image_timer = 0;
 speed_gear = 1;
 thrust_scale = 0.25;

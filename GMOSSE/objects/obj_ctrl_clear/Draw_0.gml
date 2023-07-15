@@ -7,7 +7,6 @@ if bkg_alpha > 0
 	draw_set_alpha(bkg_alpha);
 	draw_set_color(c_black);
 	draw_rectangle(xview,yview,xview+240,yview+320,0);
-	/*if bkg_alpha < 1 then bkg_alpha += 0.1;*/
 	}
 
 // Draw stage clear text

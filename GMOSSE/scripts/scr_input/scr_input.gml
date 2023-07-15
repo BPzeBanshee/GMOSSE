@@ -70,7 +70,7 @@ function scr_input() {
 	as far as "mouse" position so values don't reflect
 	final touch location.
 	*/
-	if os_browser != browser_not_a_browser || os_type != os_windows
+	if os_browser != browser_not_a_browser
 	    {
 	    if device_mouse_check_button(0,mb_left) // touching screen
 	        {
@@ -109,7 +109,4 @@ function scr_input() {
 	            }
 	        }
 	    }
-
-
-
 }

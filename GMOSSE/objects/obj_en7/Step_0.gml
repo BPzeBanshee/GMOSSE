@@ -68,7 +68,7 @@ switch phase
     }
     
 // Death handling
-if (x < -sprite_width) || (x > 320 + sprite_width) 
+if (x < -sprite_width) 
+|| (x > 320 + sprite_width) 
 || (y > yview + 320 + sprite_height/2) 
 then instance_destroy();
-
