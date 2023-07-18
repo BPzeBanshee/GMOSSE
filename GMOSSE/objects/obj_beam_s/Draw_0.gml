@@ -4,7 +4,7 @@
 // laser draw stack
 if image_xscale < 1 then exit;
 
-if b_subimg = round(b_subimg) then event_user(0);
+if b_subimg == round(b_subimg) then event_user(0);
 if surface_exists(surf)
     {
     var xx,yy;

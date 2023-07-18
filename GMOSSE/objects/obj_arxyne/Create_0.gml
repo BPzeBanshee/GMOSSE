@@ -6,6 +6,4 @@ bomb_timer = 0;
 
 global.shipspeed = 2; // move speed
 global.slowshipspeed = 2; // slow move speed
-
-if global.arxynespr = 2 then sprite_index = spr_arxyneV2;
-
+if global.arxynespr == 2 then sprite_index = spr_arxyneV2;

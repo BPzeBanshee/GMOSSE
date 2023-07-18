@@ -36,9 +36,9 @@ if made
             else
                 {
                 var ctype = obj_crater;
-                //if p[b,2] = obj_en_tur1 then ctype = obj_crater;
-                if p[b,2] = obj_en_tur2 then ctype = obj_crater2;
-                if p[b,2] = obj_en_tur3 then ctype = obj_crater3;
+                //if p[b,2] == obj_en_tur1 then ctype = obj_crater;
+                if p[b,2] == obj_en_tur2 then ctype = obj_crater2;
+                if p[b,2] == obj_en_tur3 then ctype = obj_crater3;
                 turret[i,j] = instance_create_depth(p[b,0],p[b,1],depth-1,ctype);
                 }
             b += 1; // update totalnumber

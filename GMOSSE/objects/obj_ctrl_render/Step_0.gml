@@ -51,7 +51,7 @@ if m_filter_bi != global.filter
     }
 
 // Adjust scale as needed (no more viewports, hooray!)
-if m_angle = 90 || m_angle = 270
+if m_angle == 90 || m_angle == 270
 then l_scale = min(window_get_width()/m_base_h,window_get_height()/m_base_w)
 else l_scale = min(window_get_width()/m_base_w,window_get_height()/m_base_h);
 if m_clean then l_scale = max(1,floor(l_scale));

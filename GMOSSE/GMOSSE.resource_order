@@ -501,6 +501,7 @@
     {"name":"spr_en5","order":1,"path":"sprites/spr_en5/spr_en5.yy",},
     {"name":"obj_cloud","order":1,"path":"objects/obj_cloud/obj_cloud.yy",},
     {"name":"obj_rain","order":2,"path":"objects/obj_rain/obj_rain.yy",},
+    {"name":"os_get_type","order":13,"path":"scripts/os_get_type/os_get_type.yy",},
     {"name":"obj_light_gen","order":3,"path":"objects/obj_light_gen/obj_light_gen.yy",},
     {"name":"obj_lightning","order":4,"path":"objects/obj_lightning/obj_lightning.yy",},
     {"name":"obj_lightning2","order":5,"path":"objects/obj_lightning2/obj_lightning2.yy",},

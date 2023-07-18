@@ -3,7 +3,7 @@ obj_ctrl_attract, by BPzeBanshee
 Heavily work in progress pending inclusion
 of the new working input replay system
 */
-with obj_ctrl_input enabled = 0;
+with obj_ctrl_input enabled = false;
 
 timer = 0;
 l_step = 0;

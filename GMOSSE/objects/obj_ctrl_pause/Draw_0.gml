@@ -12,9 +12,9 @@ draw_rectangle(xview+30,yview+110,xview+210,yview+220,0);
 draw_set_color(8454016); draw_set_alpha(1);
 
 draw_text(xview+60,yview+160,"RESUME GAME");
-if restart_locked = 1 then draw_set_color(c_red);
+if restart_locked then draw_set_color(c_red);
 draw_text(xview+60,yview+170,"RESTART LEVEL");
-if restart_locked = 1 then draw_set_color(8454016);
+if restart_locked then draw_set_color(8454016);
 draw_text(xview+60,yview+180,"RETURN TO SHIP SELECT");
 draw_text(xview+60,yview+190,"CONFIGURATION");
 draw_text(xview+60,yview+200,"EXIT TO MAIN MENU");

@@ -8,7 +8,7 @@ if global.button2 && !hook
     }
 if !global.button2 then hook = 0;
 
-if program = 0
+if program == 0
     {
     if (global.jup && !global.jleft && !global.jright)
         {
@@ -54,7 +54,7 @@ if program = 0
     
 if instance_exists(obj_player)
     {
-    if position = 1
+    if position == 1
         {
         x = obj_player.x-25;
         y = obj_player.y;

@@ -12,7 +12,7 @@ if global.bulletcolour == 2
 if global.bulletcolour == 3
     {
     // Filter out child objects that don't need to do this.
-    if object_index = obj_bullet_shoot 
+    if object_index == obj_bullet_shoot 
         {
         if sprite_index != sprite_alt then sprite_index = sprite_alt; 
         }

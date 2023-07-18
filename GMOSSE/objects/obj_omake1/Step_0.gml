@@ -86,7 +86,7 @@ switch phase
             // Attack 2
             count += 1;
             if count >= 17 then count = 9;
-            if count = 9 || count >= 15
+            if count == 9 || count >= 15
                 {
                 for (var i=2;i<=6;i++) 
                     {

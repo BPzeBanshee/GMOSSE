@@ -11,13 +11,10 @@ gpu_set_blendmode_ext(bm_one,bm_zero);
 draw_surface_ext(application_surface,xx,yy,l_scale,l_scale,m_angle,c_white,1);
 gpu_set_blendmode(bm_normal);
 
-/*scr_draw_vars(global.fnt_little,fa_right,c_black);
+scr_draw_vars(global.fnt_little,fa_right,c_black);
 var s1 = "Win. Size: "+string(window_get_width())+"x"+string(window_get_height());
 var s2 = "GUI. Size: "+string(display_get_width())+"x"+string(display_get_height());
 draw_rectangle(window_get_width()-string_width(s1),0,window_get_width(),12,0);
 draw_set_color(c_white);
 draw_text(window_get_width(),0,s1);
-draw_text(window_get_width(),12,s2);*/
-
-/* */
-/*  */
+draw_text(window_get_width(),12,s2);

@@ -7,10 +7,13 @@ if timer >= r3
     scr_stopsnd(snd);
     var r = random_range(1,3); 
     if round(r2) == round(r) then exit;
-    if round(r) == 1 then snd = snd_lightning1;
-    if round(r) == 2 then snd = snd_lightning2;
-    if round(r) == 3 then snd = snd_lightning3;
-    scr_playsnd(snd,1);
+	switch round(r)
+		{
+		case 1: snd = snd_lightning1; break;
+		case 2: snd = snd_lightning2; break;
+		case 3: snd = snd_lightning3; break;
+		}
+    scr_playsnd(snd,true,false);
     r2 = r;
     
     // lightning flash
@@ -30,7 +33,8 @@ if timer2 >= r4
     }
     
 // lightning flash fadeout
-if layer_background_get_alpha(l2b) >= 0 then layer_background_alpha(l2b,layer_background_get_alpha(l2b)-0.02);
+if layer_background_get_alpha(l2b) >= 0 
+then layer_background_alpha(l2b,layer_background_get_alpha(l2b)-0.02);
 
 // fake parallax wobble scroll with layer 1
 /*if global.button3 then s = global.slowshipspeed else s = global.shipspeed;

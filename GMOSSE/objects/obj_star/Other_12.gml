@@ -1,5 +1,5 @@
 /// @description  MAIN MENU
-if image_index = image_number then image_speed = 0;
+if image_index == image_number then image_speed = 0;
 if !scr_isonscreen()
     {
     image_xscale = 0;

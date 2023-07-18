@@ -8,7 +8,7 @@ draw_text(xview+120,yview+110,ship_info[2]);
 draw_set_alpha(1);
 
 // Ship portrait
-if global.shipselect = 3 then // White border for Busterhawk
+if global.shipselect == 3 then // White border for Busterhawk
 draw_sprite_ext(spr_bh_out,image_index/3,xview+120,yview+64,1.075,1.075,0,c_white,1);
 if ship_info[0] > -1 then draw_sprite(ship_info[0],ship_info[1],xview+120,yview+64);
 

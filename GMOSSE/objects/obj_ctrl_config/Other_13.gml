@@ -36,7 +36,7 @@ if global.button1 && !hook
     {
     hook = 1;
     scr_playsnd(snd_click,1);
-    if selection = selection_max
+    if selection == selection_max
         {
         max_h = 0;
         selection = 1; 

@@ -1,4 +1,4 @@
-if scr_isonscreen()=0
+if !scr_isonscreen()
     {
     x = random_range(xview,xview+240);
     y = yview-4;
@@ -6,4 +6,3 @@ if scr_isonscreen()=0
     speed = random_range(7,12);
     depth = random_range(0,1500);
     }
-

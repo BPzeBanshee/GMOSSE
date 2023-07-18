@@ -32,7 +32,7 @@ if moving
     
     x = lerp(x,xx,0.1);
     y = lerp(y,yy,0.1);
-    if round(x) = xx && round(y) = yy
+    if round(x) == xx && round(y) == yy
         {
         x = xx;
         y = yy;

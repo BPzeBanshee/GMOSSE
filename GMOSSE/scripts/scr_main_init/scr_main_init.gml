@@ -43,7 +43,8 @@ function scr_main_init() {
 	//instance_create_layer(0,0,layer,obj_ctrl_music_old); // for loading streams per-room
 	
 	application_surface_draw_enable(true);
-	if os_browser != browser_not_a_browser
+	
+	if os_get_type()=="gx" || os_browser != browser_not_a_browser
 	then instance_create_layer(0,0,layer,obj_ctrl_render_mob)
 	else instance_create_layer(0,0,layer,obj_ctrl_render);
     

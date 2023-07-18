@@ -12,7 +12,7 @@ max_width = range - view_width; // 80 assuming playable area of 320 wide
 // Scrolling
 for (var i=0;i<array_length(objects_to_scroll);i++)
     {
-    with objects_to_scroll[i] if path_index == -1
+    with objects_to_scroll[i] if !path_exists(path_index)
         {
 		x += spd_x;
 	    y += spd_y;

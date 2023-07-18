@@ -629,6 +629,7 @@
     {"id":{"name":"spr_en5","path":"sprites/spr_en5/spr_en5.yy",},},
     {"id":{"name":"obj_cloud","path":"objects/obj_cloud/obj_cloud.yy",},},
     {"id":{"name":"obj_rain","path":"objects/obj_rain/obj_rain.yy",},},
+    {"id":{"name":"os_get_type","path":"scripts/os_get_type/os_get_type.yy",},},
     {"id":{"name":"obj_light_gen","path":"objects/obj_light_gen/obj_light_gen.yy",},},
     {"id":{"name":"obj_lightning","path":"objects/obj_lightning/obj_lightning.yy",},},
     {"id":{"name":"obj_lightning2","path":"objects/obj_lightning2/obj_lightning2.yy",},},

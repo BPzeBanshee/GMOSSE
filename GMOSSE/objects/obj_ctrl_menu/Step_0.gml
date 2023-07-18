@@ -52,7 +52,7 @@ if (global.jdown && !hook && enabled)
 if (global.jleft && !hook && enabled)
     {
     hook = 1;
-    if selection = 1
+    if selection == 1
         {
         scr_playsnd(snd_click,0);
         if selection2 > 1 then selection2 -= 1;
@@ -63,7 +63,7 @@ if (global.jleft && !hook && enabled)
 if (global.jright && !hook && enabled)
     {
     hook = 1;
-    if selection = 1
+    if selection == 1
         {
         scr_playsnd(snd_click,0);
         if selection2 < 3 then selection2 += 1;
@@ -103,13 +103,13 @@ if (global.button1 && !global.levelend && !hook && enabled)
         case 2: // Go To Options
             {
             instance_create_layer(x,y,layer,obj_ctrl_config);
-            enabled = 0;
+            enabled = false;
             break;
             }
         case 3: // Show Credits
             {
             instance_create_layer(x,y,layer,obj_about);
-            enabled = 0;
+            enabled = false;
             break;
             }
         case 4: // Go To High Scores

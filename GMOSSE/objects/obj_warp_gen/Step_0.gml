@@ -10,5 +10,5 @@ if timer == 20
     }
 /*if keyboard_check_pressed(vk_space)
     {
-    if v = spr_warp2c then v = spr_warp2 else v = spr_warp2c;
+    if v == spr_warp2c then v = spr_warp2 else v = spr_warp2c;
     }*/

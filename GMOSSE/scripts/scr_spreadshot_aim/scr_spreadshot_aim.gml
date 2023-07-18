@@ -19,7 +19,7 @@ function scr_spreadshot_aim(origin_x,origin_y,bullettype,shootsound,arc,numbulle
 	else arcstart = shootdir;
     
 	//play shoot sound (-1 plays no sound)
-	if shootsound >= 0 then scr_playsnd(shootsound,1);
+	if audio_exists(shootsound) then scr_playsnd(shootsound,1);
 
 	var mybullet;
 	for (var bulletloop = 0; bulletloop < numbullets; bulletloop += 1)

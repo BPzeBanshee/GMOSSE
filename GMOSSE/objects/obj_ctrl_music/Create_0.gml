@@ -21,6 +21,7 @@ mainmenu = 0;
 gameover = 0;
 
 // There's no list function so we just calculate how many sounds we have manually
+// TODO: this is a hack that'll cause errors next beta, replace with bus structs or audiogroups
 num_sfx = 0;
 while audio_exists(num_sfx) num_sfx += 1;
 scr_setvolsnd();

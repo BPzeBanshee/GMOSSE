@@ -13,6 +13,6 @@ if instance_exists(obj_player)
         program = !program;
         }
     if !global.button2 then hook = 0;
-    if program = 1 then image_angle = orbit_angle else image_angle = 90;
+    if program == 1 then image_angle = orbit_angle else image_angle = 90;
     }
 

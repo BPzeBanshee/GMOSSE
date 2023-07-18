@@ -63,13 +63,13 @@ if made
             {
             foot[n1a,n1b].xx = foot[n1a,n1b].x - 32;
             foot[n2a,n2b].xx = foot[n2a,n2b].x - 32;
-            move_hori -= 1; if move_hori = -3 then move_hori = 0;
+            move_hori -= 1; if move_hori == -3 then move_hori = 0;
             }
         if move_hori > 0
             {
             foot[n1a,n1b].xx = foot[n1a,n1b].x + 32;
             foot[n2a,n2b].xx = foot[n2a,n2b].x + 32;
-            move_hori += 1; if move_hori = 3 then move_hori = 0;
+            move_hori += 1; if move_hori == 3 then move_hori = 0;
             }
         }
     

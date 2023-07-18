@@ -1,4 +1,4 @@
-if global.nextroom = rm_menu then exit;
+if global.nextroom == rm_menu then exit;
 event_user(0); // Load global player ship select variables
 var stagenum = choose(1,2,3); // see Create re: ds_map data, this is a hack
 /*switch global.nextroom

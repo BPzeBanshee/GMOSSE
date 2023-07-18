@@ -1,4 +1,4 @@
-/// @description  STAGE CLEAR MUSIC
+/// @desc STAGE CLEAR MUSIC
 timer = 0;
 alpha = 0;
 

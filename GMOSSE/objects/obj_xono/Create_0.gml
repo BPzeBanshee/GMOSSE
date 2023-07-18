@@ -15,12 +15,9 @@ global.shipspeed = 5;
 global.slowshipspeed = 3;
 
 /* AESTHETIC VARS */
-if global.xonospr = 2 then sprite_index = spr_xono_v2;
-if global.xonospr = 3 
+if global.xonospr == 2 then sprite_index = spr_xono_v2;
+if global.xonospr == 3 
     {
     sprite_index = spr_xono_v3;
     image_speed = 0.33;
     }
-
-/* */
-/*  */

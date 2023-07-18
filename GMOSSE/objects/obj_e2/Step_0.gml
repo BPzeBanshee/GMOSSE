@@ -73,14 +73,14 @@ if made
             foot[n1a,n1b].xx = foot[n1a,n1b].x - 32;
             foot[n2a,n2b].xx = foot[n2a,n2b].x - 32;
             foot[n3a,n3b].xx = foot[n3a,n3b].x - 32;
-            c += 1; if c = 3 then c = 0;
+            c += 1; if c == 3 then c = 0;
             }
         if d > 0
             {
             foot[n1a,n1b].xx = foot[n1a,n1b].x + 32;
             foot[n2a,n2b].xx = foot[n2a,n2b].x + 32;
             foot[n3a,n3b].xx = foot[n3a,n3b].x + 32;
-            d += 1; if d = 3 then d = 0;
+            d += 1; if d == 3 then d = 0;
             }
         }
     }

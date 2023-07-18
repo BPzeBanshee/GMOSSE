@@ -7,9 +7,9 @@ function scr_getshipinfo(ship_id) {
 	        {
 	        global.init_bombs = 3; // default bomb count
 	        global.max_bombs = 5; // maximum bombs it can carry
-	        if global.xonospr = 1 then ship_info[0] = spr_xono; // sprite
-	        if global.xonospr = 2 then ship_info[0] = spr_xono_v2;
-	        if global.xonospr = 3 then ship_info[0] = spr_xono_v3;
+	        if global.xonospr == 1 then ship_info[0] = spr_xono; // sprite
+	        if global.xonospr == 2 then ship_info[0] = spr_xono_v2;
+	        if global.xonospr == 3 then ship_info[0] = spr_xono_v3;
 	        ship_info[1] = 0; // image index
 	        ship_info[2] = "Xonochrome"; // name
 	        ship_info[3] = "Attack = **";
@@ -80,7 +80,7 @@ function scr_getshipinfo(ship_id) {
 	        {
 	        global.init_bombs = 3;
 	        global.max_bombs = 3;
-	        if global.arxynespr = 2 then ship_info[0] = spr_arxyneV2
+	        if global.arxynespr == 2 then ship_info[0] = spr_arxyneV2
 	        else ship_info[0] = spr_arxyne;
 	        ship_info[1] = 0;
 	        ship_info[2] = "Arxyne";

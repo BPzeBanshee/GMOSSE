@@ -133,16 +133,16 @@ if category == 4
     // BEHAVIOURS
     var vol_music,vol_sfx,vol_voice;
     vol_music = string(global.music_volume)+"%";
-    if global.music_volume = 100 then vol_music = "MAX";
-    if global.music_volume = 0 then vol_music = "OFF";
+    if global.music_volume == 100 then vol_music = "MAX";
+    if global.music_volume == 0 then vol_music = "OFF";
 
     vol_sfx = string(global.sfx_volume)+"%";
-    if global.sfx_volume = 100 then vol_sfx = "MAX";
-    if global.sfx_volume = 0 then vol_sfx = "OFF";
+    if global.sfx_volume == 100 then vol_sfx = "MAX";
+    if global.sfx_volume == 0 then vol_sfx = "OFF";
     
     vol_voice = string(global.voice_volume)+"%";
-    if global.voice_volume = 100 then vol_voice = "MAX";
-    if global.voice_volume = 0 then vol_voice = "OFF";
+    if global.voice_volume == 100 then vol_voice = "MAX";
+    if global.voice_volume == 0 then vol_voice = "OFF";
     
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"MUSIC VOLUME: "+string(vol_music));
