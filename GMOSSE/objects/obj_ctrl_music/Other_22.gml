@@ -1,9 +1,6 @@
-/// @description  OMAKE BOSS THEME 2
+///@desc OMAKE 2 THEME
 // Fun fact: this one actually came first, I just named it omake2 to fit with stage order
-timer = 0;
-alpha = 0;
-
-scr_stopmusic(music);
-info = scr_loadmusicinfo("Omake2");
-music = scr_playmusic(snd_omake2,true);
-scr_setvolmusic(music);
+stop();
+music = snd_omake2;
+channel = play(music[0],true);
+show_info(true);

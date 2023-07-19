@@ -1,10 +1,5 @@
-/// @description  BIG BOSS THEME (STAGE 3)
-if instance_exists(obj_ctrl_gameover) then exit;
-
-timer = 0;
-alpha = 0;
-
-scr_stopmusic(music);
-info = scr_loadmusicinfo("Stage3_B");
-music = scr_playmusic(snd_st3b,true);
-scr_setvolmusic(music);
+///@desc STAGE 3B THEME
+stop();
+music = snd_st3b;
+channel = play(music[0],true);
+show_info(true);

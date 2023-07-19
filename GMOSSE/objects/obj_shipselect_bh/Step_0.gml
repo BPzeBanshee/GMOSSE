@@ -42,7 +42,7 @@ if (global.button1 && !hook)
             global.weapontype = selection;
             // go to playing room (using transition object)
             scr_trans(global.startstage,3,c_black,0.025,0.05,210);
-            scr_fademusic(0.0055);
+            with obj_ctrl_music fade_out(0.0055);
             break;
             }
         }

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_loadmusic",
+  "name": "scr_music_pick_ini",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

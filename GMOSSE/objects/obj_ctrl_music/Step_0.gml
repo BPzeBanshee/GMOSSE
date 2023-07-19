@@ -1,9 +1,31 @@
-///@desc Fade functions
-// TODO: this is overengineered courtesy of ext. history,
-// replace with audio_set_gain(index,gain,time)
+///@desc Fade/Alpha functions
+
+if fading_out
+	{
+	if audio_sound_get_gain(channel) == 0
+		{
+		stop(channel);
+		fading_out = false;
+		}
+	}
+if fading_in
+	{
+	var vol_max = round(global.music_volume)/100;
+	if audio_sound_get_gain(channel) == vol_max then fading_in = false;
+	}
+	
+if showing_info && !instance_exists(obj_ctrl_pause)
+	{
+	timer += 1;
+	if timer < 360 && alpha < 1 then alpha += 0.01;
+	if timer > 360
+		{
+		if alpha > 0 then alpha -= 0.01 else showing_info = false;
+		}
+	}
 
 // FADE OUT EFFECT
-if fade_out == true && !fade_in
+/*if fade_out == true && !fade_in
 	{
 	// get current volume, and start process
 	var vol_current = round(global.music_volume)/100;
@@ -61,4 +83,4 @@ if fade_in == true && !fade_out
 		fade_value = -1;
 		fade_in = false;
 		}
-	}
+	}*/

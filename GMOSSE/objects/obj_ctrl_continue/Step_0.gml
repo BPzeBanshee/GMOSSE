@@ -44,15 +44,13 @@ if global.jdown && !hook
 // Selecting an option
 if global.button1 && !hook
     {
-    has_chosen = 1;
+    has_chosen = true;
     hook = 1;
     }
     
 // Actions based on chosen option
-if has_chosen == 1 && alpha <= 0
+if has_chosen && alpha <= 0
     {
-    with obj_ctrl_music timer = 360;
-    
     // Unpause and restore everything to look normal
     scr_unpause();
     visible = false; // don't capture continue screen if Game Overing
@@ -62,8 +60,12 @@ if has_chosen == 1 && alpha <= 0
     global.behaviour = behaviour_stored;
     
     // Reboot the music
-    with obj_ctrl_music event_user(5); // call again to switch off
-    scr_pausemusic(0); // Unpause whatever was playing before Continue
+    with obj_ctrl_music 
+		{
+		timer = 360;
+		event_user(5);	// call again to switch off
+	    resume();		// Unpause whatever was playing before Continue
+		}
     global.pausable = true;
     
     // Selection-specific stuff

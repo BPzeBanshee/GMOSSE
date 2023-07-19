@@ -2,15 +2,19 @@
 // Call once to play, call again to stop
 if instance_exists(obj_ctrl_continue)
     {
-    scr_stopmusic(music2);
+    stop(channel2);
+	channel2 = -1;
+	
+	music = music2;
 	music2 = -1;
+	
+	show_info(false);
     exit;
     }
 else
     {
-    timer = 0;
-    alpha = 0;
-    info = scr_loadmusicinfo("Continue");
-    music2 = scr_playmusic(snd_continue,false);
-    scr_setvolmusic(music2);
+	music2 = music;
+	music = snd_continue;
+    channel2 = play(music[0],false);
+	show_info(true);
     }

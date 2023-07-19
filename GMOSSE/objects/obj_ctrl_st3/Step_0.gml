@@ -60,7 +60,7 @@ switch stage_time
         
     case 4800:
         {
-        scr_fademusic(0.005);
+        with obj_ctrl_music fade_out(0.005);
         break;
         }
     case 5000:

@@ -1,8 +1,7 @@
-/// @description scr_pickmusicini()
-function scr_pickmusicini() {
+///@desc scr_music_pick_ini()
+function scr_music_pick_ini() {
 	/*
-	scr_pickmusicini, by BPzeBanshee
-	based off a few tutorials I picked from GMC forums.
+	scr_music_pick_ini, by BPzeBanshee
 	*/
 	var load_name = get_open_filename(".ini|*.ini*|","");
 	if load_name != "" // only load if there was a file chosen

@@ -1,7 +1,4 @@
 ///@desc Play room track
-// Reset timers
-timer = 0;
-alpha = 0;
 
 // Choose song to play based on current room
 var choice,loop;
@@ -14,7 +11,7 @@ switch room
 		{
 		// Remove the info check and the room check in Room End
 		// if you want this track to always play on menu entry
-		if info != -1 
+		if global.intro
 			{
 			choice = snd_intro; 
 			loop = false;
@@ -34,9 +31,9 @@ switch room
 	}
 	
 // Play the decided track, or show nothing
-if choice != -1 
+if is_array(choice)
 	{
-	music = scr_playmusic(choice,loop);
-	scr_setvolmusic(music);
+	music = choice;
+	channel = play(music[0],loop);
+	show_info(true);
 	}
-else timer = 360;

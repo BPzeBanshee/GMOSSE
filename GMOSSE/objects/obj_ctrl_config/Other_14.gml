@@ -17,7 +17,7 @@ if global.jleft && !hook
         }
     with obj_ctrl_music 
 		{
-		scr_setvolmusic(music);
+		set_volume();
 	    scr_setvolsnd();    
 		}
     }
@@ -34,7 +34,7 @@ if global.jright && !hook
         }
     with obj_ctrl_music 
 		{
-		scr_setvolmusic(music);
+		set_volume();
 	    scr_setvolsnd();
 		}
     }

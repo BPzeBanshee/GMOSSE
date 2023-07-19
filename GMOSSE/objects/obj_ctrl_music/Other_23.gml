@@ -1,8 +1,5 @@
-/// @description  OMAKE BOSS THEME 3
-timer = 0;
-alpha = 0;
-
-scr_stopmusic(music);
-info = scr_loadmusicinfo("Omake3");
-music = scr_playmusic(snd_omake3,true);
-scr_setvolmusic(music);
+///@desc OMAKE 3 THEME
+stop();
+music = snd_omake3;
+channel = play(music[0],true);
+show_info(true);
