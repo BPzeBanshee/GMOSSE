@@ -2,7 +2,7 @@ if l_delay > 0 then l_delay -= 1;
 
 if (m_size != global.window_size 
 or m_aspect != global.window_aspect)
-&& l_delay = 0
+&& l_delay == 0
 then event_user(0);
 
 // DEBUG COMMANDS

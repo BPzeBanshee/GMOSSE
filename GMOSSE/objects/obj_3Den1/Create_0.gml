@@ -25,4 +25,4 @@ jump_timer = 180;
 jump_count = 0;
 
 scr_circleshot02(30,x,y,0,obj_bullet2,4,false);
-scr_playsnd(snd_en_shot2,1);
+scr_snd_play(snd_en_shot2,true);

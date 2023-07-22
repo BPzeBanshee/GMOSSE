@@ -10,7 +10,7 @@
   "bitRate": 192,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.0,
+  "duration": 0.899773,
   "parent": {
     "name": "Enemies",
     "path": "folders/Sounds/Enemies.yy",
@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_en_shot3",
   "type": 0,
-  "volume": 1.0,
+  "volume": 0.75,
 }

@@ -1,6 +1,6 @@
 if !dead
     {
-    scr_playsnd(snd_exp2,0);
+    scr_snd_play(snd_exp2);
     jump_timer += 666;
     scr_addscore(300,180,1);
     dead = true;

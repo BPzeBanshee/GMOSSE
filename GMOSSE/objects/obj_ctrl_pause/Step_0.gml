@@ -12,7 +12,7 @@ then hook = 0;
 // Up
 if (global.jup && !hook && enabled)
     {
-    scr_playsnd(snd_click,1);
+    scr_snd_play(snd_click,true);
     hook = 1;
     selection -= 1; // Scroll up on the menu.
     if selection < 1 then selection = 5; // Goes to the bottom box.
@@ -21,7 +21,7 @@ if (global.jup && !hook && enabled)
 // Down
 if (global.jdown && !hook && enabled)
     {
-    scr_playsnd(snd_click,1);
+    scr_snd_play(snd_click,true);
     hook = 1;
     selection += 1; // Scroll down on the menu.
     if selection > 5 then selection = 1; // Goes to the top box.
@@ -31,7 +31,7 @@ if (global.jdown && !hook && enabled)
 if (global.button1 && !global.levelend && !hook && enabled)
     {
     hook = 1;
-    scr_playsnd(snd_click,1);
+    scr_snd_play(snd_click,true);
     switch selection 
         {
         case 1: // resume game

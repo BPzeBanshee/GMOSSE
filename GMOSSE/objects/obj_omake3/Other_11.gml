@@ -18,7 +18,7 @@ if timer < 180
         if instance_exists(arm_right) then with arm_right event_user(1);
         if instance_exists(arm_left) then with arm_left event_user(1);
         if instance_exists(arm_right) || instance_exists(arm_left)
-        then scr_playsnd(snd_en_shot1,1);
+        then scr_snd_play(snd_en_shot1,true);
         atk_timer = 0;
         }
     }

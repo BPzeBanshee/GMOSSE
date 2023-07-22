@@ -4,7 +4,7 @@ e.speed = 2.5;
 
 if image_alpha == 1
     {
-    scr_playsnd(snd_exp3,1);
+    scr_snd_play(snd_exp3,true);
     scr_addscore(500,180,1);
     }
 

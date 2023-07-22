@@ -10,7 +10,7 @@ if (global.button1)
     { 
     if shot_timer == 0 && !instance_exists(obj_sf_bomb)
         {
-        scr_playsnd(snd_sf_shot,1);
+        scr_snd_play(snd_sf_shot,true);
         
 		var lshot1,lshot2,rshot1,rshot2;
 		instance_create_layer(x,y,layer,obj_sf_shot);

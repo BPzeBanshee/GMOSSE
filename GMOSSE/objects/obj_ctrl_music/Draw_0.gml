@@ -1,9 +1,8 @@
-if room == rm_init || !showing_info then exit;
-var oa = draw_get_alpha();
-scr_draw_vars(global.fnt_little,fa_left,make_color_rgb(90,130,255));
-
-if !instance_exists(obj_ctrl_pause) //menus
+if showing_info && !instance_exists(obj_ctrl_pause) //menus
 	{
+	var oa = draw_get_alpha();
+	scr_draw_vars(global.fnt_little,fa_left,make_color_rgb(90,130,255));
+	
 	var yy = yview+300;
 	if instance_exists(obj_ctrl_game) then yy = yview+284;  //ingame
 	

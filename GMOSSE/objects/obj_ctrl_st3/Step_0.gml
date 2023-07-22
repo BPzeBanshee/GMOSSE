@@ -3,7 +3,7 @@ if stage_time > 12000
 && !instance_exists(obj_boss3)
 //&& !instance_exists(obj_boss3_dead)
 && !instance_exists(obj_omake3)
-&& !obj_ctrl_music.fade_out
+&& !obj_ctrl_music.fading_out
 then completedelay += 1;
 if completedelay == 120
     {

@@ -15,7 +15,7 @@ if selection == 6
 // LEFT
 if global.jleft && !hook
     {
-    hook = 1;
+    hook = true;
     switch selection
         {
         case 1: global.fullscreen = false; scr_fullscreen(global.fullscreen); break;
@@ -32,7 +32,7 @@ if global.jleft && !hook
 // RIGHT
 if global.jright && !hook
     {
-    hook = 1;
+    hook = true;
     switch selection
         {
         case 1: global.fullscreen = true; scr_fullscreen(global.fullscreen); break;
@@ -54,8 +54,8 @@ if global.jright && !hook
 // BUTTON 1
 if global.button1 && !hook 
     {
-    hook = 1;
-    scr_playsnd(snd_click,1);
+    hook = true;
+    scr_snd_play(snd_click,true);
     if selection == selection_max - 1 // Filter Options
         {
         max_h = 0;
@@ -65,7 +65,7 @@ if global.button1 && !hook
     if selection == selection_max // Return to Config Menu
         {
         max_h = 0;
-        selection = 1; 
+        selection = selection_previous; 
         category = 0;
         }
     }

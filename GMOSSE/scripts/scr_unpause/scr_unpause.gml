@@ -22,8 +22,5 @@ function scr_unpause() {
 	if sprite_exists(global.pause_img) then sprite_delete(global.pause_img);
 	instance_activate_all();
 
-	global.paused = 0;
-
-
-
+	global.paused = false;
 }

@@ -99,12 +99,12 @@ switch phase
                     scr_basicshot(x,y,global.lay_bullets,obj_bullet2,i,image_angle+270);
                     scr_basicshot(x,y,global.lay_bullets,obj_bullet2,i,image_angle+315);
                     }
-                scr_playsnd(snd_en_shot2,1);
+                scr_snd_play(snd_en_shot2,true);
                 }
             else
                 {
                  // Attack 1
-                scr_playsnd(snd_en_shot1,1);
+                scr_snd_play(snd_en_shot1,true);
                 for (var i=2;i<=7;i++) scr_basicshot(x,y,global.lay_bullets,obj_bullet1,i,aim);
                 }
                 

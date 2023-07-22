@@ -1,1 +1,1 @@
-scr_playsnd(snd_bh_shothit,1);
+scr_snd_play(snd_bh_shothit,true);

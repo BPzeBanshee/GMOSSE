@@ -10,14 +10,14 @@
   "bitRate": 192,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.0,
+  "duration": 0.455374,
   "parent": {
-    "name": "Swordfish",
-    "path": "folders/Sounds/Player/Swordfish.yy",
+    "name": "Trident",
+    "path": "folders/Sounds/Player/Trident.yy",
   },
   "preload": true,
   "sampleRate": 44100,
   "soundFile": "snd_sf_shothit",
   "type": 0,
-  "volume": 1.0,
+  "volume": 0.2,
 }

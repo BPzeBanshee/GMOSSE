@@ -9,7 +9,7 @@ if bomb_timer > 0 then bomb_timer -= 1;
 if (global.button1) 
     {
     // shot
-    scr_playsnd(snd_xono_shot,0); 
+    scr_snd_play(snd_xono_shot); 
     var shot = scr_basicshot(x,y,layer,obj_xono_shot,20,90+shot_angle);
     shot.image_index = shot_anim;
     
@@ -40,7 +40,7 @@ if (global.button1)
 /* BUTTON 2 - BOMB */
 if (global.button2) && bomb_timer == 0 && global.bombs > 0
     {
-    scr_playsnd(snd_exp1,0);
+    scr_snd_play(snd_exp1);
 	var _ex;
 	for (var i=0;i<360;i+=15)
 		{

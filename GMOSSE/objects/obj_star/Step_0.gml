@@ -1,2 +1,1 @@
-event_user(global.behaviour);
-
+event_user(mode);

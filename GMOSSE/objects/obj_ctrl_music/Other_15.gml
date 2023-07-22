@@ -15,6 +15,7 @@ else
     {
 	music2 = music;
 	music = snd_continue;
+	if !is_array(music) exit;
     channel2 = play(music[0],false);
 	show_info(true);
     }

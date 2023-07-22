@@ -12,7 +12,7 @@ if (global.button1)
     // MAIN SHOT
     if shot1_timer == 0
         {
-        scr_playsnd(snd_arx_shot1,0);
+        scr_snd_play(snd_arx_shot1,true);
         scr_basicshot(x+6,y,layer,obj_arxyne_shot,15,85);
         scr_basicshot(x-6,y,layer,obj_arxyne_shot,15,95);
         scr_basicshot(x+6,y+4,layer,obj_arxyne_shot,15,65);
@@ -31,7 +31,7 @@ if (global.button1)
     // HOMING LASERS
     if shot3_timer == 0 && instance_number(obj_arxyne_shot2a) < 3//5
         {
-        scr_playsnd(snd_arx_shot2,0);
+        scr_snd_play(snd_arx_shot2,true);
         //scr_basicshot(x,y+12,layer,obj_arxyne_shot2a,5,230);
         //scr_basicshot(x,y+12,layer,obj_arxyne_shot2a,5,260);
         scr_basicshot(x,y+12,layer,obj_arxyne_shot2a,5,230);
@@ -43,7 +43,7 @@ if (global.button1)
 /* BUTTON 2 - BOMB */
 if (global.button2) && bomb_timer == 0 && global.bombs > 0
     {
-    scr_playsnd(snd_exp1,0);
+    scr_snd_play(snd_exp1);
 	var ex;
 	for (var i=0;i<360;i+=15)
 		{

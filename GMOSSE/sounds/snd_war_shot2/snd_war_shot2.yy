@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_war_shot2",
   "type": 0,
-  "volume": 1.0,
+  "volume": 0.4,
 }

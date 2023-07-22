@@ -36,7 +36,7 @@ if tur_count > 0
         if atk_timer == 30 
             {
 			for (var i=0;i<4;i++) with tur[i] fire_weapon(1);
-            scr_playsnd(snd_en_shot2,1);
+            scr_snd_play(snd_en_shot2,true);
             atk_timer = -30; // 90 steps after first call
             }
         }
@@ -47,7 +47,7 @@ if tur_count > 0
         if atk_timer == 4
             {
 			for (var i=0;i<4;i++) with tur[i] fire_weapon(2);
-            scr_playsnd(snd_en_shot1,1);
+            scr_snd_play(snd_en_shot1,true);
             atk_timer = 0;
             }
         }
@@ -59,7 +59,7 @@ if tur_count == 0 && y > yview-(sprite_height/2) && y < yview+160
     timer += 1;
     if timer >= 4
         {
-        scr_playsnd(snd_en_shot3,1);
+        scr_snd_play(snd_en_shot3,true);
         scr_basicshot(x,y,global.lay_bullets,obj_bullet4,4,aim); 
         aim += 45;
         if aim >= 360 then aim = 0;

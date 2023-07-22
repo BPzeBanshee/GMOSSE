@@ -13,7 +13,4 @@ has_chosen = false;
 
 // Star aesthetics
 limiter = 0;
-behaviour_stored = global.behaviour;
-global.behaviour = 3;
-
 enabled = true; // End of init

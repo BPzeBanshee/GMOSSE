@@ -10,6 +10,6 @@ if atk_timer == 8
     for (var i=2;i<=6;i+=1) scr_basicshot(x2,y2,global.lay_bullets,obj_bullet2,i,image_angle-(d2*12));
     d1 += 1;
     d2 += 1;
-    scr_playsnd(snd_en_shot2,1);
+    scr_snd_play(snd_en_shot2,true);
     atk_timer = 0;
     }

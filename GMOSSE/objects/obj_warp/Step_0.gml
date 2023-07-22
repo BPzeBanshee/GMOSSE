@@ -6,4 +6,3 @@ if scale > 4
     alpha -= 0.05;
     if alpha < 0.05 then instance_destroy();
     }
-

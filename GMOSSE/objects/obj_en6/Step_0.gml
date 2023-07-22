@@ -56,7 +56,7 @@ switch phase
         if shot_timer == 5
             {
             scr_basicshot(x,y,global.lay_bullets,obj_bullet4,4,aim); 
-            scr_playsnd(snd_en_shot3,1);
+            scr_snd_play(snd_en_shot3,true);
             shot_timer = 0;
             num_of_shots += 1;
             }

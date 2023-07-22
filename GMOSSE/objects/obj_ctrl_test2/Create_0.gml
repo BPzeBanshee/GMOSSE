@@ -25,7 +25,6 @@ direction = 90;
 stage_time = 0;
 global.level = 4; 
 global.pausable = true;
-global.behaviour = 4; // determines behaviour of stars (if used)
 scr_camera_init(0,80,0,-0.33);
 instance_create_layer(x+160,y+240,layer,obj_ctrl_game);
 

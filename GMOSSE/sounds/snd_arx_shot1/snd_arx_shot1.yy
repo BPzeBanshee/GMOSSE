@@ -10,7 +10,7 @@
   "bitRate": 192,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.0,
+  "duration": 1.177596,
   "parent": {
     "name": "Arxyne",
     "path": "folders/Sounds/Player/Arxyne.yy",
@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_arx_shot1",
   "type": 0,
-  "volume": 0.93,
+  "volume": 0.2,
 }

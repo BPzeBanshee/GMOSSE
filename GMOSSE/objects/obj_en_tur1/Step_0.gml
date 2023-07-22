@@ -21,7 +21,7 @@ if timer >= 60 && y < yview+240
     if timer2 <= 0
         {
         scr_spreadshot_aim(xx,yy,obj_bullet2,-1,25,3,5,image_angle,image_angle);
-        scr_playsnd(snd_en_shot2,1);
+        scr_snd_play(snd_en_shot2,true);
         timer2 = 5;
         }
     }

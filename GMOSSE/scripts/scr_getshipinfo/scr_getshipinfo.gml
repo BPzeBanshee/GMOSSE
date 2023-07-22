@@ -1,5 +1,5 @@
 function scr_getshipinfo(ship_id) {
-	globalvar ship_info,max_ships; // declare global variables
+	//globalvar ship_info,max_ships; // declare global variables
 	for (var i=0; i<6; i+=1) ship_info[i] = 0; // reset ship_info array
 	switch ship_id
 	    {

@@ -9,8 +9,8 @@ function scr_music_load(ini_section) {
 	// Create array and load metadata from INI
 	var music_info = scr_music_load_metadata(ini_section);
 
-	// quit early if no file to load
-	if music_info[0] == "NONE" then return -1; 
+	// quit early if no file to load (formerly 'NONE' check)
+	if !is_array(music_info) then return -1;
 
 	// everything that's required is sorted, load stream and configure
 	var m,a,b;

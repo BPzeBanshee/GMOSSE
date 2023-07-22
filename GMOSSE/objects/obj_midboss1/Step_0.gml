@@ -32,7 +32,7 @@ switch mode
             {
             var b = scr_basicshot(x,y,global.lay_bullets,obj_bullet_shoot,0,270);
             b.btype = 3;
-            scr_playsnd(snd_en_shot2,1);
+            scr_snd_play(snd_en_shot2,true);
             timer = 0;
             }
             

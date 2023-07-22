@@ -85,7 +85,7 @@ if !instance_exists(box) && made
     instance_create_layer(x+random_range(-75,75),y+random_range(-168,168),layer,obj_explosion);
     if exptimer == 0
         {
-        scr_playsnd(snd_exp1,1);
+        scr_snd_play(snd_exp1,true);
         exptimer = 5;
         }
     exptimer -= 1;

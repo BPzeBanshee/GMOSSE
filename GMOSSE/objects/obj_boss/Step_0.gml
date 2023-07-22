@@ -77,7 +77,7 @@ switch phase
         if atk_timer == 60
             {
             scr_circleattack(36,x,y,0,obj_bullet2,obj_hitbox,6,false);
-            scr_playsnd(snd_en_shot2,1);
+            scr_snd_play(snd_en_shot2,true);
             atk_timer = 30;
             count += 1;
             }
@@ -135,7 +135,7 @@ switch phase
                 btype = 2;
                 friction = 0.4;
                 }
-            scr_playsnd(snd_exp1,1);
+            scr_snd_play(snd_exp1,true);
             atk2_timer = 180;
             }  
         break;

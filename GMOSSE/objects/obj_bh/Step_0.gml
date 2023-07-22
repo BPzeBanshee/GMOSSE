@@ -17,7 +17,7 @@ if global.button1
     {
     if can_shoot == 1 // Main shot
         {
-        scr_playsnd(snd_bh_mainshot,1);
+        scr_snd_play(snd_bh_mainshot,1);
         var shot = scr_basicshot(x,y,layer,obj_bh_mainshot,20,90+shot_angle);
         shot.image_blend = obj_bh_orb.image_blend;
 

@@ -10,7 +10,7 @@
   "bitRate": 192,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.0,
+  "duration": 0.20542,
   "parent": {
     "name": "Others",
     "path": "folders/Sounds/Others.yy",
@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_click",
   "type": 0,
-  "volume": 0.93,
+  "volume": 0.9,
 }

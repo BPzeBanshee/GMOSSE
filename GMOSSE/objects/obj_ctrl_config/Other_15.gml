@@ -9,36 +9,36 @@ if timer > 0 then timer -= 1;
 // LEFT
 if global.jleft && !hook
     {
-    hook = 1;
+    hook = true;
     switch selection
         {
-        case 1: global.debug = 0; break;
-        case 2: global.hitbox_visible = 0; break;
-        case 3: global.fonttype = 0; scr_fonts_set(); break;
+        case 1: global.debug = false; break;
+        case 2: global.hitbox_visible = false; break;
+        case 3: global.fonttype = false; scr_fonts_set(); break;
         case 4: if global.bulletcolour > 1 then global.bulletcolour -= 1;  break;
-        case 5: global.flicker = 0; break;
+        case 5: global.flicker = false; break;
         }
     }
     
 // RIGHT
 if global.jright && !hook
     {
-    hook = 1;
+    hook = true;
     switch selection
         {
-        case 1: global.debug = 1; break;
-        case 2: global.hitbox_visible = 1; break;
-        case 3: global.fonttype = 1; scr_fonts_set(); break;
+        case 1: global.debug = true; break;
+        case 2: global.hitbox_visible = true; break;
+        case 3: global.fonttype = true; scr_fonts_set(); break;
         case 4: if global.bulletcolour < 3 then global.bulletcolour += 1;  break;
-        case 5: global.flicker = 1; break;
+        case 5: global.flicker = true; break;
         }
     }
     
 // BUTTON 1
 if global.button1 && !hook 
     {
-    hook = 1;
-    scr_playsnd(snd_click,1);
+    hook = true;
+    scr_snd_play(snd_click,true);
     switch selection
         {
         case 6:
@@ -59,7 +59,7 @@ if global.button1 && !hook
         case 8:
             {
             timer = 0;
-            selection = 1; 
+            selection = selection_previous; 
             category = 0;
             break;
             }

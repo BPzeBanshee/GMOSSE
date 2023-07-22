@@ -5,7 +5,7 @@ if phase < 5 then attack_timer += 1;
 if attack_timer == 30
     {
     scr_spreadshot(x,y,obj_bullet2,-1,40,2,4,true);
-    scr_playsnd(snd_en_shot2,1);
+    scr_snd_play(snd_en_shot2,true);
     attack_timer = 0;
     }
 if attack_timer > 25
@@ -21,7 +21,7 @@ if attack_timer > 25
     
     // take the shot
     scr_basicshot(x,y,global.lay_bullets,obj_bullet1,5,aim);
-    scr_playsnd(snd_en_shot3,1);
+    scr_snd_play(snd_en_shot3,true);
     }
 
 // Action timer

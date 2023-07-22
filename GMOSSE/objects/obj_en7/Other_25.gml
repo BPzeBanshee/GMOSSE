@@ -7,7 +7,7 @@ if made
     }
 if image_alpha == 1
     {
-    scr_playsnd(snd_exp2,0);
+    scr_snd_play(snd_exp2);
     scr_addscore(800,180,1);
     }
 var e = instance_create_depth(x,y,depth-1,obj_explosion);

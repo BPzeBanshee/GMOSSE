@@ -38,7 +38,7 @@ switch mode
             {
             case 10: case 20: case 30: case 40: case 50: case 60:
             case 70: case 80: case 90: case 100: case 110: case 120:
-            scr_playsnd(snd_en_shot1,1);
+            scr_snd_play(snd_en_shot1,true);
             scr_spreadshot(x,y,obj_bullet1,-1,55,7,8,true); 
             break;
             }
@@ -46,7 +46,7 @@ switch mode
         // Attack 2A
         if timer > 150 && timer < 200
             {
-            scr_playsnd(snd_en_shot4,1);
+            scr_snd_play(snd_en_shot4,true);
             scr_basicshot(x,y,global.lay_bullets,obj_bullet4,6,d); // was 8, then 7
             d -= 10;
             }
@@ -55,7 +55,7 @@ switch mode
         // Attack 2B
         if timer > 230 && timer < 270
             {
-            scr_playsnd(snd_en_shot2,1);
+            scr_snd_play(snd_en_shot2,true);
             scr_basicshot(x,y,global.lay_bullets,obj_bullet2,6,d); // was 8, then 7
             d += 10;
             }

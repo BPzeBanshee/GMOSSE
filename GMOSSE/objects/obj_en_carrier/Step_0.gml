@@ -13,7 +13,7 @@ timer -= 1;
 if timer == 0
     {
     scr_spreadshot(x,y+16,obj_bullet2,-1,30,3,4,false); // bullet script
-    scr_playsnd(snd_en_shot2,1);
+    scr_snd_play(snd_en_shot2,true);
     timer = 120;
     }
     

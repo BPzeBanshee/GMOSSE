@@ -12,5 +12,5 @@ for (var i = 0; i <= 360; i+=18)
     _bullet[i].image_xscale = 1;
     _bullet[i].image_yscale = 1;
     }
-scr_playsnd(snd_exp3,0);
+scr_snd_play(snd_exp3);
 

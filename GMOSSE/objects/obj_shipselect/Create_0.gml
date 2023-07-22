@@ -1,10 +1,8 @@
-// Ship selection handling
-global.shipselect = 1;
-global.arxynespr = 1;
-global.xonospr = 1;
-scr_getshipinfo(global.shipselect);
-
 // Control variables
+selection = global.shipselect;
 hook = 1;
 chr1 = 0;
 text = "";
+
+// Ship metadata (aside from some globalvars not strictly needed)
+scr_getshipinfo(selection);

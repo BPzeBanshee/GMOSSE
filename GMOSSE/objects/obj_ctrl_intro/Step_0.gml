@@ -6,7 +6,6 @@ if mode == 1
             {
             with left_piece instance_destroy(); 
             with right_piece instance_destroy();
-            global.behaviour = 2;
             instance_create_layer(119,75,layer,obj_title);
             with obj_warp_gen visible = true;
             with obj_warp visible = true;
@@ -25,7 +24,7 @@ else
     if global.button1 && timer < 600
         {
         instance_create_layer(0,0,layer,obj_ctrl_menu);
-        global.intro = 0;
+        global.intro = false;
         instance_destroy();
         }
     }

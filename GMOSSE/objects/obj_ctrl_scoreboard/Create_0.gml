@@ -1,2 +1,1 @@
-ready = 0; // hook
-
+ready = false; // hook

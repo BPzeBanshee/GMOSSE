@@ -17,7 +17,7 @@ if (timer == 60 || timer == 75 || timer == 90) && scr_isonscreen()
     a = x + lengthdir_x(16,image_angle);
     b = y + lengthdir_y(16,image_angle);
     scr_basicshot(a,b,global.lay_bullets,obj_bullet3,5,image_angle);
-    scr_playsnd(snd_en_shot4,1);
+    scr_snd_play(snd_en_shot4,true);
     }
 if timer >= 120 || y > yview+270
     { 

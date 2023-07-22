@@ -37,25 +37,42 @@ function scr_main_init() {
 	scr_fonts_init();
 
 	/* CONTROLLERS */
+	// Input
 	instance_create_layer(0,0,layer,obj_ctrl_input);
 	//instance_create_layer(0,0,layer,obj_ctrl_input2); // for experimental replay support
+	
+	// Music/Sounds
 	instance_create_layer(0,0,layer,obj_ctrl_music);
-	//instance_create_layer(0,0,layer,obj_ctrl_music_old); // for loading streams per-room
 	
+	// Render
 	application_surface_draw_enable(true);
-	
 	if os_get_type()=="gx" || os_browser != browser_not_a_browser
 	then instance_create_layer(0,0,layer,obj_ctrl_render_mob)
 	else instance_create_layer(0,0,layer,obj_ctrl_render);
     
 	/* MISC. */
+	// pause-related vars
 	global.pausable = false; // define pausable/unpausable rooms with this
 	global.paused = false;
+	global.pause_img = noone;
+	global.bkg_vspd[0] = 0; 
+	global.bkg_hspd[0] = 0;
+	global.bkg_alpha[0] = 0;
+	
+	// used for transition control/preloading
 	global.levelend = false;
-	global.nextroom = -1;  // used for transition control/preloading
+	global.nextroom = -1;  
 	global.startstage = rm_stage1; // hidden menu function
 	global.intro = true;
 
+	// shipselect
+	global.shipselect = 1; // ship ID
+	global.arxynespr = 1;  // alt sprites (TODO: replace these with skin system)
+	global.xonospr = 1;
+	global.optiontype = 1; // Busterhawk-specifc vars
+	global.weapontype = 1;
+	
+	// ingame
 	global.myscore = 0;
 	global.score_stored = 0;
 	global.extend_number = 1;

@@ -1,5 +1,4 @@
 /* AESTHETICS */
-//global.behaviour = 2;
 //instance_create_layer((room_width/2),(room_height/2),layer,obj_star);
 
 // Test code for warp background
@@ -34,7 +33,7 @@ then hook = 0;
 if (global.jup && !hook && enabled)
     {
     hook = 1;
-    scr_playsnd(snd_click,0);
+    scr_snd_play(snd_click,true);
     selection -= 1;
     if selection < 1 then selection = 5;
     }
@@ -43,7 +42,7 @@ if (global.jup && !hook && enabled)
 if (global.jdown && !hook && enabled)
     {
     hook = 1;
-    scr_playsnd(snd_click,0);
+    scr_snd_play(snd_click,true);
     selection += 1; 
     if selection > 5 then selection = 1; 
     }
@@ -54,7 +53,7 @@ if (global.jleft && !hook && enabled)
     hook = 1;
     if selection == 1
         {
-        scr_playsnd(snd_click,0);
+        scr_snd_play(snd_click,true);
         if selection2 > 1 then selection2 -= 1;
         }
     }
@@ -65,7 +64,7 @@ if (global.jright && !hook && enabled)
     hook = 1;
     if selection == 1
         {
-        scr_playsnd(snd_click,0);
+        scr_snd_play(snd_click,true);
         if selection2 < 3 then selection2 += 1;
         }
     }
@@ -82,7 +81,7 @@ if (keyboard_check(vk_f12) && !hook)
 if (global.button1 && !global.levelend && !hook && enabled)
     {
     hook = 1;
-    scr_playsnd(snd_click,0);
+    scr_snd_play(snd_click,true);
     switch selection
         {
         case 0: break;

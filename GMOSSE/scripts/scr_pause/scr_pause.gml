@@ -34,8 +34,7 @@ function scr_pause() {
 	instance_deactivate_object(obj_debug);
 
 	// First, create the surface
-	var surf;
-	surf = surface_create(win_w,win_h);
+	var surf = surface_create(win_w,win_h);
 	surface_set_target(surf);
 	draw_clear_alpha(c_black,1);
 	gpu_set_blendmode_ext(bm_one, bm_inv_src_alpha);

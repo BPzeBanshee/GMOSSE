@@ -31,6 +31,3 @@ ds_grid_read(replay,base64_decode("NUEwMjAwMDAwQTAwMDAwMDA2MDAwMDAwMDAwMDAwMDAwM
 
 demo_room = choose(rm_stage1,rm_stage2,rm_boss1,rm_boss2,rm_stage3,rm_tutorial);
 scr_trans(demo_room,2,c_black,0.025,0.05,0);
-
-/* */
-/*  */

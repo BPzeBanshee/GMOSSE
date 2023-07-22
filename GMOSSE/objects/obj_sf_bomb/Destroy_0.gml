@@ -1,2 +1,2 @@
-scr_stopsnd(snd_sf_laser);
+scr_snd_stop(snd_sf_laser);
 

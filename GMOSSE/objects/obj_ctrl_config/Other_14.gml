@@ -8,42 +8,34 @@ max_h = 0;
 // LEFT
 if global.jleft && !hook
     {
-    hook = 1;
+    hook = true;
     switch selection
         {
         case 1: if global.music_volume > 0 then global.music_volume -= 10; break;
-        case 2: if global.sfx_volume > 0 then global.sfx_volume -= 10; scr_playsnd(snd_click,1); break;
+        case 2: if global.sfx_volume > 0 then global.sfx_volume -= 10; scr_snd_play(snd_click,true); break;
         case 3: if global.voice_volume > 0 then global.voice_volume -= 10; break;
         }
-    with obj_ctrl_music 
-		{
-		set_volume();
-	    scr_setvolsnd();    
-		}
+    with obj_ctrl_music set_volume();
     }
     
 // RIGHT
 if global.jright && !hook
     {
-    hook = 1;
+    hook = true;
     switch selection
         {
         case 1: if global.music_volume < 100 then global.music_volume += 10; break;
-        case 2: if global.sfx_volume < 100 then global.sfx_volume += 10; scr_playsnd(snd_click,1); break;
+        case 2: if global.sfx_volume < 100 then global.sfx_volume += 10; scr_snd_play(snd_click,true); break;
         case 3: if global.voice_volume < 100 then global.voice_volume += 10; break;
         }
-    with obj_ctrl_music 
-		{
-		set_volume();
-	    scr_setvolsnd();
-		}
+    with obj_ctrl_music set_volume();
     }
     
 // BUTTON 1
 if global.button1 && !hook 
     {
-    hook = 1;
-    scr_playsnd(snd_click,1);
+    hook = true;
+    scr_snd_play(snd_click,true);
     switch selection
         {
         case 4:
@@ -55,7 +47,7 @@ if global.button1 && !hook
             }
         case 5:
             {
-            selection = 1; 
+            selection = selection_previous; 
             category = 0;
             break;
             }

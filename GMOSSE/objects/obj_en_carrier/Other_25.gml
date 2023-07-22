@@ -1,6 +1,6 @@
 if dead == false
     {
-    scr_playsnd(snd_exp2,0);
+    scr_snd_play(snd_exp2);
     scr_addscore(100,180,1);
     if stocktype == 1
         {

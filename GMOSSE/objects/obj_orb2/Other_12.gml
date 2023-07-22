@@ -5,7 +5,7 @@ atk2_timer -= 1;
 if atk2_timer <= 5
     {
     scr_circleattack(40,x,y,0,obj_bullet4,obj_hitbox,4,false);
-    scr_playsnd(snd_en_shot3,1);
+    scr_snd_play(snd_en_shot3,true);
     }
 if atk2_timer == 0 then atk2_timer = 30;
 

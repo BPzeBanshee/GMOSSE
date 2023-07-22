@@ -1,6 +1,6 @@
 /* STAGE COMPLETE HANDLING */
 if stage_time > 10000
-&& !instance_exists(obj_omake3) && !obj_ctrl_music.fade_out
+&& !instance_exists(obj_omake3) && !obj_ctrl_music.fading_out
 then completedelay += 1;
 
 if completedelay == 120

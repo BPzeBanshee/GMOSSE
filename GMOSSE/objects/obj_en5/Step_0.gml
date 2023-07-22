@@ -27,7 +27,7 @@ switch mode
         if shot_timer == 180
             {
             scr_basicshot(x,y,global.lay_bullets,obj_bullet3,3.5,direction); //4
-            scr_playsnd(snd_en_shot4,1);
+            scr_snd_play(snd_en_shot4,true);
             shot_timer = 0;
             num_of_shots -= 1;
             }

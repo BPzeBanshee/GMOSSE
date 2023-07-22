@@ -10,7 +10,7 @@ if atk_timer < 8
     scr_basicshot(x,y,global.lay_bullets,obj_bullet3,0,aim);
     scr_basicshot(x,y,global.lay_bullets,obj_bullet3,0,aim+20);
     scr_basicshot(x,y,global.lay_bullets,obj_bullet3,0,aim-20);
-    scr_playsnd(snd_en_shot4,1);
+    scr_snd_play(snd_en_shot4,true);
     }      
 if atk_timer == 0
     {

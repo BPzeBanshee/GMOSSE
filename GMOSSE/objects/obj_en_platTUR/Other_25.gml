@@ -1,4 +1,4 @@
-scr_playsnd(snd_exp2,0);
+scr_snd_play(snd_exp2);
 var e;
 repeat 3
     {

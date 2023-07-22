@@ -13,14 +13,19 @@ if has_chosen && alpha > 0
 limiter += 1;
 if limiter > 5
     {
-    var top = instance_create_depth(random_range(xview,xview+240),yview,depth-1,obj_star);
+	var top,left,bottom,right;
+    top = instance_create_depth(random_range(xview,xview+240),yview,depth-1,obj_star);
+	top.init(3);
     top.side = 1;
-    var left = instance_create_depth(xview,random_range(yview,yview+320),depth-1,obj_star);
+    left = instance_create_depth(xview,random_range(yview,yview+320),depth-1,obj_star);
+	left.init(3);
     left.side = 2;
-    var bottom = instance_create_depth(random_range(xview,xview+240),random_range(yview+320,yview+325),depth-1,obj_star);
-    bottom.side = 3;
-    var right = instance_create_depth(random_range(xview+240,xview+245),random_range(yview,yview+320),depth-1,obj_star);
-    right.side = 4;
+    bottom = instance_create_depth(random_range(xview,xview+240),random_range(yview+320,yview+325),depth-1,obj_star);
+    bottom.init(3);
+	bottom.side = 3;
+    right = instance_create_depth(random_range(xview+240,xview+245),random_range(yview,yview+320),depth-1,obj_star);
+    right.init(3);
+	right.side = 4;
     limiter = 0;
     }
     
@@ -29,23 +34,23 @@ if limiter > 5
 if global.jup && !hook
     {
     if selection > 1 then selection -= 1;
-    scr_playsnd(snd_click,1);
-    hook = 1;
+    scr_snd_play(snd_click,true);
+    hook = true;
     } 
     
 // Scrolling down 
 if global.jdown && !hook
     {
     if selection < 2 then selection += 1;
-    scr_playsnd(snd_click,1);
-    hook = 1;
+    scr_snd_play(snd_click,true);
+    hook = true;
     }
     
 // Selecting an option
 if global.button1 && !hook
     {
     has_chosen = true;
-    hook = 1;
+    hook = true;
     }
     
 // Actions based on chosen option
@@ -57,7 +62,6 @@ if has_chosen && alpha <= 0
     
     // make the stars go away/go back to normal
     with obj_star instance_destroy();
-    global.behaviour = behaviour_stored;
     
     // Reboot the music
     with obj_ctrl_music 
@@ -97,6 +101,9 @@ if has_chosen && alpha <= 0
     }
     
 // Hook reset
-if !global.jup && !global.jdown
-&& !global.jleft && !global.jright
-&& !global.button1 then hook = 0;
+if !global.jup 
+&& !global.jdown
+&& !global.jleft 
+&& !global.jright
+&& !global.button1 
+then hook = false;

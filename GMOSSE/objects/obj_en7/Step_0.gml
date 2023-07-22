@@ -42,7 +42,7 @@ switch phase
         if atk_timer == 30 && made
             {
             for (var i=0;i<4;i++) {with tur[i] event_user(1)};
-            scr_playsnd(snd_en_shot4,1);
+            scr_snd_play(snd_en_shot4,true);
             atk_timer = 0;
             }
         break;
@@ -55,7 +55,7 @@ switch phase
         if atk_timer == 4 && made
             {
             for (var i=0;i<4;i++) {with tur[i] event_user(2)};
-            scr_playsnd(snd_en_shot1,1);
+            scr_snd_play(snd_en_shot1,true);
             atk_timer = 0;
             }
         break;

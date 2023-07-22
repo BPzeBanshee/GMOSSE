@@ -1,3 +1,2 @@
-/// @description  Bilinear filtering
-//gpu_set_texfilter(global.filter);
-
+/// @desc Bilinear filtering
+gpu_set_texfilter(global.filter);

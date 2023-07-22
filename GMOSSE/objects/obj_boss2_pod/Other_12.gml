@@ -23,4 +23,4 @@ else
         spd += 0.5;
         }
     }
-scr_playsnd(snd_en_shot1,1);
+scr_snd_play(snd_en_shot1,true);

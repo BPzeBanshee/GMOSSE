@@ -10,5 +10,5 @@ for (var i=0;i<=2;i+=1) //turret[i]
         
 // only play 'big boom' if actually dying
 if instance_exists(box) then with box instance_destroy()
-else scr_playsnd(snd_exp3,1);
+else scr_snd_play(snd_exp3,true);
 

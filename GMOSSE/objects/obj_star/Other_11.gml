@@ -5,4 +5,3 @@ if y >= yview+320+(sprite_height/2)
     x = random_range(0,240);
     y = -(sprite_height/2);
     }
-

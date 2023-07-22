@@ -18,7 +18,7 @@ if timer >= 60
     if timer2 <= 0
         {
         scr_basicshot(x,y,global.lay_bullets,obj_bullet1,6,direction);
-        scr_playsnd(snd_en_shot1,1);
+        scr_snd_play(snd_en_shot1,true);
         timer2 = 4;
         }
     }

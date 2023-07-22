@@ -8,7 +8,7 @@ max_h = 0;
 // LEFT
 if global.jleft && !hook
     {
-    hook = 1;
+    hook = true;
     switch selection
         {
         case 3: if global.deadzone > 0.1 then global.deadzone -= 0.1; break;
@@ -19,7 +19,7 @@ if global.jleft && !hook
 // RIGHT
 if global.jright && !hook
     {
-    hook = 1;
+    hook = true;
     switch selection
         {
         case 3: if global.deadzone < 1 then global.deadzone += 0.1; break;
@@ -29,14 +29,14 @@ if global.jright && !hook
     
 if global.button1 && !hook 
     {
-    scr_playsnd(snd_click,1);
-    hook = 1;
+    scr_snd_play(snd_click,true);
+    hook = true;
 	var c;
     switch selection
         {
         case 1: c = instance_create_depth(x,y,depth-1,obj_ctrl_rebind); c.control = 1; break;
         case 2: c = instance_create_depth(x,y,depth-1,obj_ctrl_rebind); c.control = 2; break;
-        case 5: selection = 1; category = 0; break;
+        case 5: selection = selection_previous; category = 0; break;
         }
     }
 

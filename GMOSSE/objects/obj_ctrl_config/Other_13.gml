@@ -8,11 +8,11 @@ max_h = 0;
 // LEFT
 if global.jleft && !hook
     {
-    hook = 1;
+    hook = true;
     switch selection
         {
         case 1: if global.wallbrightness > 5 then global.wallbrightness -= 5; break;
-        case 2: global.filter = 0; break;
+        case 2: global.filter = false; break;
         case 3: global.scanlines -= 1; if global.scanlines < 0 then global.scanlines = 2; break;
         case 4: if global.scanline_alpha > 5 then global.scanline_alpha -= 5; break;
         }
@@ -25,7 +25,7 @@ if global.jright && !hook
     switch selection
         {
         case 1: if global.wallbrightness < 100 then global.wallbrightness += 5; break;
-        case 2: global.filter = 1; break;
+        case 2: global.filter = true; break;
         case 3: global.scanlines += 1; if global.scanlines > 2 then global.scanlines = 0; break;
         case 4: if global.scanline_alpha < 100 then global.scanline_alpha += 5; break;
         }
@@ -34,8 +34,8 @@ if global.jright && !hook
 // BUTTON 1
 if global.button1 && !hook 
     {
-    hook = 1;
-    scr_playsnd(snd_click,1);
+    hook = true;
+    scr_snd_play(snd_click,true);
     if selection == selection_max
         {
         max_h = 0;

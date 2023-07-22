@@ -11,7 +11,7 @@ if timer > 60 && y < yview+200
     hspeed = 0;
     vspeed = 0.5;
     scr_spreadshot(x,y,obj_bullet4,-1,25,3,5,false);
-    scr_playsnd(snd_en_shot3,1);
+    scr_snd_play(snd_en_shot3,true);
     timer = 0;
     }
 

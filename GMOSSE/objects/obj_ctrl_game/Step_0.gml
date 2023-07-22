@@ -38,7 +38,7 @@ if global.countdown == 0 then global.chain = 0;
 // Extends    
 if global.myscore >= (3000000 * global.extend_number)
     {
-    scr_playsnd(snd_1up,1);
+    scr_snd_play(snd_1up);
     lives += 1;
     global.extend_number += 1;
     var a = instance_create_layer(x,y,global.lay_player,obj_popup);

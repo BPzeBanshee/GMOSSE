@@ -15,6 +15,4 @@ alpha3 = 1; // text
 // Misc.
 rnd = 15;
 
-if !instance_exists(obj_ctrl_gameover) 
-then scr_playsnd(snd_voice3,1);
-
+if !instance_exists(obj_ctrl_gameover) then scr_snd_play(snd_voice3);

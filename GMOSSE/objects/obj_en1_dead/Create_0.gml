@@ -8,5 +8,5 @@ z_speed = 1;
 // Contra Yagawa Corps Eksploshunz by Michael Bay!
 explosiontimer = 0;
 scr_create_exp(obj_explosion,360,18);
-scr_playsnd(snd_exp2,0);
+scr_snd_play(snd_exp2);
 

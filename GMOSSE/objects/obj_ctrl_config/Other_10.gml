@@ -5,9 +5,9 @@ max_h = 0;
 
 if global.button1 && !hook 
     {
-    scr_playsnd(snd_click,1);
-    hook = 1;
-    
+    scr_snd_play(snd_click,true);
+    hook = true;
+    selection_previous = selection;
     switch selection
         {
         case 1: selection = 1; category = 1; break;

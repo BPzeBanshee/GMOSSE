@@ -6,11 +6,11 @@ if instance_exists(obj_orb) then with obj_orb instance_destroy();
 
 // Contra Yagawa Corps Eksploshunz by Michael Bay!
 scr_create_exp(obj_explosion,360,18);
-scr_playsnd(snd_exp2,0);
+scr_snd_play(snd_exp2);
 alarm[0] = 20;
 if global.omake_enabled
     {
-    scr_stopallmusic();
+    with obj_ctrl_music stop_all();
     alarm[1] = 90;
     var w = instance_create_layer(x,y,layer,obj_danger);
     w.msg = "|<||_|_3R <|_0\\/\\/|\\| ||\nAPPROACHING";

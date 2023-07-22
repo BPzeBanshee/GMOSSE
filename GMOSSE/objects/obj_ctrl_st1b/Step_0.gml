@@ -3,7 +3,7 @@ if stage_time > 7650
 && !instance_exists(obj_boss)
 && !instance_exists(obj_boss_dead)
 && !instance_exists(obj_omake1)
-&& !obj_ctrl_music.fade_out
+&& !obj_ctrl_music.fading_out
 then completedelay += 1;
 if completedelay == 120
     {
@@ -21,7 +21,7 @@ switch stage_time
     {
     case 20:
         {
-        scr_playsnd(snd_voice1,0);
+        scr_snd_play(snd_voice1);
         stage_time = 5100;
         break;
         }

@@ -4,7 +4,7 @@ if timer >= r3
     instance_create_layer(xview+120,random_range(yview+80,yview+240),layer,obj_lightning);
     
     // "true random" lightning sound
-    scr_stopsnd(snd);
+    scr_snd_stop(snd);
     var r = random_range(1,3); 
     if round(r2) == round(r) then exit;
 	switch round(r)
@@ -13,7 +13,7 @@ if timer >= r3
 		case 2: snd = snd_lightning2; break;
 		case 3: snd = snd_lightning3; break;
 		}
-    scr_playsnd(snd,true,false);
+    scr_snd_play(snd,true,false);
     r2 = r;
     
     // lightning flash

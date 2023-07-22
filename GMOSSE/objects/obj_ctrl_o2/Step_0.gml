@@ -1,6 +1,6 @@
 if stage_time > 220 
 && !instance_exists(obj_omake2)
-&& !obj_ctrl_music.fade_out
+&& !obj_ctrl_music.fading_out
 then completedelay += 1;
 if completedelay == 120 then instance_create_layer(x,y,global.lay_en_air,obj_ctrl_clear);
 

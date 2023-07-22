@@ -19,7 +19,7 @@ if atk_timer == 0
         spd += 0.5;
         }
     spd = 4;
-    scr_playsnd(snd_en_shot1,1);
+    scr_snd_play(snd_en_shot1,true);
     atk_timer = 4;
     count += 1;
     }

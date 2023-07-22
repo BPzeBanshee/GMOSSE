@@ -1,19 +1,26 @@
 // Menu Vars
-global.optiontype = 1;
-global.weapontype = 1;
-selection = 1;
+selection = global.optiontype;
 menu = 1;
-hook = 1;
+hook = true;
 
 // Description Text
 chr1 = 0;
 text = "";
 msg = "";
-event_user(menu);
+event_user(0);
 
 // Drawing of Sprites
-blend = c_white;
-
-// Aesthetics
-global.behaviour = 1;
-
+update_weapon = function(choice){
+	switch choice
+		{
+		default: blend = c_white;	weapon_str = "N/A";			break;
+		case 1: blend = 16744576;	weapon_str = "Twin Shot";	break;
+		case 2: blend = 15724527;	weapon_str = "Laser";		break;
+		case 3: blend = 11140992;	weapon_str = "Bound Shot";	break;
+		case 4: blend = 1776572;	weapon_str = "Spread Bomb"; break;
+		case 5: blend = 4227327;	weapon_str = "Saber";		break;
+		case 6: blend = 16776960;	weapon_str = "Burner";		break;
+		case 7: blend = 16744703;	weapon_str = "Five-Wave";	break;
+		}
+	}
+update_weapon(global.weapontype);

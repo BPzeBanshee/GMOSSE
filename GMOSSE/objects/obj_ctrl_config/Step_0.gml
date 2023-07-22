@@ -1,13 +1,13 @@
 /// @description  MENU BEHAVIOUR (PER MODE)
 /// @param PER MODE
 event_user(category);
-enabled = 1;
+enabled = true;
 
 // UP
 if global.jup && !hook
     {
-    scr_playsnd(snd_click,0);
-    hook = 1;
+    scr_snd_play(snd_click,true);
+    hook = true;
     selection -= 1;
     if selection < 1 then selection = selection_max;
     }
@@ -15,8 +15,8 @@ if global.jup && !hook
 // DOWN
 if global.jdown && !hook
     {
-    scr_playsnd(snd_click,0);
-    hook = 1;
+    scr_snd_play(snd_click,true);
+    hook = true;
     selection += 1;
     if selection > selection_max then selection = 1;
     }

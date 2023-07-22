@@ -5,5 +5,5 @@ if global.bombs == global.max_bombs
     a.msg = "BONUS\n+5000";
     }
 if global.bombs < global.max_bombs then global.bombs += 1;
-scr_playsnd(snd_click,0);
+scr_snd_play(snd_click,true);
 instance_destroy();

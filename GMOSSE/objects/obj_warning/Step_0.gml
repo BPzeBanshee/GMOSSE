@@ -6,13 +6,13 @@ switch timer
         {
         rnd = 15;
         if !instance_exists(obj_ctrl_gameover) 
-        then scr_playsnd(snd_voice3,1);
+        then scr_snd_play(snd_voice3);
         break;
         }
     case 200:
         {
         if !instance_exists(obj_ctrl_gameover)
-        then scr_playsnd(snd_voice2,1);
+        then scr_snd_play(snd_voice2);
         break;
         }
     }

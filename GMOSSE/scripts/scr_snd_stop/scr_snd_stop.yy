@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_playsnd",
+  "name": "scr_snd_stop",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
