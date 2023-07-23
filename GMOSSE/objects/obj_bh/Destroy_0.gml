@@ -1,4 +1,3 @@
-///@desc Kill orbs + aesthetic objs
-with mytrace instance_destroy();
+///@desc Kill orbs
 with option1 instance_destroy();
 with option2 instance_destroy();

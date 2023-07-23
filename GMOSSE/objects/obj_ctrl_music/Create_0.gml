@@ -19,6 +19,7 @@ fading_out = false;
 
 // 'Load all sounds' or 'load only needed'
 LOAD_EVERYTHING = true;
+CONTINUE_TOGGLE = false;
 
 // Create methods
 event_user(0);

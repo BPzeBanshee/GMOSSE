@@ -2,7 +2,11 @@ enabled = false; // Start of init
 
 // Pause game/music
 scr_pause();
-with obj_ctrl_music pause();
+with obj_ctrl_music 
+	{
+	pause();
+	event_user(5);
+	}
 global.pausable = false;
 
 // Menu control vars

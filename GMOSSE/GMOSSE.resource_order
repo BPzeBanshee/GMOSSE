@@ -396,7 +396,6 @@
     {"name":"obj_warbird_shothit","order":4,"path":"objects/obj_warbird_shothit/obj_warbird_shothit.yy",},
     {"name":"obj_warbird_volt","order":6,"path":"objects/obj_warbird_volt/obj_warbird_volt.yy",},
     {"name":"obj_bh_orb","order":1,"path":"objects/obj_bh_orb/obj_bh_orb.yy",},
-    {"name":"obj_bh_trace","order":2,"path":"objects/obj_bh_trace/obj_bh_trace.yy",},
     {"name":"obj_bh_traceorb","order":3,"path":"objects/obj_bh_traceorb/obj_bh_traceorb.yy",},
     {"name":"obj_bh_thrust","order":4,"path":"objects/obj_bh_thrust/obj_bh_thrust.yy",},
     {"name":"obj_bh_shothit","order":8,"path":"objects/obj_bh_shothit/obj_bh_shothit.yy",},

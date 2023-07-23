@@ -25,7 +25,6 @@ switch global.shipselect
         }
     case 3:
         {
-        objects_to_scroll[8] = obj_bh_trace;
         objects_to_scroll[9] = obj_bh_traceorb;
         objects_to_scroll[10] = obj_bh_shothit;
         objects_to_scroll[11] = obj_bh_orb;

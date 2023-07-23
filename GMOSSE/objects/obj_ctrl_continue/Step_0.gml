@@ -66,7 +66,6 @@ if has_chosen && alpha <= 0
     // Reboot the music
     with obj_ctrl_music 
 		{
-		timer = 360;
 		event_user(5);	// call again to switch off
 	    resume();		// Unpause whatever was playing before Continue
 		}

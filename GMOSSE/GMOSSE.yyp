@@ -503,7 +503,6 @@
     {"id":{"name":"obj_warbird_volt","path":"objects/obj_warbird_volt/obj_warbird_volt.yy",},},
     {"id":{"name":"obj_bh","path":"objects/obj_bh/obj_bh.yy",},},
     {"id":{"name":"obj_bh_orb","path":"objects/obj_bh_orb/obj_bh_orb.yy",},},
-    {"id":{"name":"obj_bh_trace","path":"objects/obj_bh_trace/obj_bh_trace.yy",},},
     {"id":{"name":"obj_bh_traceorb","path":"objects/obj_bh_traceorb/obj_bh_traceorb.yy",},},
     {"id":{"name":"obj_bh_thrust","path":"objects/obj_bh_thrust/obj_bh_thrust.yy",},},
     {"id":{"name":"obj_bh_shothit","path":"objects/obj_bh_shothit/obj_bh_shothit.yy",},},

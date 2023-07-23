@@ -19,7 +19,7 @@ if global.button1
         {
         scr_snd_play(snd_bh_mainshot,1);
         var shot = scr_basicshot(x,y,layer,obj_bh_mainshot,20,90+shot_angle);
-        shot.image_blend = obj_bh_orb.image_blend;
+        shot.image_blend = blend;
 
         if shot_angle_add == 1 then shot_angle += 1 else shot_angle -= 1;
         if shot_angle > 3 || shot_angle < -3
@@ -52,15 +52,15 @@ if global.button1
 //button 3 (speed gear setting)
 if (global.button3 && can_speed) 
     {
-    can_speed = 0;
-    if speed_up == 1 then speed_gear += 1 else speed_gear -= 1;
+    can_speed = false;
+    if speed_up == true then speed_gear += 1 else speed_gear -= 1;
     switch speed_gear
         {
-        case 1: global.shipspeed = 1; thrust_scale = 0.25; speed_up = 1; break;
+        case 1: global.shipspeed = 1; thrust_scale = 0.25; speed_up = true; break;
         case 2: global.shipspeed = 3; thrust_scale = 0.5; break;
         case 3: global.shipspeed = 5; thrust_scale = 0.75; break;
-        case 4: global.shipspeed = 7; thrust_scale = 1; speed_up = 0; break;
+        case 4: global.shipspeed = 7; thrust_scale = 1; speed_up = false; break;
         }
     global.slowshipspeed = global.shipspeed;
     }
-if (!global.button3) then can_speed = 1;
+if (!global.button3) then can_speed = true;

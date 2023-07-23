@@ -27,7 +27,7 @@ switch global.optiontype
     case 3: option_t1 = obj_bh_type3; option_t2 = obj_bh_type3; break;
     case 4: option_t1 = obj_bh_type4; option_t2 = obj_bh_type4; break;
     case 5: option_t1 = obj_bh_type5; option_t2 = obj_bh_type5; break;
-    case 6: option_t1 = obj_bh_type6a; option_t2 = obj_bh_type6b; break;
+    case 6: option_t1 = obj_bh_type6a; option_t2 = obj_bh_type6a; break;//b; break;
     case 7: option_t1 = obj_bh_type7a; option_t2 = obj_bh_type7b; break;
     }
 weapon = global.weapontype;
@@ -45,8 +45,8 @@ switch weapon
 image_timer = 0;
 speed_gear = 1;
 thrust_scale = 0.25;
-speed_up = 1;
-can_speed = 1;
+speed_up = true;
+can_speed = true;
 
 option1 = instance_create_layer(x,y,layer,option_t1);
 option1.parent = id;
@@ -58,8 +58,3 @@ option2.parent = id;
 option2.image_blend = blend;
 option2.position = 2;
 option2.direction = 90;
-
-/* AESTHETIC VARS */
-// TOOD: This could be a draw event, but...
-mytrace = instance_create_layer(x,y,layer,obj_bh_trace);
-mytrace.image_blend = blend;

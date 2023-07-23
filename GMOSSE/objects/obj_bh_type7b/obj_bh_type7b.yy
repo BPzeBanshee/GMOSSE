@@ -4,7 +4,6 @@
   "name": "obj_bh_type7b",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -13,8 +12,8 @@
     "path": "folders/Objects/Player/Busterhawk/Orb Types.yy",
   },
   "parentObjectId": {
-    "name": "obj_bh_orb",
-    "path": "objects/obj_bh_orb/obj_bh_orb.yy",
+    "name": "obj_bh_type7a",
+    "path": "objects/obj_bh_type7a/obj_bh_type7a.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

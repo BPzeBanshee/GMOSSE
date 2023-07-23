@@ -14,8 +14,8 @@ if respawntimer == 0
     {
     if lives > 0 then event_user(0) else
         {
-        if instance_exists(obj_ctrl_music) then with obj_ctrl_music event_user(5);
-        if !instance_exists(obj_ctrl_continue) then instance_create_layer(x,y,layer,obj_ctrl_continue);
+        if !instance_exists(obj_ctrl_continue) 
+		then instance_create_layer(x,y,layer,obj_ctrl_continue);
         }
     respawntimer = -1;
     }
