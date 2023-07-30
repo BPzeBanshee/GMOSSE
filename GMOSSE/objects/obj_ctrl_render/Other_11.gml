@@ -1,33 +1,26 @@
-/// @description  Generating scanlines
-if !window_has_focus()
-    {
-    /*trace("event_user(1) called while focus lost, l_scan_scale: "
-    +string(l_scan_scale)
-    +", l_scale: "+string(l_scan_scale)
-    +", application surface size at: "+string(surface_get_width(application_surface))
-    +"x"+string(surface_get_height(application_surface)));*/
-    exit;
-    }
+///@desc Generating scanlines
+if !window_has_focus() then exit;
     
-var w,h,s,sw,sh; 
-// Get surface values
-w = surface_get_width(application_surface)*l_scale; 
-h = surface_get_height(application_surface)*l_scale;
-
 // Decide what kind of scanline to use
 m_scanlines = global.scanlines;
 l_scan_scale = l_scale; // for changing from clean to stretch
+var s = -1;
 switch m_scanlines
     {
-    default: s = -1; break;
     case 1: s = spr_scanline_hori; break;
     case 2: s = spr_scanline_vert; break;
     case 3: s = spr_static; break;
     }
-sw = sprite_get_width(s);
-sh = sprite_get_height(s);
+	
+if s == -1 then exit;
+var sw = sprite_get_width(s);
+var sh = sprite_get_height(s);
 
-// Create surface
+// Get surface values
+var w = surface_get_width(application_surface) * l_scale; 
+var h = surface_get_height(application_surface) * l_scale;
+
+// Then create scanline surface
 if surface_exists(l_scan)
     {
     if surface_get_width(l_scan) != w || surface_get_height(l_scan) != h
