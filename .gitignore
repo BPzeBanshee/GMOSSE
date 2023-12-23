@@ -3,6 +3,7 @@
 /*/
 !/GMOSSE
 !/.gitignore
+!/.gitattributes
 !/music
 !/music_old
 !/TODO.txt
