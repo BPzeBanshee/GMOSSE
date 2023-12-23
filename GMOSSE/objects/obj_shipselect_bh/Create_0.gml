@@ -7,6 +7,8 @@ hook = true;
 chr1 = 0;
 text = "";
 msg = "";
+blend = c_white;
+weapon_str = "N/A";
 event_user(0);
 
 // Drawing of Sprites

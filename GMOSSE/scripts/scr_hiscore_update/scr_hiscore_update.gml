@@ -1,8 +1,9 @@
-/// @description scr_hiscore_update(name,stage,shipused,score)
+/// @desc scr_hiscore_update(name,stage,shipused,_score)
 /// @param name
 /// @param stage
 /// @param shipused
-/// @param score
+/// @param _score
+/// @returns 0
 function scr_hiscore_update(name, stage, shipused, _score) {
 	// SETTING SCORES
 	var p;
@@ -24,4 +25,5 @@ function scr_hiscore_update(name, stage, shipused, _score) {
 	    global.hiscore[p,2] = shipused; // ship used
 	    global.hiscore[p,3] = _score; // score
 	    }
+	return 0;
 }

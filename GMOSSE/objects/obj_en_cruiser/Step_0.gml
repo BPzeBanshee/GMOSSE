@@ -19,7 +19,7 @@ if !made
         for (var j=0;j<=m[i];j+=1) 
             {
             turret[i,j] = instance_create_depth(p[b,0],p[b,1],depth-1,p[b,2]);
-            turret[i,j].active = 1;
+            (turret[i,j]).active = 1;
             
             // set directions left or right depending on side of carrier
             if b == 0 || b == 2 || b == 4 
@@ -29,10 +29,10 @@ if !made
             // pass through enemy to spawn for enemy spawners
             if p[b,2] == obj_en_spawner
                 {
-                dead[i,j]=1;
-                turret[i,j].spawn = spawner_en[b];
+                dead[i,j] = 1;
+                (turret[i,j]).spawn = spawner_en[b];
                 }
-            else dead[i,j]=0;
+            else dead[i,j] = 0;
             b += 1; // increment loop
             }
         }

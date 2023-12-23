@@ -1,6 +1,6 @@
 /// @desc scr_music_load_metadata(ini_section)
 /// @param {String} ini_section
-/// @returns {Array}
+/// @returns {Array<any> | Real}
 function scr_music_load_metadata(ini_section) {
 	if file_exists(global.music_ini)
 	    {

@@ -4,7 +4,7 @@ if fading_out
 	{
 	if audio_sound_get_gain(channel) == 0
 		{
-		stop(channel);
+		stop();
 		fading_out = false;
 		}
 	}

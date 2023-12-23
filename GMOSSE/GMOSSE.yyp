@@ -135,7 +135,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.6.0.89",
+    "IDEVersion": "2023.11.1.129",
   },
   "resources": [
     {"id":{"name":"spr_wall1","path":"sprites/spr_wall1/spr_wall1.yy",},},
@@ -681,6 +681,7 @@
     {"roomId":{"name":"rm_omake2","path":"rooms/rm_omake2/rm_omake2.yy",},},
     {"roomId":{"name":"rm_omake3","path":"rooms/rm_omake3/rm_omake3.yy",},},
   ],
+  "templateType": null,
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":false,"loadType":"default","mipsToGenerate":0,"targets":-1,},
   ],

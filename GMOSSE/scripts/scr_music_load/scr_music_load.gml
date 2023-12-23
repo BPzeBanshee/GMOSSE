@@ -1,6 +1,6 @@
 /// @desc scr_music_load(ini_section)
 /// @param ini_section
-/// @returns {array}
+/// @returns {array<any> | real}
 function scr_music_load(ini_section) {
 	/* 
 	scr_music_load(), by BPzeBanshee

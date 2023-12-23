@@ -13,17 +13,16 @@ if has_chosen && alpha > 0
 limiter += 1;
 if limiter > 5
     {
-	var top,left,bottom,right;
-    top = instance_create_depth(random_range(xview,xview+240),yview,depth-1,obj_star);
+    var top = instance_create_depth(random_range(xview,xview+240),yview,depth-1,obj_star);
 	top.init(3);
     top.side = 1;
-    left = instance_create_depth(xview,random_range(yview,yview+320),depth-1,obj_star);
+    var left = instance_create_depth(xview,random_range(yview,yview+320),depth-1,obj_star);
 	left.init(3);
     left.side = 2;
-    bottom = instance_create_depth(random_range(xview,xview+240),random_range(yview+320,yview+325),depth-1,obj_star);
+    var bottom = instance_create_depth(random_range(xview,xview+240),random_range(yview+320,yview+325),depth-1,obj_star);
     bottom.init(3);
 	bottom.side = 3;
-    right = instance_create_depth(random_range(xview+240,xview+245),random_range(yview,yview+320),depth-1,obj_star);
+    var right = instance_create_depth(random_range(xview+240,xview+245),random_range(yview,yview+320),depth-1,obj_star);
     right.init(3);
 	right.side = 4;
     limiter = 0;
