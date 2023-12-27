@@ -1,16 +1,16 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_sf_shotexp",
+  "name": "obj_trident_shothit",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
     "name": "Weapons",
-    "path": "folders/Objects/Player/Swordfish/Weapons.yy",
+    "path": "folders/Objects/Player/Trident/Weapons.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_trident_shotexp",
-    "path": "sprites/spr_trident_shotexp/spr_trident_shotexp.yy",
+    "name": "spr_trident_shothit",
+    "path": "sprites/spr_trident_shothit/spr_trident_shothit.yy",
   },
   "spriteMaskId": null,
   "visible": true,

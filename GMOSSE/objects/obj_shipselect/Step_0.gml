@@ -1,6 +1,9 @@
 // Scrolling text (string_copy is what does the scrolling)
 chr1 += 1;
-text = string_copy(ship_info[6],1,chr1);
+text = string_copy(ship_info[4],1,chr1);
+
+// Do not pass here if ship skin menu is active
+if disabled then exit;
 
 // Left/right keys scroll through ship selection screen
 if global.jleft && (selection > 1) && !hook
@@ -18,38 +21,6 @@ if global.jright && (selection < max_ships) && !hook
     scr_getshipinfo(selection);
     }
     
-// Alternate Sprite Kludges (Xono/Arxyne)
-if selection == 1
-    {
-    if global.jup && global.xonospr < 3 && !hook
-        {
-        global.xonospr += 1;
-		scr_snd_play(snd_click,true);
-        scr_getshipinfo(selection);
-        }
-    if global.jdown && global.xonospr > 1 && !hook
-        {
-        global.xonospr -= 1;
-		scr_snd_play(snd_click,true);
-        scr_getshipinfo(selection);
-        }
-    }
-if selection == 5
-    {
-    if global.jup && global.arxynespr == 2 && !hook
-        {
-        global.arxynespr = 1;
-		scr_snd_play(snd_click,true);
-        scr_getshipinfo(selection);
-        }
-    if global.jdown && global.arxynespr == 1 && !hook
-        {
-        global.arxynespr = 2;
-		scr_snd_play(snd_click,true);
-        scr_getshipinfo(selection);
-        }
-    }
-
 // Start the actual damn game if you hit button 1
 if global.button1 && !hook
     {
@@ -72,10 +43,20 @@ if global.button2 && !hook
 	scr_trans(rm_menu,2,c_white,0.025,0.05,0);
 	with obj_ctrl_music fade_out(0.05);
 	}
+if global.button3 && !hook
+	{
+	// Alternate Sprite Kludges (Xono/Arxyne)
+	if selection == 1 or selection == 5
+		{
+		instance_create_depth(x,y,depth-1,obj_ctrl_shipskin);
+		disabled = true;
+		}
+	}
 
 // hook handling (so you don't select anything twice)
 if (global.button1) 
 || (global.button2)
+|| (global.button3)
 || (global.jleft) 
 || (global.jright)
 || (global.jup)
@@ -83,6 +64,7 @@ if (global.button1)
 
 if !(global.button1) 
 && !(global.button2)
+&& !(global.button3)
 && !(global.jleft) 
 && !(global.jright)
 && !(global.jup)

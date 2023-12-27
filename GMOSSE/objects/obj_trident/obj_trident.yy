@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_sf_tip",
+  "name": "obj_trident",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
@@ -9,10 +9,13 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Bomber",
-    "path": "folders/Objects/Player/Swordfish/Weapons/Bomber.yy",
+    "name": "Trident",
+    "path": "folders/Objects/Player/Trident.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_player",
+    "path": "objects/obj_player/obj_player.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -29,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_trident_tip",
-    "path": "sprites/spr_trident_tip/spr_trident_tip.yy",
+    "name": "spr_trident",
+    "path": "sprites/spr_trident/spr_trident.yy",
   },
   "spriteMaskId": null,
   "visible": true,

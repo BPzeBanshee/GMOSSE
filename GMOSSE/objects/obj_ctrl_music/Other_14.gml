@@ -2,5 +2,5 @@
 stop();
 music = snd_stageclear;
 if !is_array(music) exit;
-channel = play(music[0],true);
+channel = play(music[0],false);
 show_info(true);

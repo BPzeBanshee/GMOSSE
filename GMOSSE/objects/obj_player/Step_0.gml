@@ -1,8 +1,7 @@
 // Don't bother doing anything if we're not actually playing
-if !instance_exists(obj_hitbox) then exit;
-var dirx,diry,spd;
-dirx = 0;
-diry = 0;
+if !instance_exists(myhitbox) then exit;
+var dirx = 0;
+var diry = 0;
     
 // Directional input
 if global.jup then diry -= 1;
@@ -11,12 +10,12 @@ if global.jleft then dirx -= 1;
 if global.jright then dirx += 1;
 
 // Speed value
+var spd = shipspeed;
 if global.button3
     {
     instance_create_layer(x,y,layer,obj_afterimage);
-    spd = global.slowshipspeed;
+    spd = slowshipspeed;
     }
-else spd = global.shipspeed;
 
 // Now manipulate the player position
 if dirx != 0 || diry != 0

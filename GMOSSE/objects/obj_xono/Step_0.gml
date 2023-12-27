@@ -38,7 +38,7 @@ if (global.button1)
     }
 
 /* BUTTON 2 - BOMB */
-if (global.button2) && bomb_timer == 0 && global.bombs > 0
+if (global.button2) && bomb_timer == 0 && bombs > 0
     {
     scr_snd_play(snd_exp1);
 	var _ex;
@@ -51,5 +51,5 @@ if (global.button2) && bomb_timer == 0 && global.bombs > 0
     //scr_circleshot02(15,x,y,0,obj_xono_bomb,6,false);
     
     bomb_timer = 60;
-    global.bombs -= 1;
+    bombs -= 1;
     }

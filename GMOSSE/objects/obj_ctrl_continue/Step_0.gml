@@ -76,7 +76,6 @@ if has_chosen && alpha <= 0
         case 1:
             { // Continue because you're a shit player :3
             lives = 3;
-            global.bombs = global.init_bombs;
             global.continues += 1;
             if global.continues < 9 
             then global.myscore = global.continues 

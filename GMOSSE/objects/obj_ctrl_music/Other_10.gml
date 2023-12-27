@@ -92,6 +92,8 @@ play = function(music_id,loop=false){
 if !audio_exists(music_id) then return -1;
 var vol = round(global.music_volume)/100;
 return audio_play_sound(music_id,0,loop,vol);
+fading_in = false;
+fading_out = false;
 }
 
 pause = function(){
@@ -140,12 +142,16 @@ return 0;
 stop = function(){
 if !audio_exists(channel) then return -1;
 if audio_is_playing(channel) then audio_stop_sound(channel);
+fading_in = false;
+fading_out = false;
 return 0;
 }
 
 stop_all = function(){
 audio_stop_sound(channel);
 audio_stop_sound(channel2);
+fading_in = false;
+fading_out = false;
 return 0;
 }
 

@@ -2,22 +2,18 @@
 Variables that are used in the step function need to be called here
 and assigned a variable first. 
 */
-/* WEAPON/TIMER VARS */
+// WEAPON/TIMER VARS
 shot_angle = 0;
 shot_angle_add = 1;
 
-can_shoot = 1;
-can_shoot2 = 1;
+can_shoot = true;
+can_shoot2 = true;
 
-/* SPEED VARS */
-/* 
-Personally I keep diagonal move speeds the same as the 
-shipspeed but this is customisable to tailor to your needs. 
-Apparently limiting diagonal speed is a common thing 
-in shmups but I've never really noticed or liked it.
-*/
-global.shipspeed = 1;
-global.slowshipspeed = 1;
+// SPEED VARS
+shipspeed = 1;
+slowshipspeed = 1;
+bombs = 0;
+max_bombs = 0;
 
 /* OPTION VARS */
 switch global.optiontype

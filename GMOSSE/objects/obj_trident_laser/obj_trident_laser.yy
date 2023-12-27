@@ -1,18 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_sf_shot",
+  "name": "obj_trident_laser",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"obj_en_parent","path":"objects/obj_en_parent/obj_en_parent.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"obj_en_wall","path":"objects/obj_en_wall/obj_en_wall.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"obj_bullettarget","path":"objects/obj_bullettarget/obj_bullettarget.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Weapons",
-    "path": "folders/Objects/Player/Swordfish/Weapons.yy",
+    "name": "Bomber",
+    "path": "folders/Objects/Player/Trident/Weapons/Bomber.yy",
   },
   "parentObjectId": {
     "name": "obj_player_shot",
@@ -34,8 +33,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_trident_shot",
-    "path": "sprites/spr_trident_shot/spr_trident_shot.yy",
+    "name": "spr_trident_laser",
+    "path": "sprites/spr_trident_laser/spr_trident_laser.yy",
   },
   "spriteMaskId": null,
   "visible": true,

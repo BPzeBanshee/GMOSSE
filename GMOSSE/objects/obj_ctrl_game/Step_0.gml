@@ -4,9 +4,7 @@ if respawntimer > 0
     respawntimer -= 1;
     with obj_bullettarget 
         {
-        var c = instance_create_layer(x,y,layer,obj_bulletcancel);
-        c.direction = direction;
-        c.speed = speed;
+        scr_basicshot(x,y,layer,obj_bulletcancel,speed,direction);
         instance_destroy();
         }
     }
@@ -24,7 +22,7 @@ if lives == 0
     with obj_hitbox
         {
         invincible = -1;
-        visible = 0;
+        visible = false;
         }
     respawntimer += 0.5;
     }

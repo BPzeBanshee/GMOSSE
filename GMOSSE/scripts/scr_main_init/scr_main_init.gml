@@ -70,19 +70,15 @@ function scr_main_init() {
 
 	// shipselect
 	global.shipselect = 1; // ship ID
-	global.arxynespr = 1;  // alt sprites (TODO: replace these with skin system)
-	global.xonospr = 1;
 	global.optiontype = 1; // Busterhawk-specifc vars
 	global.weapontype = 1;
 	
 	// ingame
 	global.myscore = 0;
 	global.score_stored = 0;
-	global.extend_number = 1;
 	global.lives_stored = 3;
-	global.init_bombs = 3;
-	global.max_bombs = 5;
-	global.bombs_stored = global.init_bombs;
+	global.bombs_stored = -1;
+	global.extend_number = 1;
 	global.continues = 0;
 
 	/* END SCR_MAIN_INIT() - SEE OBJ_INIT FOR ROOM TRANSITION */

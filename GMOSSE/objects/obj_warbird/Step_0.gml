@@ -31,9 +31,9 @@ if global.button1 && shot2_timer == 0
     }
     
 // Bomb Deployment
-if global.button2 && bomb_timer == 0 && global.bombs > 0
+if global.button2 && bomb_timer == 0 && bombs > 0
     {
-    global.bombs -= 1;
+    bombs -= 1;
     bomb_timer = 320;
     instance_create_layer(x,y,layer,obj_warbird_bomb);
     scr_snd_play(snd_war_bomb);

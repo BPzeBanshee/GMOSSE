@@ -8,16 +8,15 @@ if bomb_timer > 0 then bomb_timer -= 1;
 // Button 1 Event
 if (global.button1)
     { 
-    if shot_timer == 0 && !instance_exists(obj_sf_bomb)
+    if shot_timer == 0 && !instance_exists(obj_trident_bomb)
         {
         scr_snd_play(snd_sf_shot,true);
         
-		var lshot1,lshot2,rshot1,rshot2;
-		instance_create_layer(x,y,layer,obj_sf_shot);
-        lshot1 = instance_create_layer(x-2,y,layer,obj_sf_shot);  
-        lshot2 = instance_create_layer(x-4,y,layer,obj_sf_shot);
-        rshot1 = instance_create_layer(x+2,y,layer,obj_sf_shot);
-        rshot2 = instance_create_layer(x+4,y,layer,obj_sf_shot);
+		instance_create_layer(x,y,layer,obj_trident_shot);
+        var lshot1 = instance_create_layer(x-2,y,layer,obj_trident_shot);  
+        var lshot2 = instance_create_layer(x-4,y,layer,obj_trident_shot);
+        var rshot1 = instance_create_layer(x+2,y,layer,obj_trident_shot);
+        var rshot2 = instance_create_layer(x+4,y,layer,obj_trident_shot);
         if (global.button3)
             {
             lshot1.direction = 60;
@@ -39,10 +38,11 @@ if (global.button1)
 // Button 2 Event
 if (global.button2)
     {
-    if bomb_timer == 0 && global.bombs > 0
+    if bomb_timer == 0 && bombs > 0
         {
-        instance_create_layer(x,y-20,layer,obj_sf_bomb);
-        global.bombs -= 1;
+        mybomb = instance_create_layer(x,y-20,global.lay_player_weapons,obj_trident_bomb);
+		mybomb.parent = id;
+        bombs -= 1;
         bomb_timer = 240;
         }
     }

@@ -37,7 +37,6 @@ if layer_background_get_alpha(l2b) >= 0
 then layer_background_alpha(l2b,layer_background_get_alpha(l2b)-0.02);
 
 // fake parallax wobble scroll with layer 1
-/*if global.button3 then s = global.slowshipspeed else s = global.shipspeed;
-if (xview_last > xview) then layer_x(l2,layer_get_x(l2)-(xview_last-xview));
+/*if (xview_last > xview) then layer_x(l2,layer_get_x(l2)-(xview_last-xview));
 if (xview > xview_last) then layer_x(l2,layer_get_x(l2)+(xview-xview_last));
 xview_last = xview;*/

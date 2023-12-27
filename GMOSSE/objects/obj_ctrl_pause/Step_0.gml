@@ -53,9 +53,9 @@ if (global.button1 && !global.levelend && !hook && enabled)
             if global.nextroom == rm_stage1
                 {
                 global.score_stored = 0;
-                global.extend_number = 1;
                 global.lives_stored = 3;
-                global.bombs_stored = global.init_bombs;
+                global.bombs_stored = -1;
+				global.extend_number = 1;
                 global.chain = 0;
                 global.countdown = 0;
                 

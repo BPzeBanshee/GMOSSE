@@ -23,17 +23,14 @@ if (global.button1)
     // CENTER SHOT
     if shot2_timer == 0
         {
-        for (var i=y; i>yview-16;i-=32) instance_create_layer(x,i,layer,obj_arxyne_bolt);
-        //scr_basicshot(x,y,obj_arxyne_shot,16,90);
+        for (var i=y; i>yview-16; i-=32) instance_create_layer(x,i,layer,obj_arxyne_bolt);
         shot2_timer = 32;
         }
         
     // HOMING LASERS
-    if shot3_timer == 0 && instance_number(obj_arxyne_shot2a) < 3//5
+    if shot3_timer == 0 && instance_number(obj_arxyne_shot2a) < 3
         {
         scr_snd_play(snd_arx_shot2,true);
-        //scr_basicshot(x,y+12,layer,obj_arxyne_shot2a,5,230);
-        //scr_basicshot(x,y+12,layer,obj_arxyne_shot2a,5,260);
         scr_basicshot(x,y+12,layer,obj_arxyne_shot2a,5,230);
         scr_basicshot(x,y+12,layer,obj_arxyne_shot2a,5,310);
         shot3_timer = 45;
@@ -41,17 +38,10 @@ if (global.button1)
     }
     
 /* BUTTON 2 - BOMB */
-if (global.button2) && bomb_timer == 0 && global.bombs > 0
+if (global.button2) && bomb_timer == 0 && bombs > 0
     {
     scr_snd_play(snd_exp1);
-	var ex;
-	for (var i=0;i<360;i+=15)
-		{
-		ex = instance_create_layer(x,y,layer,obj_xono_bomb);
-		ex.speed = 6;
-		ex.direction = i;
-		}
-    //scr_circleshot02(15,x,y,0,obj_xono_bomb,6,false);
+	for (var i=0; i<360; i+=15) scr_basicshot(x,y,layer,obj_xono_bomb,6,i);
     bomb_timer = 60;
-    global.bombs -= 1;
+    bombs -= 1;
     }

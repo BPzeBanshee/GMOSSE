@@ -35,4 +35,3 @@ var cx = camera_get_view_x(cam);
 if cx < formula then cx = cx + (min(formula-cx,2));
 if cx > formula then cx = cx - (min(cx-formula,2));
 camera_set_view_pos(cam,cx,y);
-

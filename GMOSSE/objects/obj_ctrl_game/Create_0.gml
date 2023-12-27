@@ -15,8 +15,9 @@ global.countdown = 0;
 a = 0.5;
 
 // Life handling
-global.bombs = global.bombs_stored;
 lives = global.lives_stored;
+myhitbox = noone;
+myplayer = noone;
 respawntimer = -1;
 
 scr_layer_vars();

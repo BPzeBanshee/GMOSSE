@@ -61,18 +61,8 @@ if replaying == 1
             {
             stagenum = 1;
             global.shipselect = replay[# stagenum,2];
-            switch global.shipselect
-                {
-                default: global.init_bombs = 3; global.max_bombs = 5; break;
-                case 2: global.init_bombs = 2; global.max_bombs = 4; break;
-                case 3: global.init_bombs = 0; global.max_bombs = 0; break;
-                case 4: global.init_bombs = 2; global.max_bombs = 4; break;
-                case 5: global.init_bombs = 3; global.max_bombs = 3; break; 
-                }
             global.extend_number = 1;
             global.continues = 0;
-            global.xonospr = replay[# 0,2]; 
-            global.arxynespr = replay[# 0,3];
             global.optiontype = replay[# 0,4];
             global.weapontype = replay[# 0,5];
             }

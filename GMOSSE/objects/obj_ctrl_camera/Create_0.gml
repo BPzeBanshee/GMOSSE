@@ -12,5 +12,43 @@ camera_set_view_pos(cam,((range - view_width) * 0.5),y);
 xview = camera_get_view_x(cam);
 yview = camera_get_view_y(cam);
 
-objects_to_scroll[0] = noone; // shut up Feather
-event_user(1);
+objects_to_scroll = [obj_player,obj_hitbox,
+obj_player_shot,obj_afterimage,
+obj_bullettarget,obj_en_air,
+obj_stock_bomb,obj_popup];
+#region ship-specific objects to scroll
+switch global.shipselect
+    {
+    case 1:
+        {
+        array_push(objects_to_scroll,obj_xono_shothit);
+        array_push(objects_to_scroll,obj_xono_laser2);
+        break;
+        }
+    case 2:
+        {
+        array_push(objects_to_scroll,obj_warbird_shothit);
+        array_push(objects_to_scroll,obj_warbird_laser2);
+        array_push(objects_to_scroll,obj_warbird_volt);
+        break;
+        }
+    case 3:
+        {
+        array_push(objects_to_scroll,obj_bh_traceorb);
+        array_push(objects_to_scroll,obj_bh_shothit);
+        array_push(objects_to_scroll,obj_bh_orb);
+        break;
+        }
+    case 4:
+        {
+        array_push(objects_to_scroll,obj_trident_shothit);
+        break;
+        }
+    case 5:
+        {
+        array_push(objects_to_scroll,obj_arxyne_shot2b);
+        array_push(objects_to_scroll,obj_arxyne_shot2c);
+        break;
+        }
+    }
+#endregion

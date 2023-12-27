@@ -1,8 +1,11 @@
-/*
-Variables that are used in the step function need to be called here
-and assigned a variable first. 
-*/
-/* WEAPON/TIMER VARS */
+// Inherit vars from parent Create, if any
+event_inherited();
+
+// BOMB VARS
+bombs = 3;
+max_bombs = 5;
+
+// WEAPON/TIMER VARS
 shot_angle = 0;
 shot_angle_add = 0;
 shot_anim = 0;
@@ -10,14 +13,9 @@ shot_anim = 0;
 lsr_timer = 0;
 bomb_timer = 0;
 
-/* SPEED VARS */
-global.shipspeed = 5; 
-global.slowshipspeed = 3;
+// SPEED VARS
+shipspeed = 5; 
+slowshipspeed = 3;
 
-/* AESTHETIC VARS */
-if global.xonospr == 2 then sprite_index = spr_xono_v2;
-if global.xonospr == 3 
-    {
-    sprite_index = spr_xono_v3;
-    image_speed = 0.33;
-    }
+// AESTHETIC VARS
+if sprite_index = spr_xono_v3 then image_speed = 0.33;

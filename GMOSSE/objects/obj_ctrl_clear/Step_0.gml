@@ -2,6 +2,7 @@
 if instance_exists(obj_player)
     {
     with obj_ctrl_music event_user(4); // stage clear music
+	global.bombs_stored = obj_player.bombs;
 
     p = instance_create_layer(obj_player.x,obj_player.y,global.lay_player,obj_player_clear);
     p.sprite_index = obj_player.sprite_index;
