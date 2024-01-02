@@ -7,4 +7,3 @@ qqy = ds_queue_create();
 new_x = 0;
 new_y = 0;
 moving = 0;
-target = obj_player;

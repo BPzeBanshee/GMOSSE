@@ -1,66 +1,57 @@
-if instance_exists(obj_player)
+if instance_exists(parent)
     {
     switch position
         {
         case 1:
             {
-            x = obj_player.x - 25;
-            y = obj_player.y;
+            x = parent.x - 25;
+            y = parent.y;
             
+			var angle = 90;
             if instance_exists(obj_en_parent)
                 {
-				var target;
+				var target = instance_nearest(x,y,obj_en_parent);
                 if program == 1
                     {
-                    if instance_exists(obj_bh_lockon)
-                    then target = instance_nearest(x,y,obj_bh_lockon)
-                    else
+                    if !instance_exists(mytarget)
                         {
-                        target = instance_create_layer(x,y,layer,obj_bh_lockon);
-                        target.parent = (self).id;
+                        mytarget = instance_create_layer(x,y,layer,obj_bh_lockon);
+                        mytarget.parent = id;
                         }
-                    angle = point_direction(x,y,target.x,target.y);
-                    scr_turntoimageangle(angle,11.25);
+					target = mytarget;
                     }
-                else
-                    {
-                    target = instance_nearest(x,y,obj_en_parent);
-                    angle = point_direction(x,y,target.x,target.y);
-                    scr_turntoimageangle(angle,11.25);
-                    }
+                angle = point_direction(x,y,target.x,target.y);
                 }
-            else scr_turntoimageangle(90,11.25);
+            scr_turntoimageangle(angle,11.25);
             
-            if program == 0
+            if program == 0 && mytarget != noone
                 {
-                if instance_exists(obj_bh_lockon) 
-                then with obj_bh_lockon instance_destroy();
+                with mytarget instance_destroy();
+				mytarget = noone;
                 }
             
             // behaviour change (aim with/separate from first orb)
             if global.button2 && !hook
                 {
                 program = !program; // bitwise invert
-                hook = 1;
+                hook = true;
                 }
-            if !global.button2 then hook = 0;
+            if !global.button2 then hook = false;
             break;
             }
         case 2:
             {
-            x = obj_player.x + 25;
-            y = obj_player.y;
+            x = parent.x + 25;
+            y = parent.y;
             
+			var angle = 90;
             if instance_exists(obj_en_parent)
                 {
-				var target;
-                if instance_exists(obj_bh_lockon)
-                then target = instance_nearest(x,y,obj_bh_lockon)
-                else target = instance_nearest(x,y,obj_en_parent);
+				var target = instance_nearest(x,y,obj_en_parent);
+                if instance_exists(obj_bh_lockon) then target = instance_nearest(x,y,obj_bh_lockon);
                 angle = point_direction(x,y,target.x,target.y);
-                scr_turntoimageangle(angle,11.25);
                 }
-            else scr_turntoimageangle(90,11.25);
+            scr_turntoimageangle(angle,11.25);
             break;
             }
         }

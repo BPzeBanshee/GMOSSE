@@ -1,2 +1,2 @@
 event_inherited();
-orbit_angle = 180;
+mytarget = noone;

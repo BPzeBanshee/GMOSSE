@@ -15,16 +15,16 @@ slowshipspeed = 1;
 bombs = 0;
 max_bombs = 0;
 
-/* OPTION VARS */
+// OPTION VARS
 switch global.optiontype
     {
-    default: option_t1 = obj_bh_type1; option_t2 = obj_bh_type1; break;
-    case 2: option_t1 = obj_bh_type2; option_t2 = obj_bh_type2; break;
-    case 3: option_t1 = obj_bh_type3; option_t2 = obj_bh_type3; break;
-    case 4: option_t1 = obj_bh_type4; option_t2 = obj_bh_type4; break;
-    case 5: option_t1 = obj_bh_type5; option_t2 = obj_bh_type5; break;
-    case 6: option_t1 = obj_bh_type6a; option_t2 = obj_bh_type6a; break;//b; break;
-    case 7: option_t1 = obj_bh_type7a; option_t2 = obj_bh_type7b; break;
+    default: pod_type = obj_bh_type1; break;
+    case 2: pod_type = obj_bh_type2; break;
+    case 3: pod_type = obj_bh_type3; break;
+    case 4: pod_type = obj_bh_type4; break;
+    case 5: pod_type = obj_bh_type5; break;
+    case 6: pod_type = obj_bh_type6; break;
+    case 7: pod_type = obj_bh_type7; break;
     }
 weapon = global.weapontype;
 switch weapon
@@ -44,12 +44,12 @@ thrust_scale = 0.25;
 speed_up = true;
 can_speed = true;
 
-option1 = instance_create_layer(x,y,layer,option_t1);
+option1 = instance_create_layer(x,y,layer,pod_type);
 option1.parent = id;
 option1.image_blend = blend;
 option1.position = 1;
 option1.direction = 90;
-option2 = instance_create_layer(x,y,layer,option_t2);
+option2 = instance_create_layer(x,y,layer,pod_type);
 option2.parent = id;
 option2.image_blend = blend;
 option2.position = 2;
