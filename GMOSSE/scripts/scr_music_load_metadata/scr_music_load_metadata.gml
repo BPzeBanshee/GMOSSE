@@ -40,3 +40,29 @@ function scr_music_load_metadata(ini_section) {
 		return 2;
 		}
 }
+
+/// @desc scr_music_load_json(section)
+/// @param {String} section
+/// @returns {Struct | Real}
+function scr_music_load_json(section){
+	var f = filename_change_ext(global.music_ini,".json");
+	if file_exists(f)
+		{
+		var myjson = json_parse(file_to_string(f));
+		if variable_struct_exists(myjson,section)
+			{
+			var mystruct = myjson[$section];
+			if is_struct(mystruct) then return mystruct else return 3;
+			}
+		else
+			{
+			trace("Music Error: Couldn't find section");
+	        return 1;
+	        }
+		}
+	else 
+		{
+		trace("Music Error: Couldn't find JSON file "+string(f));
+		return 2;
+		}
+}

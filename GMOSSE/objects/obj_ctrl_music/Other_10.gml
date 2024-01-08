@@ -91,9 +91,9 @@ reload = function(){
 play = function(music_id,loop=false){
 if !audio_exists(music_id) then return -1;
 var vol = round(global.music_volume)/100;
-return audio_play_sound(music_id,0,loop,vol);
 fading_in = false;
 fading_out = false;
+return audio_play_sound(music_id,0,loop,vol);
 }
 
 pause = function(){

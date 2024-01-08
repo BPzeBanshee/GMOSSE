@@ -14,7 +14,7 @@ function scr_main_init() {
 	global.debug_text = "";
 	instance_create_depth(0,0,-99999,obj_debug);
 
-	/* INPUT */
+	// INPUT
 	//Set vars and clear the joystick buttons
 	global.jup = false;
 	global.jdown = false;
@@ -27,16 +27,16 @@ function scr_main_init() {
 	global.joy_id = 0;
 	global.joy_pref = 0;
 
-	/* CONFIG */
+	// CONFIG
 	scr_config_load("config.ini");
 
-	/* SCORES */
+	// SCORES
 	scr_hiscore_load("score.gmes");
 
-	/* FONTS */
+	// FONTS
 	scr_fonts_init();
 
-	/* CONTROLLERS */
+	// CONTROLLERS
 	// Input
 	instance_create_layer(0,0,layer,obj_ctrl_input);
 	//instance_create_layer(0,0,layer,obj_ctrl_input2); // for experimental replay support
@@ -53,11 +53,11 @@ function scr_main_init() {
 	then instance_create_layer(0,0,layer,obj_ctrl_render_mob)
 	else instance_create_layer(0,0,layer,obj_ctrl_render);
     
-	/* MISC. */
+	// MISC.
 	// pause-related vars
 	global.pausable = false; // define pausable/unpausable rooms with this
 	global.paused = false;
-	global.pause_img = noone;
+	global.pause_img = -1;
 	global.bkg_vspd[0] = 0; 
 	global.bkg_hspd[0] = 0;
 	global.bkg_alpha[0] = 0;
