@@ -15,6 +15,13 @@
         obj_star.image_alpha = 0.25;
         }
     }*/
+	
+var fx = layer_get_fx("lay_effect_parallax");
+var a = fx_get_parameter(fx,"g_ParallaxPosition");
+a[0] += 0.01; 
+fx_set_parameter(fx,"g_ParallaxPosition",a);
+with obj_star visible = false;
+with obj_warp visible = false;
 
 /* INPUT BEHAVIOUR */
 if !enabled then exit;
