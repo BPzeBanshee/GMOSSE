@@ -180,7 +180,7 @@ return 0;
 
 free = function(music_id){
 if !audio_exists(music_id) then return -1;
-audio_destroy_stream(music_id);
+var result = audio_destroy_stream(music_id);
 return 0;
 }
 #endregion

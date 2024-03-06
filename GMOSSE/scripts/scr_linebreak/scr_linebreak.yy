@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_linebreak",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Others",
-    "path": "folders/Scripts/CORE/Others.yy",
+  "$GMScript":"",
+  "%Name":"scr_linebreak",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_linebreak",
+  "parent":{
+    "name":"Others",
+    "path":"folders/Scripts/CORE/Others.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

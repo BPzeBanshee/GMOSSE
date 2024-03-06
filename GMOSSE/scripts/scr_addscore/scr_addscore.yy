@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_addscore",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Others",
-    "path": "folders/Scripts/CORE/Others.yy",
+  "$GMScript":"",
+  "%Name":"scr_addscore",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_addscore",
+  "parent":{
+    "name":"Others",
+    "path":"folders/Scripts/CORE/Others.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

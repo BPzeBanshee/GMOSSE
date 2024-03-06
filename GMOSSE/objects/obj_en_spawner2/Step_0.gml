@@ -1,3 +1,9 @@
+if spawn == object_index
+	{
+	show_debug_message("obj_en_spawner2 value 'spawn' left on default, fix your code!");
+	instance_destroy();
+	}
+	
 if sprite_index == -1 then sprite_index = object_get_sprite(spawn);
 image_alpha += 0.025;
 image_xscale += 0.025;

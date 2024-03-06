@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_setdisplay",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Screen",
-    "path": "folders/Scripts/CORE/Screen.yy",
+  "$GMScript":"",
+  "%Name":"scr_setdisplay",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_setdisplay",
+  "parent":{
+    "name":"Screen",
+    "path":"folders/Scripts/CORE/Screen.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "string_spacefix",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Others",
-    "path": "folders/Scripts/Others.yy",
+  "$GMScript":"",
+  "%Name":"string_spacefix",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"string_spacefix",
+  "parent":{
+    "name":"Others",
+    "path":"folders/Scripts/Others.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

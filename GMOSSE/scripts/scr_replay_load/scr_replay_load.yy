@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_replay_load",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Replays",
-    "path": "folders/Scripts/CORE/Replays.yy",
+  "$GMScript":"",
+  "%Name":"scr_replay_load",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_replay_load",
+  "parent":{
+    "name":"Replays",
+    "path":"folders/Scripts/CORE/Replays.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

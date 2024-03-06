@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_hiscore_reset",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "High Score",
-    "path": "folders/Scripts/CORE/High Score.yy",
+  "$GMScript":"",
+  "%Name":"scr_hiscore_reset",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_hiscore_reset",
+  "parent":{
+    "name":"High Score",
+    "path":"folders/Scripts/CORE/High Score.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

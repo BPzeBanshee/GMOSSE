@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_config_reset",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Config",
-    "path": "folders/Scripts/CORE/Config.yy",
+  "$GMScript":"",
+  "%Name":"scr_config_reset",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_config_reset",
+  "parent":{
+    "name":"Config",
+    "path":"folders/Scripts/CORE/Config.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

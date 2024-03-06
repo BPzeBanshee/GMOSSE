@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_snd_stop",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Sounds",
-    "path": "folders/Scripts/CORE/Sounds.yy",
+  "$GMScript":"",
+  "%Name":"scr_snd_stop",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_snd_stop",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Scripts/CORE/Sounds.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

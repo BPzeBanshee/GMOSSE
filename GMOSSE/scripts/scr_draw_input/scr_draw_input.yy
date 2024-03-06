@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_draw_input",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Others",
-    "path": "folders/Scripts/Others.yy",
+  "$GMScript":"",
+  "%Name":"scr_draw_input",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_draw_input",
+  "parent":{
+    "name":"Others",
+    "path":"folders/Scripts/Others.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

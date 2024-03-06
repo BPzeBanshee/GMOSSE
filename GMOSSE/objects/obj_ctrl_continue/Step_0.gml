@@ -13,6 +13,7 @@ if has_chosen && alpha > 0
 limiter += 1;
 if limiter > 5
     {
+	// Feather disable once GM2016
     var top = instance_create_depth(random_range(xview,xview+240),yview,depth-1,obj_star);
 	top.init(3);
     top.side = 1;

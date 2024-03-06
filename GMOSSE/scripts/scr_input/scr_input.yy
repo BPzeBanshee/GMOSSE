@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_input",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "CORE",
-    "path": "folders/Scripts/CORE.yy",
+  "$GMScript":"",
+  "%Name":"scr_input",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_input",
+  "parent":{
+    "name":"CORE",
+    "path":"folders/Scripts/CORE.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

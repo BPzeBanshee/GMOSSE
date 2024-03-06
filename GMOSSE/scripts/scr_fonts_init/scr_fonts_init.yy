@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_fonts_init",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Fonts",
-    "path": "folders/Scripts/CORE/Fonts.yy",
+  "$GMScript":"",
+  "%Name":"scr_fonts_init",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_fonts_init",
+  "parent":{
+    "name":"Fonts",
+    "path":"folders/Scripts/CORE/Fonts.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

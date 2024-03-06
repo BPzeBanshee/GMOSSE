@@ -1,4 +1,3 @@
-// Update turret positions
-event_user(0);
+///@desc Update turret positions
+update_positions();
 event_inherited();
-

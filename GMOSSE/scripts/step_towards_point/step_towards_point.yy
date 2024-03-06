@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "step_towards_point",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Others",
-    "path": "folders/Scripts/Others.yy",
+  "$GMScript":"",
+  "%Name":"step_towards_point",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"step_towards_point",
+  "parent":{
+    "name":"Others",
+    "path":"folders/Scripts/Others.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

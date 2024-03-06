@@ -1,5 +1,5 @@
 {
-  "FolderOrderSettings": [
+  "FolderOrderSettings":[
     {"name":"Fonts","order":8,"path":"folders/Fonts.yy",},
     {"name":"Notes","order":13,"path":"folders/Notes.yy",},
     {"name":"Objects","order":11,"path":"folders/Objects.yy",},
@@ -100,7 +100,7 @@
     {"name":"tilesets","order":5,"path":"folders/Sprites/tilesets.yy",},
     {"name":"Tile Sets","order":3,"path":"folders/Tile Sets.yy",},
   ],
-  "ResourceOrderSettings": [
+  "ResourceOrderSettings":[
     {"name":"spr_wall2","order":1,"path":"sprites/spr_wall2/spr_wall2.yy",},
     {"name":"spr_wall3","order":2,"path":"sprites/spr_wall3/spr_wall3.yy",},
     {"name":"spr_wall_blank","order":3,"path":"sprites/spr_wall_blank/spr_wall_blank.yy",},

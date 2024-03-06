@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "string_with_env",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Others",
-    "path": "folders/Scripts/CORE/Others.yy",
+  "$GMScript":"",
+  "%Name":"string_with_env",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"string_with_env",
+  "parent":{
+    "name":"Others",
+    "path":"folders/Scripts/CORE/Others.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

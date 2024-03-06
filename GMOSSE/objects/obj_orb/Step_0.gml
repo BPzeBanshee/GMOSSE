@@ -8,4 +8,4 @@ if timer == 30
     }
     
 // Handling is now done via obj_boss, it changes obj_orb's mode value
-event_user(phase);
+if phase > 0 then event_user(phase);
