@@ -1,63 +1,28 @@
-/* AESTHETICS */
-//instance_create_layer((room_width/2),(room_height/2),layer,obj_star);
-
-// Test code for warp background
-/*if keyboard_check_pressed(vk_space)
-    {
-    if obj_bkg_menu.visible = true
-        {
-        obj_bkg_menu.visible = false;
-        obj_star.image_alpha = 1;
-        }
-    else 
-        {
-        obj_bkg_menu.visible = true;
-        obj_star.image_alpha = 0.25;
-        }
-    }*/
-	
-var fx = layer_get_fx("lay_effect_parallax");
-var a = fx_get_parameter(fx,"g_ParallaxPosition");
-a[0] += 0.01; 
-fx_set_parameter(fx,"g_ParallaxPosition",a);
-with obj_star visible = false;
-with obj_warp visible = false;
-
-/* INPUT BEHAVIOUR */
+///@desc INPUT BEHAVIOUR
 if !enabled then exit;
 
-// Reset hook
-if !global.jup 
-&& !global.jdown
-&& !global.jleft
-&& !global.jright
-&& !global.button1
-&& !keyboard_check(vk_f12)
-&& enabled
-then hook = 0;
-
 // Up
-if (global.jup && !hook && enabled)
+if (global.jup && !hook)
     {
-    hook = 1;
+    hook = true;
     scr_snd_play(snd_click,true);
     selection -= 1;
     if selection < 1 then selection = 5;
     }
     
 // Down
-if (global.jdown && !hook && enabled)
+if (global.jdown && !hook)
     {
-    hook = 1;
+    hook = true;
     scr_snd_play(snd_click,true);
     selection += 1; 
     if selection > 5 then selection = 1; 
     }
     
 // Left
-if (global.jleft && !hook && enabled)
+if (global.jleft && !hook)
     {
-    hook = 1;
+    hook = true;
     if selection == 1
         {
         scr_snd_play(snd_click,true);
@@ -66,9 +31,9 @@ if (global.jleft && !hook && enabled)
     }
     
 // Right
-if (global.jright && !hook && enabled)
+if (global.jright && !hook)
     {
-    hook = 1;
+    hook = true;
     if selection == 1
         {
         scr_snd_play(snd_click,true);
@@ -79,15 +44,15 @@ if (global.jright && !hook && enabled)
 // F12 (for viewing background only)        
 if (keyboard_check(vk_f12) && !hook)
     {
-    hook = 1;
+    hook = true;
     visible = !visible;
     with obj_title visible = !visible;
     }
     
 // Button 1
-if (global.button1 && !global.levelend && !hook && enabled)
+if (global.button1 && !global.levelend && !hook)
     {
-    hook = 1;
+    hook = true;
     scr_snd_play(snd_click,true);
     switch selection
         {
@@ -130,3 +95,13 @@ if (global.button1 && !global.levelend && !hook && enabled)
             }
         }
     }
+	
+// Reset hook
+if !global.jup 
+&& !global.jdown
+&& !global.jleft
+&& !global.jright
+&& !global.button1
+&& !keyboard_check(vk_f12)
+&& enabled
+then hook = false;

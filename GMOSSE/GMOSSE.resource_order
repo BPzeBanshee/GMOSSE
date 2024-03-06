@@ -451,7 +451,6 @@
     {"name":"obj_boss2_dead","order":1,"path":"objects/obj_boss2_dead/obj_boss2_dead.yy",},
     {"name":"obj_boss2_pod","order":2,"path":"objects/obj_boss2_pod/obj_boss2_pod.yy",},
     {"name":"obj_omake2","order":3,"path":"objects/obj_omake2/obj_omake2.yy",},
-    {"name":"Sprite189","order":14,"path":"sprites/Sprite189/Sprite189.yy",},
     {"name":"obj_en_ground","order":4,"path":"objects/obj_en_ground/obj_en_ground.yy",},
     {"name":"obj_cruiser_hitbox","order":1,"path":"objects/obj_cruiser_hitbox/obj_cruiser_hitbox.yy",},
     {"name":"obj_crater4","order":2,"path":"objects/obj_crater4/obj_crater4.yy",},

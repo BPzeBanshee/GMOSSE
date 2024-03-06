@@ -9,14 +9,9 @@ function scr_pause() {
 	*/
 	global.paused = true;
 
-	var win_w,win_h;
-	win_w = obj_ctrl_render.m_base_w;
-	win_h = obj_ctrl_render.m_base_h;
-
 	// Freeze background positions/save speeds
-	var back,i; 
-	back = layer_get_all();
-	for (i=0; i<array_length(back); i++)
+	var back = layer_get_all();
+	for (var i=0; i<array_length(back); i++)
 		{
 		if layer_get_name(back[i]) != "layer_bkg_brightness" // Reserved for background darkening
 			{
@@ -30,10 +25,12 @@ function scr_pause() {
 
 	// Capture image of screen (without debug text)
 	// Note: This stopped working for debug use since GMS switchover, 
-	instance_deactivate_object(obj_ctrl_music);
-	instance_deactivate_object(obj_debug);
+	//instance_deactivate_object(obj_ctrl_music);
+	//instance_deactivate_object(obj_debug);
 
 	// First, create the surface
+	var win_w = obj_ctrl_render.m_base_w;
+	var win_h = obj_ctrl_render.m_base_h;
 	var surf = surface_create(win_w,win_h);
 	surface_set_target(surf);
 	draw_clear_alpha(c_black,1);
@@ -57,7 +54,7 @@ function scr_pause() {
 	instance_deactivate_object(obj_ctrl_stage);
 
 	// Now we're done with the image, deactivate everything except core controllers
-	instance_deactivate_all(1);
+	instance_deactivate_all(true);
 	instance_activate_object(obj_debug);
 	instance_activate_object(obj_ctrl_input);
 	instance_activate_object(obj_ctrl_music);

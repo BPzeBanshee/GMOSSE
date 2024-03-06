@@ -11,8 +11,9 @@ if y >= yview-(sprite_width/2) && !made
     {
     for (var i=0;i<4;i++)
         {
-        tur[i] = instance_create_depth(p[i,0],p[i,1],depth-1,obj_en7_tur);
-        tur[i].parent = id;
+        var t = instance_create_depth(p[i,0],p[i,1],depth-1,obj_en7_tur);
+        t.parentID = id;
+		tur[i] = t;
         }
     made = true;
     }
@@ -41,7 +42,7 @@ switch phase
         atk_timer += 1;
         if atk_timer == 30 && made
             {
-            for (var i=0;i<4;i++) {with tur[i] event_user(1)};
+            for (var i=0;i<4;i++) with tur[i] fire_shot1();
             scr_snd_play(snd_en_shot4,true);
             atk_timer = 0;
             }
@@ -54,7 +55,7 @@ switch phase
         atk_timer += 1;
         if atk_timer == 4 && made
             {
-            for (var i=0;i<4;i++) {with tur[i] event_user(2)};
+            for (var i=0;i<4;i++) with tur[i] fire_shot2();
             scr_snd_play(snd_en_shot1,true);
             atk_timer = 0;
             }

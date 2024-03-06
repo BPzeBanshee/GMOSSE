@@ -1,6 +1,5 @@
 /// @desc scr_music_load(json_section)
 /// @param json_section
-/// @returns {Struct | real}
 function scr_music_load(json_section) {
 	/* 
 	scr_music_load(), by BPzeBanshee
@@ -70,7 +69,6 @@ function scr_music_load(json_section) {
 
 /// @desc scr_music_load_old(ini_section)
 /// @param ini_section
-/// @returns {Any | real}
 function scr_music_load_old(ini_section) {
 	/* 
 	scr_music_load(), by BPzeBanshee

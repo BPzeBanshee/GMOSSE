@@ -8,7 +8,7 @@ timer = 0;
 thr_timer = 0;
 atk_timer = 0;
 made = 0;
-tur = noone;
+tur[0] = noone;
 
 // Definable vars
 speed = 3.75;

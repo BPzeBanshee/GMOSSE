@@ -12,6 +12,7 @@ init = function(_mode){
 mode = _mode;
 switch mode
     {
+	default: break;
 	case 1:
 		{
 		image_index = irandom(4);

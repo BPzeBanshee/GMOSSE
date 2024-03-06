@@ -572,7 +572,6 @@
     {"id":{"name":"obj_boss2_pod","path":"objects/obj_boss2_pod/obj_boss2_pod.yy",},},
     {"id":{"name":"obj_omake2","path":"objects/obj_omake2/obj_omake2.yy",},},
     {"id":{"name":"obj_en_cruiser","path":"objects/obj_en_cruiser/obj_en_cruiser.yy",},},
-    {"id":{"name":"Sprite189","path":"sprites/Sprite189/Sprite189.yy",},},
     {"id":{"name":"obj_en_ground","path":"objects/obj_en_ground/obj_en_ground.yy",},},
     {"id":{"name":"obj_cruiser_hitbox","path":"objects/obj_cruiser_hitbox/obj_cruiser_hitbox.yy",},},
     {"id":{"name":"obj_crater4","path":"objects/obj_crater4/obj_crater4.yy",},},

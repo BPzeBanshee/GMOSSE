@@ -15,8 +15,8 @@
     "path": "folders/Objects/Enemies/Stage 2.yy",
   },
   "parentObjectId": {
-    "name": "obj_en_parent",
-    "path": "objects/obj_en_parent/obj_en_parent.yy",
+    "name": "obj_en_ground",
+    "path": "objects/obj_en_ground/obj_en_ground.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

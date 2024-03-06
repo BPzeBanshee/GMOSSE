@@ -1,18 +1,16 @@
 image_angle = direction;
 if !scr_isonscreen() || !active then exit;
 
-var aim;
+var aim = 270;
 if instance_exists(obj_hitbox)
     {
     var tar = instance_nearest(x,y,obj_hitbox);
     aim = point_direction(x,y,tar.x,tar.y);
     }
-else aim = 270;
 if timer < 60 then scr_turntoangle(aim,2.5);
 
-var xx,yy;
-xx = x + lengthdir_x(sprite_width/2,direction);
-yy = y + lengthdir_y(sprite_width/2,direction);
+var xx = x + lengthdir_x(sprite_width/2,direction);
+var yy = y + lengthdir_y(sprite_width/2,direction);
 
 timer += 1;
 if timer >= 60 && y < yview+240

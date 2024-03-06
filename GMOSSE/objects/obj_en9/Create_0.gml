@@ -3,5 +3,5 @@ enemyHP = 40;
 event_inherited();
 
 // Misc. variables
-made = 0;
+made = false;
 tur = noone;

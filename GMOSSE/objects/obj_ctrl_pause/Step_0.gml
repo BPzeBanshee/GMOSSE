@@ -1,19 +1,12 @@
 if !enabled then exit;
 
 // *************** Input Checking ***************
-// Resetting Hook
-if !global.jup && !global.jdown 
-&& !global.jleft && !global.jright
-&& !global.button1 && !global.button2
-&& !global.button3 && !global.button4
-&& enabled
-then hook = 0;
 
 // Up
 if (global.jup && !hook && enabled)
     {
     scr_snd_play(snd_click,true);
-    hook = 1;
+    hook = true;
     selection -= 1; // Scroll up on the menu.
     if selection < 1 then selection = 5; // Goes to the bottom box.
     }
@@ -22,7 +15,7 @@ if (global.jup && !hook && enabled)
 if (global.jdown && !hook && enabled)
     {
     scr_snd_play(snd_click,true);
-    hook = 1;
+    hook = true;
     selection += 1; // Scroll down on the menu.
     if selection > 5 then selection = 1; // Goes to the top box.
     }
@@ -30,7 +23,7 @@ if (global.jdown && !hook && enabled)
 // Button 1
 if (global.button1 && !global.levelend && !hook && enabled)
     {
-    hook = 1;
+    hook = true;
     scr_snd_play(snd_click,true);
     switch selection 
         {
@@ -74,7 +67,6 @@ if (global.button1 && !global.levelend && !hook && enabled)
 				{
 				resume();
 				stop_all();
-				gameover = true; // Free generic music
 				}
             scr_trans(rm_shipselect,2,c_black,0.025,0.05,0);
             break;
@@ -91,7 +83,6 @@ if (global.button1 && !global.levelend && !hook && enabled)
 				{
 				resume();
 				stop_all();
-				gameover = true; // Free generic music
 				}
             scr_trans(rm_menu,2,c_white,0.025,0.05,0);
             break;
@@ -99,3 +90,10 @@ if (global.button1 && !global.levelend && !hook && enabled)
         }
     }
 
+// Resetting Hook
+if !global.jup && !global.jdown 
+&& !global.jleft && !global.jright
+&& !global.button1 && !global.button2
+&& !global.button3 && !global.button4
+&& enabled
+then hook = false;
