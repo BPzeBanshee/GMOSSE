@@ -1,44 +1,31 @@
-/// @desc scr_music_load_metadata(ini_section)
+/// @desc scr_music_load_ini(ini_section)
 /// @param {String} ini_section
-/// @returns {Array<any> | Real}
-function scr_music_load_metadata(ini_section) {
-	if file_exists(global.music_ini)
-	    {
-		// Open INI file
-		// (Ubuntu has problems with comment lines in INIs)
-		if os_type == os_linux
-			{
-			var inistring = file_to_string(global.music_ini);
-			if inistring != "ERROR" then ini_open_from_string(inistring);
-			}
-	    else ini_open(global.music_ini);
+/// @returns {Struct | Real}
+function scr_music_load_ini(ini_section) {
+	var f = filename_change_ext(global.music_ini,".ini");
+	ini_open_fixed(f);
 		
-		// Check section
-	    if ini_section_exists(ini_section)
-	        {
-			var music_info;
-			music_info[0] = ini_read_string(ini_section,"Path","NONE"); // file location
-			music_info[1] = ini_read_real(ini_section,"Volume",100); // reads volume
-			music_info[2] = real(ini_read_string(ini_section,"LoopStart","0")); // reads start of loop
-			music_info[3] = real(ini_read_string(ini_section,"LoopEnd","1")); // reads end of loop
-	        music_info[4] = ini_read_string(ini_section,"Title",""); // reads title
-	        music_info[5] = ini_read_string(ini_section,"Game",""); // reads game of origin/album
-	        music_info[6] = ini_read_string(ini_section,"Artist",""); // reads artist/composer
-	        ini_close();
-	        return music_info;
-	        }
-	    else
-	        {
-	        ini_close();
-	        trace("Music Error: Couldn't find section");
-	        return 1;
-	        }
+	// Check section
+	if ini_section_exists(ini_section)
+	    {
+		var music_info = {
+			Path:		ini_read_string(ini_section,"Path","NONE"),			// file location;
+			Volume:		ini_read_real(ini_section,"Volume",100),			// reads volume
+			LoopStart:	real(ini_read_string(ini_section,"LoopStart","0")), // reads start of loop
+			LoopEnd:	real(ini_read_string(ini_section,"LoopEnd","1")),	// reads end of loop
+			Title:		ini_read_string(ini_section,"Title",""),			// reads title
+			Game:		ini_read_string(ini_section,"Game",""),			// reads game of origin/album
+			Artist:		ini_read_string(ini_section,"Artist","")		// reads artist/composer
+			}
+	    ini_close();
+	    return music_info;
 	    }
-	else 
-		{
-		trace("Music Error: Couldn't find INI file "+string(global.music_ini));
-		return 2;
-		}
+	else
+	    {
+	    ini_close();
+	    trace("Music Error: Couldn't find section");
+	    return 1;
+	    }
 }
 
 /// @desc scr_music_load_json(section)
@@ -46,23 +33,20 @@ function scr_music_load_metadata(ini_section) {
 /// @returns {Struct | Real}
 function scr_music_load_json(section){
 	var f = filename_change_ext(global.music_ini,".json");
-	if file_exists(f)
+	var myjson = json_parse(file_to_string(f));
+	if variable_struct_exists(myjson,section)
 		{
-		var myjson = json_parse(file_to_string(f));
-		if variable_struct_exists(myjson,section)
-			{
-			var mystruct = myjson[$section];
-			if is_struct(mystruct) then return mystruct else return 3;
-			}
-		else
-			{
-			trace("Music Error: Couldn't find section");
-	        return 1;
-	        }
+		var mystruct = myjson[$section];
+		if !struct_exists(mystruct,"Volume") then struct_set(mystruct,"Volume",100);
+		if !struct_exists(mystruct,"LoopStart") then struct_set(mystruct,"LoopStart",0);
+		if !struct_exists(mystruct,"LoopEnd") then struct_set(mystruct,"LoopEnd",1);
+		
+		// Feather disable once GM1063
+		return is_struct(mystruct) ? mystruct : 3;
 		}
-	else 
+	else
 		{
-		trace("Music Error: Couldn't find JSON file "+string(f));
-		return 2;
-		}
+		trace("Music Error: Couldn't find section");
+	    return 1;
+	    }
 }

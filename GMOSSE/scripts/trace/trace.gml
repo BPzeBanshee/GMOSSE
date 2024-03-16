@@ -5,7 +5,9 @@ function trace(str) {
 
 	if os_browser == browser_not_a_browser
 	    {
-	    debug_event(string(object_get_name(object_index))+": "+string(s));
+		var ss = string(object_get_name(object_index))+": "+string(s);
+	    debug_event(ss);
+		show_debug_message(ss);
 	    return 0;
 	    }
 	else

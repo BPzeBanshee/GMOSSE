@@ -34,14 +34,14 @@ if global.button1 && !hook
     else 
         {
         scr_trans(global.startstage,3,c_black,0.025,0.05,210);
-        with obj_ctrl_music fade_out(0.0055);
+        with obj_ctrl_music fade_out(0.0005);
         }
     }
 if global.button2 && !hook
 	{
 	scr_snd_play(snd_click,true);
 	scr_trans(rm_menu,2,c_white,0.025,0.05,0);
-	with obj_ctrl_music fade_out(0.05);
+	with obj_ctrl_music fade_out(0.005);//0.05
 	}
 if global.button3 && !hook
 	{

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"ini_open_fixed",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ini_open_fixed",
+  "parent":{
+    "name":"Others",
+    "path":"folders/Scripts/CORE/Others.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
