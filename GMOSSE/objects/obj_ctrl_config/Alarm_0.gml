@@ -2,8 +2,13 @@
 var ini = global.music_ini;
 pick_ini();
 
-if file_exists(global.music_ini)
-&& global.music_ini != ini
-then with obj_ctrl_music reload();
-
+with obj_ctrl_music
+	{
+	if LOAD_EVERYTHING
+		{
+		if file_exists(global.music_ini)
+		&& global.music_ini != ini
+		then reload();
+		}
+	}
 scr_fullscreen(global.fullscreen);

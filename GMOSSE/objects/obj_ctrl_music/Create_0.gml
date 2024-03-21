@@ -52,6 +52,7 @@ load = function(){
 
 // Load ALL music at once
 load_all = function(){
+var t = get_timer();
 	snd_intro = scr_music_load("Intro");
     snd_shipselect = scr_music_load("Selection");
     snd_st1 = scr_music_load("Stage1");
@@ -65,6 +66,7 @@ load_all = function(){
     snd_stageclear = scr_music_load("StageComplete");
     snd_continue = scr_music_load("Continue");
     snd_gameover = scr_music_load("GameOver");
+	trace("time taken to load files: "+string((get_timer() - t))+" microseconds");
 	}
 	
 unload = function(){
@@ -104,6 +106,8 @@ unload = function(){
 	}
 	
 reload = function(){
+	stop_all();
+	show_info(false);
 	unload();
 	if LOAD_EVERYTHING
 	then load_all()

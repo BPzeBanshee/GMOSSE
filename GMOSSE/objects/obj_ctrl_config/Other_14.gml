@@ -1,9 +1,16 @@
-/// @description  VOLUME OPTIONS MENU
+/// @description AUDIO OPTIONS MENU
 
 // BEHAVIOUR
 category_type = "AUDIO SETTINGS";
 selection_max = 5; // amount of positions in the submenu
 max_h = 0;
+
+warning = "";
+if selection == 4
+	{
+	max_h = 45;
+	warning = "FOR SAFETY REASONS,\nCHANGING MUSIC CONFIG\nMID-GAME IS DISABLED.";
+	}
 
 // LEFT
 if global.jleft && !hook
@@ -40,6 +47,8 @@ if global.button1 && !hook
         {
         case 4:
             {
+			if room != rm_menu then exit;
+			
             // Hack to allow time to respond to window change
             if global.fullscreen then scr_fullscreen(0);
             alarm[0] = 10;

@@ -1,8 +1,17 @@
-/// @description  DRAW MENU CODE
-if !enabled exit;
+/// @desc DRAW MENU CODE
+
+/*
+Note: compared to legacy builds this Draw code 
+makes considerable use of ternary operators 
+(value = [condition] ? [value if true] : [value if false])
+for single-line readability. Using an old-fashioned
+if/then/else is totally acceptable too if that's how you roll.
+*/
+
 // INIT
+if !enabled exit;
 scr_draw_vars(global.fnt_default,fa_left,c_black);
-var g; g = 10;
+var g = 10;
 
 // DRAW BLACK BOX
 draw_set_alpha(0.75);
@@ -32,9 +41,9 @@ if category == 0
 if category == 1
     {
     // BEHAVIOURS
-    var dz,du;
-    dz = string(round(global.deadzone*100))+"%";
+    var dz = string(round(global.deadzone*100))+"%";
     if global.deadzone == 0 then dz = "EXACT";
+	var du;
     switch global.joytype
         {
         case 0: du = "AXES"; break;
@@ -55,9 +64,9 @@ if category == 1
 if category == 2
     {
     // BEHAVIOURS
-	var full_str,vsync_str,tate_str,aa_str;
-    if global.fullscreen then full_str = "ON" else full_str = "OFF";
-    if global.vsync then vsync_str = "ON" else vsync_str = "OFF";
+	var full_str = global.fullscreen ? "ON" : "OFF";
+	var vsync_str = global.vsync ? "ON" : "OFF";
+	var aa_str;
     switch global.aa
         {
         case 0: aa_str = "OFF"; break;
@@ -65,9 +74,9 @@ if category == 2
         case 2: aa_str = "4xAA"; break;
         case 3: aa_str = "8xAA"; break;
         }
-    tate_str = string(global.rotation)+"*";
+    var tate_str = string(global.rotation)+"*";
     
-	var aspect_str,winsize_str,scale_str,wallpaper_str;
+	var aspect_str;
     switch global.window_aspect
         {
         case 0: aspect_str = "3:4 (NATIVE)"; break;
@@ -75,9 +84,9 @@ if category == 2
         case 2: aspect_str = "16:9"; break;
         case 3: aspect_str = "16:10"; break;
         }
-    winsize_str = obj_ctrl_render.l_res;
-    if global.scaling then scale_str = "CLEAN" else scale_str = "STRETCH";
-    if global.use_wallpaper then wallpaper_str = "ON" else wallpaper_str = "OFF";
+    var winsize_str = obj_ctrl_render.l_res;
+    var scale_str = global.scaling ? "CLEAN" : "STRETCH";
+    var wallpaper_str = global.use_wallpaper ? "ON" : "OFF";
     
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"FULLSCREEN: "+string(full_str));
@@ -105,9 +114,9 @@ if category == 2
 if category == 3
     {
     // BEHAVIOURS
-	var wallbright_str,alpha_str,filter_str,scan_str;
-    wallbright_str = string(round(global.wallbrightness))+"%";
-    if global.filter = 1 then filter_str = "ON" else filter_str = "OFF";
+    var wallbright_str = string(round(global.wallbrightness))+"%";
+	var filter_str = global.filter ? "ON" : "OFF";
+	var scan_str;
     switch global.scanlines
         {
         case 0: scan_str = "NONE"; break;
@@ -115,7 +124,7 @@ if category == 3
         case 2: scan_str = "VERTICAL"; break;
         case 3: scan_str = "STATIC"; break;
         }
-    alpha_str = string(round(global.scanline_alpha))+"%";
+    var alpha_str = string(round(global.scanline_alpha))+"%";
         
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"WALLPAPER ALPHA: "+string(wallbright_str));
@@ -131,16 +140,15 @@ if category == 3
 if category == 4
     {
     // BEHAVIOURS
-    var vol_music,vol_sfx,vol_voice;
-    vol_music = string(global.music_volume)+"%";
+    var vol_music = string(global.music_volume)+"%";
     if global.music_volume == 100 then vol_music = "MAX";
     if global.music_volume == 0 then vol_music = "OFF";
 
-    vol_sfx = string(global.sfx_volume)+"%";
+    var vol_sfx = string(global.sfx_volume)+"%";
     if global.sfx_volume == 100 then vol_sfx = "MAX";
     if global.sfx_volume == 0 then vol_sfx = "OFF";
     
-    vol_voice = string(global.voice_volume)+"%";
+    var vol_voice = string(global.voice_volume)+"%";
     if global.voice_volume == 100 then vol_voice = "MAX";
     if global.voice_volume == 0 then vol_voice = "OFF";
     
@@ -148,26 +156,39 @@ if category == 4
     draw_text(xview+60,yview+s+(g*1),"MUSIC VOLUME: "+string(vol_music));
     draw_text(xview+60,yview+s+(g*2),"SFX VOLUME: "+string(vol_sfx));
     draw_text(xview+60,yview+s+(g*3),"VOICE VOLUME: "+string(vol_voice));
+	
+	var safety_check = room == rm_menu ? true : false;
+	if !safety_check then draw_set_color(c_red);
     draw_text(xview+60,yview+s+(g*4),"DEFINE MUSIC PACK");
-    
+    if !safety_check then draw_set_color(8454016);
+	
     draw_text(xview+60,yview+s+(g*6),"RETURN TO MENU");
+	
+	// WARNING TEXT
+    if warning != ""
+        {
+        draw_set_halign(fa_center);
+        draw_set_color(c_red);
+        draw_text(xview+120,yview+s+(g*9),string(warning));
+        }
     }
     
 // ------ MISC. OPTIONS MENU ------
 if category == 5
     {
     // BEHAVIOURS
-    var debug_str,font_str,hitbox_str,b_str,flicker_str;
-    if global.debug then debug_str = "ON" else debug_str = "OFF";
-    if global.fonttype then font_str = "ON" else font_str = "OFF";
-    if global.hitbox_visible then hitbox_str = "VISIBLE" else hitbox_str = "HIDDEN";
+	var debug_str = global.debug ? "ON" : "OFF";
+	var font_str = global.fonttype ? "ON" : "OFF";
+	var hitbox_str = global.hitbox_visible ? "VISIBLE" : "HIDDEN";
+	var flicker_str = global.flicker ? "ON" : "OFF";
+	var b_str;
     switch global.bulletcolour
         {
         case 1: b_str = "BLUE"; break;
         case 2: b_str = "RED"; break;
         case 3: b_str = "MIXED"; break;
         }
-    if global.flicker then flicker_str = "ON" else flicker_str = "OFF";
+    
     
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"DEBUG DISPLAY: "+string(debug_str));

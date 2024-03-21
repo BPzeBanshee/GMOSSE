@@ -16,7 +16,7 @@ function scr_music_load(json_section) {
 		{
 		mystruct = scr_music_load_json(json_section);
 		}
-	else trace("File not found");
+	else trace("File "+string(myini)+" not found");
 
 	// quit early if no file to load (formerly 'NONE' check)
 	if !is_struct(mystruct) {
