@@ -8,4 +8,5 @@
 !/README.txt
 !/LICENSE.txt
 !/*.ini
+!/*.json
 /Archive

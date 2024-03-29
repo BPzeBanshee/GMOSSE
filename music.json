@@ -1,0 +1,94 @@
+ {
+  "Intro": {
+    "Path": "music/main.ogg",
+    "Title": "Phantasy Lounge (Main Menu)",
+    "Game": "G.M.O.S.S.E",
+    "Artist": "Dylan Barry (railslave)"
+  },
+  "Selection": {
+    "Path": "music/shipselect_v3.ogg",
+    "Title": "Muscling In (Ship Select)",
+    "Game": "G.M.O.S.S.E",
+    "Artist": "Dylan Barry (railslave)"
+  },
+  "Stage1": {
+    "Path": "music/stage1_v3.ogg",
+    "Title": "All Because the Lady Loves... (Stage 1)",
+    "Game": "G.M.O.S.S.E",
+    "Artist": "Dylan Barry (railslave)"
+  },
+  "Boss1": {
+    "Path": "music/boss1_v5.ogg",
+    "Title": "Don't Die (Boss)",
+    "Game": "G.M.O.S.S.E",
+    "Artist": "Dylan Barry (railslave)",
+    "loopStart": "0.250434555297714",
+    "loopEnd": "1"
+  },
+  "Stage2": {
+    "Path": "music/stage2_v3.ogg",
+    "Title": "Im Loving You So Hard Right Now (Stage 2)",
+    "Game": "G.M.O.S.S.E",
+    "Artist": "Dylan Barry (railslave)",
+    "LoopStart": "0",
+    "LoopEnd": "1"
+  },
+  "Stage3": {
+    "Path": "music/stage3.ogg",
+    "Title": "Tunage For The Masses (Stage 3)",
+    "Game": "Unknown",
+    "Artist": "Dylan Barry (railslave)",
+    "LoopStart": "0.1428613671844303",
+    "LoopEnd": "1"
+  },
+  "Stage3_B": {
+    "Path": "music/stage3b.ogg",
+    "Title": "Don't Die (Giant Boss)",
+    "Game": "G.M.O.S.S.E",
+    "Artist": "Dylan Barry (railslave)",
+    "LoopStart": "0",
+    "LoopEnd": "1"
+  },
+  "StageComplete": {
+    "Path": "music/complete_v3.ogg",
+    "Title": "(Stage Clear)",
+    "Game": "G.M.O.S.S.E",
+    "Artist": "Dylan Barry (railslave)"
+  },
+  "Continue": {
+    "Path": "music/continue_v3.ogg",
+    "Title": "(Continue)",
+    "Game": "G.M.O.S.S.E",
+    "Artist": "Dylan Barry (railslave)"
+  },
+  "GameOver": {
+    "Path": "music/gameover_v3.ogg",
+    "Title": "(Game Over)",
+    "Game": "G.M.O.S.S.E",
+    "Artist": "Dylan Barry (railslave)"
+  },
+  "Omake1": {
+    "Path": "music/omake1_v2.ogg",
+    "Title": "|<||_|_3R <|_0\\/\\/|\\| (Omake 1)",
+    "Game": "G.M.O.S.S.E",
+    "Artist": "Dylan Barry (railslave)",
+    "LoopStart": "0",
+    "LoopEnd": "1"
+  },
+  "Omake2": {
+    "Path": "music/omake2_v5.ogg",
+    "Title": "4|\\|71(|-|R1$7 (Omake 2)",
+    "Game": "G.M.O.S.S.E",
+    "Artist": "Dylan Barry (railslave)",
+    "LoopStart": "0",
+    "LoopEnd": "1"
+  },
+  "Omake3": {
+    "Path": "music/omake3_v2.ogg",
+    "Title": "4><3|<!|_|__|0`/ |\\/||< || (Omake 3)",
+    "Game": "Zenodyne / GMOSSE",
+    "Artist": "Dylan Barry (railslave)",
+    "LoopStart": "0",
+    "LoopEnd": "1"
+  }
+}
