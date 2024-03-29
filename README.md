@@ -33,23 +33,23 @@ This project would not have been possible without the fostered environment of th
 
 GMOSSE makes use of multiple assets provided by members of said forum and the wider community as a whole. Shout-outs to fellows past and present:
 
-* **Kaiser**		Invaluable suggestions towards to project, and awesome sprites!
-* **S20-TBL**		contributed heaps regarding attack scripts and bullet behaviour + CONTRA YAGAWACORPS 			EXPLOSHUNS BY MICHAEL BAY!
-* **GodHand**		coded basis of S20-TBL's circle attack scripts
-* **EddyMRA**	 	posted his spread shot script from Xeno Fighters R, and inspiration for various 			functions. Even Xeno Fighters R in itself was an inspiration
-* **Rozyrg**		contributed a lot towards GMOSSE discussion wise, showed various alternate methods of 			doing things
-* **worstplayer**	helped out tons in original 'TATE in GML (Game Maker)' thread using views/surfaces
-* **MegaGamer**	neat scrolling text engine in Game Maker that I could understand
-* **iluvfuz** 	GMLBuddy helped me tons in getting started
-* **DrPetter**	sfxr (for the neat shmuppy sound effects)
-* **Nimitz**		Excellent joystick support (once I fixed it and added configurable deadzones :P).
-* **YoYo Games**	Cause finding solutions via Google always got results from their forum :D
-* **Emerald Master**	Alternate awesome fonts!
-* **DJ Incompetent**	Tested the game as the sounds got reinternalised
-* **MathU**		Keyboard control customisation advocate, reminded me to get onto adding this function!
-* **mjclark**		Joystick testing with him was very helpful for Development and inspiration from 			doujins!
-* **Pieterator**	Developer of Aero Flux, solution to TATE distortion bug & various helpful advice.
-* **railslave**	Excellent music mod
-* **trap15**		Explosion flicker idea, testing for VirtualBox and WINE
+* [**Kaiser AKA JackDarx**](https://github.com/JackDarx) - Invaluable suggestions towards project, awesome sprites, long time friend and co-dev!
+* **Rozyrg** - contributed a lot towards GMOSSE discussion wise, showed various alternate methods of doing things
+* [**railslave**](https://www.youtube.com/@southendbusker7534) - composer for GMOSSE's music
+* [**S20-TBL**](https://www.pixiv.net/en/users/18617250) - contributed heaps regarding attack scripts and bullet behaviour + CONTRA YAGAWACORPS EXPLOSHUNS BY MICHAEL BAY!
+* **GodHand** - coded basis of S20-TBL's circle attack scripts
+* **Emerald Master** - Alternate awesome fonts!
+* [**EddyMRA**](https://github.com/EddyMRA) - posted his spread shot script from Xeno Fighters R, and inspiration for various 			functions. Even Xeno Fighters R in itself was an inspiration
+* **worstplayer** - helped out tons in original 'TATE in GML (Game Maker)' thread using views/surfaces
+* **MegaGamer** - neat scrolling text engine in Game Maker that I could understand
+* **iluvfuz** - GMLBuddy helped me tons in getting started
+* **DrPetter** - sfxr (for the neat shmuppy sound effects)
+* [**Nimitz**](https://twitter.com/stormoid) - Excellent joystick support (once I fixed it and added configurable deadzones :P).
+* [**YoYo Games**](https://github.com/YoYoGames) - Well, you know, GameMaker, etc.
+* [**DJ Incompetent**](https://www.twitch.tv/djincompetent)	Tested the game as the sounds got reinternalised
+* **MathU**	- Keyboard control customisation advocate, reminded me to get onto adding this function!
+* **mjclark** - Joystick testing with him was very helpful for Development and inspiration from doujins!
+* [**Pieterator**](https://twitter.com/pieterator) - Developer of Aero Flux, solution to TATE distortion bug & various helpful advice.
+* [**trap15**](https://github.com/trap15) - Explosion flicker idea, testing for VirtualBox and WINE
 
 If I left anyone out, please let me know so I can add you to the list.
