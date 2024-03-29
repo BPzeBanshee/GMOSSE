@@ -46,7 +46,7 @@ GMOSSE makes use of multiple assets provided by members of said forum and the wi
 * **DrPetter** - sfxr (for the neat shmuppy sound effects)
 * [**Nimitz**](https://twitter.com/stormoid) - Excellent joystick support (once I fixed it and added configurable deadzones :P).
 * [**YoYo Games**](https://github.com/YoYoGames) - Well, you know, GameMaker, etc.
-* [**DJ Incompetent**](https://www.twitch.tv/djincompetent)	Tested the game as the sounds got reinternalised
+* [**DJ Incompetent**](https://www.twitch.tv/djincompetent) -	Tested the game as the sounds got reinternalised
 * **MathU**	- Keyboard control customisation advocate, reminded me to get onto adding this function!
 * **mjclark** - Joystick testing with him was very helpful for Development and inspiration from doujins!
 * [**Pieterator**](https://twitter.com/pieterator) - Developer of Aero Flux, solution to TATE distortion bug & various helpful advice.
