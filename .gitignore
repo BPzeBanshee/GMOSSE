@@ -5,8 +5,7 @@
 !/.gitignore
 !/.gitattributes
 !/music
-!/music_old
-!/TODO.txt
-!/README.md
+!/README.txt
+!/LICENSE.txt
 !/*.ini
 /Archive
