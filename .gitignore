@@ -5,7 +5,7 @@
 !/.gitignore
 !/.gitattributes
 !/music
-!/README.txt
+!/README.md
 !/LICENSE.txt
 !/*.ini
 !/*.json
