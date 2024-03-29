@@ -4,9 +4,6 @@
 !/GMOSSE
 !/.gitignore
 !/.gitattributes
-!/music
-!/README.md
+!/*.md
 !/LICENSE.txt
-!/*.ini
-!/*.json
 /Archive
