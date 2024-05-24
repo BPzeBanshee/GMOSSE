@@ -2,12 +2,14 @@ if instance_exists(obj_ctrl_clear) then exit;
 
 // Generating the formula variables
 // no matter the x position in room should be between 0-320
-var player_rp,player_pc,max_width;
-if instance_exists(obj_player)
-then player_rp = (obj_player.x - x) // 2P mode: lerp(player1.x,player2.x,0.5) - x
-else player_rp = range / 2;
-player_pc = player_rp / range; // player position as decimal percentage
-max_width = range - view_width; // 80 assuming playable area of 320 wide
+var player_rp = range / 2;
+
+// 2P mode: lerp(player1.x,player2.x,0.5) - x
+if instance_number(obj_player)==2
+then player_rp = lerp(instance_find(obj_player,0).x,instance_find(obj_player,1),0.5)-x
+else player_rp = (obj_player.x - x);
+var player_pc = player_rp / range; // player position as decimal percentage
+var max_width = range - view_width; // 80 assuming playable area of 320 wide
 
 // Scrolling
 for (var i=0;i<array_length(objects_to_scroll);i++)

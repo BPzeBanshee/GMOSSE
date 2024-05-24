@@ -1,5 +1,5 @@
 // Control variables
-selection = global.shipselect;
+selection = global.shipselect[global.myside];
 hook = 1;
 chr1 = 0;
 text = "";

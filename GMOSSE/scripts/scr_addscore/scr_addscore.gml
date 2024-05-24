@@ -20,19 +20,20 @@ for points in the first place.
 /// @param time
 /// @param multiplier
 function scr_addscore(points, time, multiplier) {
+	var o = obj_ctrl_game;
 	if time > 0
 		{
-		if (global.countdown + time) > 180
-		then global.countdown = 180
-		else global.countdown += time;
+		if (o.countdown + time) > 180
+		then o.countdown = 180
+		else o.countdown += time;
 		}
 	if multiplier > 0 // if a multiplier is given
 	    {
-	    global.chain += multiplier;
-	    if points > 0 then global.myscore += points * global.chain;
+	    o.chain += multiplier;
+	    if points > 0 then o.myscore += points * o.chain;
 	    }
 	else // no multiplier given, just add score
 	    {
-	    if points > 0 then global.myscore += points;
+	    if points > 0 then o.myscore += points;
 	    }
 }

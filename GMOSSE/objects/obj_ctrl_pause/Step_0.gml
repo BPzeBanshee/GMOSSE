@@ -45,18 +45,23 @@ if (global.button1 && !global.levelend && !hook && enabled)
             scr_trans(room,2,c_black,0.025,0.05,0);
             if global.nextroom == rm_stage1
                 {
-                global.score_stored = 0;
-                global.lives_stored = 3;
-                global.bombs_stored = -1;
-				global.extend_number = 1;
-                global.chain = 0;
-                global.countdown = 0;
+				for (var i=0;i<2;i++)
+					{
+					global.score_stored[i] = 0;
+					global.lives_stored[i] = 3;
+					global.bombs_stored[i] = -1;
+					global.extend_number[i] = 1;
+					global.continues[i] = 0;
+					global.medalvalue[i] = 1;
+					}
                 
                 // TODO: Does obj_ctrl_game even get this command? does it care?
                 with obj_ctrl_game
                     {
                     respawntimer = -1;
                     deathtimer = 0;
+					chain = 0;
+					countdown = 0;
                     }
                 }
             break;

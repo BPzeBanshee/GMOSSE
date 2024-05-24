@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"scr_hud_p1",
+  "%Name":"scr_hud_player",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_hud_p1",
+  "name":"scr_hud_player",
   "parent":{
     "name":"Player",
     "path":"folders/Scripts/Player.yy",

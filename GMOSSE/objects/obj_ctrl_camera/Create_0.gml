@@ -17,7 +17,8 @@ obj_player_shot,obj_afterimage,
 obj_bullettarget,obj_en_air,
 obj_stock_bomb,obj_popup];
 #region ship-specific objects to scroll
-switch global.shipselect
+add_objs = function(shipnum) {
+switch shipnum
     {
     case 1:
         {
@@ -51,4 +52,10 @@ switch global.shipselect
         break;
         }
     }
+}
+if instance_number(obj_ctrl_game) > 1
+	{
+	for (var i=0;i<2;i++) add_objs(global.shipselect[i]);
+	}
+else add_objs(global.shipselect[global.myside]);
 #endregion

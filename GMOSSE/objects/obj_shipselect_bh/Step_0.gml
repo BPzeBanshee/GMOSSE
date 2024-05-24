@@ -29,8 +29,8 @@ if (global.button1 && !hook)
         case 1:
             {
             // Set option type, recall weapon type from previous runs
-            global.optiontype = selection;
-            selection = global.weapontype;
+            global.optiontype[0] = selection;
+            selection = global.weapontype[0];
 			chr1 = 0;
             menu = 2;
             event_user(0);
@@ -40,7 +40,7 @@ if (global.button1 && !hook)
             {
 			// Set weapon type, start game!
             chr1 = 666;
-            global.weapontype = selection;
+            global.weapontype[0] = selection;
             // go to playing room (using transition object)
             scr_trans(global.startstage,3,c_black,0.025,0.05,210);
             with obj_ctrl_music fade_out(3000);

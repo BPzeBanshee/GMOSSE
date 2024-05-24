@@ -76,15 +76,19 @@ if has_chosen && alpha <= 0
         {
         case 1:
             { // Continue because you're a shit player :3
-            lives = 3;
-            global.continues += 1;
-            if global.continues < 9 
-            then global.myscore = global.continues 
-            else global.myscore = 9;
-            global.countdown = 0;
-            global.chain = 0;
-            with obj_ctrl_game respawntimer = 1;
-            with obj_hitbox invincible = 180;
+			var side = global.myside;
+			global.continues[side] += 1;
+			with obj_hitbox invincible = 180;
+			with obj_ctrl_game
+				{
+				mylives = 3;
+				respawntimer = 1;
+				countdown = 0;
+				chain = 0;
+				if global.continues[side] < 9 
+				then myscore = global.continues[side]
+				else myscore = 9;
+				}
             break;
             }
         case 2:

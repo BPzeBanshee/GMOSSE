@@ -1,13 +1,16 @@
 ///@desc Bypassing ship selection screen
-global.shipselect = 1;
+global.shipselect[global.myside] = 1;
     
-// Also having to load all the shipselect aesthetics or pluck out vars isn't ideal either
-global.score_stored = 0;
-global.lives_stored = 3;
-global.bombs_stored = -1;
-global.extend_number = 1;
-global.continues = 0;
+for (var i=0;i<2;i++)
+	{
+	global.score_stored[i] = 0;
+	global.lives_stored[i] = 3;
+	global.bombs_stored[i] = -1;
+	global.extend_number[i] = 1;
+	global.continues[i] = 0;
+	global.medalvalue[i] = 1;
+	}
 
 // TODO: globalvars for specific ship stats aren't ideal
-global.optiontype = 6;
-global.weapontype = 1;
+global.optiontype[global.myside] = 6;
+global.weapontype[global.myside] = 1;

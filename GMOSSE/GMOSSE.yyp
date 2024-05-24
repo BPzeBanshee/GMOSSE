@@ -152,7 +152,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.2.0.132",
+    "IDEVersion":"2024.4.1.152",
   },
   "name":"GMOSSE",
   "resources":[
@@ -314,6 +314,7 @@
     {"id":{"name":"obj_lightning","path":"objects/obj_lightning/obj_lightning.yy",},},
     {"id":{"name":"obj_lightning2","path":"objects/obj_lightning2/obj_lightning2.yy",},},
     {"id":{"name":"obj_logo2","path":"objects/obj_logo2/obj_logo2.yy",},},
+    {"id":{"name":"obj_medal_tester","path":"objects/obj_medal_tester/obj_medal_tester.yy",},},
     {"id":{"name":"obj_medal","path":"objects/obj_medal/obj_medal.yy",},},
     {"id":{"name":"obj_midboss1","path":"objects/obj_midboss1/obj_midboss1.yy",},},
     {"id":{"name":"obj_omake1","path":"objects/obj_omake1/obj_omake1.yy",},},
@@ -372,7 +373,6 @@
     {"id":{"name":"obj_xono_shot","path":"objects/obj_xono_shot/obj_xono_shot.yy",},},
     {"id":{"name":"obj_xono_shothit","path":"objects/obj_xono_shothit/obj_xono_shothit.yy",},},
     {"id":{"name":"obj_xono","path":"objects/obj_xono/obj_xono.yy",},},
-    {"id":{"name":"obj_medal_tester","path":"objects/obj_medal_tester/obj_medal_tester.yy",},},
     {"id":{"name":"pth_st2a","path":"paths/pth_st2a/pth_st2a.yy",},},
     {"id":{"name":"pth_st2b","path":"paths/pth_st2b/pth_st2b.yy",},},
     {"id":{"name":"pth_st3_boss","path":"paths/pth_st3_boss/pth_st3_boss.yy",},},
@@ -428,7 +428,7 @@
     {"id":{"name":"scr_hiscore_reset","path":"scripts/scr_hiscore_reset/scr_hiscore_reset.yy",},},
     {"id":{"name":"scr_hiscore_save","path":"scripts/scr_hiscore_save/scr_hiscore_save.yy",},},
     {"id":{"name":"scr_hiscore_update","path":"scripts/scr_hiscore_update/scr_hiscore_update.yy",},},
-    {"id":{"name":"scr_hud_p1","path":"scripts/scr_hud_p1/scr_hud_p1.yy",},},
+    {"id":{"name":"scr_hud_player","path":"scripts/scr_hud_player/scr_hud_player.yy",},},
     {"id":{"name":"scr_input","path":"scripts/scr_input/scr_input.yy",},},
     {"id":{"name":"scr_isonscreen","path":"scripts/scr_isonscreen/scr_isonscreen.yy",},},
     {"id":{"name":"scr_layer_vars","path":"scripts/scr_layer_vars/scr_layer_vars.yy",},},

@@ -11,8 +11,8 @@ if instance_exists(myplayer)
 else
     {
     visible = false;
-    x = obj_ctrl_game.x;
-    y = obj_ctrl_game.y;
+    x = myctrl.x;
+    y = myctrl.y;
     }
 
 // handles invincibility time and sprite flashing effects while invincible
@@ -35,4 +35,4 @@ if invincible != 0
         }
     }
      
-if lives == 0 then invincible = -999;
+if myctrl.mylives == 0 then invincible = -999;

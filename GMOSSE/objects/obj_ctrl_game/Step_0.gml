@@ -1,4 +1,4 @@
-// obj_ctrl_life
+// Player life handling
 if respawntimer > 0
     {
     respawntimer -= 1;
@@ -10,14 +10,14 @@ if respawntimer > 0
     }
 if respawntimer == 0 
     {
-    if lives > 0 then event_user(0) else
+    if mylives > 0 then event_user(0) else
         {
         if !instance_exists(obj_ctrl_continue) 
 		then instance_create_layer(x,y,layer,obj_ctrl_continue);
         }
     respawntimer = -1;
     }
-if lives == 0 
+if mylives == 0 
     {
     with obj_hitbox
         {
@@ -27,17 +27,17 @@ if lives == 0
     respawntimer += 0.5;
     }
     
-// obj_ctrl_score
+// Player score handling
 // Chain timer handling
-if global.countdown > 0 then global.countdown -= 1;
-if global.countdown > 180 then global.countdown = 180;
-if global.countdown == 0 then global.chain = 0;
+if countdown > 0 then countdown -= 1;
+if countdown > 180 then countdown = 180;
+if countdown == 0 then chain = 0;
 
 // Extends    
-if global.myscore >= (3000000 * global.extend_number)
+if myscore >= (3000000 * global.extend_number)
     {
     scr_snd_play(snd_1up);
-    lives += 1;
+    mylives += 1;
     global.extend_number += 1;
     var a = instance_create_layer(x,y,global.lay_player,obj_popup);
     a.msg = "EXTEND";
@@ -45,10 +45,10 @@ if global.myscore >= (3000000 * global.extend_number)
    
 // Extend overflow (if you get more than 3 lives)
 // You can just comment this out if you're not fussed about capacity 
-if lives > 3
+if mylives > 3
     {
-    global.myscore += 500000;
-    lives = 3;
+    myscore += 500000;
+    mylives = 3;
     var a = instance_create_layer(x,y,global.lay_player,obj_popup);
     a.msg = "\n\nOVERFLOW BONUS\n+500000";
     }
