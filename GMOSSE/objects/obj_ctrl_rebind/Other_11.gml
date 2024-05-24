@@ -30,6 +30,3 @@ if timer > 30 && keyboard_key != vk_nokey
     keyboard_key = vk_nokey;
     timer = 0;
     }
-
-/* */
-/*  */

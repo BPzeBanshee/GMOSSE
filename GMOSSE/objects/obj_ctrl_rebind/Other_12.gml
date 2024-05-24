@@ -20,9 +20,8 @@ if mode == 2
     global.joy_id = -1;
     
     // Get number of pads, and their IDs, and stick them into an array
-    var pad,num_of_pads;
-    pad = 0;
-    num_of_pads = 0;
+    var pad = 0;
+    var num_of_pads = 0;
     while pad < gamepad_get_device_count()
         {
         if gamepad_is_connected(pad)

@@ -222,7 +222,7 @@ switch stage_time
         }
     case 6000:
         {
-        with obj_ctrl_music fade_out(0.005);
+        with obj_ctrl_music fade_out(3000);
         break;
         }
     case 6200:

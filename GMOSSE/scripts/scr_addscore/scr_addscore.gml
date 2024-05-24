@@ -20,11 +20,16 @@ for points in the first place.
 /// @param time
 /// @param multiplier
 function scr_addscore(points, time, multiplier) {
-	if multiplier != 0 // if a multiplier is given
+	if time > 0
+		{
+		if (global.countdown + time) > 180
+		then global.countdown = 180
+		else global.countdown += time;
+		}
+	if multiplier > 0 // if a multiplier is given
 	    {
 	    global.chain += multiplier;
 	    if points > 0 then global.myscore += points * global.chain;
-	    global.countdown += time;
 	    }
 	else // no multiplier given, just add score
 	    {

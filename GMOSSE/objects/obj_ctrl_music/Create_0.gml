@@ -135,27 +135,24 @@ if audio_is_paused(channel) then audio_resume_sound(channel);
 return 0;
 }
 
-fade_in = function(rate=0.005){
+fade_in = function(time_ms=3000){
 if !audio_exists(channel) or fading_in then return -1;
 fading_in = true;
+
 // start with it off
 audio_sound_gain(channel,0,0);
 
 // calculate final volume
 var vol = round(global.music_volume)/100;
-var final_rate = ((vol/rate)/60)*1000; 
-audio_sound_gain(channel,vol,final_rate);
+audio_sound_gain(channel,vol,time_ms);
 return 0;
 }
 
-fade_out = function(rate=0.005){
+fade_out = function(time_ms=3000){
 if !audio_exists(channel) or fading_out then return -1;
 fading_out = true;
 
-// calculate final volume
-var vol = round(global.music_volume)/100;
-var final_rate = ((vol/rate)/60)*1000; 
-audio_sound_gain(channel,0,final_rate);
+audio_sound_gain(channel,0,time_ms);
 return 0;
 }
 

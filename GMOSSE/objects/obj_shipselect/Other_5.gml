@@ -6,4 +6,5 @@ if room_exists(global.nextroom)
 	global.bombs_stored = -1;
 	global.extend_number = 1;
 	global.continues = 0;
+	global.medalvalue = 1;
 	}

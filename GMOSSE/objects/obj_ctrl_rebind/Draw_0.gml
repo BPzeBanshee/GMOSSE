@@ -10,15 +10,13 @@ draw_text(xview+120,yview+240,string(msg)); // draws the message
 
 if control > 1 // Non-keyboard display
     {
-    var pad_str;
+    var pad_str = string(global.joy_id);
     if control == 2 && mode == 3
         {
         pad_str = string(pad_list[select]);
         if select > min_s then draw_sprite_ext(spr_shipselect,-1,xview+50,yview+265,-1,1,0,c_white,1);
         if select < max_s then draw_sprite_ext(spr_shipselect,-1,xview+190,yview+265,1,1,0,c_white,1);
         } 
-    else pad_str = string(global.joy_id);
     draw_text(xview+120,yview+260,"ID: "+pad_str);
     draw_text(xview+120,yview+270,string(desc));
     }
-

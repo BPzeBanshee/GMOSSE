@@ -1,2 +1,2 @@
-with obj_ctrl_input enabled = 1;
+with obj_ctrl_input enabled = true;
 

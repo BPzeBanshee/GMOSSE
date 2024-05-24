@@ -75,6 +75,7 @@ function scr_main_init() {
 	
 	// ingame
 	global.myscore = 0;
+	global.medalvalue = 1;
 	global.score_stored = 0;
 	global.lives_stored = 3;
 	global.bombs_stored = -1;
