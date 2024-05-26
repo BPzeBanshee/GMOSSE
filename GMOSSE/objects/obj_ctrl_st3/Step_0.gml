@@ -7,9 +7,9 @@ if stage_time > 12000
 then completedelay += 1;
 if completedelay == 120
     {
-    with obj_rain instance_destroy();
-    with obj_cloud instance_destroy();
-    with obj_light_gen instance_destroy();
+    instance_destroy(obj_rain);
+    instance_destroy(obj_cloud);
+    instance_destroy(obj_light_gen);
     instance_create_layer(x,y,global.lay_en_air,obj_ctrl_clear);
     }
 
@@ -118,7 +118,7 @@ if stage_time == start+900
     {
 	with obj_st3_bluefade on = false;
 	
-    with obj_planet3 instance_destroy();
+    instance_destroy(obj_planet3);
     
     // set up cloud layers, init lightning bkg code
     instance_create_layer(0,0,global.lay_en_ground,obj_light_gen);

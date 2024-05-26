@@ -7,8 +7,8 @@ if stage_time > 7650
 then completedelay += 1;
 if completedelay == 120
     {
+	instance_destroy(obj_rock);
     instance_create_layer(x,y,global.lay_en_air,obj_ctrl_clear);
-    with obj_rock instance_destroy();
     }
 
 /**********************STAGE TIMELINE HANDLING*************************/
@@ -17,7 +17,7 @@ if completedelay == 120
 
 if pop_count >= 26 then global.omake_enabled = true;
 
-stage_time += 1;
+if !instance_exists(obj_ctrl_clear) then stage_time += 1;
 switch stage_time
     {
     case 20:

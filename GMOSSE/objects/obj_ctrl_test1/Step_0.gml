@@ -1,17 +1,17 @@
-/* STAGE COMPLETE HANDLING */
+// STAGE COMPLETE HANDLING
 if stage_time > 10000
-&& !instance_exists(obj_omake3) && !obj_ctrl_music.fading_out
+&& !instance_exists(obj_omake3) 
+&& !obj_ctrl_music.fading_out
 then completedelay += 1;
-
 if completedelay == 120
     {
-    with obj_rain instance_destroy();
-    with obj_cloud instance_destroy();
-    with obj_light_gen instance_destroy();
+    instance_destroy(obj_rain);
+    instance_destroy(obj_cloud);
+    instance_destroy(obj_light_gen);
     instance_create_layer(x,y,global.lay_en_air,obj_ctrl_clear);
     }
 
-/* STAGE TIMELINE */
+// STAGE TIMELINE
 stage_time += 1;
 switch stage_time
     {
@@ -38,20 +38,26 @@ switch stage_time
         }
     }
 
+
 if keyboard_check(ord("Q")) && !instance_exists(obj_static_test)
 then instance_create_layer(xview,yview,layer,obj_static_test);
-if keyboard_check(ord("W")) && !instance_exists(obj_beam_s)
-    {
-    var b;
-    b = instance_create_layer(160,40,global.lay_bullets,obj_beam_s);
-    b.direction = point_direction(b.x,b.y,obj_hitbox.x,obj_hitbox.y);
-    }
-if keyboard_check(ord("E")) && !instance_exists(obj_beam)
-    {
-    var b;
-    b = instance_create_layer(160,40,global.lay_bullets,obj_beam);
-    b.direction = point_direction(b.x,b.y,obj_hitbox.x,obj_hitbox.y);
-    }
+
+if instance_exists(obj_hitbox)
+	{
+	var h = instance_nearest(160,40,obj_hitbox);
+	if keyboard_check(ord("W")) && !instance_exists(obj_beam_s)
+	    {
+	    var b;
+	    b = instance_create_layer(160,40,global.lay_bullets,obj_beam_s);
+	    b.direction = point_direction(b.x,b.y,h.x,h.y);
+	    }
+	if keyboard_check(ord("E")) && !instance_exists(obj_beam)
+	    {
+	    var b;
+	    b = instance_create_layer(160,40,global.lay_bullets,obj_beam);
+	    b.direction = point_direction(b.x,b.y,h.x,h.y);
+	    }
+	}
 
 /*z += 0.1;
 var xx = obj_hitbox.x/320;

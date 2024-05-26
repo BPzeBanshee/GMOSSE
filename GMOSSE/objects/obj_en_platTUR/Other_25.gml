@@ -7,5 +7,5 @@ repeat 3
     e.speed = irandom(3);
     }
 scr_addscore(200,180,1);
-with parent tur_count -= 1;
+with parent_id tur_count -= 1;
 instance_destroy();

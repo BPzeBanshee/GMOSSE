@@ -25,8 +25,8 @@ if global.jright && (selection < max_ships) && !hook
 if global.button1 && !hook
     {
 	scr_snd_play(snd_click,true);
-	global.shipselect[global.myside] = selection;
-    if global.shipselect[global.myside] == 3
+	global.player_data[global.myside].shipselect = selection;
+    if selection == 3
         {
         instance_create_layer(x,y,layer,obj_shipselect_bh); 
         instance_destroy();

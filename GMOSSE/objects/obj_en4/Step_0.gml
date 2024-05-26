@@ -12,7 +12,6 @@ if thr_timer == 4
     }
     
 // Attack behaviour
-if timer == 0 then event_user(1); // user(1) doesn't want to work in Create for some reason
 timer += 1;
 if count < 4
     {
@@ -20,14 +19,10 @@ if count < 4
     if timer == 120
         {
         count += 1;
-        event_user(1);
+        set_aim();
         timer = 0;
         }
     }
-else
-    {
-    speed = 2.5;
-    event_user(2);
-    }
+else speed = 2.5;
 if y > yview+336 then instance_destroy();
 

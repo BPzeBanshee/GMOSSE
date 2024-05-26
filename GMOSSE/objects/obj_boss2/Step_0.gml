@@ -16,7 +16,7 @@ switch phase
             pod[1] = instance_create_layer(x-24,y+24,global.lay_en_air,obj_boss2_pod);
             pod[2] = instance_create_layer(x+24,y-24,global.lay_en_air,obj_boss2_pod);
             pod[3] = instance_create_layer(x-24,y-24,global.lay_en_air,obj_boss2_pod);
-			for (var i=0;i<4;i++) pod[i].parent = id;
+			for (var i=0;i<4;i++) pod[i].parent_id = id;
 			
             scr_create_healthbar();
             made = true;

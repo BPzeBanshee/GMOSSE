@@ -1,4 +1,4 @@
-/* AESTHETICS */
+// AESTHETICS
 if !has_chosen && alpha < 1
     {
     alpha += 0.05;
@@ -29,7 +29,7 @@ if limiter > 5
     limiter = 0;
     }
     
-/* BEHAVIOUR */
+// BEHAVIOUR
 // Scrolling up
 if global.jup && !hook
     {
@@ -61,7 +61,7 @@ if has_chosen && alpha <= 0
     visible = false; // don't capture continue screen if Game Overing
     
     // make the stars go away/go back to normal
-    with obj_star instance_destroy();
+    instance_destroy(obj_star);
     
     // Reboot the music
     with obj_ctrl_music 
@@ -77,7 +77,7 @@ if has_chosen && alpha <= 0
         case 1:
             { // Continue because you're a shit player :3
 			var side = global.myside;
-			global.continues[side] += 1;
+			global.player_data[side].continues += 1;
 			with obj_hitbox invincible = 180;
 			with obj_ctrl_game
 				{
@@ -85,8 +85,8 @@ if has_chosen && alpha <= 0
 				respawntimer = 1;
 				countdown = 0;
 				chain = 0;
-				if global.continues[side] < 9 
-				then myscore = global.continues[side]
+				if global.player_data[side].continues < 9 
+				then myscore = global.player_data[side].continues
 				else myscore = 9;
 				}
             break;

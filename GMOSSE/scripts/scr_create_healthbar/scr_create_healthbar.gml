@@ -14,8 +14,7 @@ function scr_create_healthbar() {
 	scr_create_healthbar()
 	*/
 
-	if instance_exists(obj_ctrl_healthbar)
-	then with obj_ctrl_healthbar instance_destroy();
+	if instance_exists(obj_ctrl_healthbar) then instance_destroy(obj_ctrl_healthbar);
    
 	var bar = instance_create_layer(xview,yview,global.lay_ctrl,obj_ctrl_healthbar);
 	bar.boss = (self).id;

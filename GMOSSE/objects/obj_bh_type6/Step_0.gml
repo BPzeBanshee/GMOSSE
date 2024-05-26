@@ -12,19 +12,12 @@ if position == 1
 	if (xpos != 0 or ypos != 0) && !global.button2 then moving = 1;
 
 	// Program handling
-	target = parent;
-	if global.button2 && !hook
-	    {
-	    program = !program;
-	    hook = true;
-	    }
-	if !global.button2 then hook = false;
-
+	target = parent_id;
 	if program == 1 then moving = 2;
 	}
 else
 	{
-	target = parent.option1;
+	target = parent_id.option[position-1];
 	moving = target.moving;
 	program = target.program;
 	length = 7;

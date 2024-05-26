@@ -39,6 +39,7 @@ the sole exception to the branch.
 z = 128;
 flash_hit = 0;
 flash_low = 0;
+hit_by_player = noone;
 enemyHP_last = enemyHP;
 enemyHP_max = enemyHP;
 can_collide = true;

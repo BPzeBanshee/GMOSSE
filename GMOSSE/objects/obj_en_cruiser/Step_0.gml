@@ -38,7 +38,7 @@ if !made
         
     // create hitbox (top part of the carrier that can be killed by player)
     box = instance_create_layer(x,y-(sprite_height/2),layer,obj_cruiser_hitbox);
-    box.parent = id;
+    box.parent_id = id;
     made = true;
     }    
 

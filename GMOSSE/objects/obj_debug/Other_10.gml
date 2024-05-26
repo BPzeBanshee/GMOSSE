@@ -1,4 +1,5 @@
 ///@desc Bypassing ship selection screen
+global.medalvalue = 1;
 global.shipselect[global.myside] = 1;
     
 for (var i=0;i<2;i++)
@@ -8,7 +9,6 @@ for (var i=0;i<2;i++)
 	global.bombs_stored[i] = -1;
 	global.extend_number[i] = 1;
 	global.continues[i] = 0;
-	global.medalvalue[i] = 1;
 	}
 
 // TODO: globalvars for specific ship stats aren't ideal

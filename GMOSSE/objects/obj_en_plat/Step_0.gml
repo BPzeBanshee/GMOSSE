@@ -12,7 +12,7 @@ if y > yview-(sprite_height/2) && !made
     tur[1] = instance_create_depth(x+18,y-18,depth-1,obj_en_platTUR); // Top-right
     tur[2] = instance_create_depth(x-18,y+18,depth-1,obj_en_platTUR); // Bottom-left
     tur[3] = instance_create_depth(x+18,y+18,depth-1,obj_en_platTUR); // Bottom-right
-	for (var i=0;i<4;i++) tur[i].parent = id;
+	for (var i=0;i<4;i++) tur[i].parent_id = id;
     tur_count = 4;
     made = true;
     }

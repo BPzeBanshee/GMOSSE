@@ -4,7 +4,7 @@
 /// @param {Real} origin_y y		coordinate of the bullet's origin
 /// @param {Real} radius			distance from object at which bullet will be created
 /// @param {Asset.GMObject}	object	bullet object to be created
-/// @param {Asset.GMObject}	target	target object the bullet is supposed to aim at
+/// @param {Asset.GMObject | Id.Instance}	target	target object the bullet is supposed to aim at
 /// @param {Real} b_speed			bullet speed
 /// @param {Bool} imageaim			whether to set image_angle to direction or not
 function scr_circleattack(density,origin_x,origin_y,radius,object,target,b_speed,imageaim) {

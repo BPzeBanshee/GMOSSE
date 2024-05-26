@@ -1,15 +1,15 @@
-/* STAGE CLEAR HANDLING */
+// STAGE CLEAR HANDLING
 if stage_time > 1000 
 && !instance_exists(obj_omake1) 
 && !obj_ctrl_music.fading_out
 then completedelay += 1;
 if completedelay == 120
     {
+	instance_destroy(obj_rock);
     instance_create_layer(x,y,global.lay_en_air,obj_ctrl_clear);
-    with obj_rock instance_destroy();
     }
 
-/* STAGE TIMELINE */
+// STAGE TIMELINE
 stage_time += 1;
 switch stage_time
     {
@@ -21,15 +21,14 @@ switch stage_time
 		instance_create_layer(0,0,global.lay_en_ground,obj_bkg_redfade);
         break;
         }
-    case 210://case 400:
+    case 210:
         {
-        //with obj_rock dead = 1;
         instance_create_layer(160,88,global.lay_en_air,obj_omake1);
         break;
         }
     }
    
-/* AESTHETICS */
+// AESTHETICS
 if stage_time > 210 && !instance_exists(obj_omake1)
     {
 	var l = global.lay_bkg;

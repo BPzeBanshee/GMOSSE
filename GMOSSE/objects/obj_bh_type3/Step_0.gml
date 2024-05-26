@@ -1,11 +1,11 @@
-if instance_exists(parent)
+if instance_exists(parent_id)
     {
     switch position
         {
         case 1:
             {
-            x = parent.x - 25;
-            y = parent.y;
+            x = parent_id.x - 25;
+            y = parent_id.y;
             
 			var angle = 90;
             if instance_exists(obj_en_parent)
@@ -16,7 +16,7 @@ if instance_exists(parent)
                     if !instance_exists(mytarget)
                         {
                         mytarget = instance_create_layer(x,y,layer,obj_bh_lockon);
-                        mytarget.parent = id;
+                        mytarget.parent_id = id;
                         }
 					target = mytarget;
                     }
@@ -26,23 +26,15 @@ if instance_exists(parent)
             
             if program == 0 && mytarget != noone
                 {
-                with mytarget instance_destroy();
+                instance_destroy(mytarget);
 				mytarget = noone;
                 }
-            
-            // behaviour change (aim with/separate from first orb)
-            if global.button2 && !hook
-                {
-                program = !program; // bitwise invert
-                hook = true;
-                }
-            if !global.button2 then hook = false;
             break;
             }
         case 2:
             {
-            x = parent.x + 25;
-            y = parent.y;
+            x = parent_id.x + 25;
+            y = parent_id.y;
             
 			var angle = 90;
             if instance_exists(obj_en_parent)

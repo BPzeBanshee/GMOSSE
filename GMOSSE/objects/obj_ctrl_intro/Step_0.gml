@@ -4,8 +4,8 @@ if mode == 1
         {
         if c < 1 then c += 0.035 else
             {
-            with left_piece instance_destroy(); 
-            with right_piece instance_destroy();
+            instance_destroy(left_piece); 
+            instance_destroy(right_piece);
             instance_create_layer(119,75,layer,obj_title);
             with obj_warp_gen visible = true;
             with obj_warp visible = true;

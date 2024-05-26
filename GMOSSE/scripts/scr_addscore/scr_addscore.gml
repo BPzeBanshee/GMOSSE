@@ -20,7 +20,7 @@ for points in the first place.
 /// @param time
 /// @param multiplier
 function scr_addscore(points, time, multiplier) {
-	var o = obj_ctrl_game;
+	var o = myctrl;
 	if time > 0
 		{
 		if (o.countdown + time) > 180

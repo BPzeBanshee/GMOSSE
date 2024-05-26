@@ -18,4 +18,7 @@ shipspeed = 5;
 slowshipspeed = 3;
 
 // AESTHETIC VARS
+has_afterimage = true;
+afterimage_spr = spr_xono_aft;
+outline_spr = spr_xono_out;
 if sprite_index = spr_xono_v3 then image_speed = 0.33;

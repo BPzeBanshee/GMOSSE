@@ -1,14 +1,15 @@
+// STAGE CLEAR HANDLING
 if stage_time > 1000 
 && !instance_exists(obj_omake3) 
 && !obj_ctrl_music.fading_out
 then completedelay += 1;
 if completedelay == 120
 	{
+	instance_destroy(obj_light_gen);
 	instance_create_layer(x,y,global.lay_en_air,obj_ctrl_clear);
-	with obj_light_gen instance_destroy();
 	}
 
-/* STAGE TIMELINE */
+// STAGE TIMELINE
 stage_time += 1;
 switch stage_time
     {

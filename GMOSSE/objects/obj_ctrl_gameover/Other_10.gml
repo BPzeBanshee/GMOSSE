@@ -1,11 +1,14 @@
-ready = 0;
+ready = false;
 
 if newscore && !hassaved
     {
-    name = letter1+letter2+letter3;
-    scr_hiscore_update(name,global.level,global.shipselect,global.myscore);
+    name = letter1 + letter2 + letter3;
+    scr_hiscore_update(name,
+						global.level,
+						global.player_data[global.myside].shipselect,
+						global.player_data[global.myside].myscore);
     scr_hiscore_save("score.gmes");
-    hassaved = 1;
+    hassaved = true;
     } 
 
 //go to highscore   

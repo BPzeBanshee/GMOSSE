@@ -1,10 +1,8 @@
-if instance_exists(parent) 
+if instance_exists(parent_id) 
     {
-    image_angle = (parent).image_angle;
-    direction = (parent).image_angle;
+    image_angle = (parent_id).image_angle;
+    direction = (parent_id).image_angle;
     
-	// TODO: why was this comment here?
-    //if (parent.parent).weapon != 5
     if (!global.button1)
         {
         image_speed = 0;

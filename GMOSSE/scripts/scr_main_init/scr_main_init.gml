@@ -67,23 +67,9 @@ function scr_main_init() {
 	global.nextroom = -1;  
 	global.startstage = rm_stage1; // hidden menu function
 	global.intro = true;
-	global.myside = 0;
 	global.medalvalue = 1;
 	
-	for (var i=0;i<2;i++)
-		{
-		// shipselect
-		global.shipselect[i] = 1; // ship ID
-		global.optiontype[i] = 1; // Busterhawk-specifc vars
-		global.weapontype[i] = 1; 
-	
-		// ingame
-		global.score_stored[i] = 0; 
-		global.lives_stored[i] = 3; 
-		global.bombs_stored[i] = -1; 
-		global.extend_number[i] = 1; 
-		global.continues[i] = 0;
-		}
-
-	/* END SCR_MAIN_INIT() - SEE OBJ_INIT FOR ROOM TRANSITION */
+	global.myside = 0;
+	scr_playerdata_reset();
+	// END SCR_MAIN_INIT() - SEE OBJ_INIT FOR ROOM TRANSITION
 }

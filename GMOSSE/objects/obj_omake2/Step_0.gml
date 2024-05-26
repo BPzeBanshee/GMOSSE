@@ -28,7 +28,7 @@ switch mode
     case 1:
         {
         timer += 1;
-        if instance_exists(obj_player) then scr_addscore(1000,0,0); // no logging
+        increment_score();
         
         // Move around very fast
         if x >= 320-64 || x <= 64 then hspeed = -hspeed;

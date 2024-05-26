@@ -45,6 +45,7 @@ if (global.button1 && !global.levelend && !hook && enabled)
             scr_trans(room,2,c_black,0.025,0.05,0);
             if global.nextroom == rm_stage1
                 {
+				global.medalvalue = 1;
 				for (var i=0;i<2;i++)
 					{
 					global.score_stored[i] = 0;
@@ -52,7 +53,6 @@ if (global.button1 && !global.levelend && !hook && enabled)
 					global.bombs_stored[i] = -1;
 					global.extend_number[i] = 1;
 					global.continues[i] = 0;
-					global.medalvalue[i] = 1;
 					}
                 
                 // TODO: Does obj_ctrl_game even get this command? does it care?

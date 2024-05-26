@@ -13,7 +13,11 @@ if global.jright then dirx += 1;
 var spd = shipspeed;
 if global.button3
     {
-    instance_create_layer(x,y,layer,obj_afterimage);
+    if has_afterimage
+		{
+		var aft = instance_create_layer(x,y,layer,obj_afterimage);
+		aft.sprite_index = afterimage_spr;
+		}
     spd = slowshipspeed;
     }
 

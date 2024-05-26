@@ -1,2 +1,2 @@
-scr_basicshot(x,y,layer,obj_bh_shothit,speed/2,direction);
+create_hitspark();
 instance_destroy();

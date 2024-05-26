@@ -1,5 +1,5 @@
 enemyHP = 42;
-parent = noone;
+parent_id = noone;
 event_inherited();
 
 direction = 270;

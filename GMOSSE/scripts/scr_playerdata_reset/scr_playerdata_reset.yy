@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_playerdata_reset",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_playerdata_reset",
+  "parent":{
+    "name":"Player",
+    "path":"folders/Scripts/Player.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

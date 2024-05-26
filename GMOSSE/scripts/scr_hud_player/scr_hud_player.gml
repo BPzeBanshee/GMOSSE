@@ -26,8 +26,8 @@ function scr_hud_player(xx=xview,yy=yview, side=0) {
 	if countdown < 90 then a -= 0.005 else a = 0.5;
 	draw_set_alpha(a); 
     
-	if countdown > 0 && instance_exists(myhitbox) && exists then 
-	scr_draw_gauge(myhitbox.x,myhitbox.y,20,4,360+90,90,-1,(countdown/180)*100,c_blue,16777088);
+	if countdown > 0 && exists then 
+	scr_draw_gauge(myplayer.x,myplayer.y,20,4,360+90,90,-1,(countdown/180)*100,c_blue,16777088);
     
 	// LIVES DISPLAY //
 	var a2 = 1;
@@ -53,13 +53,13 @@ function scr_hud_player(xx=xview,yy=yview, side=0) {
 			then a3 = 0.25;
 			}
 	    
-		if global.shipselect[side] == 3
+		if global.player_data[side].shipselect == 3
 		    {
 		    // Speed Level and Weapon Display
-		    var op,md;
 		    var spd = myplayer.speed_gear;
-		    if (myplayer.option1).program == 1 then md = "*" else md = "";
-		    switch global.optiontype[side]
+		    var md = myplayer.program == 1 ? "*" : "";
+			var op;
+		    switch global.player_data[side].optiontype
 		        {
 		        default: op = "NORMAL"; break;
 		        case 2: op = "REVERSE"; break;

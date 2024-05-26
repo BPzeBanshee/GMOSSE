@@ -55,7 +55,7 @@ switch shipnum
 }
 if instance_number(obj_ctrl_game) > 1
 	{
-	for (var i=0;i<2;i++) add_objs(global.shipselect[i]);
+	for (var i=0;i<2;i++) add_objs(global.player_data[i].shipselect);
 	}
-else add_objs(global.shipselect[global.myside]);
+else add_objs(global.player_data[global.myside].shipselect);
 #endregion

@@ -10,16 +10,16 @@ lt3num = 65;
 
 // Initialise menu-related vars
 pos = 1;
-ready = 0;
+ready = false;
 scroll = 0;
 flash = 0;
 name = "";
-hassaved = 0;
+hassaved = false;
 
-newscore = 0;
-if global.myscore >= global.hiscore[9,3] 
-&& (!instance_exists(obj_ctrl_input2) || (instance_exists(obj_ctrl_input2) && obj_ctrl_input2.replaying=0)) 
-then newscore = 1;
+newscore = false;
+var replay_mode = instance_exists(obj_ctrl_input2) ? (obj_ctrl_input2.replaying ? true : false) : false;
+if global.player_data[global.myside].myscore >= global.hiscore[9,3] && (!replay_mode) 
+then newscore = true;
 
 str = "Game Complete!";
 if !instance_exists(obj_ctrl_clear)

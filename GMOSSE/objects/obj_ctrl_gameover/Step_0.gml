@@ -1,9 +1,9 @@
 timer += 1;
 scroll += 1;
-if ready = 0 && !global.button1 
+if !ready && !global.button1 
 && pos <= 3 && !global.levelend 
 && !global.button2
-then ready = 1;
+then ready = true;
 
 // Highscore submission
 if newscore
@@ -18,7 +18,7 @@ if newscore
         pos += 1;
         if pos == 2 {lt2num = lt1num; letter2 = string(chr(lt2num));}
         if pos == 3 {lt3num = lt2num; letter3 = string(chr(lt3num));}
-        ready = 0;
+        ready = false;
         if pos > 3 then event_user(0); // submit and exit when all letters are pressed
         }
 
@@ -78,5 +78,3 @@ else
     {
     if (timer >= 50 && global.button1 && ready) then event_user(0);
     }
-
-

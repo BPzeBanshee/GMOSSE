@@ -1,3 +1,3 @@
 damage = 0.5;
-parent = noone;
+parent_id = noone;
 image_alpha = 0.5;

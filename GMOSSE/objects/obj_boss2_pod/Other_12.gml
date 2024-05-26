@@ -1,4 +1,3 @@
-//aim = point_direction(x,y,obj_hitbox.x,obj_hitbox.y);
 var aim = direction;
 if alt == 0
     {

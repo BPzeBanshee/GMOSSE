@@ -1,6 +1,6 @@
 image_angle = direction;
 
-if (parent).atk_phase == 1
+if (parent_id).atk_phase == 1
 	{
 	var aim,target;
 	target = instance_nearest(x,y,obj_hitbox);

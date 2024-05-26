@@ -57,7 +57,7 @@ switch phase
             }
         break;
         }
-    case 1: // ##ATTACK PHASE 1##
+    case 1: // ## ATTACK PHASE 1 ##
         { 
         if instance_exists(orb1)
             {
@@ -71,12 +71,13 @@ switch phase
         else phase = 4; // if orb is destroyed fast, skip to fourth phase
         break;
         }
-    case 2: // ##ATTACK PHASE 2##
+    case 2: // ## ATTACK PHASE 2 ##
         { 
         atk_timer += 1;
         if atk_timer == 60
             {
-            scr_circleattack(36,x,y,0,obj_bullet2,obj_hitbox,6,false);
+			var target = instance_nearest(x,y,obj_hitbox);
+            scr_circleattack(36,x,y,0,obj_bullet2,target,6,false);
             scr_snd_play(snd_en_shot2,true);
             atk_timer = 30;
             count += 1;
@@ -97,7 +98,7 @@ switch phase
         phase = 4;
         break;
         }
-    case 4: // ##ATTACK PHASE 3##
+    case 4: // ## ATTACK PHASE 3 ##
         {
         if instance_exists(orb1) && instance_exists(orb2)
             {
@@ -118,18 +119,19 @@ switch phase
             }
         break;
         }
-    case 5: // ##ATTACK PHASE 4##
+    case 5: // ## ATTACK PHASE 4 ##
         {
         if !instance_exists(orb1) && !instance_exists(orb2) then phase = 6;
         break;
         }
-    case 6: // ##FINAL ATTACK PHASE##
+    case 6: // ## FINAL ATTACK PHASE ##
         { 
         global.omake_enabled = true;
         atk2_timer -= 1;
         if atk2_timer == 0
             {
-            scr_circleattack(90,x,y,0,obj_bullet_shoot,obj_hitbox,10,false);
+			var target = instance_nearest(x,y,obj_hitbox);
+            scr_circleattack(90,x,y,0,obj_bullet_shoot,target,10,false);
             with obj_bullet_shoot
                 {
                 btype = 2;
@@ -158,6 +160,3 @@ switch phase
         break;
         }
     }
-
-/* */
-/*  */

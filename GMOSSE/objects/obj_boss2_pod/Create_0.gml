@@ -9,4 +9,4 @@ flash_timer = 0;
 mode = 0;
 alt = 0;
 spd = 3;
-parent = noone;
+parent_id = noone;

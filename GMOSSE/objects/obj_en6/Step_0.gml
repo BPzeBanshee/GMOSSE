@@ -2,10 +2,10 @@ if y > yview-(sprite_height/2) && !made
     {
     pod1 = instance_create_layer(x,y,layer,obj_en6b);
     pod1.direction = 180;
-    pod1.parent = id;
+    pod1.parent_id = id;
     pod2 = instance_create_layer(x,y,layer,obj_en6b);
     pod2.direction = 0;
-    pod2.parent = id;
+    pod2.parent_id = id;
     made = true;
     }
 

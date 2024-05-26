@@ -1,9 +1,6 @@
 speed = 0;
 image_speed = 0.25;
 
-if instance_exists(obj_orb2) then with obj_orb2 instance_destroy();
-if instance_exists(obj_orb) then with obj_orb instance_destroy();
-
 // Contra Yagawa Corps Eksploshunz by Michael Bay!
 scr_create_exp(obj_explosion,360,18);
 scr_snd_play(snd_exp2);

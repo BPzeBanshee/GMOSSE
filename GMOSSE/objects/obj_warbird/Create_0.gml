@@ -15,3 +15,8 @@ shot2_timer = 0;
 bomb_timer = 0;
 limit = 2;
 time_passed = 0;
+
+// Aesthetic vars
+has_afterimage = true;
+afterimage_spr = spr_warbird_aft;
+outline_spr = spr_warbird_out;
