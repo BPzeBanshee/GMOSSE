@@ -242,6 +242,7 @@
     {"id":{"name":"obj_ctrl_o2","path":"objects/obj_ctrl_o2/obj_ctrl_o2.yy",},},
     {"id":{"name":"obj_ctrl_o3","path":"objects/obj_ctrl_o3/obj_ctrl_o3.yy",},},
     {"id":{"name":"obj_ctrl_pause","path":"objects/obj_ctrl_pause/obj_ctrl_pause.yy",},},
+    {"id":{"name":"obj_ctrl_player","path":"objects/obj_ctrl_player/obj_ctrl_player.yy",},},
     {"id":{"name":"obj_ctrl_rebind","path":"objects/obj_ctrl_rebind/obj_ctrl_rebind.yy",},},
     {"id":{"name":"obj_ctrl_render_mob","path":"objects/obj_ctrl_render_mob/obj_ctrl_render_mob.yy",},},
     {"id":{"name":"obj_ctrl_render","path":"objects/obj_ctrl_render/obj_ctrl_render.yy",},},

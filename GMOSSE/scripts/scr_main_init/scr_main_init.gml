@@ -24,8 +24,8 @@ function scr_main_init() {
 	global.button2 = false;
 	global.button3 = false;
 	global.button4 = false;
-	global.joy_id = 0;
-	global.joy_pref = 0;
+	global.joy_id = -1;
+	global.joy_pref = -1;
 
 	// CONFIG
 	scr_config_load("config.ini");

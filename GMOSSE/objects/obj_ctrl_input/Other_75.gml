@@ -18,8 +18,7 @@ switch(async_load[? "event_type"])
     case "gamepad discovered": 
         {
         // Get the pad index value from the async_load map
-        var pad;
-        pad = async_load[? "pad_index"];
+        var pad = async_load[? "pad_index"];
         trace("Pad ID: " + string(pad));
         
         // If multiple pads are connected, pick the preferred one defined via config

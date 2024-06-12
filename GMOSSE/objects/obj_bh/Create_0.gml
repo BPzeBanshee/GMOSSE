@@ -30,6 +30,7 @@ num_options = 2;
 blend = c_white;
 optiontype = 1;
 weapontype = 1;
+pod_type = 1;
 program = 0;
 can_program = true;
 alarm[0] = 1;

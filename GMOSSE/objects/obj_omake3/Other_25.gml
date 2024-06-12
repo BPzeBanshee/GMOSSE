@@ -1,3 +1,6 @@
-if !obj_ctrl_music.fading_out
-then with obj_ctrl_music fade_out(3000);
+///@desc Fade out music upon death
+with obj_ctrl_music 
+	{
+	if !fading_out then fade_out(3000);
+	}
 instance_destroy();

@@ -44,3 +44,4 @@ enemyHP_last = enemyHP;
 enemyHP_max = enemyHP;
 can_collide = true;
 can_damage = true;
+myctrl = instance_find(obj_ctrl_game,0);

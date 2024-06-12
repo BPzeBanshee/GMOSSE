@@ -1,4 +1,4 @@
-function scr_input() {
+function scr_input(joy_id = global.joy_id) {
 	/********Joysick/Gamepad/Keyboard Input Controller**********
 	Created by Nimitz
 	Fixed, improved and maintained by BPzeBanshee
@@ -22,30 +22,30 @@ function scr_input() {
 	global.button4 = false;
 
 	// joystick movement handling
-	if global.joy_id >= 0
+	if joy_id >= 0
 	    {
-	    if (gamepad_axis_count(global.joy_id) >= 2 && global.joytype != 1)
+	    if (gamepad_axis_count(joy_id) >= 2 && global.joytype != 1)
 	        {
-	        if (gamepad_axis_value(global.joy_id,gp_axislv) < -global.deadzone) global.jup = true;
-	        if (gamepad_axis_value(global.joy_id,gp_axislv) > global.deadzone) global.jdown = true;
-	        if (gamepad_axis_value(global.joy_id,gp_axislh) < -global.deadzone) global.jleft = true;
-	        if (gamepad_axis_value(global.joy_id,gp_axislh) > global.deadzone) global.jright = true;
+	        if (gamepad_axis_value(joy_id,gp_axislv) < -global.deadzone) global.jup = true;
+	        if (gamepad_axis_value(joy_id,gp_axislv) > global.deadzone) global.jdown = true;
+	        if (gamepad_axis_value(joy_id,gp_axislh) < -global.deadzone) global.jleft = true;
+	        if (gamepad_axis_value(joy_id,gp_axislh) > global.deadzone) global.jright = true;
 	        }
         
 	    // Joystick "direction" buttons
 	    if global.joytype > 0
 	        { 
-	        if (gamepad_button_check(global.joy_id,gp_padu)) global.jup = true;
-	        if (gamepad_button_check(global.joy_id,gp_padd)) global.jdown = true;
-	        if (gamepad_button_check(global.joy_id,gp_padl)) global.jleft = true;
-	        if (gamepad_button_check(global.joy_id,gp_padr)) global.jright = true;
+	        if (gamepad_button_check(joy_id,gp_padu)) global.jup = true;
+	        if (gamepad_button_check(joy_id,gp_padd)) global.jdown = true;
+	        if (gamepad_button_check(joy_id,gp_padl)) global.jleft = true;
+	        if (gamepad_button_check(joy_id,gp_padr)) global.jright = true;
 	        }
     
 	    // joystick buttons
-	    if (gamepad_button_check(global.joy_id,global.joy1)) global.button1 = true;
-	    if (gamepad_button_check(global.joy_id,global.joy2)) global.button2 = true;
-	    if (gamepad_button_check(global.joy_id,global.joy3)) global.button3 = true;
-	    if (gamepad_button_check(global.joy_id,global.joy4)) global.button4 = true;
+	    if (gamepad_button_check(joy_id,global.joy1)) global.button1 = true;
+	    if (gamepad_button_check(joy_id,global.joy2)) global.button2 = true;
+	    if (gamepad_button_check(joy_id,global.joy3)) global.button3 = true;
+	    if (gamepad_button_check(joy_id,global.joy4)) global.button4 = true;
 	    }
 
 	/* 

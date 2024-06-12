@@ -7,7 +7,7 @@ if mode == 1
             instance_destroy(left_piece); 
             instance_destroy(right_piece);
             instance_create_layer(119,75,layer,obj_title);
-            with obj_warp_gen visible = true;
+            warpgen.visible = true;
             with obj_warp visible = true;
             with obj_star visible = true;
             mode = 2;
@@ -17,7 +17,7 @@ if mode == 1
 else
     {
     if c > 0 then c -= 0.035 else timer += 1;
-    if timer == 600
+    /*if timer == 600
         {
         instance_create_layer(0,0,layer,obj_ctrl_attract); // start attract mode, leave room
         }
@@ -26,6 +26,6 @@ else
         instance_create_layer(0,0,layer,obj_ctrl_menu);
         global.intro = false;
         instance_destroy();
-        }
+        }*/
     }
 

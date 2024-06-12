@@ -9,4 +9,3 @@ if timer > 30 then direction += 5;
 
 // Attack patterns are handled by obj_boss now
 event_user(phase);
-

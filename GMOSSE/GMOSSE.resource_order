@@ -172,6 +172,7 @@
     {"name":"obj_ctrl_o2","order":1,"path":"objects/obj_ctrl_o2/obj_ctrl_o2.yy",},
     {"name":"obj_ctrl_o3","order":2,"path":"objects/obj_ctrl_o3/obj_ctrl_o3.yy",},
     {"name":"obj_ctrl_pause","order":8,"path":"objects/obj_ctrl_pause/obj_ctrl_pause.yy",},
+    {"name":"obj_ctrl_player","order":5,"path":"objects/obj_ctrl_player/obj_ctrl_player.yy",},
     {"name":"obj_ctrl_rebind","order":10,"path":"objects/obj_ctrl_rebind/obj_ctrl_rebind.yy",},
     {"name":"obj_ctrl_render_mob","order":12,"path":"objects/obj_ctrl_render_mob/obj_ctrl_render_mob.yy",},
     {"name":"obj_ctrl_render","order":11,"path":"objects/obj_ctrl_render/obj_ctrl_render.yy",},
