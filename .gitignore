@@ -4,6 +4,7 @@
 !/GMOSSE
 !/.gitignore
 !/.gitattributes
+!/.github
 !/*.md
 !/LICENSE.txt
 /Archive
