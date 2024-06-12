@@ -1,8 +1,14 @@
+// Get inputs
+var up = global.jup[0];
+var down = global.jdown[0];
+var b1 = global.button1[0];
+var b2 = global.button2[0];
+
 timer += 1;
 scroll += 1;
-if !ready && !global.button1 
+if !ready && !b1 
 && pos <= 3 && !global.levelend 
-&& !global.button2
+&& !b2
 then ready = true;
 
 // Highscore submission
@@ -13,7 +19,7 @@ if newscore
     if flash > 14 then flash = 0;
     
     // Button press
-    if (timer >= 50 && global.button1 && ready)
+    if (timer >= 50 && b1 && ready)
         { 
         pos += 1;
         if pos == 2 {lt2num = lt1num; letter2 = string(chr(lt2num));}
@@ -23,10 +29,10 @@ if newscore
         }
 
     // input checking
-    if (timer >= 20 && global.button2 && pos > 1 && ready) then pos -= 1;
+    if (timer >= 20 && b2 && pos > 1 && ready) then pos -= 1;
 
     //up
-    if (global.jup && scroll >= 8)
+    if (up && scroll >= 8)
         {
         scroll = 0;
         // limit was 65-90
@@ -51,7 +57,7 @@ if newscore
         }
 
     //down
-    if (global.jdown && scroll >= 8)
+    if (down && scroll >= 8)
         {
         scroll = 0;
         if (pos == 1) 
@@ -76,5 +82,5 @@ if newscore
     }
 else 
     {
-    if (timer >= 50 && global.button1 && ready) then event_user(0);
+    if (timer >= 50 && b1 && ready) then event_user(0);
     }

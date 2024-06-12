@@ -1,15 +1,16 @@
 var target = noone;
+var side = (parent_id.myctrl).side;
 if position == 1
 	{
 	// Determining joystick input
 	moving = 0;
 	var xpos = 0;
 	var ypos = 0;
-	if global.jup then ypos -= 1;
-	if global.jdown then ypos += 1;
-	if global.jleft then xpos -= 1;
-	if global.jright then xpos += 1;
-	if (xpos != 0 or ypos != 0) && !global.button2 then moving = 1;
+	if global.jup[side] then ypos -= 1;
+	if global.jdown[side] then ypos += 1;
+	if global.jleft[side] then xpos -= 1;
+	if global.jright[side] then xpos += 1;
+	if (xpos != 0 or ypos != 0) && !global.button2[side] then moving = 1;
 
 	// Program handling
 	target = parent_id;

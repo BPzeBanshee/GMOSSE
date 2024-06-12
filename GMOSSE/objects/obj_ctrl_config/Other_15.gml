@@ -7,7 +7,7 @@ max_h = 30;
 if timer > 0 then timer -= 1;
 
 // LEFT
-if global.jleft && !hook
+if global.jleft[0] && !hook
     {
     hook = true;
     switch selection
@@ -21,7 +21,7 @@ if global.jleft && !hook
     }
     
 // RIGHT
-if global.jright && !hook
+if global.jright[0] && !hook
     {
     hook = true;
     switch selection
@@ -35,7 +35,7 @@ if global.jright && !hook
     }
     
 // BUTTON 1
-if global.button1 && !hook 
+if global.button1[0] && !hook 
     {
     hook = true;
     scr_snd_play(snd_click,true);

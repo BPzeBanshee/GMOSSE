@@ -12,7 +12,10 @@
     "name":"Weapons",
     "path":"folders/Objects/Player/Busterhawk/Weapons.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_misc_scrollable",
+    "path":"objects/obj_misc_scrollable/obj_misc_scrollable.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

@@ -7,7 +7,7 @@ chr1 = 0;
 text = "";
 msg = "";
 mode = 1;
-hook = 1;
+hook = true;
 subimg = 0;
 
 jup_p = 0;

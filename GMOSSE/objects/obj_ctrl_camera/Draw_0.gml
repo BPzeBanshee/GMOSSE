@@ -9,6 +9,3 @@ draw_set_color(c_white);
 draw_text(xview+240,yview,"formula = "+string(formula));
 draw_text(xview+240,yview+10,"x = "+string(x));
 draw_text(xview+240,yview+20,"xview = "+string(view_xview[0]+xo));*/
-
-/* */
-/*  */

@@ -17,7 +17,6 @@ if respawntimer == 0
 		global.player_data[side].myscore = myscore;
 		if instance_number(object_index) == 2
 			{
-			if side == global.myside then global.myside = !global.myside;
 			instance_destroy();
 			}
 		else

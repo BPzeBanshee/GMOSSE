@@ -14,7 +14,8 @@ function scr_playerdata_reset(){
 		mylives: 3,
 		mybombs: 3,
 		extends: 0,
-		continues: 0
+		continues: 0,
+		hud_side: i
 		}
 	}
 }

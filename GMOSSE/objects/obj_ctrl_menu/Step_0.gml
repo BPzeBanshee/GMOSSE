@@ -1,8 +1,15 @@
 ///@desc INPUT BEHAVIOUR
 if !enabled then exit;
 
+// Get inputs
+var up = global.jup[0];
+var down = global.jdown[0];
+var left = global.jleft[0];
+var right = global.jright[0];
+var b1 = global.button1[0];
+
 // Up
-if (global.jup && !hook)
+if (up && !hook)
     {
     hook = true;
     scr_snd_play(snd_click,true);
@@ -11,7 +18,7 @@ if (global.jup && !hook)
     }
     
 // Down
-if (global.jdown && !hook)
+if (down && !hook)
     {
     hook = true;
     scr_snd_play(snd_click,true);
@@ -20,7 +27,7 @@ if (global.jdown && !hook)
     }
     
 // Left
-if (global.jleft && !hook)
+if (left && !hook)
     {
     hook = true;
     if selection == 1
@@ -31,7 +38,7 @@ if (global.jleft && !hook)
     }
     
 // Right
-if (global.jright && !hook)
+if (right && !hook)
     {
     hook = true;
     if selection == 1
@@ -50,7 +57,7 @@ if (keyboard_check(vk_f12) && !hook)
     }
     
 // Button 1
-if (global.button1 && !global.levelend && !hook)
+if (b1 && !global.levelend && !hook)
     {
     hook = true;
     scr_snd_play(snd_click,true);
@@ -97,11 +104,11 @@ if (global.button1 && !global.levelend && !hook)
     }
 	
 // Reset hook
-if !global.jup 
-&& !global.jdown
-&& !global.jleft
-&& !global.jright
-&& !global.button1
+if !up 
+&& !down
+&& !left
+&& !right
+&& !b1
 && !keyboard_check(vk_f12)
 && enabled
 then hook = false;

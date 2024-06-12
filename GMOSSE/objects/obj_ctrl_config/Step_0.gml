@@ -3,8 +3,15 @@
 event_user(category);
 enabled = true;
 
+// Get inputs
+var up = global.jup[0];
+var down = global.jdown[0];
+var left = global.jleft[0];
+var right = global.jright[0];
+var b1 = global.button1[0];
+
 // UP
-if global.jup && !hook
+if up && !hook
     {
     scr_snd_play(snd_click,true);
     hook = true;
@@ -13,7 +20,7 @@ if global.jup && !hook
     }
     
 // DOWN
-if global.jdown && !hook
+if down && !hook
     {
     scr_snd_play(snd_click,true);
     hook = true;
@@ -22,6 +29,5 @@ if global.jdown && !hook
     }
 
 // HOOK
-if !global.button1 && !global.jup && !global.jdown
-&& !global.jleft && !global.jright then hook = 0;
+if !b1 && !up && !down && !left && !right then hook = false;
 

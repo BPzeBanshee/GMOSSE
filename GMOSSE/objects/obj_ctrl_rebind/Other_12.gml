@@ -15,9 +15,9 @@ if mode == 1
 if mode == 2
     {
     // Record old ID setting/preference in case, then reset ID
-    old_id = global.joy_id;
-    old_pr = global.joy_pref;
-    global.joy_id = -1;
+    old_id = global.joy_id[0];
+    old_pr = global.joy_pref[0];
+    global.joy_id[0] = -1;
     
     // Get number of pads, and their IDs, and stick them into an array
     var pad = 0;
@@ -43,9 +43,9 @@ if mode == 2
     if num_of_pads == 1
         {
         // get out of this event and go to the rebind sequence
-        global.joy_id = pad_list[0];
-        global.joy_pref = global.joy_id;
-        desc = scr_linebreak(gamepad_get_description(global.joy_id),32,99);
+        global.joy_id[0] = pad_list[0];
+        global.joy_pref[0] = global.joy_id[0];
+        desc = scr_linebreak(gamepad_get_description(global.joy_id[0]),32,99);
         mode = 1;
         control = 3;
         }
@@ -77,8 +77,8 @@ if mode == 3
     // Accept
     if (keyboard_check_pressed(global.keycode_button1))
         {
-        global.joy_id = pad_list[select];
-        global.joy_pref = global.joy_id;
+        global.joy_id[0] = pad_list[select];
+        global.joy_pref[0] = global.joy_id[0];
         mode = 1;
         control = 3;
         }
@@ -86,8 +86,8 @@ if mode == 3
     // Cancel
     if (keyboard_check_pressed(global.keycode_button2))
         {
-        global.joy_id = old_id;
-        global.joy_pref = old_pr;
+        global.joy_id[0] = old_id;
+        global.joy_pref[0] = old_pr;
         instance_destroy();
         }
     }

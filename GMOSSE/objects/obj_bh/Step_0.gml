@@ -1,12 +1,17 @@
 // COMPUSLORY EVENT
 event_inherited();
 if !instance_exists(obj_hitbox) or !made then exit;
-    
+
+var side = myctrl.side;
+var b1 = global.button1[side];
+var b2 = global.button2[side];
+var b3 = global.button3[side];
+
 // shoot code
 // button 1
 if shot_timer > 0 then shot_timer -= 1 else can_shoot = true;
 if shot2_timer > 0 then shot2_timer -= 1 else can_shoot2 = true;
-if global.button1
+if b1
     {
     if can_shoot // Main shot
         {
@@ -43,16 +48,16 @@ if global.button1
     }
 	
 // Button 2 (Program setting)
-if global.button2 && can_program
+if b2 && can_program
     {
     program = !program;
 	for (var i=0; i<num_options; i++) option[i].program = program;
     can_program = false;
     }
-if !global.button2 then can_program = true;
+if !b2 then can_program = true;
 
 // Button 3 (Speed gear setting)
-if (global.button3 && can_speed) 
+if (b3 && can_speed) 
     {
     can_speed = false;
     if speed_up then speed_gear += 1 else speed_gear -= 1;
@@ -65,7 +70,7 @@ if (global.button3 && can_speed)
         }
     slowshipspeed = shipspeed;
     }
-if (!global.button3) then can_speed = true;
+if (!b3) then can_speed = true;
 
 // Image aesthetics
 image_timer += 1;

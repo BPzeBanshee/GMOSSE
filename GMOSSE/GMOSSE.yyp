@@ -318,6 +318,7 @@
     {"id":{"name":"obj_medal_tester","path":"objects/obj_medal_tester/obj_medal_tester.yy",},},
     {"id":{"name":"obj_medal","path":"objects/obj_medal/obj_medal.yy",},},
     {"id":{"name":"obj_midboss1","path":"objects/obj_midboss1/obj_midboss1.yy",},},
+    {"id":{"name":"obj_misc_scrollable","path":"objects/obj_misc_scrollable/obj_misc_scrollable.yy",},},
     {"id":{"name":"obj_omake1","path":"objects/obj_omake1/obj_omake1.yy",},},
     {"id":{"name":"obj_omake2","path":"objects/obj_omake2/obj_omake2.yy",},},
     {"id":{"name":"obj_omake3_arm","path":"objects/obj_omake3_arm/obj_omake3_arm.yy",},},

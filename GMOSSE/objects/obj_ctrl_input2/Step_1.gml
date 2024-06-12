@@ -8,13 +8,13 @@ if replaying && stagenum > 0
     then exit;
     
     var l_input_value = input[|l_step];
-    global.jup = round((l_input_value & l_inp_up)==l_inp_up);
-    global.jdown = round((l_input_value & l_inp_down)==l_inp_down);
-    global.jleft = round((l_input_value & l_inp_left)==l_inp_left);
-    global.jright = round((l_input_value & l_inp_right)==l_inp_right);
-    global.button1 = round((l_input_value & l_inp_b1)==l_inp_b1);
-    global.button2 = round((l_input_value & l_inp_b2)==l_inp_b2);
-    global.button3 = round((l_input_value & l_inp_b3)==l_inp_b3);
+    global.jup[0] = round((l_input_value & l_inp_up)==l_inp_up);
+    global.jdown[0] = round((l_input_value & l_inp_down)==l_inp_down);
+    global.jleft[0] = round((l_input_value & l_inp_left)==l_inp_left);
+    global.jright[0] = round((l_input_value & l_inp_right)==l_inp_right);
+    global.button1[0] = round((l_input_value & l_inp_b1)==l_inp_b1);
+    global.button2[0] = round((l_input_value & l_inp_b2)==l_inp_b2);
+    global.button3[0] = round((l_input_value & l_inp_b3)==l_inp_b3);
     
     if l_step < ds_list_size(input)-1
         {
@@ -36,13 +36,13 @@ else
         && !instance_exists(obj_ctrl_pause)
             {
             var l_input_value = 0;
-            if global.jup then l_input_value += l_inp_up;
-            if global.jdown then l_input_value += l_inp_down;
-            if global.jleft then l_input_value += l_inp_left;
-            if global.jright then l_input_value += l_inp_right;
-            if global.button1 then l_input_value += l_inp_b1;
-            if global.button2 then l_input_value += l_inp_b2;
-            if global.button3 then l_input_value += l_inp_b3;
+            if global.jup[0] then l_input_value += l_inp_up;
+            if global.jdown[0] then l_input_value += l_inp_down;
+            if global.jleft[0] then l_input_value += l_inp_left;
+            if global.jright[0] then l_input_value += l_inp_right;
+            if global.button1[0] then l_input_value += l_inp_b1;
+            if global.button2[0] then l_input_value += l_inp_b2;
+            if global.button3[0] then l_input_value += l_inp_b3;
             input[|l_step] = round(l_input_value);
             l_step += 1;
             l_step = round(l_step);

@@ -6,8 +6,12 @@ if shot2_timer > 0 then shot2_timer -= 1;
 if shot3_timer > 0 then shot3_timer -= 1;
 if bomb_timer > 0 then bomb_timer -= 1;
 
+var side = myctrl.side;
+var b1 = global.button1[side];
+var b2 = global.button2[side];
+
 // BUTTON 1 - MAIN SHOT
-if (global.button1)
+if (b1)
     {
     // MAIN SHOT
     if shot1_timer == 0
@@ -45,8 +49,8 @@ if (global.button1)
         }
     }
     
-/* BUTTON 2 - BOMB */
-if (global.button2) && bomb_timer == 0 && bombs > 0
+// BUTTON 2 - BOMB
+if (b2) && bomb_timer == 0 && bombs > 0
     {
     scr_snd_play(snd_exp1);
 	var b;

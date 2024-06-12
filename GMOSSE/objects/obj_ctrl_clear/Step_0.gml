@@ -16,8 +16,8 @@ if !enabled
 		}
 	else
 		{
-		var myplayer = global.player_data[global.myside].myplayer;
-		global.player_data[global.myside].mybombs = myplayer.bombs;
+		var myplayer = global.player_data[0].myplayer;
+		global.player_data[0].mybombs = myplayer.bombs;
 		}
 
 	// get rid of real ones

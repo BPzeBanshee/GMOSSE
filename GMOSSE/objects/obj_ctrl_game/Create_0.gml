@@ -1,7 +1,7 @@
 // Determine "side" of screen to use (1P or 2P)
 // TODO: this could be more robust
 var o = instance_number(object_index);
-if o > 1 then side = !global.myside else side = global.myside;
+side = global.player_data[o-1].hud_side;
 global.player_data[side].myctrl = id;
 
 if o > 1

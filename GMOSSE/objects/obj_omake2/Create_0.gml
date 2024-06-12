@@ -31,10 +31,10 @@ if instance_number(obj_ctrl_game) > 1
 	}
 else
 	{
-	var p = global.player_data[global.myside].myplayer;
+	var p = global.player_data[0].myplayer;
 	if instance_exists(p)
 		{
-		myctrl = global.player_data[global.myside].myctrl;
+		myctrl = global.player_data[0].myctrl;
 		scr_addscore(1000,0,0);
 		}
 	}

@@ -20,12 +20,12 @@ else
     /*if timer == 600
         {
         instance_create_layer(0,0,layer,obj_ctrl_attract); // start attract mode, leave room
-        }
-    if global.button1 && timer < 600
+        }*/
+    if global.button1[0] && timer < 600
         {
         instance_create_layer(0,0,layer,obj_ctrl_menu);
         global.intro = false;
         instance_destroy();
-        }*/
+        }
     }
 

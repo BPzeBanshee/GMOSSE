@@ -3,15 +3,14 @@
 // TODO: replace RNG with map data, replace map data with GMOSSE recording
 for (var i=0;i<2;i++)
 	{
-	global.shipselect[i] = irandom_range(1,5);
-
-	global.score_stored[i] = 0;
-	global.extend_number[i] = 1;
-	global.lives_stored[i] = 3;
-	global.bombs_stored[i] = -1;
-	global.continues[i] = 0;
+	global.player_data[i].shipselect = irandom_range(1,5);
+	global.player_data[i].myscore = 0;
+	global.player_data[i].extends = 0;
+	global.player_data[i].mylives = 3;
+	global.player_data[i].mybombs = -1;
+	global.player_data[i].continues = 0;
 
 	// Also having to load all the ship-specific shit as globalvars isn't ideal either
-	global.optiontype[i] = irandom_range(1,7);
-	global.weapontype[i] = irandom_range(1,7);
+	global.player_data[i].optiontype = irandom_range(1,7);
+	global.player_data[i].weapontype = irandom_range(1,7);
 	}

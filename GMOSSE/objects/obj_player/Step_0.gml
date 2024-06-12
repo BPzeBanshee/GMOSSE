@@ -2,16 +2,18 @@
 if !instance_exists(myhitbox) then exit;
 var dirx = 0;
 var diry = 0;
+
+var ind = myctrl.side;
     
 // Directional input
-if global.jup then diry -= 1;
-if global.jdown then diry += 1;
-if global.jleft then dirx -= 1;
-if global.jright then dirx += 1;
+if global.jup[ind] then diry -= 1;
+if global.jdown[ind] then diry += 1;
+if global.jleft[ind] then dirx -= 1;
+if global.jright[ind] then dirx += 1;
 
 // Speed value
 var spd = shipspeed;
-if global.button3
+if global.button3[ind]
     {
     if has_afterimage
 		{

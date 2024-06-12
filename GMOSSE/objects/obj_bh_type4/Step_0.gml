@@ -1,10 +1,9 @@
-//if image_angle > 360 then image_angle = 0;
-//if image_angle < 0 then image_angle = 360;
+var side = (parent_id.myctrl).side;
 if program == 0
 	{
 	var ypos = 0;
-	if global.jup then ypos -= 1;
-	if global.jdown then ypos += 1;
+	if global.jup[side] then ypos -= 1;
+	if global.jdown[side] then ypos += 1;
 	
 	var angle = 90;	
 	if ypos != 0 

@@ -1,4 +1,4 @@
-function scr_input(joy_id = global.joy_id) {
+function scr_input(playerid = 0) {
 	/********Joysick/Gamepad/Keyboard Input Controller**********
 	Created by Nimitz
 	Fixed, improved and maintained by BPzeBanshee
@@ -12,40 +12,41 @@ function scr_input(joy_id = global.joy_id) {
 	sets these variables to 1 movement stuff happens and when the keys 
 	are stopped this will bring the variables to 0 immediately.
 	*/
-	global.jup = false;
-	global.jdown = false;
-	global.jleft = false;
-	global.jright = false;
-	global.button1 = false;
-	global.button2 = false;
-	global.button3 = false;
-	global.button4 = false;
+	var joy_id = global.joy_id[playerid];
+	global.jup[playerid] = false;
+	global.jdown[playerid] = false;
+	global.jleft[playerid] = false;
+	global.jright[playerid] = false;
+	global.button1[playerid] = false;
+	global.button2[playerid] = false;
+	global.button3[playerid] = false;
+	global.button4[playerid] = false;
 
 	// joystick movement handling
 	if joy_id >= 0
 	    {
-	    if (gamepad_axis_count(joy_id) >= 2 && global.joytype != 1)
+	    if (gamepad_axis_count(joy_id) >= 2 && global.joytype[playerid] != 1)
 	        {
-	        if (gamepad_axis_value(joy_id,gp_axislv) < -global.deadzone) global.jup = true;
-	        if (gamepad_axis_value(joy_id,gp_axislv) > global.deadzone) global.jdown = true;
-	        if (gamepad_axis_value(joy_id,gp_axislh) < -global.deadzone) global.jleft = true;
-	        if (gamepad_axis_value(joy_id,gp_axislh) > global.deadzone) global.jright = true;
+	        if (gamepad_axis_value(joy_id,gp_axislv) < -global.deadzone) global.jup[playerid] = true;
+	        if (gamepad_axis_value(joy_id,gp_axislv) > global.deadzone) global.jdown[playerid] = true;
+	        if (gamepad_axis_value(joy_id,gp_axislh) < -global.deadzone) global.jleft[playerid] = true;
+	        if (gamepad_axis_value(joy_id,gp_axislh) > global.deadzone) global.jright[playerid] = true;
 	        }
         
 	    // Joystick "direction" buttons
 	    if global.joytype > 0
 	        { 
-	        if (gamepad_button_check(joy_id,gp_padu)) global.jup = true;
-	        if (gamepad_button_check(joy_id,gp_padd)) global.jdown = true;
-	        if (gamepad_button_check(joy_id,gp_padl)) global.jleft = true;
-	        if (gamepad_button_check(joy_id,gp_padr)) global.jright = true;
+	        if (gamepad_button_check(joy_id,gp_padu)) global.jup[playerid] = true;
+	        if (gamepad_button_check(joy_id,gp_padd)) global.jdown[playerid] = true;
+	        if (gamepad_button_check(joy_id,gp_padl)) global.jleft[playerid] = true;
+	        if (gamepad_button_check(joy_id,gp_padr)) global.jright[playerid] = true;
 	        }
     
 	    // joystick buttons
-	    if (gamepad_button_check(joy_id,global.joy1)) global.button1 = true;
-	    if (gamepad_button_check(joy_id,global.joy2)) global.button2 = true;
-	    if (gamepad_button_check(joy_id,global.joy3)) global.button3 = true;
-	    if (gamepad_button_check(joy_id,global.joy4)) global.button4 = true;
+	    if (gamepad_button_check(joy_id,global.joy1)) global.button1[playerid] = true;
+	    if (gamepad_button_check(joy_id,global.joy2)) global.button2[playerid] = true;
+	    if (gamepad_button_check(joy_id,global.joy3)) global.button3[playerid] = true;
+	    if (gamepad_button_check(joy_id,global.joy4)) global.button4[playerid] = true;
 	    }
 
 	/* 
@@ -54,14 +55,14 @@ function scr_input(joy_id = global.joy_id) {
 	This also does not take into account specific keyboard functions
 	for hidden functions such as F4 for toggling fullscreen on-the-fly.
 	*/
-	if (keyboard_check(global.keycode_up)) global.jup = true;
-	if (keyboard_check(global.keycode_down)) global.jdown = true;
-	if (keyboard_check(global.keycode_left)) global.jleft = true;
-	if (keyboard_check(global.keycode_right)) global.jright = true;
-	if (keyboard_check(global.keycode_button1)) global.button1 = true;
-	if (keyboard_check(global.keycode_button2)) global.button2 = true;
-	if (keyboard_check(global.keycode_button3)) global.button3 = true;
-	if (keyboard_check(global.keycode_button4)) global.button4 = true;
+	if (keyboard_check(global.keycode_up)) global.jup[playerid] = true;
+	if (keyboard_check(global.keycode_down)) global.jdown[playerid] = true;
+	if (keyboard_check(global.keycode_left)) global.jleft[playerid] = true;
+	if (keyboard_check(global.keycode_right)) global.jright[playerid] = true;
+	if (keyboard_check(global.keycode_button1)) global.button1[playerid] = true;
+	if (keyboard_check(global.keycode_button2)) global.button2[playerid] = true;
+	if (keyboard_check(global.keycode_button3)) global.button3[playerid] = true;
+	if (keyboard_check(global.keycode_button4)) global.button4[playerid] = true;
 
 	/*
 	Touch-based controls (Web Browser only)
@@ -78,7 +79,7 @@ function scr_input(joy_id = global.joy_id) {
 			var my = device_mouse_y(0);
 	        if instance_exists(obj_player)
 	            {
-	            global.button1 = true;
+	            global.button1[playerid] = true;
 				if point_in_rectangle(mx,my,obj_player.bbox_left,obj_player.bbox_top,
 											obj_player.bbox_right,obj_player.bbox_bottom)
 	                {
@@ -87,25 +88,25 @@ function scr_input(joy_id = global.joy_id) {
 	                }
             
 	            if mx > xview+200 && my < yview+40 
-	            then global.button4 = true;
+	            then global.button4[playerid] = true;
 	            }
 	        else
 	            {
-	            if my < yview+120 then global.jup = true;
-	            if my > yview+200 then global.jdown = true;
-	            if mx < xview+90 then global.jleft = true;
-	            if mx > xview+150 then global.jright = true;
+	            if my < yview+120 then global.jup[playerid] = true;
+	            if my > yview+200 then global.jdown[playerid] = true;
+	            if mx < xview+90 then global.jleft[playerid] = true;
+	            if mx > xview+150 then global.jright[playerid] = true;
 	            }
 	        }
 	    if device_mouse_check_button_pressed(0,mb_left)
 	        {
 	        if instance_exists(obj_player)
 	            {
-	            if alarm[1] > 0 then global.button2 = true else alarm[1] = 15;
+	            if alarm[1] > 0 then global.button2[playerid] = true else alarm[1] = 15;
 	            }
 	        else
 	            {
-	            if alarm[0] > 0 then global.button1 = true else alarm[0] = 15;
+	            if alarm[0] > 0 then global.button1[playerid] = true else alarm[0] = 15;
 	            }
 	        }
 	    }

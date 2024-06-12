@@ -6,7 +6,7 @@ selection_max = 5; // amount of positions in the submenu
 max_h = 0;
 
 // LEFT
-if global.jleft && !hook
+if global.jleft[0] && !hook
     {
     hook = true;
     switch selection
@@ -17,7 +17,7 @@ if global.jleft && !hook
     }
 
 // RIGHT
-if global.jright && !hook
+if global.jright[0] && !hook
     {
     hook = true;
     switch selection
@@ -27,7 +27,7 @@ if global.jright && !hook
         }
     }
     
-if global.button1 && !hook 
+if global.button1[0] && !hook 
     {
     scr_snd_play(snd_click,true);
     hook = true;

@@ -1,5 +1,5 @@
 // Menu Vars
-selection = global.player_data[global.myside].optiontype;
+selection = global.player_data[0].optiontype;
 menu = 1;
 hook = true;
 
@@ -25,4 +25,4 @@ update_weapon = function(choice){
 		case 7: blend = 16744703;	weapon_str = "Five-Wave";	break;
 		}
 	}
-update_weapon(global.player_data[global.myside].weapontype);
+update_weapon(global.player_data[0].weapontype);

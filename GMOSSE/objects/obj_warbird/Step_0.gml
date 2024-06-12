@@ -7,8 +7,12 @@ if shot2_timer > 0 then shot2_timer -= 1;
 if bomb_timer > 0 then bomb_timer -= 1;
 if time_passed < 180 then time_passed += 1;
 
+var side = myctrl.side;
+var b1 = global.button1[side];
+var b2 = global.button2[side];
+
 // Main Shot
-if global.button1 && shot_timer == 0
+if b1 && shot_timer == 0
     {
     scr_snd_play(snd_war_shot1,true);
 	var s;
@@ -21,7 +25,7 @@ if global.button1 && shot_timer == 0
     }
     
 // Secondary Shot (lasers)
-if global.button1 && shot2_timer == 0    
+if b1 && shot2_timer == 0    
     {
     if instance_number(obj_warbird_laser) < limit
         {
@@ -35,7 +39,7 @@ if global.button1 && shot2_timer == 0
     }
     
 // Bomb Deployment
-if global.button2 && bomb_timer == 0 && bombs > 0
+if b2 && bomb_timer == 0 && bombs > 0
     {
     bombs -= 1;
     bomb_timer = 320;

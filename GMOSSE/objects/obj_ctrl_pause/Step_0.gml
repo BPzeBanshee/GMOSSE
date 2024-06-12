@@ -1,9 +1,12 @@
 if !enabled then exit;
 
 // *************** Input Checking ***************
+var up = global.jup[0];
+var down = global.jdown[0];
+var b1 = global.button1[0];
 
 // Up
-if (global.jup && !hook && enabled)
+if (up && !hook && enabled)
     {
     scr_snd_play(snd_click,true);
     hook = true;
@@ -12,7 +15,7 @@ if (global.jup && !hook && enabled)
     }
 
 // Down
-if (global.jdown && !hook && enabled)
+if (down && !hook && enabled)
     {
     scr_snd_play(snd_click,true);
     hook = true;
@@ -21,7 +24,7 @@ if (global.jdown && !hook && enabled)
     }
 
 // Button 1
-if (global.button1 && !global.levelend && !hook && enabled)
+if (b1 && !global.levelend && !hook && enabled)
     {
     hook = true;
     scr_snd_play(snd_click,true);
@@ -48,11 +51,11 @@ if (global.button1 && !global.levelend && !hook && enabled)
 				global.medalvalue = 1;
 				for (var i=0;i<2;i++)
 					{
-					global.score_stored[i] = 0;
-					global.lives_stored[i] = 3;
-					global.bombs_stored[i] = -1;
-					global.extend_number[i] = 1;
-					global.continues[i] = 0;
+					global.player_data[i].myscore = 0;
+					global.player_data[i].mylives = 3;
+					global.player_data[i].mybombs = -1;
+					global.player_data[i].extends = 0;
+					global.player_data[i].continues = 0;
 					}
                 
                 // TODO: Does obj_ctrl_game even get this command? does it care?
@@ -96,9 +99,6 @@ if (global.button1 && !global.levelend && !hook && enabled)
     }
 
 // Resetting Hook
-if !global.jup && !global.jdown 
-&& !global.jleft && !global.jright
-&& !global.button1 && !global.button2
-&& !global.button3 && !global.button4
+if !up && !down && !b1
 && enabled
 then hook = false;

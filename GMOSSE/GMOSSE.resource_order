@@ -234,6 +234,7 @@
     {"name":"obj_logo2","order":1,"path":"objects/obj_logo2/obj_logo2.yy",},
     {"name":"obj_medal_tester","order":14,"path":"objects/obj_medal_tester/obj_medal_tester.yy",},
     {"name":"obj_medal","order":9,"path":"objects/obj_medal/obj_medal.yy",},
+    {"name":"obj_misc_scrollable","order":10,"path":"objects/obj_misc_scrollable/obj_misc_scrollable.yy",},
     {"name":"obj_omake1","order":7,"path":"objects/obj_omake1/obj_omake1.yy",},
     {"name":"obj_omake2","order":3,"path":"objects/obj_omake2/obj_omake2.yy",},
     {"name":"obj_omake3_arm","order":8,"path":"objects/obj_omake3_arm/obj_omake3_arm.yy",},

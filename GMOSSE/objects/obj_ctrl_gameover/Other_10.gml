@@ -5,8 +5,8 @@ if newscore && !hassaved
     name = letter1 + letter2 + letter3;
     scr_hiscore_update(name,
 						global.level,
-						global.player_data[global.myside].shipselect,
-						global.player_data[global.myside].myscore);
+						global.player_data[0].shipselect,
+						global.player_data[0].myscore);
     scr_hiscore_save("score.gmes");
     hassaved = true;
     } 

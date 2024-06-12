@@ -29,9 +29,14 @@ if limiter > 5
     limiter = 0;
     }
     
+// Get inputs
+var up = global.jup[0];
+var down = global.jdown[0];
+var b1 = global.button1[0];
+
 // BEHAVIOUR
 // Scrolling up
-if global.jup && !hook
+if up && !hook
     {
     if selection > 1 then selection -= 1;
     scr_snd_play(snd_click,true);
@@ -39,7 +44,7 @@ if global.jup && !hook
     } 
     
 // Scrolling down 
-if global.jdown && !hook
+if down && !hook
     {
     if selection < 2 then selection += 1;
     scr_snd_play(snd_click,true);
@@ -47,7 +52,7 @@ if global.jdown && !hook
     }
     
 // Selecting an option
-if global.button1 && !hook
+if b1 && !hook
     {
     has_chosen = true;
     hook = true;
@@ -76,8 +81,7 @@ if has_chosen && alpha <= 0
         {
         case 1:
             { // Continue because you're a shit player :3
-			var side = global.myside;
-			global.player_data[side].continues += 1;
+			global.player_data[0].continues += 1;
 			with obj_hitbox invincible = 180;
 			with obj_ctrl_game
 				{
@@ -85,8 +89,8 @@ if has_chosen && alpha <= 0
 				respawntimer = 1;
 				countdown = 0;
 				chain = 0;
-				if global.player_data[side].continues < 9 
-				then myscore = global.player_data[side].continues
+				if global.player_data[0].continues < 9 
+				then myscore = global.player_data[0].continues
 				else myscore = 9;
 				}
             break;
@@ -103,9 +107,7 @@ if has_chosen && alpha <= 0
     }
     
 // Hook reset
-if !global.jup 
-&& !global.jdown
-&& !global.jleft 
-&& !global.jright
-&& !global.button1 
+if !up 
+&& !down
+&& !b1 
 then hook = false;
