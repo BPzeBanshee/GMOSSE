@@ -3,7 +3,7 @@ if l_delay > 0 l_delay -= 1;
 if (m_size != global.window_size 
 or m_aspect != global.window_aspect)
 && l_delay == 0
-then event_user(0);
+event_user(0);
 
 // DEBUG COMMANDS
 /*
@@ -52,13 +52,13 @@ if m_filter_bi != global.filter
 
 // Adjust scale as needed (no more viewports, hooray!)
 if m_angle == 90 || m_angle == 270
-then l_scale = min(window_get_width()/m_base_h,window_get_height()/m_base_w)
+l_scale = min(window_get_width()/m_base_h,window_get_height()/m_base_w)
 else l_scale = min(window_get_width()/m_base_w,window_get_height()/m_base_h);
 if m_clean l_scale = max(1,floor(l_scale));
 
 if m_scanlines != global.scanlines
 || l_scan_scale != l_scale
-then event_user(1);
+event_user(1);
 
 // Offset x/y for centering the drawn surface
 x = round(window_get_width()/2);

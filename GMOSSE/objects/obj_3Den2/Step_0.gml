@@ -15,7 +15,7 @@ if attack_timer > 25
 		{
 		var target = instance_nearest(x,y,obj_hitbox);
 		if target == noone
-		then aim = 270
+		aim = 270
 		else aim = point_direction(x,y,target.x,target.y);
 		}
     

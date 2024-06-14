@@ -13,13 +13,11 @@ function scr_spreadshot(origin_x,origin_y,bullettype,shootsound,arc,numbullets,b
 	var target = instance_nearest(x,y,obj_hitbox);
 	var shootdir;
 	if target != noone
-	then shootdir = point_direction(origin_x, origin_y, target.x, target.y)
+	shootdir = point_direction(origin_x, origin_y, target.x, target.y)
 	else shootdir = 270;
 
-	var arcstart;
-	if numbullets > 1
-	then arcstart = (shootdir - (arc / 2))
-	else arcstart = shootdir;
+	var arcstart = shootdir;
+	if numbullets > 1 arcstart = (shootdir - (arc / 2));
     
 	//play shoot sound (-1 plays no sound)
 	if audio_exists(shootsound) scr_snd_play(shootsound,true);

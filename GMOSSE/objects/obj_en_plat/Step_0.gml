@@ -108,4 +108,4 @@ switch phase
 if x < -(sprite_width/2) 
 || x > 320+(sprite_width/2)
 || y > yview+320+(sprite_height/2)
-then instance_destroy();
+instance_destroy();

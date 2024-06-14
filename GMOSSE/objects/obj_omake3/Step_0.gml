@@ -46,8 +46,7 @@ and updating of the two arms.
 */
 // Main body
 var p = instance_nearest(x,y,obj_hitbox);
-if p != noone
-then scr_turntoimageangle(point_direction(x,y,p.x,p.y),2);
+if p != noone scr_turntoimageangle(point_direction(x,y,p.x,p.y),2);
 var aim = image_angle;
 
 // Update position variables for arms and arm pieces

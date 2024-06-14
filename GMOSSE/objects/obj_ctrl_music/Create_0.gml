@@ -110,7 +110,9 @@ reload = function(){
 	show_info(false);
 	unload();
 	if LOAD_EVERYTHING
-	then load_all()
+		{
+		load_all();
+		}
 	else load();
 	}
 #endregion
@@ -188,5 +190,7 @@ return 0;
 
 show_info(false);
 if LOAD_EVERYTHING
-then load_all()
+	{
+	load_all();
+	}
 else load();

@@ -24,7 +24,7 @@ function scr_addscore(points, time, multiplier) {
 	if time > 0
 		{
 		if (o.countdown + time) > 180
-		then o.countdown = 180
+		o.countdown = 180
 		else o.countdown += time;
 		}
 	if multiplier > 0 // if a multiplier is given

@@ -4,7 +4,7 @@ if stage_time > 12000
 //&& !instance_exists(obj_boss3_dead)
 && !instance_exists(obj_omake3)
 && !obj_ctrl_music.fading_out
-then completedelay += 1;
+completedelay += 1;
 if completedelay == 120
     {
     instance_destroy(obj_rain);

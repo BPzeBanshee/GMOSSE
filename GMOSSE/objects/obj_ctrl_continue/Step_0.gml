@@ -90,7 +90,9 @@ if has_chosen && alpha <= 0
 				countdown = 0;
 				chain = 0;
 				if global.player_data[0].continues < 9 
-				then myscore = global.player_data[0].continues
+					{
+					myscore = global.player_data[0].continues;
+					}
 				else myscore = 9;
 				}
             break;
@@ -107,7 +109,5 @@ if has_chosen && alpha <= 0
     }
     
 // Hook reset
-if !up 
-&& !down
-&& !b1 
-then hook = false;
+if !up && !down && !b1 
+hook = false;

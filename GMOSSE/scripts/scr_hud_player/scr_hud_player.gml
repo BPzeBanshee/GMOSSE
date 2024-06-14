@@ -49,8 +49,7 @@ function scr_hud_player(xx=xview,yy=yview, side=0) {
 	    {
 	    if myplayer.y > yy+294
 			{
-			if (side ? (myplayer.x > xx+120) : (myplayer.x < xx+120))
-			then a3 = 0.25;
+			if (side ? (myplayer.x > xx+120) : (myplayer.x < xx+120)) a3 = 0.25;
 			}
 	    
 		if global.player_data[side].shipselect == 3

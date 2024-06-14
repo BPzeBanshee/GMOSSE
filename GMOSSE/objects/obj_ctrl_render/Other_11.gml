@@ -36,12 +36,14 @@ draw_set_alpha(1);
 
 var si = 0;
 if sprite_exists(s) 
-then for (var i=0; i<w; i+=sw)
-    {
-    for (var j=0; j<h; j+=sh)
-        {
-        if m_scanlines == 3 si = irandom_range(0,sprite_get_number(spr_static)-1);
-        draw_sprite(s,si,i,j);
-        }
-    }
+	{
+	for (var i=0; i<w; i+=sw)
+	    {
+	    for (var j=0; j<h; j+=sh)
+	        {
+	        if m_scanlines == 3 si = irandom_range(0,sprite_get_number(spr_static)-1);
+	        draw_sprite(s,si,i,j);
+	        }
+	    }
+	}
 surface_reset_target();

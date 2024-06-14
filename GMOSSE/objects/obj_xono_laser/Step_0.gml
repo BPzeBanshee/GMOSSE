@@ -28,4 +28,4 @@ else
 // Death handling
 if x < xview-40 || x > xview + 280 
 || y < yview-10 || y > yview + 360 
-then instance_destroy();
+instance_destroy();

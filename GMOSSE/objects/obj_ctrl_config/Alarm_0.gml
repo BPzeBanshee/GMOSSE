@@ -8,7 +8,7 @@ with obj_ctrl_music
 		{
 		if file_exists(global.music_ini)
 		&& global.music_ini != ini
-		then reload();
+		reload();
 		}
 	}
 scr_fullscreen(global.fullscreen);

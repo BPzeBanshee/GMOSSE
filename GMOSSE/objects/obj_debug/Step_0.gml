@@ -10,5 +10,5 @@ if rfps_timer == 60
 if instance_exists(obj_ctrl_pause) exit;
 
 if instance_exists(obj_ctrl_stage) 
-then global.step = obj_ctrl_stage.stage_time 
+global.step = obj_ctrl_stage.stage_time 
 else global.step += 1;

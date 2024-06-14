@@ -18,8 +18,9 @@ hassaved = false;
 
 newscore = false;
 var replay_mode = instance_exists(obj_ctrl_input2) ? (obj_ctrl_input2.replaying ? true : false) : false;
-if global.player_data[0].myscore >= global.hiscore[9,3] && (!replay_mode) 
-then newscore = true;
+if global.player_data[0].myscore >= global.hiscore[9,3] 
+&& (!replay_mode) 
+newscore = true;
 
 str = "Game Complete!";
 if !instance_exists(obj_ctrl_clear)

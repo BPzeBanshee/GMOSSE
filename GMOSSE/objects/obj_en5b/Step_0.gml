@@ -18,10 +18,8 @@ switch mode
         {
         // Attack pattern
 		var target = instance_nearest(x,y,obj_hitbox);
-		var angle;
-		if target == noone
-		then angle = 270
-		else angle = point_direction(x,y,target.x,target.y);
+		var angle = 270;
+		if target != noone angle = point_direction(x,y,target.x,target.y);
         scr_turntoangle(angle,3);
         shot_timer += 1;
         if shot_timer == 30

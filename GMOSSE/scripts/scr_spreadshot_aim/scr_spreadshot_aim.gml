@@ -13,10 +13,8 @@ with modifications by BPzeBanshee
 /// @param {Bool} imagedir
 /// @param {Real} shootdir
 function scr_spreadshot_aim(origin_x,origin_y,bullettype,shootsound,arc,numbullets,bulletspeed,imagedir,shootdir) {
-	var arcstart;
-	if numbullets > 1
-	then arcstart = (shootdir - (arc / 2))
-	else arcstart = shootdir;
+	var arcstart = shootdir;
+	if numbullets > 1 arcstart = (shootdir - (arc / 2));
     
 	//play shoot sound (-1 plays no sound)
 	if audio_exists(shootsound) scr_snd_play(shootsound,true);

@@ -22,7 +22,7 @@ if respawntimer == 0
 		else
 			{
 	        if !instance_exists(obj_ctrl_continue) 
-			then instance_create_layer(x,y,layer,obj_ctrl_continue);
+			instance_create_layer(x,y,layer,obj_ctrl_continue);
 			}
 		}
 	else event_user(0);

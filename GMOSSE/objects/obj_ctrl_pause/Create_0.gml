@@ -7,7 +7,7 @@ restart_locked = false;
 if global.nextroom == room 
 && room != global.startstage 
 && room != rm_tutorial
-then restart_locked = true;
+restart_locked = true;
 
 scr_pause();
 with obj_ctrl_music pause();

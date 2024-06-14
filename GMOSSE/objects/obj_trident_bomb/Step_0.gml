@@ -19,7 +19,7 @@ if instance_exists(parent_id)
 		
 		if timer == 120 laser.mode = 1;
 	    if timer > 120 && laser.image_xscale == 0 
-		then instance_destroy();
+		instance_destroy();
 		}
     } 
 else instance_destroy();

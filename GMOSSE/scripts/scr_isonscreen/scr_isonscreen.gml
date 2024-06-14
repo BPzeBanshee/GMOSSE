@@ -13,8 +13,8 @@ function scr_isonscreen() {
 
 	if x > xview-(sprite_width/2) && x < xview+240+(sprite_width/2)
 	&& y > yview-(sprite_height/2) && y < yview+320+(sprite_height/2)
-	then return true else return false;
-
-
-
+		{
+		return true;
+		} 
+	return false;
 }

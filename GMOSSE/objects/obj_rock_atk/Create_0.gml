@@ -1,6 +1,6 @@
 var target = instance_nearest(x,y,obj_hitbox);
 if target != noone
-then direction = point_direction(x,y,target.x,target.y)
+direction = point_direction(x,y,target.x,target.y)
 else direction = 270;
 
 speed = 4;

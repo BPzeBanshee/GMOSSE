@@ -23,4 +23,4 @@ if !global.jleft
 && !global.jright
 && !global.button1
 && !global.button2
-then hook = false;
+hook = false;

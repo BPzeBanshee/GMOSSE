@@ -2,7 +2,7 @@
 if stage_time > 1000 
 && !instance_exists(obj_omake1) 
 && !obj_ctrl_music.fading_out
-then completedelay += 1;
+completedelay += 1;
 if completedelay == 120
     {
 	instance_destroy(obj_rock);

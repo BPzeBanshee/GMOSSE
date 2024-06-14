@@ -99,6 +99,5 @@ if (b1 && !global.levelend && !hook && enabled)
     }
 
 // Resetting Hook
-if !up && !down && !b1
-&& enabled
-then hook = false;
+if !up && !down && !b1 && enabled
+hook = false;

@@ -14,7 +14,7 @@ function scr_config_load(location) {
 	aren't used anywhere else though!
 	*/
 	if !file_exists(location)
-	then trace(string(location)+" not found, using defaults.\nGo to Options Menu to adjust settings.");
+	trace(string(location)+" not found, using defaults.\nGo to Options Menu to adjust settings.");
 
 	ini_open(location);
     

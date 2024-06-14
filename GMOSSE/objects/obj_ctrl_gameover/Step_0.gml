@@ -9,7 +9,7 @@ scroll += 1;
 if !ready && !b1 
 && pos <= 3 && !global.levelend 
 && !b2
-then ready = true;
+ready = true;
 
 // Highscore submission
 if newscore

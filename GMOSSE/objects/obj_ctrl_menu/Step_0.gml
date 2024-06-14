@@ -104,11 +104,8 @@ if (b1 && !global.levelend && !hook)
     }
 	
 // Reset hook
-if !up 
-&& !down
-&& !left
-&& !right
-&& !b1
-&& !keyboard_check(vk_f12)
+if !up && !down
+&& !left && !right
+&& !b1 && !keyboard_check(vk_f12)
 && enabled
-then hook = false;
+hook = false;

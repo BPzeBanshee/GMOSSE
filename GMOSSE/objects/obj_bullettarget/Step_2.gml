@@ -1,7 +1,7 @@
 // If the bullet leaves the screen, destroy itself.  
 if (x < xview-sprite_width/2) || (x > xview+240+sprite_width/2) 
 || (y < yview-sprite_width/2) || (y > yview+320+sprite_width/2) 
-then instance_destroy(); 
+instance_destroy(); 
 
 if global.bulletcolour == 2
     {

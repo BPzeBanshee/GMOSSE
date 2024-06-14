@@ -12,4 +12,4 @@ switch stage_time
 if stage_time > 120 
 && !instance_exists(obj_textbox)
 && !instance_exists(obj_trans) 
-then scr_trans(rm_stage1,3,c_black,0.025,0.05,210);
+scr_trans(rm_stage1,3,c_black,0.025,0.05,210);

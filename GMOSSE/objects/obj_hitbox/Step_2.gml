@@ -19,10 +19,12 @@ if instance_exists(myplayer)
 	        {
 	        if (myplayer.image_alpha < 0.1 && !clear)
 	        or (myplayer.image_alpha > 0.9 && clear) 
-			then clear = !clear;
+				{
+				clear = !clear;
+				}
 		
 	        if clear 
-			then myplayer.image_alpha += 0.1
+			myplayer.image_alpha += 0.1
 			else myplayer.image_alpha -= 0.1;
 	        }
 	    }

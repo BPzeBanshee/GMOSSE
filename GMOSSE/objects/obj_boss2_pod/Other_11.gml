@@ -1,5 +1,5 @@
 if alt == 0
-then scr_spreadshot_aim(x,y,obj_bullet3,-1,25,5,4,true,direction);//4.5
+scr_spreadshot_aim(x,y,obj_bullet3,-1,25,5,4,true,direction)//4.5
 else 
 	{
 	var target = instance_nearest(x,y,obj_hitbox);

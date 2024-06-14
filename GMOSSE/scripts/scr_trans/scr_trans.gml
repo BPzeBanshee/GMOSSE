@@ -14,7 +14,7 @@ function scr_trans(_room,type,color_sprite,in_speed,out_speed,delay) {
 	t.input_room = _room;
 	t.input_mode = type;
 	if type == 1
-	then t.input_sprite = color_sprite
+	t.input_sprite = color_sprite
 	else t.input_color = color_sprite;
 	t.input_speed1 = in_speed;
 	t.input_speed2 = out_speed;
