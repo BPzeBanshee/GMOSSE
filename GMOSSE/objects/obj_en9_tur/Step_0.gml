@@ -5,7 +5,7 @@ if instance_exists(obj_hitbox)
     var tar = instance_nearest(x,y,obj_hitbox);
     aim = point_direction(x,y,tar.x,tar.y);
     }
-if fire == false then scr_turntoimageangle(aim,2);
+if fire == false scr_turntoimageangle(aim,2);
 
 // Bullet creation
 timer += 1;

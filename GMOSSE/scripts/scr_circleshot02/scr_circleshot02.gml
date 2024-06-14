@@ -22,6 +22,6 @@ function scr_circleshot02(density,origin_x,origin_y,obj_dist,b_type,b_speed,imag
 	    _bullet = instance_create_layer(_x, _y, global.lay_bullets, b_type);
 	    _bullet.speed = b_speed; 
 	    _bullet.direction = i;
-	    if imageaim == true then _bullet.image_angle = i;
+	    if imageaim == true _bullet.image_angle = i;
 	    }
 }

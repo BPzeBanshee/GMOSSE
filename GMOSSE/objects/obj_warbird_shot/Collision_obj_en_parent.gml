@@ -1,1 +1,1 @@
-if other.z == 128 then event_user(15);
+if other.z == 128 event_user(15);

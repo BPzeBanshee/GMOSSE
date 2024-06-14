@@ -17,9 +17,9 @@ function scr_circleattack(density,origin_x,origin_y,radius,object,target,b_speed
 	    _y = origin_y + lengthdir_y(radius, i);
 	    _bullet = instance_create_layer(_x, _y, global.lay_bullets, object);
 		if instance_exists(target)
-	    then _bullet.direction = point_direction(x,y,target.x,target.y)+i
+	    _bullet.direction = point_direction(x,y,target.x,target.y)+i
 		else _bullet.direction = 270 + i;
 	    _bullet.speed = b_speed;   // a negative value will make the bullet go towards the origin of the object firing it
-	    if imageaim == true then _bullet.image_angle = _bullet.direction;
+	    if imageaim == true _bullet.image_angle = _bullet.direction;
 	    }
 }

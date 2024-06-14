@@ -11,10 +11,10 @@ if global.jleft[0] && !hook
     hook = true;
     switch selection
         {
-        case 1: if global.wallbrightness > 5 then global.wallbrightness -= 5; break;
+        case 1: if global.wallbrightness > 5 global.wallbrightness -= 5; break;
         case 2: global.filter = false; break;
-        case 3: global.scanlines -= 1; if global.scanlines < 0 then global.scanlines = 2; break;
-        case 4: if global.scanline_alpha > 5 then global.scanline_alpha -= 5; break;
+        case 3: global.scanlines -= 1; if global.scanlines < 0 global.scanlines = 2; break;
+        case 4: if global.scanline_alpha > 5 global.scanline_alpha -= 5; break;
         }
     }
     
@@ -24,10 +24,10 @@ if global.jright[0] && !hook
     hook = 1;
     switch selection
         {
-        case 1: if global.wallbrightness < 100 then global.wallbrightness += 5; break;
+        case 1: if global.wallbrightness < 100 global.wallbrightness += 5; break;
         case 2: global.filter = true; break;
-        case 3: global.scanlines += 1; if global.scanlines > 2 then global.scanlines = 0; break;
-        case 4: if global.scanline_alpha < 100 then global.scanline_alpha += 5; break;
+        case 3: global.scanlines += 1; if global.scanlines > 2 global.scanlines = 0; break;
+        case 4: if global.scanline_alpha < 100 global.scanline_alpha += 5; break;
         }
     }
     

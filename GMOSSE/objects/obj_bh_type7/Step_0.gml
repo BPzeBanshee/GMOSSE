@@ -3,8 +3,8 @@
 if instance_exists(parent_id)
     {
     orbit_angle -= orbit_speed; 
-    if orbit_angle < 0 then orbit_angle = 360;
-    if orbit_angle > 360 then orbit_angle = 0;
+    if orbit_angle < 0 orbit_angle = 360;
+    if orbit_angle > 360 orbit_angle = 0;
 	
 	// if position == 2 then 180 else 0
 	var offset = position == 2 ? 180 : 0;

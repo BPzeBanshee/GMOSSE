@@ -18,6 +18,6 @@ if timer == 0
     }
     
 // Movement/Death-related
-if y > yview+70 and y < yview+150 then vspeed = 0.2;
-if y > yview+150 then vspeed += 0.1;
-if y > yview+360 then instance_destroy();
+if y > yview+70 and y < yview+150 vspeed = 0.2;
+if y > yview+150 vspeed += 0.1;
+if y > yview+360 instance_destroy();

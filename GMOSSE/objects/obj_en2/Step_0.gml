@@ -17,5 +17,5 @@ if timer > 60 && y < yview+200
 
 // The script is called with the arguments passed on to it, and then
 // the timer is set back to 0, and this entire process starts again.
-if y > yview + 340 then instance_destroy();
+if y > yview + 340 instance_destroy();
 

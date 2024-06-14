@@ -1,9 +1,9 @@
 // With obj_ctrl_input effectively disabled we need a way to go back to main menu
 // with button inputs, this will do for now until obj_ctrl_input is properly refactored
-if (keyboard_check(global.keycode_button1)) then event_user(15);
+if (keyboard_check(global.keycode_button1)) event_user(15);
 if global.joy_id[0] >= 0
     {
-    if (gamepad_button_check(global.joy_id[0],global.joy1)) then event_user(15);
+    if (gamepad_button_check(global.joy_id[0],global.joy1)) event_user(15);
     }
     
 // The magic replay code!
@@ -26,6 +26,6 @@ if room != rm_menu
         // placeholder line for logging if necessary
         }
     else timer += 1;
-    if timer >= 120 then event_user(15);
+    if timer >= 120 event_user(15);
     }
 

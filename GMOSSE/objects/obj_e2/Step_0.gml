@@ -19,7 +19,7 @@ if made
     {
     // Maintain Leg info
     var yscroll;
-    if spd_y == 0 then yscroll = true else yscroll = false; // spd_y is a globalvar declared by scr_camera_init iirc
+    if spd_y == 0 yscroll = true else yscroll = false; // spd_y is a globalvar declared by scr_camera_init iirc
     for(var i=0;i<=2;i+=1)
         {
         for (var j=0;j<=1;j+=1)
@@ -36,7 +36,7 @@ if made
     y = (foot[0,0].y+foot[0,1].y+foot[1,0].y+foot[1,1].y+foot[2,0].y+foot[2,1].y) / 6;
 
     
-    if timer > 0 then timer -= 1;
+    if timer > 0 timer -= 1;
     if y >= yview+130 && timer == 0
         {
         timer = 60;
@@ -66,21 +66,21 @@ if made
         foot[n3a,n3b].yy = foot[n3a,n3b].y - 64;
         
         // Set new foot x positions to move sideways
-        if keyboard_check(ord("J")) && c == 0 then c = 1;
-        if keyboard_check(ord("L")) && d == 0 then d = 1;
+        if keyboard_check(ord("J")) && c == 0 c = 1;
+        if keyboard_check(ord("L")) && d == 0 d = 1;
         if c > 0
             {
             foot[n1a,n1b].xx = foot[n1a,n1b].x - 32;
             foot[n2a,n2b].xx = foot[n2a,n2b].x - 32;
             foot[n3a,n3b].xx = foot[n3a,n3b].x - 32;
-            c += 1; if c == 3 then c = 0;
+            c += 1; if c == 3 c = 0;
             }
         if d > 0
             {
             foot[n1a,n1b].xx = foot[n1a,n1b].x + 32;
             foot[n2a,n2b].xx = foot[n2a,n2b].x + 32;
             foot[n3a,n3b].xx = foot[n3a,n3b].x + 32;
-            d += 1; if d == 3 then d = 0;
+            d += 1; if d == 3 d = 0;
             }
         }
     }

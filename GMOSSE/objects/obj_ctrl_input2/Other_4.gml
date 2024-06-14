@@ -1,7 +1,7 @@
 l_step = 0;
 l_input_value = 0;
 
-if stagenum == 0 then exit;
+if stagenum == 0 exit;
 if replaying
     {
     random_set_seed(replay[# stagenum,1]);

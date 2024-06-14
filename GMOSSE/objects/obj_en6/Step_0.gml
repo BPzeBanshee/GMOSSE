@@ -21,19 +21,19 @@ if thr_timer == 5
     }
     
 // "Physics"
-if num_of_bounce == 0 then vspeed += 0.05;
-if num_of_bounce < 2 then if vspeed < 1 then vspeed += 0.1;
-if num_of_bounce >= 2 then vspeed += 0.125; 
-if hspeed > 2 then hspeed -= 0.1;
-if hspeed < -2 then hspeed += 0.1;
+if num_of_bounce == 0 vspeed += 0.05;
+if num_of_bounce < 2 if vspeed < 1 vspeed += 0.1;
+if num_of_bounce >= 2 vspeed += 0.125; 
+if hspeed > 2 hspeed -= 0.1;
+if hspeed < -2 hspeed += 0.1;
 
 // Attack phases + entry and exit
 switch phase
     {
     case 0: 
         {
-        if hspeed > 0 then hspeed += 0.1;
-        if hspeed < 0 then hspeed -= 0.1;
+        if hspeed > 0 hspeed += 0.1;
+        if hspeed < 0 hspeed -= 0.1;
         timer += 1;
         if timer == 60 
             {
@@ -60,7 +60,7 @@ switch phase
             shot_timer = 0;
             num_of_shots += 1;
             }
-        if num_of_shots == 5 then phase = 2;
+        if num_of_shots == 5 phase = 2;
         break;
         }
     case 2:

@@ -2,8 +2,8 @@ draw_set_color(input_color);
 draw_set_halign(fa_left);
 draw_set_alpha(alpha);
 
-if mode == 1 then draw_self();
-if mode >= 2 then draw_rectangle(xview,yview,xview+240,yview+320,false);
+if mode == 1 draw_self();
+if mode >= 2 draw_rectangle(xview,yview,xview+240,yview+320,false);
 if mode == 3
     {
     if alpha == 1 && timer > 90 && global.levelend

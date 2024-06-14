@@ -1,5 +1,5 @@
 ///@desc Generating scanlines
-if !window_has_focus() then exit;
+if !window_has_focus() exit;
     
 // Decide what kind of scanline to use
 m_scanlines = global.scanlines;
@@ -12,7 +12,7 @@ switch m_scanlines
     case 3: s = spr_static; break;
     }
 	
-if s == -1 then exit;
+if s == -1 exit;
 var sw = sprite_get_width(s);
 var sh = sprite_get_height(s);
 
@@ -24,7 +24,7 @@ var h = surface_get_height(application_surface) * l_scale;
 if surface_exists(l_scan)
     {
     if surface_get_width(l_scan) != w || surface_get_height(l_scan) != h
-    then surface_resize(l_scan,w,h);
+    surface_resize(l_scan,w,h);
     }
 else l_scan = surface_create(w,h);
 
@@ -40,7 +40,7 @@ then for (var i=0; i<w; i+=sw)
     {
     for (var j=0; j<h; j+=sh)
         {
-        if m_scanlines == 3 then si = irandom_range(0,sprite_get_number(spr_static)-1);
+        if m_scanlines == 3 si = irandom_range(0,sprite_get_number(spr_static)-1);
         draw_sprite(s,si,i,j);
         }
     }

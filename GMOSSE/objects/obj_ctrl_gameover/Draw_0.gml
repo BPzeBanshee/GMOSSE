@@ -8,21 +8,21 @@ if newscore
     draw_set_halign(fa_left);
     if (pos == 1)
         {
-        if flash > 5 then draw_text(xview+90,yview+170,letter1);
+        if flash > 5 draw_text(xview+90,yview+170,letter1);
         draw_text(xview+110,yview+170,letter2);
         draw_text(xview+130,yview+170,letter3);
         }
     if (pos == 2)
         {
         draw_text(xview+90,yview+170,letter1);
-        if flash > 5 then draw_text(xview+110,yview+170,letter2);
+        if flash > 5 draw_text(xview+110,yview+170,letter2);
         draw_text(xview+130,yview+170,letter3);
         }
     if (pos == 3)
         {
         draw_text(xview+90,yview+170,letter1);
         draw_text(xview+110,yview+170,letter2);
-        if flash > 5 then draw_text(xview+130,yview+170,letter3);
+        if flash > 5 draw_text(xview+130,yview+170,letter3);
         }
     }
 

@@ -2,7 +2,7 @@
 //draw_self();
 
 // laser draw stack
-if image_xscale < 1 then exit;
+if image_xscale < 1 exit;
 
 var in = floor(b_subimg);
 var xx,yy;
@@ -11,7 +11,7 @@ for(var i=0; i<image_xscale-32;i+=b_width)
     xx = x + lengthdir_x(i, image_angle);
     yy = y + lengthdir_y(i, image_angle);
     draw_sprite_ext(b_img,in,xx,yy,1,image_yscale,image_angle,image_blend,b_alpha);
-    in += 1; if in > b_subimg_max then in = 0;
+    in += 1; if in > b_subimg_max in = 0;
     }
 
 // laser head (end of laser)
@@ -36,10 +36,10 @@ else
     }
 
 // laser flash (start of laser)
-if sprite_exists(f_img) then draw_sprite_ext(f_img,f_subimg,x,y,1,1,image_angle,image_blend,f_alpha);
+if sprite_exists(f_img) draw_sprite_ext(f_img,f_subimg,x,y,1,1,image_angle,image_blend,f_alpha);
 
 // Image indexes
-b_subimg += 0.25; if b_subimg > b_subimg_max then b_subimg = 0; // beam
-h_subimg += 0.25; if h_subimg > h_subimg_max then h_subimg = 0; // head
-f_subimg += 0.25; if f_subimg > f_subimg_max then f_subimg = 2; // flash
+b_subimg += 0.25; if b_subimg > b_subimg_max b_subimg = 0; // beam
+h_subimg += 0.25; if h_subimg > h_subimg_max h_subimg = 0; // head
+f_subimg += 0.25; if f_subimg > f_subimg_max f_subimg = 2; // flash
 

@@ -30,10 +30,10 @@ function scr_addscore(points, time, multiplier) {
 	if multiplier > 0 // if a multiplier is given
 	    {
 	    o.chain += multiplier;
-	    if points > 0 then o.myscore += points * o.chain;
+	    if points > 0 o.myscore += points * o.chain;
 	    }
 	else // no multiplier given, just add score
 	    {
-	    if points > 0 then o.myscore += points;
+	    if points > 0 o.myscore += points;
 	    }
 }

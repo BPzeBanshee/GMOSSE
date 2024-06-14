@@ -5,7 +5,7 @@ if stage_time > 8500
 && !instance_exists(obj_omake2)
 && !obj_ctrl_music.fading_out
 then completedelay += 1;
-if completedelay == 120 then instance_create_layer(x,y,global.lay_en_air,obj_ctrl_clear);
+if completedelay == 120 instance_create_layer(x,y,global.lay_en_air,obj_ctrl_clear);
 
 /*****************OBJECT SCROLLING/SPAWN HANDLING**********************/
 /*
@@ -42,7 +42,7 @@ the Room Creation code event (located in rm_stage2 > Settings tab).
 This line of code reactivates anything that is deactivated and is
 entering our view.
 */
-if global.paused then exit;
+if global.paused exit;
 instance_deactivate_object(obj_en_parent);
 instance_deactivate_object(obj_en_wall);
 instance_activate_region(-48,yview-48,368,368,true);

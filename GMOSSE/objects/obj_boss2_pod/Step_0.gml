@@ -1,5 +1,5 @@
 // Initial/exit invulnerability
-if image_alpha < 1 then enemyHP = enemyHP_max;
+if image_alpha < 1 enemyHP = enemyHP_max;
 image_angle = direction;
 
 // Flash
@@ -12,7 +12,7 @@ if (enemyHP > 200 && enemyHP < 225)
         image_blend = c_red;
         flash_timer = 0;
         }
-    if flash_timer == 2 then image_blend = c_white;   
+    if flash_timer == 2 image_blend = c_white;   
     }
 else image_blend = c_white;
 
@@ -30,7 +30,7 @@ switch mode
     {
     case 0:
         {
-        if image_alpha == 1 then mode = 1;
+        if image_alpha == 1 mode = 1;
         break;
         }
     case 1:

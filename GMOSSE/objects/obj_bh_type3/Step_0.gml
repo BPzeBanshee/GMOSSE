@@ -40,7 +40,7 @@ if instance_exists(parent_id)
             if instance_exists(obj_en_parent)
                 {
 				var target = instance_nearest(x,y,obj_en_parent);
-                if instance_exists(obj_bh_lockon) then target = instance_nearest(x,y,obj_bh_lockon);
+                if instance_exists(obj_bh_lockon) target = instance_nearest(x,y,obj_bh_lockon);
                 angle = point_direction(x,y,target.x,target.y);
                 }
             scr_turntoimageangle(angle,11.25);

@@ -1,13 +1,13 @@
 // COMPUSLORY EVENT
 event_inherited();
-if !instance_exists(myhitbox) then exit;
+if !instance_exists(myhitbox) exit;
 var side = myctrl.side;
 var b1 = global.button1[side];
 var b2 = global.button2[side];
 
 // TIMERS
-if lsr_timer > 0 then lsr_timer -= 1;
-if bomb_timer > 0 then bomb_timer -= 1;
+if lsr_timer > 0 lsr_timer -= 1;
+if bomb_timer > 0 bomb_timer -= 1;
 
 // BUTTON 1 - SHOT/MISSILE
 if (b1) 
@@ -20,15 +20,15 @@ if (b1)
     
     // anim frame for shot (aesthetics)
     shot_anim += 0.5;
-    if shot_anim > 4 then shot_anim = 0;
+    if shot_anim > 4 shot_anim = 0;
     
     // angle for shot
-    if shot_angle_add == 1 then shot_angle += 1 else shot_angle -= 1;
+    if shot_angle_add == 1 shot_angle += 1 else shot_angle -= 1;
     if shot_angle > 5 || shot_angle < -5
         {
         shot_angle = 0; 
         shot_angle_add += 1;
-        if shot_angle_add > 1 then shot_angle_add = 0;
+        if shot_angle_add > 1 shot_angle_add = 0;
         }
         
     // laser

@@ -38,7 +38,7 @@ var b1 = global.button1[0];
 // Scrolling up
 if up && !hook
     {
-    if selection > 1 then selection -= 1;
+    if selection > 1 selection -= 1;
     scr_snd_play(snd_click,true);
     hook = true;
     } 
@@ -46,7 +46,7 @@ if up && !hook
 // Scrolling down 
 if down && !hook
     {
-    if selection < 2 then selection += 1;
+    if selection < 2 selection += 1;
     scr_snd_play(snd_click,true);
     hook = true;
     }

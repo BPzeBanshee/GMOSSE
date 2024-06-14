@@ -18,7 +18,7 @@ function scr_hiscore_draw() {
 	    ship_used = global.hiscore[place,2];
 	    score_location = string(global.hiscore[place,3]);
     
-	    if lvl == 6 then lvl = "ALL";
+	    if lvl == 6 lvl = "ALL";
 	    txt = string(place) + ": " + name_location + "   "+string(lvl);
 	    txt2 = score_location;
     

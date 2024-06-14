@@ -3,7 +3,7 @@ chr1 += 1;
 text = string_copy(ship_info[4],1,chr1);
 
 // Do not pass here if ship skin menu is active
-if disabled then exit;
+if disabled exit;
 
 // GET INPUTS
 var left = global.jleft[0];
@@ -65,11 +65,11 @@ if (button1)
 || (button2)
 || (button3)
 || (left) 
-|| (right) then hook = true;
+|| (right) hook = true;
 
 if !(button1) 
 && !(button2)
 && !(button3)
 && !(left) 
 && !(right)
-&& !instance_exists(obj_trans) then hook = false;
+&& !instance_exists(obj_trans) hook = false;

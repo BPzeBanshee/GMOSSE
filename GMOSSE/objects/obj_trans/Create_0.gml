@@ -15,7 +15,7 @@ global.levelend = true;
 go_when_ready = function(){
 if timer > input_delay 
     {
-    if global.paused then scr_unpause();
+    if global.paused scr_unpause();
     room_goto(input_room);
     global.levelend = false;
     }

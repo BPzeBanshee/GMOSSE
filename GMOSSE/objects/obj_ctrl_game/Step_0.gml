@@ -12,8 +12,8 @@ if respawntimer > 0
     }
 if respawntimer == 0 
     {
-    if mylives > 0 then event_user(0) else
-        {
+    if mylives == 0
+		{
 		global.player_data[side].myscore = myscore;
 		if instance_number(object_index) == 2
 			{
@@ -24,7 +24,8 @@ if respawntimer == 0
 	        if !instance_exists(obj_ctrl_continue) 
 			then instance_create_layer(x,y,layer,obj_ctrl_continue);
 			}
-        }
+		}
+	else event_user(0);
     respawntimer = -1;
     }
 if mylives == 0 
@@ -35,9 +36,9 @@ if mylives == 0
     
 // Player score handling
 // Chain timer handling
-if countdown > 0 then countdown -= 1;
-if countdown > 180 then countdown = 180;
-if countdown == 0 then chain = 0;
+if countdown > 0 countdown -= 1;
+if countdown > 180 countdown = 180;
+if countdown == 0 chain = 0;
 
 // Extends    
 if myscore >= (3000000 * (global.player_data[side].extends+1))

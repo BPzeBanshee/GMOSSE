@@ -1,7 +1,7 @@
 /* AESTHETICS */
 // Sprite movement/transparency
 image_angle += 1;
-if image_alpha < 1 then image_alpha += 0.025;
+if image_alpha < 1 image_alpha += 0.025;
 
 // Thrust
 thr_timer += 1;
@@ -44,7 +44,7 @@ switch phase
     {
     case 0: // Intro
         {
-        if atk_timer == 90 then vspeed = -1;
+        if atk_timer == 90 vspeed = -1;
         if y <= yview+sprite_height
             {
             vspeed = 0;
@@ -56,7 +56,7 @@ switch phase
     case 1: // Main Phase
         {
         // Score
-        if instance_exists(obj_player) then scr_addscore(1000,0,0); // no logging
+        if instance_exists(obj_player) scr_addscore(1000,0,0); // no logging
         
         // Movement
         if x <= 40+sprite_width && hspeed < 0
@@ -85,7 +85,7 @@ switch phase
             {
             // Attack 2
             count += 1;
-            if count >= 17 then count = 9;
+            if count >= 17 count = 9;
             if count == 9 || count >= 15
                 {
                 for (var i=2;i<=6;i++) 
@@ -113,14 +113,14 @@ switch phase
 
         timeout -= 1;
         //enemyHP = timeout;
-        if timeout <= 0 then phase = 2;
+        if timeout <= 0 phase = 2;
         break;
         }
     case 2: // Time Out
         {
         hspeed = 0;
         vspeed -= 0.1;
-        if y < yview-(sprite_width/2) then instance_destroy();
+        if y < yview-(sprite_width/2) instance_destroy();
         break;
         }
     }

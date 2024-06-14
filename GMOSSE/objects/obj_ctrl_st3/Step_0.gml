@@ -83,20 +83,20 @@ var l = global.lay_bkg;
 var lh = layer_get_hspeed(l);
 if stage_time > 2200 && stage_time < 2400
     {
-    if lh > -1 then layer_hspeed(l,lh - 0.01);
+    if lh > -1 layer_hspeed(l,lh - 0.01);
     }
 if stage_time > 2400 && stage_time < 2600
     {
-    if lh < 0 then layer_hspeed(l,lh + 0.01);
+    if lh < 0 layer_hspeed(l,lh + 0.01);
     }
     
 /* STAGE 3 CLOUD PHASE */
 // slow down to over planet Earth
-if stage_time == start then instance_create_layer(160,yview-160,global.lay_en_ground,obj_planet3);
+if stage_time == start instance_create_layer(160,yview-160,global.lay_en_ground,obj_planet3);
 if stage_time > start && stage_time < start+200
     {
 	var lv = layer_get_vspeed(l);
-    if lv > 0 then layer_vspeed(l,lv - 0.015);
+    if lv > 0 layer_vspeed(l,lv - 0.015);
     }
     
 if stage_time > start+200 && stage_time < start+900
@@ -151,9 +151,9 @@ if stage_time > start+900 && stage_time < finish
     {
 	var lb = layer_background_get_id(global.lay_bkg);//layer_get_id("lay_bkg"));
 	var la = layer_background_get_alpha(lb);
-	if la < 1 then layer_background_alpha(lb,la+0.005);
+	if la < 1 layer_background_alpha(lb,la+0.005);
     with obj_rain 
 		{
-		if image_alpha < 1 then image_alpha += 0.005;
+		if image_alpha < 1 image_alpha += 0.005;
 		}
     }

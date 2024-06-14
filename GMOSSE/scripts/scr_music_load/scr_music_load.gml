@@ -51,8 +51,8 @@ function scr_music_load(json_section) {
 	
 	var a = l * mystruct.LoopStart;
 	var b = l * mystruct.LoopEnd;
-	if a > 0 then audio_sound_loop_start(m,a);
-	if b < 1 then audio_sound_loop_end(m,b);
+	if a > 0 audio_sound_loop_start(m,a);
+	if b < 1 audio_sound_loop_end(m,b);
 	
 	// Finally, replace file string with audio ref and return the array
 	music_info[0] = m;

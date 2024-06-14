@@ -35,13 +35,13 @@ thr.image_angle = random(360);
 thr.image_speed = 0.5;
 
 // Timeout
-if timeout > 0 then timeout -= 1;
-if timeout == 0 then phase = 7;
+if timeout > 0 timeout -= 1;
+if timeout == 0 phase = 7;
 
 // Movement-related code
 move_timer += 1;
-if move_timer = 60 then vspeed = 0;
-if move_timer < 60 then enemyHP = enemyHP_max;
+if move_timer = 60 vspeed = 0;
+if move_timer < 60 enemyHP = enemyHP_max;
 
 // Attack behaviour
 switch phase
@@ -61,7 +61,7 @@ switch phase
         { 
         if instance_exists(orb1)
             {
-            if orb1.timer >= 30 then orb1.phase = 1; // execute attack once spinning
+            if orb1.timer >= 30 orb1.phase = 1; // execute attack once spinning
             if orb1.count2 >= 4
                 {
                 orb1.phase = 0;
@@ -86,7 +86,7 @@ switch phase
             {
             atk_timer = 0;
             count = 0;
-            if made < 2 then phase = 3 else phase = 4;
+            if made < 2 phase = 3 else phase = 4;
             }
         break;
         }
@@ -113,15 +113,15 @@ switch phase
             }
         else
             {
-            if instance_exists(orb1) then orb1.phase = 3;
-            if instance_exists(orb2) then orb2.phase = 2;
+            if instance_exists(orb1) orb1.phase = 3;
+            if instance_exists(orb2) orb2.phase = 2;
             phase = 5;
             }
         break;
         }
     case 5: // ## ATTACK PHASE 4 ##
         {
-        if !instance_exists(orb1) && !instance_exists(orb2) then phase = 6;
+        if !instance_exists(orb1) && !instance_exists(orb2) phase = 6;
         break;
         }
     case 6: // ## FINAL ATTACK PHASE ##
@@ -156,7 +156,7 @@ switch phase
             orb2.y -= 1;
             }
         direction = 90;
-        if y < yview-sprite_width/2 then instance_destroy();
+        if y < yview-sprite_width/2 instance_destroy();
         break;
         }
     }

@@ -1,4 +1,4 @@
-if instance_exists(obj_ctrl_clear) then exit;
+if instance_exists(obj_ctrl_clear) exit;
 
 // Generating the formula variables
 // no matter the x position in room should be between 0-320
@@ -31,8 +31,8 @@ x += spd_x;
 y += spd_y;
 
 // Bounding omnidirectional speed values within the room
-if x < 0 then spd_x = max(x,1)
-else if x > room_width then spd_x = -min(x-room_width,1)
+if x < 0 spd_x = max(x,1)
+else if x > room_width spd_x = -min(x-room_width,1)
 else spd_x = spd_x_init;
 
 // The formula
@@ -41,6 +41,6 @@ var formula = (x + round(max_width * player_pc)); // 80 * decimal value as perce
 
 var cam = view_get_camera(view_current);
 var cx = camera_get_view_x(cam);
-if cx < formula then cx = cx + (min(formula-cx,2));
-if cx > formula then cx = cx - (min(cx-formula,2));
+if cx < formula cx = cx + (min(formula-cx,2));
+if cx > formula cx = cx - (min(cx-formula,2));
 camera_set_view_pos(cam,cx,y);

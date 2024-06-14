@@ -1,8 +1,8 @@
 // aesthetics
 image_angle += 0.5;
 
-if x < (320-33)-(sprite_width/2) && neg == 0 then x += spd else neg = 1;
-if x > 33+(sprite_width/2) && neg == 1 then x -= spd else neg = 0;
+if x < (320-33)-(sprite_width/2) && neg == 0 x += spd else neg = 1;
+if x > 33+(sprite_width/2) && neg == 1 x -= spd else neg = 0;
 
 // phase control
 switch phase
@@ -22,7 +22,7 @@ switch phase
             made = true;
             }
         timer += 1;
-        if vspeed > 0.0375 then vspeed -= 0.0375;
+        if vspeed > 0.0375 vspeed -= 0.0375;
         if timer == 200
             {
             timer = 0;
@@ -50,7 +50,7 @@ switch phase
 			{
 			if timer == count * (12 * (i+1))
 				{
-				if instance_exists(pod[i]) then
+				if instance_exists(pod[i])
 				with pod[i] event_user(mode)
 				else timer += (count * 12);
 				}
@@ -79,21 +79,21 @@ switch phase
              with pod[3] event_user(mode) else
              timer += (count * 12);
              }*/
-        if timer > (count * 48) then timer = 0;
+        if timer > (count * 48) timer = 0;
              
         timeout -= 1;
-        if timeout <= 0 then phase = 3;                  
+        if timeout <= 0 phase = 3;                  
         break;
         }
     case 3:
         {
         image_blend = c_white;
-        if spd > 0 then spd -= 0.02 else spd += 0.02;
+        if spd > 0 spd -= 0.02 else spd += 0.02;
         vspeed += 0.02;
         image_alpha -= 0.005;
         image_xscale += 0.0005;
         image_yscale += 0.0005;
-        if y > yview+320+(sprite_height/2) then instance_destroy();
+        if y > yview+320+(sprite_height/2) instance_destroy();
         break;
         }
     }

@@ -1,2 +1,2 @@
 ///@desc Depth correction
-if depth == other.depth then depth += 1;
+if depth == other.depth depth += 1;

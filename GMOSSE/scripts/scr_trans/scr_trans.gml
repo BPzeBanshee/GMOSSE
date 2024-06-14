@@ -9,7 +9,7 @@ function scr_trans(_room,type,color_sprite,in_speed,out_speed,delay) {
 	/* 
 	scr_trans, by BPzeBanshee
 	*/
-	if instance_exists(obj_trans) then exit;
+	if instance_exists(obj_trans) exit;
 	var t = instance_create_depth(xview,yview,-16000,obj_trans);
 	t.input_room = _room;
 	t.input_mode = type;

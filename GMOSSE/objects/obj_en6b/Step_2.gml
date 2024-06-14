@@ -1,5 +1,5 @@
-if !instance_exists(parent_id) then instance_destroy();
-if image_index > 0 then image_index -= 0.25;
+if !instance_exists(parent_id) instance_destroy();
+if image_index > 0 image_index -= 0.25;
 p_min = (sprite_width/2);
 p_max = p_min + sprite_width/2;
 y = (parent_id).y;
@@ -19,11 +19,11 @@ if direction == 180
     }
 if hit == 0
     {
-    if (parent_id).x + x < p_max then p += 2;
-    if (parent_id).x + x > p_max then p = p_max;
-    if (parent_id).x + x < p_min then p = p_min;
+    if (parent_id).x + x < p_max p += 2;
+    if (parent_id).x + x > p_max p = p_max;
+    if (parent_id).x + x < p_min p = p_min;
     }
-if hit == 1 then timer += 1;
+if hit == 1 timer += 1;
 if timer >= 5
     {
     timer = 0;

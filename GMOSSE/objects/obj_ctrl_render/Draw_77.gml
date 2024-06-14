@@ -1,4 +1,4 @@
-if l_delay > 0 then exit;
+if l_delay > 0 exit;
 draw_set_alpha(1);
 
 if m_wallpaper > 0
@@ -12,18 +12,18 @@ if m_wallpaper > 0
     draw_sprite_ext(spr_outline,0,x,y,l_scale,l_scale,m_angle,c_white,1);
     }
 
-if global.filter then gpu_set_texfilter(true);
+if global.filter gpu_set_texfilter(true);
 gpu_set_blendmode_ext(bm_one,bm_zero);
 draw_surface_ext(application_surface,round(xx),round(yy),l_scale,l_scale,m_angle,c_white,1);
 gpu_set_blendmode(bm_normal);
-if global.filter then gpu_set_texfilter(false);
+if global.filter gpu_set_texfilter(false);
 //gpu_set_blendmode_ext(bm_src_alpha, bm_inv_src_alpha);
 
 // Apply scanlines if necessary
 if m_scanlines > 0
     {
     if !surface_exists(l_scan)
-    then event_user(1)
+    event_user(1)
     else draw_surface_ext(l_scan,round(xx),round(yy),1,1,m_angle,c_white,global.scanline_alpha/100);
     }
     

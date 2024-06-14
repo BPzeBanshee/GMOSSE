@@ -1,8 +1,8 @@
-if y > yview-(sprite_height/2) then timer += 1;
+if y > yview-(sprite_height/2) timer += 1;
 if timer > 60
     {
     direction += 2;
-    if spd < 10 then spd += 0.25;
+    if spd < 10 spd += 0.25;
     if !made
         {
         for (var i=1;i<=16;i++) shot[i] = instance_create_layer(x,y,layer,obj_en10_orb);

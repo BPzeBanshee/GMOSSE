@@ -17,9 +17,9 @@ function scr_screen_init() {
 	*/
 	// Set timing method (windows only thing, if normal vsync is wonky use this)
 	var scr_method = tm_countvsyncs;
-	if global.alternate_sync == 1 then scr_method = tm_sleep;
+	if global.alternate_sync == 1 scr_method = tm_sleep;
 	
-	if display_get_timing_method() != scr_method then display_set_timing_method(scr_method);
+	if display_get_timing_method() != scr_method display_set_timing_method(scr_method);
 
 	// Set sleep cycle to use if using sleep timing method
 	if scr_method == tm_sleep
@@ -33,6 +33,6 @@ function scr_screen_init() {
 
 	// Vsync
 	var aa_max; aa_max = scr_max_aa();
-	if global.aa > aa_max then global.aa = scr_max_aa();
+	if global.aa > aa_max global.aa = scr_max_aa();
 	scr_setdisplay(global.aa,global.vsync);
 }

@@ -23,7 +23,7 @@ if !done
 			{
 			for (var i=0; i<gamepad_button_count(joy_id[0]); i++)
 				{
-				if gamepad_button_check_pressed(joy_id[0],i) then done = true;
+				if gamepad_button_check_pressed(joy_id[0],i) done = true;
 				}
 			}
 		else gp_check();
@@ -45,7 +45,7 @@ if !done
 		}
 		
 	st = "PRESS A KEY FOR "+string(num_of_players+1)+"P";
-	if num_of_players == 1 then st += "\nOR PRESS AGAIN TO PROCEED";
+	if num_of_players == 1 st += "\nOR PRESS AGAIN TO PROCEED";
 	}
 else
 	{

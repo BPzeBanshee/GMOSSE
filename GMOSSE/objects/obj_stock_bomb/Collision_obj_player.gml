@@ -1,6 +1,6 @@
 with other
 	{
-	if bombs < max_bombs then bombs += 1 else
+	if bombs < max_bombs bombs += 1 else
 		{
 		myctrl.myscore += 5000;
 		var a = instance_create_layer(x,y,layer,obj_popup);

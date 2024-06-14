@@ -6,7 +6,7 @@ if timer >= r3
     // "true random" lightning sound
     scr_snd_stop(snd);
     var r = random_range(1,3); 
-    if round(r2) == round(r) then exit;
+    if round(r2) == round(r) exit;
 	switch round(r)
 		{
 		case 1: snd = snd_lightning1; break;

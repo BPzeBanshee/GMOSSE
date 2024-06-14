@@ -1,7 +1,7 @@
 image_angle += 8;
 
 // Attack patterns
-if phase < 5 then attack_timer += 1;
+if phase < 5 attack_timer += 1;
 if attack_timer == 30
     {
     scr_spreadshot(x,y,obj_bullet2,-1,40,2,4,true);
@@ -44,4 +44,4 @@ if phase == 5
     direction = 270; 
     attack_timer = 0;
     }
-if y > yview+320+(sprite_height/2) then instance_destroy();
+if y > yview+320+(sprite_height/2) instance_destroy();

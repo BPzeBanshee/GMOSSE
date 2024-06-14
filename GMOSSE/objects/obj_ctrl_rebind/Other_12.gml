@@ -66,12 +66,12 @@ if mode == 2
 if mode == 3
     {
     // Selection keys
-    if (keyboard_check_pressed(global.keycode_left)) && select > min_s then select -= 1;
-    if (keyboard_check_pressed(global.keycode_right)) && select < max_s then select += 1;
+    if (keyboard_check_pressed(global.keycode_left)) && select > min_s select -= 1;
+    if (keyboard_check_pressed(global.keycode_right)) && select < max_s select += 1;
     
     // Display vars for current joy id
     if gamepad_is_connected(pad_list[select]) 
-    then desc = scr_linebreak(gamepad_get_description(pad_list[select]),32,99)
+    desc = scr_linebreak(gamepad_get_description(pad_list[select]),32,99)
     else desc = "N/A";
     
     // Accept

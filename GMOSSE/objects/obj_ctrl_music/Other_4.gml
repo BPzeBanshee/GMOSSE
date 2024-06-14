@@ -33,11 +33,11 @@ if LOAD_EVERYTHING
 		case rm_boss2: choice = snd_st2; break;
 		case rm_stage3: choice = snd_st3; break;
 		}
-	if is_array(choice) then music = choice;
+	if is_array(choice) music = choice;
 	}
 	
 // ...else, kludge loop check for menu...
-else if room == rm_menu && global.intro then loop = false;
+else if room == rm_menu && global.intro loop = false;
 	
 // ...then play the decided track, or not
 if is_array(choice)

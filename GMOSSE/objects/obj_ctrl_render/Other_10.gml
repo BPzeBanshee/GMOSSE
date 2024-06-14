@@ -12,12 +12,12 @@ if !window_has_focus()
 // First, update the maximum array iteration size
 m_aspect = global.window_aspect;
 var l_max_size = array_length(m_array_w[m_aspect])-1;
-if global.window_size > l_max_size then global.window_size = l_max_size;
+if global.window_size > l_max_size global.window_size = l_max_size;
 
 // Then check the maximum size for our current display, and bound global.window_size to it
-if m_array_w[m_aspect,global.window_size] > display_get_width() then
+if m_array_w[m_aspect,global.window_size] > display_get_width()
 while m_array_w[m_aspect,global.window_size] > display_get_width() global.window_size -= 1;
-if m_array_h[m_aspect,global.window_size] > display_get_height() then
+if m_array_h[m_aspect,global.window_size] > display_get_height()
 while m_array_h[m_aspect,global.window_size] > display_get_height() global.window_size -= 1;
 m_size = min(global.window_size,l_max_size);
 
@@ -37,7 +37,7 @@ if !l_firstrun
     xx = (dw / 2) - (w / 2);
     yy = (dh / 2) - (h / 2);
     if window_get_x() != xx || window_get_y() != yy
-    then window_set_position(xx,yy);
+    window_set_position(xx,yy);
     l_firstrun = 1;
     }
 

@@ -4,9 +4,9 @@ speed = 0;
 jump_timer -= 1;
 if jump_timer == 0
     {
-    // time to jump, decide direction
+    // time to jump, decide direction with ternary operator
     speed = 1;
-    if x > 160 then direction = 180 else direction = 0;
+    direction = x > 160 ? 180 : 0;
     
     // increment jump count by 1
     jump_count += 1;
@@ -27,5 +27,5 @@ if jump_timer == 0
     instance_destroy();
     }
 
-if y > yview+330 then instance_destroy();
+if y > yview+330 instance_destroy();
 

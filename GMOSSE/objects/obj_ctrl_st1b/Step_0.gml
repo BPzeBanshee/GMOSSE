@@ -86,9 +86,9 @@ if (stage_time > 2650 && stage_time < 3200)
 || (stage_time > 5400 && stage_time < 6500)
     {
     atk_timer += 1;
-    if atk_timer == 30 then instance_create_layer(120,-32,global.lay_en_air,obj_rock_atk);
-    if atk_timer == 60 then instance_create_layer(200,-32,global.lay_en_air,obj_rock_atk);
-    if atk_timer == 90 then instance_create_layer(40,-32,global.lay_en_air,obj_rock_atk);
+    if atk_timer == 30 instance_create_layer(120,-32,global.lay_en_air,obj_rock_atk);
+    if atk_timer == 60 instance_create_layer(200,-32,global.lay_en_air,obj_rock_atk);
+    if atk_timer == 90 instance_create_layer(40,-32,global.lay_en_air,obj_rock_atk);
     if atk_timer == 120
         {
         instance_create_layer(280,-32,global.lay_en_air,obj_rock_atk);
@@ -101,5 +101,5 @@ if stage_time > 6550 && !instance_exists(obj_omake1)
     {
 	var l = global.lay_bkg;//layer_get_id("lay_bkg");
 	var s = layer_get_vspeed(l);
-	if s < 4 then layer_vspeed(l,s+0.1);
+	if s < 4 layer_vspeed(l,s+0.1);
     }

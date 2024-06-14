@@ -3,7 +3,7 @@
 /// @param {String} filename
 /// @return {Real}
 function scr_replay_save(ds_grid, filename) {
-	if !ds_exists(ds_grid,ds_type_grid) then return 1;
+	if !ds_exists(ds_grid,ds_type_grid) return 1;
 
 	var replay_str;
 	replay_str = base64_encode(ds_grid_write(ds_grid));

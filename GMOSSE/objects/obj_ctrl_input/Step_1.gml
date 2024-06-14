@@ -1,4 +1,4 @@
-if !enabled then exit;
+if !enabled exit;
 scr_input();
 
 // Creates Pause object if button4 is pressed, game is not paused already and is allowed

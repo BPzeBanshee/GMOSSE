@@ -2,12 +2,12 @@ if !hook
 	{
 	if global.jleft
 		{
-		if choice > 0 then choice -= 1;
+		if choice > 0 choice -= 1;
 		hook = true;
 		}
 	if global.jright
 		{
-		if choice < arrlen-1 then choice += 1;
+		if choice < arrlen-1 choice += 1;
 		hook = true;
 		}
 	if global.button1
@@ -16,7 +16,7 @@ if !hook
 		object_set_sprite(ship,ship_img[choice]);
 		instance_destroy();
 		}
-	if global.button2 then instance_destroy();
+	if global.button2 instance_destroy();
 	}
 
 if !global.jleft

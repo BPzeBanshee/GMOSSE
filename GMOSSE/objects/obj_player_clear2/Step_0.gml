@@ -1,1 +1,1 @@
-if speed == 0 then instance_destroy();
+if speed == 0 instance_destroy();

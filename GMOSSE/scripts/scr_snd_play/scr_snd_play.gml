@@ -10,18 +10,18 @@ function scr_snd_play(sound_id,stopfirst=false,looping=false) {
 	var vol = 1;
 	if array_contains(voice_array,sound_id)
 		{
-		if global.voice_volume == 0 then return 0;
+		if global.voice_volume == 0 return 0;
 		vol = audio_sound_get_gain(sound_id) * (round(global.voice_volume)/100);
 		}
 	else 
 		{
 		// stop script if muted
-		if global.sfx_volume == 0 then return 0;
+		if global.sfx_volume == 0 return 0;
 		vol = audio_sound_get_gain(sound_id) * (round(global.sfx_volume)/100);
 		}
 	
 	// stop sound if already playing
-	if stopfirst then scr_snd_stop(sound_id);
+	if stopfirst scr_snd_stop(sound_id);
 	
 	// finally, play the damn thing
 	audio_play_sound(sound_id,0,looping,vol);

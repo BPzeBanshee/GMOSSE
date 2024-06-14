@@ -16,6 +16,6 @@ if timer == 15
 if image_alpha <= 0
     {
     scr_snd_play(snd_exp3);
-    if global.omake_enabled then instance_create_layer(160,yview-16,global.lay_en_air,obj_omake2);
+    if global.omake_enabled instance_create_layer(160,yview-16,global.lay_en_air,obj_omake2);
     instance_destroy();
     }

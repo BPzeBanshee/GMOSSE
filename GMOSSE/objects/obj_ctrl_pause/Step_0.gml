@@ -1,4 +1,4 @@
-if !enabled then exit;
+if !enabled exit;
 
 // *************** Input Checking ***************
 var up = global.jup[0];
@@ -11,7 +11,7 @@ if (up && !hook && enabled)
     scr_snd_play(snd_click,true);
     hook = true;
     selection -= 1; // Scroll up on the menu.
-    if selection < 1 then selection = 5; // Goes to the bottom box.
+    if selection < 1 selection = 5; // Goes to the bottom box.
     }
 
 // Down
@@ -20,7 +20,7 @@ if (down && !hook && enabled)
     scr_snd_play(snd_click,true);
     hook = true;
     selection += 1; // Scroll down on the menu.
-    if selection > 5 then selection = 1; // Goes to the top box.
+    if selection > 5 selection = 1; // Goes to the top box.
     }
 
 // Button 1
@@ -39,7 +39,7 @@ if (b1 && !global.levelend && !hook && enabled)
             }
         case 2: // restarting room
             {
-            if restart_locked then exit; // Do not allow restarts after stage 1
+            if restart_locked exit; // Do not allow restarts after stage 1
 			with obj_ctrl_music
 				{
 				resume();

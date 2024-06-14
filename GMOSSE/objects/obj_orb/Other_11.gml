@@ -5,12 +5,12 @@ This executes in increments, each barrage of shots happen 8 times,
 with 4 barrages in total. Called by obj_boss before said boss
 performs its own circular attack.
 */
-if count2 < 4 then atk_timer -= 1;
+if count2 < 4 atk_timer -= 1;
 if atk_timer == 0
     {
 	var target = instance_nearest(x,y,obj_hitbox);
 	var aim = 270;
-	if target != noone then aim = point_direction(x,y,target.x,target.y);
+	if target != noone aim = point_direction(x,y,target.x,target.y);
     repeat 5
         {
         scr_basicshot(x,y,global.lay_bullets,obj_bullet1,spd,aim);

@@ -1,2 +1,2 @@
-if !instance_exists(parent_id) then instance_destroy();
+if !instance_exists(parent_id) instance_destroy();
 

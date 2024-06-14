@@ -1,1 +1,1 @@
-if invincible == 0 && other.can_collide then do_death_event();
+if invincible == 0 && other.can_collide do_death_event();

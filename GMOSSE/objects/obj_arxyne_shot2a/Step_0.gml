@@ -17,10 +17,10 @@ else
 scr_turntoangle(angle,turnrate);
 if direction != angle  
     {
-    if turnrate < 10 then turnrate += 1;
+    if turnrate < 10 turnrate += 1;
     }
 else 
     {
-    if speed < max_speed then speed += acceleration; 
-    if turnrate > 10 then turnrate -= 1;    
+    if speed < max_speed speed += acceleration; 
+    if turnrate > 10 turnrate -= 1;    
     }

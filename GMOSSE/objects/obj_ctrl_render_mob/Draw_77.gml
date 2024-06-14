@@ -1,4 +1,4 @@
-if l_delay > 0 then exit;
+if l_delay > 0 exit;
 draw_set_alpha(1);
 
 if m_wallpaper && (m_aspect > 0 || (m_aspect == 0 && (m_angle == 90 || m_angle == 270)))

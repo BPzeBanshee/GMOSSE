@@ -11,16 +11,16 @@ if fading_out
 if fading_in
 	{
 	var vol_max = round(global.music_volume)/100;
-	if audio_sound_get_gain(channel) == vol_max then fading_in = false;
+	if audio_sound_get_gain(channel) == vol_max fading_in = false;
 	}
 	
 if showing_info && !instance_exists(obj_ctrl_pause)
 	{
 	timer += 1;
-	if timer < 360 && alpha < 1 then alpha += 0.01;
+	if timer < 360 && alpha < 1 alpha += 0.01;
 	if timer > 360
 		{
-		if alpha > 0 then alpha -= 0.01 else showing_info = false;
+		if alpha > 0 alpha -= 0.01 else showing_info = false;
 		}
 	}
 

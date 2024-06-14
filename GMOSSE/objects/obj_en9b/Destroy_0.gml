@@ -1,2 +1,2 @@
 ///@desc Clean up turret
-if made then instance_destroy(tur);
+if made instance_destroy(tur);

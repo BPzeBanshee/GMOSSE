@@ -1,6 +1,6 @@
 c = 0;
 timer = 0;
-if global.intro then mode = 1 else mode = 2;
+if global.intro mode = 1 else mode = 2;
 
 lay_fx = layer_get_id("lay_menu_fx");
 warpgen = instance_create_layer(120,160,lay_fx,obj_warp_gen);

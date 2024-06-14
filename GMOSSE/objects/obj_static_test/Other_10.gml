@@ -1,5 +1,5 @@
 /// @description  Update surface
-if !surface_exists(surf) then surf = surface_create(240,320);
+if !surface_exists(surf) surf = surface_create(240,320);
 surface_set_target(surf);
 draw_clear_alpha(c_white,0);
 surface_reset_target();

@@ -1,3 +1,3 @@
 image_angle += 10;
-if !scr_isonscreen() then instance_destroy();
+if !scr_isonscreen() instance_destroy();
 

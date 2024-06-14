@@ -4,7 +4,7 @@ for (var yy=0;yy<3;yy++)
     for (var xx=0;xx<2;xx++)
         {
         if instance_exists(turret[xx,yy])
-        then instance_destroy(turret[xx,yy]);
+        instance_destroy(turret[xx,yy]);
         }
     }
         

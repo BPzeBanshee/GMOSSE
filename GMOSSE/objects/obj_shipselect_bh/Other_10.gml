@@ -1,5 +1,5 @@
 ///@desc Flavour text
-if menu == 1 then switch selection 
+if menu == 1 switch selection 
 {
 case 1: 
 msg = @"
@@ -79,7 +79,7 @@ break;
 default: msg = "ERROR"; break;
 }
 
-if menu == 2 then switch selection 
+if menu == 2 switch selection 
 {
 case 1: 
 msg = @"Attack = 1 [2.25]

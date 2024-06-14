@@ -9,7 +9,7 @@ function scr_camera_init(_left_bound,_right_bound,_xspd,_yspd) {
 	updated to use input/bound code 11-4-16
 	updated to GM2022 standards 31-10-22
 	*/
-	if instance_exists(obj_ctrl_camera) then return -1;
+	if instance_exists(obj_ctrl_camera) return -1;
 	globalvar left_bound,right_bound,spd_x,spd_y;
 	// range of player x movement
 	left_bound = _left_bound;

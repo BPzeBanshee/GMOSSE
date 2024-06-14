@@ -35,7 +35,7 @@ function scr_pause() {
 	surface_set_target(surf);
 	draw_clear_alpha(c_black,1);
 	gpu_set_blendmode_ext(bm_one, bm_inv_src_alpha);
-	if surface_exists(application_surface) then draw_surface_stretched(application_surface,0,0,win_w,win_h);
+	if surface_exists(application_surface) draw_surface_stretched(application_surface,0,0,win_w,win_h);
 	gpu_set_blendmode(bm_normal);
 	surface_reset_target();
 

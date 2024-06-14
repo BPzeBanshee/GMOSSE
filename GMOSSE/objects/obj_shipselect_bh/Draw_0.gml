@@ -44,5 +44,5 @@ draw_set_alpha(1);
 draw_text(xx+1,yy+140,text);
 
 // SIDE CURSORS
-if selection > 1 then draw_sprite_ext(spr_shipselect,image_index,xx+16,yy+120,-1,1,0,c_white,1);
-if selection < 7 then draw_sprite_ext(spr_shipselect,image_index,xx+224,yy+120,1,1,0,c_white,1);
+if selection > 1 draw_sprite_ext(spr_shipselect,image_index,xx+16,yy+120,-1,1,0,c_white,1);
+if selection < 7 draw_sprite_ext(spr_shipselect,image_index,xx+224,yy+120,1,1,0,c_white,1);

@@ -1,5 +1,5 @@
 /// @description  MAIN MENU
-if image_index == image_number then image_speed = 0;
+if image_index == image_number image_speed = 0;
 if !scr_isonscreen()
     {
     image_xscale = 0.22;
@@ -15,7 +15,7 @@ if !scr_isonscreen()
 else
     {
     speed += 0.1;
-    if image_alpha < 1 then image_alpha += 0.02;
+    if image_alpha < 1 image_alpha += 0.02;
 	image_xscale *= (1+image_xscale/15);
 	image_yscale *= (1+image_yscale/15);
     /*if image_xscale < 3

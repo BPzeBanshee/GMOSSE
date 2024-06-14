@@ -2,10 +2,10 @@
 event_inherited();
 
 // Timers
-if shot_timer > 0 then shot_timer -= 1;
-if shot2_timer > 0 then shot2_timer -= 1;
-if bomb_timer > 0 then bomb_timer -= 1;
-if time_passed < 180 then time_passed += 1;
+if shot_timer > 0 shot_timer -= 1;
+if shot2_timer > 0 shot2_timer -= 1;
+if bomb_timer > 0 bomb_timer -= 1;
+if time_passed < 180 time_passed += 1;
 
 var side = myctrl.side;
 var b1 = global.button1[side];

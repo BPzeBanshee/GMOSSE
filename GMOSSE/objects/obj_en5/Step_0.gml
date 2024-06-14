@@ -35,14 +35,14 @@ switch mode
         // Timeout/Get the fuck out of the wall's way
         if num_of_shots == 0
         || collision_point(x,y-64,obj_wall,0,0)
-        then mode = 2;
+        mode = 2;
         break;
         }
     case 2:
         { // Timeout
         scr_turntoangle(270,2);
-        if direction == 270 then speed += 0.05;
-        if y > yview+320+sprite_height then instance_destroy();
+        if direction == 270 speed += 0.05;
+        if y > yview+320+sprite_height instance_destroy();
         break;
         }
     }

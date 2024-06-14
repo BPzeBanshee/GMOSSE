@@ -5,7 +5,7 @@ if replaying && stagenum > 0
     if instance_exists(obj_ctrl_clear) 
     || instance_exists(obj_ctrl_gameover)
     || instance_exists(obj_ctrl_pause)
-    then exit;
+    exit;
     
     var l_input_value = input[|l_step];
     global.jup[0] = round((l_input_value & l_inp_up)==l_inp_up);
@@ -36,13 +36,13 @@ else
         && !instance_exists(obj_ctrl_pause)
             {
             var l_input_value = 0;
-            if global.jup[0] then l_input_value += l_inp_up;
-            if global.jdown[0] then l_input_value += l_inp_down;
-            if global.jleft[0] then l_input_value += l_inp_left;
-            if global.jright[0] then l_input_value += l_inp_right;
-            if global.button1[0] then l_input_value += l_inp_b1;
-            if global.button2[0] then l_input_value += l_inp_b2;
-            if global.button3[0] then l_input_value += l_inp_b3;
+            if global.jup[0] l_input_value += l_inp_up;
+            if global.jdown[0] l_input_value += l_inp_down;
+            if global.jleft[0] l_input_value += l_inp_left;
+            if global.jright[0] l_input_value += l_inp_right;
+            if global.button1[0] l_input_value += l_inp_b1;
+            if global.button2[0] l_input_value += l_inp_b2;
+            if global.button3[0] l_input_value += l_inp_b3;
             input[|l_step] = round(l_input_value);
             l_step += 1;
             l_step = round(l_step);

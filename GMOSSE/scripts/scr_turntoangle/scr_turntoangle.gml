@@ -19,14 +19,14 @@ function scr_turntoangle(angle, turnspeed) {
 	        {
 	        tempdir = angle - 360;
 	        if (abs(tempdir-direction) > turnspeed) 
-	        then direction -= turnspeed
+	        direction -= turnspeed
 	        else direction = angle;
 	        } 
 	    else 
 	        {
 	        tempdir = angle + 360;
 	        if (abs(tempdir-direction) > turnspeed) 
-	        then direction += turnspeed
+	        direction += turnspeed
 	        else direction = angle;
 	        }
 	    } 
@@ -35,7 +35,7 @@ function scr_turntoangle(angle, turnspeed) {
 	    if (abs(angle - direction) > turnspeed) 
 	        {
 	        if (angle > direction) 
-	        then direction += turnspeed
+	        direction += turnspeed
 	        else direction -= turnspeed;
 	        } 
 	    else direction = angle;

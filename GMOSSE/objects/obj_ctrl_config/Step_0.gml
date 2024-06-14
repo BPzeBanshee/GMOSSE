@@ -16,7 +16,7 @@ if up && !hook
     scr_snd_play(snd_click,true);
     hook = true;
     selection -= 1;
-    if selection < 1 then selection = selection_max;
+    if selection < 1 selection = selection_max;
     }
     
 // DOWN
@@ -25,9 +25,9 @@ if down && !hook
     scr_snd_play(snd_click,true);
     hook = true;
     selection += 1;
-    if selection > selection_max then selection = 1;
+    if selection > selection_max selection = 1;
     }
 
 // HOOK
-if !b1 && !up && !down && !left && !right then hook = false;
+if !b1 && !up && !down && !left && !right hook = false;
 

@@ -27,7 +27,7 @@ if tur_count > 0
         {
         timer = 0;
         atk_timer = 0;
-        if atk_phase == 1 then atk_phase = 2 else atk_phase = 1;
+        if atk_phase == 1 atk_phase = 2 else atk_phase = 1;
         }
     
     // First Pattern
@@ -62,7 +62,7 @@ if tur_count == 0 && y > yview-(sprite_height/2) && y < yview+160
         scr_snd_play(snd_en_shot3,true);
         scr_basicshot(x,y,global.lay_bullets,obj_bullet4,4,aim); 
         aim += 45;
-        if aim >= 360 then aim = 0;
+        if aim >= 360 aim = 0;
         timer = 0;
         }
     }    
@@ -75,8 +75,8 @@ switch phase
         if y > yview+160
             {
             // if x == 160 do nothing
-            if x > 160 then direction = 180;
-            if x < 160 then direction = 0;
+            if x > 160 direction = 180;
+            if x < 160 direction = 0;
             speed = 1;
             phase = 2;
             }
@@ -96,8 +96,8 @@ switch phase
         {
         if y < yview+40
             {
-            if x > 160 then direction = 0;
-            if x < 160 then direction = 180;
+            if x > 160 direction = 0;
+            if x < 160 direction = 180;
             speed = 0.35;
             }
         break;

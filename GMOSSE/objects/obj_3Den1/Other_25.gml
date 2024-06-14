@@ -11,4 +11,4 @@ scr_basicshot(x,y,layer,obj_explosion,5,random(360));
 image_alpha -= 0.1;
 image_xscale -= 0.1;
 image_yscale -= 0.1;
-if image_alpha <= 0 then instance_destroy();
+if image_alpha <= 0 instance_destroy();

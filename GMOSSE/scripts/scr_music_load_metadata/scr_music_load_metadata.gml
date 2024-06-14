@@ -37,9 +37,9 @@ function scr_music_load_json(section){
 	if variable_struct_exists(myjson,section)
 		{
 		var mystruct = myjson[$section];
-		if !struct_exists(mystruct,"Volume") then struct_set(mystruct,"Volume",100);
-		if !struct_exists(mystruct,"LoopStart") then struct_set(mystruct,"LoopStart",0);
-		if !struct_exists(mystruct,"LoopEnd") then struct_set(mystruct,"LoopEnd",1);
+		if !struct_exists(mystruct,"Volume") struct_set(mystruct,"Volume",100);
+		if !struct_exists(mystruct,"LoopStart") struct_set(mystruct,"LoopStart",0);
+		if !struct_exists(mystruct,"LoopEnd") struct_set(mystruct,"LoopEnd",1);
 		
 		// Feather disable once GM1063
 		return is_struct(mystruct) ? mystruct : 3;

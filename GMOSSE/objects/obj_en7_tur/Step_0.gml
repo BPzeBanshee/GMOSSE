@@ -2,7 +2,7 @@ image_angle = direction;
 if instance_exists(parentID)
     {
 	var p = parentID;
-    if p.phase == 0 then direction = p.direction;
+    if p.phase == 0 direction = p.direction;
     if p.phase == 1
         {
         var aim = 270;
@@ -13,6 +13,6 @@ if instance_exists(parentID)
             }
         scr_turntoangle(aim,3);
         }
-    if p.phase == 2 then direction += 16;
-    if p.phase == 3 then scr_turntoangle(p.direction,3);
+    if p.phase == 2 direction += 16;
+    if p.phase == 3 scr_turntoangle(p.direction,3);
     }

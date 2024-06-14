@@ -1,5 +1,5 @@
 image_angle = direction;
-if !scr_isonscreen() || !active then exit;
+if !scr_isonscreen() || !active exit;
 
 var aim = 270;
 if instance_exists(obj_hitbox)
@@ -21,4 +21,4 @@ if timer >= 60
         timer2 = 4;
         }
     }
-if timer == 90 then timer = 0;
+if timer == 90 timer = 0;

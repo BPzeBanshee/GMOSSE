@@ -1,5 +1,5 @@
 image_angle = direction;
-if !scr_isonscreen() || !active then exit;
+if !scr_isonscreen() || !active exit;
 
 var aim = 270;
 if instance_exists(obj_hitbox)

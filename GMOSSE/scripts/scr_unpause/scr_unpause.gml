@@ -19,7 +19,7 @@ function scr_unpause() {
 			}
 		}
 
-	if sprite_exists(global.pause_img) then sprite_delete(global.pause_img);
+	if sprite_exists(global.pause_img) sprite_delete(global.pause_img);
 	instance_activate_all();
 
 	global.paused = false;

@@ -19,7 +19,7 @@ function scr_linebreak(text,maxLength,maxWordLength) {
 	        while true 
 	            {
 	            str = string_char_at(text,go-prev);
-	            if str != " " then prev += 1 else break;
+	            if str != " " prev += 1 else break;
 	            if prev > maxWordLength
 	                {
 	                prev = 0;
@@ -31,7 +31,7 @@ function scr_linebreak(text,maxLength,maxWordLength) {
 	        }
 	    insert += 1;
 	    go += 1;
-	    if string_char_at(text,go) == "\n" then insert = 0;
+	    if string_char_at(text,go) == "\n" insert = 0;
 	    }
  
 	return text;

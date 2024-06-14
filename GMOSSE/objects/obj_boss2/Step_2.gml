@@ -2,7 +2,7 @@
 event_inherited();
 
 // Pod positioning (happens regardless of mode)
-if !made then exit;
+if !made exit;
 
 var hp = 0;
 for (var i=0; i<4; i++)

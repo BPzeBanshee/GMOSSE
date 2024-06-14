@@ -31,7 +31,7 @@ if made
     y = (foot[0].y + foot[1].y + foot[2].y + foot[3].y) / 4;
     //y += 0.5; // fake yscroll for test
     
-    if timer > 0 then timer -= 1;
+    if timer > 0 timer -= 1;
     if y >= 130 && timer == 0
         {
         timer = 60;
@@ -54,21 +54,21 @@ if made
         foot[n2].yy = foot[n2].y - 64;
         
         // Set new foot x positions to move sideways
-        if keyboard_check(ord("J")) && c == 0 then c = 1;
-        if keyboard_check(ord("L")) && d == 0 then d = 1;
+        if keyboard_check(ord("J")) && c == 0 c = 1;
+        if keyboard_check(ord("L")) && d == 0 d = 1;
         if c > 0
             {
             foot[n1].xx = foot[n1].x - 32;
             foot[n2].xx = foot[n2].x - 32;
             c += 1; 
-			if c == 3 then c = 0;
+			if c == 3 c = 0;
             }
         if d > 0
             {
             foot[n1].xx = foot[n1].x + 32;
             foot[n2].xx = foot[n2].x + 32;
             d += 1; 
-			if d == 3 then d = 0;
+			if d == 3 d = 0;
             }
         }
     }

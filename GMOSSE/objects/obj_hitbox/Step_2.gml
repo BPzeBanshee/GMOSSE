@@ -14,7 +14,7 @@ if instance_exists(myplayer)
 	    }
 	if invincible != 0 
 	    {
-	    if invincible > 0 then invincible -= 1;
+	    if invincible > 0 invincible -= 1;
 	    if instance_exists(myplayer)
 	        {
 	        if (myplayer.image_alpha < 0.1 && !clear)

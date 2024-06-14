@@ -19,10 +19,10 @@ if y >= yview-(sprite_width/2) && !made
     }
 
 // Attack/Move pattern
-if phase > 0 then timer += 1;
+if phase > 0 timer += 1;
 if timer == 120 && phase < 3
     {
-    if phase == 1 then phase = 2 else phase = 1; 
+    if phase == 1 phase = 2 else phase = 1; 
 	atk_timer = 0;
     timer = 0;
     }
@@ -32,12 +32,12 @@ switch phase
     case 0: 
         {
         if y > yview-(sprite_width/2) speed -= 0.1;
-        if speed <= 0.3 then phase = 1;
+        if speed <= 0.3 phase = 1;
         break;
         }
     case 1: 
         {
-        if y > yview+240 then phase = 3;
+        if y > yview+240 phase = 3;
         
         atk_timer += 1;
         if atk_timer == 30 && made
@@ -50,7 +50,7 @@ switch phase
         }
     case 2: 
         {
-        if y > yview+240 then phase = 3;
+        if y > yview+240 phase = 3;
         
         atk_timer += 1;
         if atk_timer == 4 && made

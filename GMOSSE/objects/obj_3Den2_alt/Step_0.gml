@@ -1,6 +1,6 @@
 scr_3D();
 image_angle += 8;
-if y >= yview + 320+(sprite_height*image_yscale) then instance_destroy();
+if y >= yview + 320+(sprite_height*image_yscale) instance_destroy();
 switch mode
     {
     case 1: // dropping below player field
@@ -23,8 +23,8 @@ switch mode
             {
             if distance_to_object(obj_3Den2_alt) < 35
                 {
-                if x < 160 then hspeed = -0.8;
-                if x > 160 then hspeed = 0.8;
+                if x < 160 hspeed = -0.8;
+                if x > 160 hspeed = 0.8;
                 }
             mode = 3;
             }

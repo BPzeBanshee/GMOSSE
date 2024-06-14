@@ -1,1 +1,1 @@
-if invincible == 0 then do_death_event();
+if invincible == 0 do_death_event();

@@ -42,7 +42,7 @@ if category == 1
     {
     // BEHAVIOURS
     var dz = string(round(global.deadzone*100))+"%";
-    if global.deadzone == 0 then dz = "EXACT";
+    if global.deadzone == 0 dz = "EXACT";
 	var du;
     switch global.joytype
         {
@@ -141,16 +141,16 @@ if category == 4
     {
     // BEHAVIOURS
     var vol_music = string(global.music_volume)+"%";
-    if global.music_volume == 100 then vol_music = "MAX";
-    if global.music_volume == 0 then vol_music = "OFF";
+    if global.music_volume == 100 vol_music = "MAX";
+    if global.music_volume == 0 vol_music = "OFF";
 
     var vol_sfx = string(global.sfx_volume)+"%";
-    if global.sfx_volume == 100 then vol_sfx = "MAX";
-    if global.sfx_volume == 0 then vol_sfx = "OFF";
+    if global.sfx_volume == 100 vol_sfx = "MAX";
+    if global.sfx_volume == 0 vol_sfx = "OFF";
     
     var vol_voice = string(global.voice_volume)+"%";
-    if global.voice_volume == 100 then vol_voice = "MAX";
-    if global.voice_volume == 0 then vol_voice = "OFF";
+    if global.voice_volume == 100 vol_voice = "MAX";
+    if global.voice_volume == 0 vol_voice = "OFF";
     
     // TEXT
     draw_text(xview+60,yview+s+(g*1),"MUSIC VOLUME: "+string(vol_music));
@@ -158,9 +158,9 @@ if category == 4
     draw_text(xview+60,yview+s+(g*3),"VOICE VOLUME: "+string(vol_voice));
 	
 	var safety_check = room == rm_menu ? true : false;
-	if !safety_check then draw_set_color(c_red);
+	if !safety_check draw_set_color(c_red);
     draw_text(xview+60,yview+s+(g*4),"DEFINE MUSIC PACK");
-    if !safety_check then draw_set_color(8454016);
+    if !safety_check draw_set_color(8454016);
 	
     draw_text(xview+60,yview+s+(g*6),"RETURN TO MENU");
 	
@@ -209,8 +209,8 @@ if category == 5
     }
     
 var i = 0;
-if selection == selection_max then i = 10;
-if category == 2 then if selection == selection_max - 1 then i = 10;
+if selection == selection_max i = 10;
+if category == 2 if selection == selection_max - 1 i = 10;
 draw_sprite(spr_shipselect,-1,xview+45,yview+s+5+(g*selection+i));
     
 // ----------------- END MAIN EVENT --------------

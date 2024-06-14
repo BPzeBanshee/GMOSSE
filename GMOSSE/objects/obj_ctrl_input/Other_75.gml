@@ -7,7 +7,7 @@ modified to work with GMOSSE by BPzeBanshee
 */
 
 // Precaution to preserve joystick/gamepad state if disabled
-if !enabled then exit;
+if !enabled exit;
 var jid = 0;
 
 // Debug code so you can see which event has been triggered
@@ -63,7 +63,7 @@ switch(async_load[? "event_type"])
                 {
                 if gamepad_is_connected(pad) 
                     {
-                    if global.joy_id[jid] == -1 then global.joy_id[jid] = pad;
+                    if global.joy_id[jid] == -1 global.joy_id[jid] = pad;
                     count += 1;
                     }
                 pad += 1;
@@ -71,7 +71,7 @@ switch(async_load[? "event_type"])
                 
             // Report result to console
             if pad == gamepad_get_device_count() && global.joy_id[jid] == -1
-            then trace("Failed to find any joystick/gamepads")
+            trace("Failed to find any joystick/gamepads")
             else trace(string(count)+" Pads found, picked ID: "+string(global.joy_id[jid]));
             }
         break;

@@ -9,7 +9,7 @@ function scr_hud_player(xx=xview,yy=yview, side=0) {
 	    {
 		if myplayer.y < yy+96//32 
 			{
-		    if (side ? (myplayer.x > xx+240-64) : (myplayer.x < xx+64)) then draw_set_alpha(0.5);
+		    if (side ? (myplayer.x > xx+240-64) : (myplayer.x < xx+64)) draw_set_alpha(0.5);
 			}
 	    }
 	draw_text(xx+(side ? 239 : 1),yy,string(myscore));
@@ -23,10 +23,10 @@ function scr_hud_player(xx=xview,yy=yview, side=0) {
 	    }
     
 	// CHAIN TIMER //
-	if countdown < 90 then a -= 0.005 else a = 0.5;
+	if countdown < 90 a -= 0.005 else a = 0.5;
 	draw_set_alpha(a); 
     
-	if countdown > 0 && exists then 
+	if countdown > 0 && exists 
 	scr_draw_gauge(myplayer.x,myplayer.y,20,4,360+90,90,-1,(countdown/180)*100,c_blue,16777088);
     
 	// LIVES DISPLAY //
@@ -35,7 +35,7 @@ function scr_hud_player(xx=xview,yy=yview, side=0) {
 	    {
 	    if myplayer.x < xx+(side ? 240-64 : 64)  
 	    && myplayer.y < yy+96//24 
-	    then a2 = 0.25;
+	    a2 = 0.25;
 	    }
 	for (var i=0;i<mylives;i++)
 	    {

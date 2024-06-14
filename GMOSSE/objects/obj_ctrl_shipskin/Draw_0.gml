@@ -20,5 +20,5 @@ for (var i=0; i<arrlen; i++)
 	{
 	ii = floor(ship_index[i]/2);
 	draw_sprite(ship_img[i],ii,sx+(i*iw),yy+170);
-	if choice == i then draw_sprite_ext(spr_shipselect,-1,sx+(choice*iw),yy+200,1,1,90,c_white,1);
+	if choice == i draw_sprite_ext(spr_shipselect,-1,sx+(choice*iw),yy+200,1,1,90,c_white,1);
 	}

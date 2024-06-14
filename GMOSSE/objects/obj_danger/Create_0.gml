@@ -15,4 +15,4 @@ alpha3 = 1; // text
 // Misc.
 rnd = 15;
 
-if !instance_exists(obj_ctrl_gameover) then scr_snd_play(snd_pain);
+if !instance_exists(obj_ctrl_gameover) scr_snd_play(snd_pain);

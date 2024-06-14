@@ -22,5 +22,5 @@ function scr_3D() {
 	*/
 	image_xscale = (z / 512) * 4;
 	image_yscale = (z / 512) * 4;
-	if z > 256 then image_alpha = max(0,1 - ((z - 256) / 256));
+	if z > 256 image_alpha = max(0,1 - ((z - 256) / 256));
 }

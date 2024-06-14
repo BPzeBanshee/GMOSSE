@@ -1,7 +1,7 @@
 scr_3D();
 image_angle += 10;
-if speed < 6 then speed += 0.04;
-if z > 128 then z -= z_speed;
+if speed < 6 speed += 0.04;
+if z > 128 z -= z_speed;
 if z <= 128
     {
     if instance_exists(obj_hitbox)

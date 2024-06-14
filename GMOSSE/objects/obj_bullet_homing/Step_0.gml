@@ -5,5 +5,5 @@ if speed <= 0
     speed = 1;
     friction = -0.2;
     }
-if speed > 5 then speed = 5;
+if speed > 5 speed = 5;
 

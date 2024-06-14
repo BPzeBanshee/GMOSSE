@@ -14,8 +14,8 @@ switch mode
     {
     case 0:
         {
-        if speed > 0 then speed -= 0.2;
-        if speed <= 0 then timer += 1;
+        if speed > 0 speed -= 0.2;
+        if speed <= 0 timer += 1;
         if timer == 30
             {
             vspeed = 0;
@@ -31,7 +31,7 @@ switch mode
         increment_score();
         
         // Move around very fast
-        if x >= 320-64 || x <= 64 then hspeed = -hspeed;
+        if x >= 320-64 || x <= 64 hspeed = -hspeed;
         
         // Attack 1
         switch timer
@@ -50,7 +50,7 @@ switch mode
             scr_basicshot(x,y,global.lay_bullets,obj_bullet4,6,d); // was 8, then 7
             d -= 10;
             }
-        if timer = 200 then d = 270;
+        if timer = 200 d = 270;
         
         // Attack 2B
         if timer > 230 && timer < 270
@@ -65,15 +65,15 @@ switch mode
             d = 270;
             }
         //enemyHP = timeout;
-        if timeout > 0 then timeout -= 1;
-        if timeout == 0 && x == 160 then mode = 2;
+        if timeout > 0 timeout -= 1;
+        if timeout == 0 && x == 160 mode = 2;
         break;
         }
     case 2:
         {
         hspeed = 0;
         vspeed -= 0.2;
-        if y < yview-(sprite_width/2) then instance_destroy();
+        if y < yview-(sprite_width/2) instance_destroy();
         break;
         }
     }

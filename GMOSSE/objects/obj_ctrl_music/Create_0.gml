@@ -35,7 +35,7 @@ load = function(){
 	var music_str = "";
 	switch global.nextroom
 		{
-		case rm_menu: if room == rm_init then music_str = "Intro"; break;
+		case rm_menu: if room == rm_init music_str = "Intro"; break;
 		case rm_shipselect: music_str = "Selection"; break;
 		case rm_stage1:
 		case rm_boss1: music_str = "Stage1"; break;
@@ -47,7 +47,7 @@ load = function(){
 		case rm_omake3: music_str = "Omake3"; break;
 		default: break;
 		}
-	if music_str != "" then music = scr_music_load(music_str);
+	if music_str != "" music = scr_music_load(music_str);
 }
 
 // Load ALL music at once
@@ -71,25 +71,25 @@ var t = get_timer();
 	
 unload = function(){
 	// currently playing containers
-	if is_array(music) then free(music[0]);
-	if is_array(music2) then free(music2[0]);
+	if is_array(music) free(music[0]);
+	if is_array(music2) free(music2[0]);
 	music = -1;
 	music2 = -1;
 	
 	// existing sound arrays and their audio handles at [0]
-	if is_array(snd_intro) then free(snd_intro[0]);
-	if is_array(snd_shipselect) then free(snd_shipselect[0]);
-	if is_array(snd_st1) then free(snd_st1[0]);
-	if is_array(snd_st2) then free(snd_st2[0]);
-	if is_array(snd_st3) then free(snd_st3[0]);
-	if is_array(snd_st3b) then free(snd_st3b[0]);
-	if is_array(snd_boss) then free(snd_boss[0]);
-	if is_array(snd_omake1) then free(snd_omake1[0]);
-	if is_array(snd_omake2) then free(snd_omake2[0]);
-	if is_array(snd_omake3) then free(snd_omake3[0]);
-	if is_array(snd_stageclear) then free(snd_stageclear[0]);
-	if is_array(snd_continue) then free(snd_continue[0]);
-	if is_array(snd_gameover) then free(snd_gameover[0]);
+	if is_array(snd_intro) free(snd_intro[0]);
+	if is_array(snd_shipselect) free(snd_shipselect[0]);
+	if is_array(snd_st1) free(snd_st1[0]);
+	if is_array(snd_st2) free(snd_st2[0]);
+	if is_array(snd_st3) free(snd_st3[0]);
+	if is_array(snd_st3b) free(snd_st3b[0]);
+	if is_array(snd_boss) free(snd_boss[0]);
+	if is_array(snd_omake1) free(snd_omake1[0]);
+	if is_array(snd_omake2) free(snd_omake2[0]);
+	if is_array(snd_omake3) free(snd_omake3[0]);
+	if is_array(snd_stageclear) free(snd_stageclear[0]);
+	if is_array(snd_continue) free(snd_continue[0]);
+	if is_array(snd_gameover) free(snd_gameover[0]);
 	snd_intro = -1;
 	snd_shipselect = -1;
 	snd_st1 = -1;
@@ -116,7 +116,7 @@ reload = function(){
 #endregion
 #region core
 play = function(music_id,loop=false){
-if !audio_exists(music_id) then return -1;
+if !audio_exists(music_id) return -1;
 var vol = round(global.music_volume)/100;
 fading_in = false;
 fading_out = false;
@@ -124,19 +124,19 @@ return audio_play_sound(music_id,0,loop,vol);
 }
 
 pause = function(){
-if !audio_exists(channel) then return -1;
-if audio_is_playing(channel) then audio_pause_sound(channel);
+if !audio_exists(channel) return -1;
+if audio_is_playing(channel) audio_pause_sound(channel);
 return 0;
 }
 
 resume = function(){
-if !audio_exists(channel) then return -1;
-if audio_is_paused(channel) then audio_resume_sound(channel);
+if !audio_exists(channel) return -1;
+if audio_is_paused(channel) audio_resume_sound(channel);
 return 0;
 }
 
 fade_in = function(time_ms=3000){
-if !audio_exists(channel) or fading_in then return -1;
+if !audio_exists(channel) or fading_in return -1;
 fading_in = true;
 
 // start with it off
@@ -149,7 +149,7 @@ return 0;
 }
 
 fade_out = function(time_ms=3000){
-if !audio_exists(channel) or fading_out then return -1;
+if !audio_exists(channel) or fading_out return -1;
 fading_out = true;
 
 audio_sound_gain(channel,0,time_ms);
@@ -157,15 +157,15 @@ return 0;
 }
 
 set_volume = function(){
-if !audio_exists(channel) then return -1;
+if !audio_exists(channel) return -1;
 var vol = round(global.music_volume)/100;
 audio_sound_gain(channel,vol,0);
 return 0;
 }
 
 stop = function(){
-if !audio_exists(channel) then return -1;
-if audio_is_playing(channel) then audio_stop_sound(channel);
+if !audio_exists(channel) return -1;
+if audio_is_playing(channel) audio_stop_sound(channel);
 fading_in = false;
 fading_out = false;
 return 0;
@@ -180,7 +180,7 @@ return 0;
 }
 
 free = function(music_id){
-if !audio_exists(music_id) then return -1;
+if !audio_exists(music_id) return -1;
 var result = audio_destroy_stream(music_id);
 return 0;
 }

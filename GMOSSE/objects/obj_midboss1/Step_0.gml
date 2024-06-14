@@ -38,7 +38,7 @@ switch mode
             
         // Boss Timeout
         timeout -= 1;    
-        if timeout <= 0 then mode = 3;
+        if timeout <= 0 mode = 3;
         break;
         }
     case 3:

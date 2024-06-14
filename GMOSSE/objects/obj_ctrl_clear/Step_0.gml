@@ -26,7 +26,7 @@ if !enabled
     }
     
 // Continue from here only if player is "disposed of"
-if !enabled then exit;
+if !enabled exit;
 
 // Set x/y positions for players to move to
 var xx;
@@ -43,8 +43,8 @@ for (var i=0;i<2;i++)
 	with p[i] step_towards_point(xview+120+xx[i],yview+160,1);
 	}
 
-if bkg_alpha < 1 then bkg_alpha += 0.1;
-if timer > 140 && txt_alpha < 1 then txt_alpha += 0.01;
+if bkg_alpha < 1 bkg_alpha += 0.1;
+if timer > 140 && txt_alpha < 1 txt_alpha += 0.01;
 
 timer += 1;
 if timer == 390  

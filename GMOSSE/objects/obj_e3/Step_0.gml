@@ -17,7 +17,7 @@ if !made
     
 if made
     {
-    if timer > 0 then timer -= 1;
+    if timer > 0 timer -= 1;
     if y >= 130 && timer == 0
         {
         timer = 60;
@@ -57,19 +57,19 @@ if made
             }
         
         // Set new foot x positions to move sideways
-        if keyboard_check(ord("J")) && move_hori == 0 then move_hori = -1;
-        if keyboard_check(ord("L")) && move_hori == 0 then move_hori = 1;
+        if keyboard_check(ord("J")) && move_hori == 0 move_hori = -1;
+        if keyboard_check(ord("L")) && move_hori == 0 move_hori = 1;
         if move_hori < 0
             {
             foot[n1a,n1b].xx = foot[n1a,n1b].x - 32;
             foot[n2a,n2b].xx = foot[n2a,n2b].x - 32;
-            move_hori -= 1; if move_hori == -3 then move_hori = 0;
+            move_hori -= 1; if move_hori == -3 move_hori = 0;
             }
         if move_hori > 0
             {
             foot[n1a,n1b].xx = foot[n1a,n1b].x + 32;
             foot[n2a,n2b].xx = foot[n2a,n2b].x + 32;
-            move_hori += 1; if move_hori == 3 then move_hori = 0;
+            move_hori += 1; if move_hori == 3 move_hori = 0;
             }
         }
     

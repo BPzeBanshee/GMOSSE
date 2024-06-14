@@ -51,7 +51,7 @@ if replaying == true
         {
         replaying = false;
 		var s = global.player_data[0].myscore;
-        if s != replay[# 0,0] then
+        if s != replay[# 0,0]
         show_message("DESYNC FAILED! replay[#0,0] did not match score "+string(s));
         //clipboard_set_text(sha1_string_utf8(log_str)+chr(10)+log_str);
         //log_str = "";
@@ -75,6 +75,6 @@ if replaying == true
         global.player_data[0].myscore = replay[# stagenum,4];
         global.player_data[0].mybombs = replay[# stagenum,5];
         ds_list_read(input,replay[# stagenum,0]);
-        if ds_list_size(input)>0 then trace("loading from replay grid to list successful.");
+        if ds_list_size(input)>0 trace("loading from replay grid to list successful.");
         }
     }

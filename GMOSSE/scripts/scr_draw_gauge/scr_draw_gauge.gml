@@ -40,12 +40,12 @@ function scr_draw_gauge(x1,y1,r,width,g_start,g_end,g_dir,value,mincol,maxcol) {
 	    {
 	    case -1:
 	        {
-	        if (g_end > g_start) then g_end -= 360;
+	        if (g_end > g_start) g_end -= 360;
 	        break;
 	        }
 	    case 1:
 	        {
-	        if (g_end < g_start) then g_end += 360;
+	        if (g_end < g_start) g_end += 360;
 	        break;
 	        }
 	    }

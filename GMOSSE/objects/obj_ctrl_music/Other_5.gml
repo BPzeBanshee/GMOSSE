@@ -6,8 +6,8 @@ if room != rm_scores && global.nextroom != rm_scores
     stop_all();
 	if !LOAD_EVERYTHING
 		{
-		if is_array(music) then free(music[0]);
-		if is_array(music2) then free(music2[0]);
+		if is_array(music) free(music[0]);
+		if is_array(music2) free(music2[0]);
 	    music = -1;
 		music2 = -1;
 		}
@@ -15,4 +15,4 @@ if room != rm_scores && global.nextroom != rm_scores
     }
 	
 // Prepare the next stage's track
-if !LOAD_EVERYTHING then load();
+if !LOAD_EVERYTHING load();

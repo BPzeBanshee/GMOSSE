@@ -12,7 +12,7 @@ text = string_copy(msg,1,chr1);
 // Dialog behaviour
 if room == rm_test1
     {
-    if !b1 then hook = false;
+    if !b1 hook = false;
     if b1 && !hook && string_length(text) == string_length(msg)
         {
         hook = true; 
@@ -25,7 +25,7 @@ if room == rm_test1
     
 if room == rm_tutorial
     {
-    if !b1 then hook = false;
+    if !b1 hook = false;
     
     if b1 && !hook 
     && string_length(text) == string_length(msg)
@@ -48,10 +48,10 @@ if room == rm_tutorial
         
     if mode == 4
         {
-        if up then jup_p += 1;
-        if down then jdown_p += 1;
-        if left then jleft_p += 1;
-        if right then jright_p += 1;
+        if up jup_p += 1;
+        if down jdown_p += 1;
+        if left jleft_p += 1;
+        if right jright_p += 1;
         if jup_p > 10 && jdown_p > 10
         && jleft_p > 10 && jright_p > 10
             {
@@ -62,7 +62,7 @@ if room == rm_tutorial
         
     if mode == 6
         {
-        if b1 then j1_p += 1;
+        if b1 j1_p += 1;
         if j1_p > 20 
             {
             mode += 1;

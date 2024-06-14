@@ -4,8 +4,10 @@ var o = instance_number(object_index);
 side = global.player_data[o-1].hud_side;
 global.player_data[side].myctrl = id;
 
-if o > 1
-then x = obj_ctrl_stage.x+160+(side ? 80 : -80)
+if o > 1 
+	{
+	x = obj_ctrl_stage.x+160+(side ? 80 : -80);
+	}
 else x = obj_ctrl_stage.x+160;
 y = yview+240;
 

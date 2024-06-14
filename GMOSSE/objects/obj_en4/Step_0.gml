@@ -15,7 +15,7 @@ if thr_timer == 4
 timer += 1;
 if count < 4
     {
-    if timer > 0 && timer <= 30 then speed = 2.5 else speed = 0;
+    if timer > 0 && timer <= 30 speed = 2.5 else speed = 0;
     if timer == 120
         {
         count += 1;
@@ -24,5 +24,5 @@ if count < 4
         }
     }
 else speed = 2.5;
-if y > yview+336 then instance_destroy();
+if y > yview+336 instance_destroy();
 

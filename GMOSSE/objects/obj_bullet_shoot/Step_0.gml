@@ -15,8 +15,8 @@ switch btype
             }
         break;
         }
-    case 2: if speed == 0 then instance_destroy(); break; //see destroy event for details
-    case 3: if speed == 0 then instance_destroy(); break; //see destroy event for details
+    case 2: if speed == 0 instance_destroy(); break; //see destroy event for details
+    case 3: if speed == 0 instance_destroy(); break; //see destroy event for details
     case 4: 
         {
         // More similar to Evaccaneer DOOM's shooting bullets.

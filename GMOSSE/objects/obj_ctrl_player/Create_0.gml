@@ -17,15 +17,17 @@ if gp_count > 0
 	{
 	for (var i = 0; i < gp_count; i++;)
 		{
-		if (gamepad_is_connected(i)) then 
-		for (var j=0; j<gamepad_button_count(i);j++)
+		if (gamepad_is_connected(i))
 			{
-			if gamepad_button_check_pressed(i,j)
+			for (var j=0; j<gamepad_button_count(i);j++)
 				{
-				using_gp[num_of_players] = true;
-				joy_id[num_of_players] = i;
-				num_of_players += 1;
-				if num_of_players == 2 then done = true;
+				if gamepad_button_check_pressed(i,j)
+					{
+					using_gp[num_of_players] = true;
+					joy_id[num_of_players] = i;
+					num_of_players += 1;
+					if num_of_players == 2 done = true;
+					}
 				}
 			}
 		}

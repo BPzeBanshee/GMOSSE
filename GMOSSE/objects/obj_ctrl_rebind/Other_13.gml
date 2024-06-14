@@ -1,6 +1,6 @@
 /// @description  DEFINE JOY BUTTONS (NEW SYSTEM)
 /// @param NEW SYSTEM
-if !gamepad_is_connected(global.joy_id) then mode = 6;
+if !gamepad_is_connected(global.joy_id) mode = 6;
 
 switch mode
     {
@@ -20,9 +20,9 @@ if timer > 30
         for (var i=0; i<gamepad_button_count(global.joy_id); i+=1) 
             {
             //gamepad_button_value exists for analog buttons/triggers with button states
-            if gamepad_button_check(global.joy_id,i) then joy_key = i;
+            if gamepad_button_check(global.joy_id,i) joy_key = i;
             }
-        if joy_key < 0 then exit;
+        if joy_key < 0 exit;
         switch mode
             {
             case 1: global.joy1 = joy_key; break;
@@ -34,6 +34,6 @@ if timer > 30
         timer = 0;
         joy_key = -1;
         }
-    else if timer == 60 then instance_destroy();
+    else if timer == 60 instance_destroy();
     }
 

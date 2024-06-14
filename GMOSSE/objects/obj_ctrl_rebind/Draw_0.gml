@@ -14,8 +14,8 @@ if control > 1 // Non-keyboard display
     if control == 2 && mode == 3
         {
         pad_str = string(pad_list[select]);
-        if select > min_s then draw_sprite_ext(spr_shipselect,-1,xview+50,yview+265,-1,1,0,c_white,1);
-        if select < max_s then draw_sprite_ext(spr_shipselect,-1,xview+190,yview+265,1,1,0,c_white,1);
+        if select > min_s draw_sprite_ext(spr_shipselect,-1,xview+50,yview+265,-1,1,0,c_white,1);
+        if select < max_s draw_sprite_ext(spr_shipselect,-1,xview+190,yview+265,1,1,0,c_white,1);
         } 
     draw_text(xview+120,yview+260,"ID: "+pad_str);
     draw_text(xview+120,yview+270,string(desc));

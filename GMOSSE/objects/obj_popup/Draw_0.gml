@@ -6,5 +6,5 @@ draw_set_alpha(oa);
 
 timeout -= 1;
 y -= 0.2;
-if timeout <= 0 then image_alpha -= 0.05;
-if image_alpha <= 0 then instance_destroy();
+if timeout <= 0 image_alpha -= 0.05;
+if image_alpha <= 0 instance_destroy();

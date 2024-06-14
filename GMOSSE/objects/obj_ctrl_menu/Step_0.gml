@@ -1,5 +1,5 @@
 ///@desc INPUT BEHAVIOUR
-if !enabled then exit;
+if !enabled exit;
 
 // Get inputs
 var up = global.jup[0];
@@ -14,7 +14,7 @@ if (up && !hook)
     hook = true;
     scr_snd_play(snd_click,true);
     selection -= 1;
-    if selection < 1 then selection = 5;
+    if selection < 1 selection = 5;
     }
     
 // Down
@@ -23,7 +23,7 @@ if (down && !hook)
     hook = true;
     scr_snd_play(snd_click,true);
     selection += 1; 
-    if selection > 5 then selection = 1; 
+    if selection > 5 selection = 1; 
     }
     
 // Left
@@ -33,7 +33,7 @@ if (left && !hook)
     if selection == 1
         {
         scr_snd_play(snd_click,true);
-        if selection2 > 1 then selection2 -= 1;
+        if selection2 > 1 selection2 -= 1;
         }
     }
     
@@ -44,7 +44,7 @@ if (right && !hook)
     if selection == 1
         {
         scr_snd_play(snd_click,true);
-        if selection2 < 3 then selection2 += 1;
+        if selection2 < 3 selection2 += 1;
         }
     }
 

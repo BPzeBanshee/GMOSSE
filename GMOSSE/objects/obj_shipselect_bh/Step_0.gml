@@ -15,7 +15,7 @@ if (left && selection > 1 && !hook)
     selection -= 1;
     chr1 = 0;
     event_user(0);
-	if menu == 2 then update_weapon(selection);
+	if menu == 2 update_weapon(selection);
     }
 
 // Right
@@ -24,7 +24,7 @@ if (right && selection < 7 && !hook)
     selection += 1;
     chr1 = 0;
     event_user(0);
-	if menu == 2 then update_weapon(selection);
+	if menu == 2 update_weapon(selection);
     }
 
 // Button 1
@@ -86,10 +86,10 @@ if (button2 && !hook)
 if (button1) 
 || (button2) 
 || (left) 
-|| (right) then hook = true;
+|| (right) hook = true;
 
 if !(global.button1) 
 && !(global.button2) 
 && !(global.jleft) 
 && !(global.jright)
-&& !instance_exists(obj_trans) then hook = false;
+&& !instance_exists(obj_trans) hook = false;

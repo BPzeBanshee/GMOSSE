@@ -18,9 +18,9 @@ if global.jleft[0] && !hook
     hook = true;
     switch selection
         {
-        case 1: if global.music_volume > 0 then global.music_volume -= 10; break;
-        case 2: if global.sfx_volume > 0 then global.sfx_volume -= 10; scr_snd_play(snd_click,true); break;
-        case 3: if global.voice_volume > 0 then global.voice_volume -= 10; break;
+        case 1: if global.music_volume > 0 global.music_volume -= 10; break;
+        case 2: if global.sfx_volume > 0 global.sfx_volume -= 10; scr_snd_play(snd_click,true); break;
+        case 3: if global.voice_volume > 0 global.voice_volume -= 10; break;
         }
     with obj_ctrl_music set_volume();
     }
@@ -31,9 +31,9 @@ if global.jright[0] && !hook
     hook = true;
     switch selection
         {
-        case 1: if global.music_volume < 100 then global.music_volume += 10; break;
-        case 2: if global.sfx_volume < 100 then global.sfx_volume += 10; scr_snd_play(snd_click,true); break;
-        case 3: if global.voice_volume < 100 then global.voice_volume += 10; break;
+        case 1: if global.music_volume < 100 global.music_volume += 10; break;
+        case 2: if global.sfx_volume < 100 global.sfx_volume += 10; scr_snd_play(snd_click,true); break;
+        case 3: if global.voice_volume < 100 global.voice_volume += 10; break;
         }
     with obj_ctrl_music set_volume();
     }
@@ -47,10 +47,10 @@ if global.button1[0] && !hook
         {
         case 4:
             {
-			if room != rm_menu then exit;
+			if room != rm_menu exit;
 			
             // Hack to allow time to respond to window change
-            if global.fullscreen then scr_fullscreen(0);
+            if global.fullscreen scr_fullscreen(0);
             alarm[0] = 10;
             break;
             }

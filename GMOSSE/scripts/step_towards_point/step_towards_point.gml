@@ -6,7 +6,7 @@
 function step_towards_point(xgoal,ygoal,stepsize){
 	var dir = point_direction(x,y,xgoal,ygoal);
 	var dist = point_distance(x,y,xgoal,ygoal);
-	if dist < stepsize then stepsize = dist;
+	if dist < stepsize stepsize = dist;
 	x = x + lengthdir_x(stepsize,dir);
 	y = y + lengthdir_y(stepsize,dir);
 	return 0;

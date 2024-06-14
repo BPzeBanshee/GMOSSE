@@ -1,7 +1,7 @@
 ///@desc Spawn player
 
 // First, spawn hitbox if not already present
-if !instance_exists(myhitbox) then 
+if !instance_exists(myhitbox) 
 myhitbox = instance_create_layer(x,y,global.lay_player,obj_hitbox);
     
 var ship;
@@ -16,7 +16,7 @@ switch global.player_data[side].shipselect
 	
 // Then, spawn player
 myplayer = instance_create_layer(x,y,global.lay_player,ship);
-if global.player_data[side].mybombs > -1 then myplayer.bombs = global.player_data[side].mybombs;
+if global.player_data[side].mybombs > -1 myplayer.bombs = global.player_data[side].mybombs;
 
 // Then assign stored ids for player/hitbox/ctrl communication
 myhitbox.myctrl = id;

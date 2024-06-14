@@ -88,25 +88,25 @@ function scr_input(playerid = 0) {
 	                }
             
 	            if mx > xview+200 && my < yview+40 
-	            then global.button4[playerid] = true;
+	            global.button4[playerid] = true;
 	            }
 	        else
 	            {
-	            if my < yview+120 then global.jup[playerid] = true;
-	            if my > yview+200 then global.jdown[playerid] = true;
-	            if mx < xview+90 then global.jleft[playerid] = true;
-	            if mx > xview+150 then global.jright[playerid] = true;
+	            if my < yview+120 global.jup[playerid] = true;
+	            if my > yview+200 global.jdown[playerid] = true;
+	            if mx < xview+90 global.jleft[playerid] = true;
+	            if mx > xview+150 global.jright[playerid] = true;
 	            }
 	        }
 	    if device_mouse_check_button_pressed(0,mb_left)
 	        {
 	        if instance_exists(obj_player)
 	            {
-	            if alarm[1] > 0 then global.button2[playerid] = true else alarm[1] = 15;
+	            if alarm[1] > 0 {global.button2[playerid] = true} else alarm[1] = 15;
 	            }
 	        else
 	            {
-	            if alarm[0] > 0 then global.button1[playerid] = true else alarm[0] = 15;
+	            if alarm[0] > 0 {global.button1[playerid] = true} else alarm[0] = 15;
 	            }
 	        }
 	    }

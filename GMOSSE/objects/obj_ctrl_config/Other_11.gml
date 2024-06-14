@@ -11,8 +11,8 @@ if global.jleft[0] && !hook
     hook = true;
     switch selection
         {
-        case 3: if global.deadzone > 0.1 then global.deadzone -= 0.1; break;
-        case 4: if global.joytype > 0 then global.joytype -= 1; break;
+        case 3: if global.deadzone > 0.1 global.deadzone -= 0.1; break;
+        case 4: if global.joytype > 0 global.joytype -= 1; break;
         }
     }
 
@@ -22,8 +22,8 @@ if global.jright[0] && !hook
     hook = true;
     switch selection
         {
-        case 3: if global.deadzone < 1 then global.deadzone += 0.1; break;
-        case 4: if global.joytype < 2 then global.joytype += 1; break;
+        case 3: if global.deadzone < 1 global.deadzone += 0.1; break;
+        case 4: if global.joytype < 2 global.joytype += 1; break;
         }
     }
     

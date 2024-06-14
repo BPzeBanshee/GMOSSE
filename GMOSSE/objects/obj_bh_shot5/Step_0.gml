@@ -8,8 +8,8 @@ if instance_exists(parent_id)
         {
         image_speed = 0;
         image_index -= 1;
-        if image_index < 1 then instance_destroy();
+        if image_index < 1 instance_destroy();
         }
-    if (global.button1[side]) then image_speed = 0.5;
+    if (global.button1[side]) image_speed = 0.5;
     }
 else instance_destroy();

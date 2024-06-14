@@ -1,6 +1,6 @@
 // COMPUSLORY EVENT
 event_inherited();
-if !instance_exists(obj_hitbox) or !made then exit;
+if !instance_exists(obj_hitbox) or !made exit;
 
 var side = myctrl.side;
 var b1 = global.button1[side];
@@ -9,8 +9,8 @@ var b3 = global.button3[side];
 
 // shoot code
 // button 1
-if shot_timer > 0 then shot_timer -= 1 else can_shoot = true;
-if shot2_timer > 0 then shot2_timer -= 1 else can_shoot2 = true;
+if shot_timer > 0 shot_timer -= 1 else can_shoot = true;
+if shot2_timer > 0 shot2_timer -= 1 else can_shoot2 = true;
 if b1
     {
     if can_shoot // Main shot
@@ -20,7 +20,7 @@ if b1
         shot.image_blend = blend;
 		shot.myctrl = myctrl;
 
-        if shot_angle_add == 1 then shot_angle += 1 else shot_angle -= 1;
+        if shot_angle_add == 1 shot_angle += 1 else shot_angle -= 1;
         if shot_angle > 3 || shot_angle < -3
             {
             shot_angle = 0;
@@ -54,13 +54,13 @@ if b2 && can_program
 	for (var i=0; i<num_options; i++) option[i].program = program;
     can_program = false;
     }
-if !b2 then can_program = true;
+if !b2 can_program = true;
 
 // Button 3 (Speed gear setting)
 if (b3 && can_speed) 
     {
     can_speed = false;
-    if speed_up then speed_gear += 1 else speed_gear -= 1;
+    if speed_up speed_gear += 1 else speed_gear -= 1;
     switch speed_gear
         {
         case 1: shipspeed = 1; thrust_scale = 0.25; speed_up = true; break;
@@ -70,7 +70,7 @@ if (b3 && can_speed)
         }
     slowshipspeed = shipspeed;
     }
-if (!b3) then can_speed = true;
+if (!b3) can_speed = true;
 
 // Image aesthetics
 image_timer += 1;

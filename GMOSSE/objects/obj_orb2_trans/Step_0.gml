@@ -10,5 +10,5 @@ if instance_exists(obj_boss_trans)
     {
 	step_towards_point(obj_boss_trans.x,obj_boss_trans.y,1.25);
     //mp_linear_step(obj_boss_trans.x,obj_boss_trans.y,1.25,0);
-    if y == obj_boss_trans.y && x == obj_boss_trans.x then instance_destroy();
+    if y == obj_boss_trans.y && x == obj_boss_trans.x instance_destroy();
     }

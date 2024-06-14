@@ -1,4 +1,4 @@
-if room == rm_menu then exit;
+if room == rm_menu exit;
 scr_draw_vars(global.fnt_menu,fa_center,8454016);
 draw_set_alpha(1);
 var st = "DEMONSTRATION";

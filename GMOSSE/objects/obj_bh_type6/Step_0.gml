@@ -6,15 +6,15 @@ if position == 1
 	moving = 0;
 	var xpos = 0;
 	var ypos = 0;
-	if global.jup[side] then ypos -= 1;
-	if global.jdown[side] then ypos += 1;
-	if global.jleft[side] then xpos -= 1;
-	if global.jright[side] then xpos += 1;
-	if (xpos != 0 or ypos != 0) && !global.button2[side] then moving = 1;
+	if global.jup[side] ypos -= 1;
+	if global.jdown[side] ypos += 1;
+	if global.jleft[side] xpos -= 1;
+	if global.jright[side] xpos += 1;
+	if (xpos != 0 or ypos != 0) && !global.button2[side] moving = 1;
 
 	// Program handling
 	target = parent_id;
-	if program == 1 then moving = 2;
+	if program == 1 moving = 2;
 	}
 else
 	{

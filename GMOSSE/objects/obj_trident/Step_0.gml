@@ -1,6 +1,6 @@
 // Compulsory Parent/Child Functions
 event_inherited();
-if !instance_exists(obj_hitbox) then exit;
+if !instance_exists(obj_hitbox) exit;
 
 var side = myctrl.side;
 var left = global.jleft[side];
@@ -10,8 +10,8 @@ var b2 = global.button2[side];
 var b3 = global.button3[side];
 
 // Weapon Timers
-if shot_timer > 0 then shot_timer -= 1;
-if bomb_timer > 0 then bomb_timer -= 1;
+if shot_timer > 0 shot_timer -= 1;
+if bomb_timer > 0 bomb_timer -= 1;
 
 // Button 1 Event
 if (b1)
@@ -59,10 +59,10 @@ if (b2)
 	
 // Image Aesthetics  
 image_index = round(img);
-if (left && img > 0) then img -= img_bank_spd;
-if (right && img < 4) then img += img_bank_spd;
+if (left && img > 0) img -= img_bank_spd;
+if (right && img < 4) img += img_bank_spd;
 if (!left && !right)
     {
-    if img > 2 then img -= img_bank_spd;
-    if img < 2 then img += img_bank_spd;
+    if img > 2 img -= img_bank_spd;
+    if img < 2 img += img_bank_spd;
     }

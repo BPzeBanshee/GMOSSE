@@ -6,7 +6,7 @@ then instance_destroy();
 if global.bulletcolour == 2
     {
     // change to red sprite
-    if sprite_index != sprite_alt then sprite_index = sprite_alt;
+    if sprite_index != sprite_alt sprite_index = sprite_alt;
     }
     
 if global.bulletcolour == 3
@@ -14,14 +14,14 @@ if global.bulletcolour == 3
     // Filter out child objects that don't need to do this.
     if object_index == obj_bullet_shoot 
         {
-        if sprite_index != sprite_alt then sprite_index = sprite_alt; 
+        if sprite_index != sprite_alt sprite_index = sprite_alt; 
         }
     
     // Change sprite if on collision line with player
     var col = collision_line(x,y,x+lengthdir_x(240,direction),y+lengthdir_y(240,direction),obj_player,0,0);
     if col > -1 || distance_to_object(obj_hitbox) < 40   
         {
-        if sprite_index != sprite_alt then sprite_index = sprite_alt;
+        if sprite_index != sprite_alt sprite_index = sprite_alt;
         }
     else sprite_index = sprite_def;
     }

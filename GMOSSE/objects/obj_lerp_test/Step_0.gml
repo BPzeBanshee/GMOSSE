@@ -2,7 +2,7 @@ if device_mouse_check_button(0,mb_left) && !moving
     {
     moving = true;
     image_speed = 0.5;
-    pos += 1; if pos > 4 then pos = 0;
+    pos += 1; if pos > 4 pos = 0;
     switch pos
         {
         case 0: xx = 40; yy = 40; break;

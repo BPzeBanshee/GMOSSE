@@ -3,11 +3,11 @@
 // First, update the maximum array iteration size
 m_aspect = global.window_aspect;
 var l_max_size = (browser_height / m_base_h);
-if m_clean then l_max_size = floor(l_max_size);
+if m_clean l_max_size = floor(l_max_size);
 
 // Feather disable once GM1041
 m_size = min(global.window_size,l_max_size);
-if global.window_size > l_max_size then global.window_size = l_max_size;
+if global.window_size > l_max_size global.window_size = l_max_size;
 
 // Then pluck the array variables and adjust window size accordingly
 var w = max(240,browser_width);

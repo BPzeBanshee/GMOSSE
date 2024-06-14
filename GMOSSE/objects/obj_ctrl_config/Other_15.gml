@@ -4,7 +4,7 @@
 category_type = "MISC. SETTINGS";
 selection_max = 8; // amount of positions in the submenu
 max_h = 30;
-if timer > 0 then timer -= 1;
+if timer > 0 timer -= 1;
 
 // LEFT
 if global.jleft[0] && !hook
@@ -15,7 +15,7 @@ if global.jleft[0] && !hook
         case 1: global.debug = false; break;
         case 2: global.hitbox_visible = false; break;
         case 3: global.fonttype = false; scr_fonts_set(); break;
-        case 4: if global.bulletcolour > 1 then global.bulletcolour -= 1;  break;
+        case 4: if global.bulletcolour > 1 global.bulletcolour -= 1;  break;
         case 5: global.flicker = false; break;
         }
     }
@@ -29,7 +29,7 @@ if global.jright[0] && !hook
         case 1: global.debug = true; break;
         case 2: global.hitbox_visible = true; break;
         case 3: global.fonttype = true; scr_fonts_set(); break;
-        case 4: if global.bulletcolour < 3 then global.bulletcolour += 1;  break;
+        case 4: if global.bulletcolour < 3 global.bulletcolour += 1;  break;
         case 5: global.flicker = true; break;
         }
     }

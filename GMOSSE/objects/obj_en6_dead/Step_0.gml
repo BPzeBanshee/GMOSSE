@@ -1,4 +1,4 @@
-if !visible then switch mode
+if !visible switch mode
     {
     case 1: image_index = 0; visible = true; break;
     case 2: image_index = 1; visible = true; break;
@@ -6,4 +6,4 @@ if !visible then switch mode
     }
 image_angle += angle;
 image_alpha -= 0.01;
-if image_alpha < 0.01 then instance_destroy();
+if image_alpha < 0.01 instance_destroy();

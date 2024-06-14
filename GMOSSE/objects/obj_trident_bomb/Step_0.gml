@@ -4,7 +4,7 @@ if instance_exists(parent_id)
     y = parent_id.y - 8;
 	
 	tip_img += 0.5;
-	if tip_img >= 5 then tip_img = 0;
+	if tip_img >= 5 tip_img = 0;
 	
     timer += 1;
     if timer == 5
@@ -17,7 +17,7 @@ if instance_exists(parent_id)
 		laser.x = x - 1;
 		laser.y = y - 8;
 		
-		if timer == 120 then laser.mode = 1;
+		if timer == 120 laser.mode = 1;
 	    if timer > 120 && laser.image_xscale == 0 
 		then instance_destroy();
 		}

@@ -21,7 +21,7 @@ pick_ini = function(){
 	    {
 	    // Check extension
 	    if filename_ext(load_name)==".ini" or filename_ext(load_name)==".json"
-	    then global.music_ini = string_replace(load_name,string(working_directory)+"\\","") // if it has the extension then open it
+	    global.music_ini = string_replace(load_name,string(working_directory)+"\\","") // if it has the extension then open it
 	    else global.music_ini = string_replace(load_name,string(working_directory)+"\\","")+".ini";// otherwise add it on and open the file
 		trace("global.music_ini set to "+global.music_ini);
 		return 0;

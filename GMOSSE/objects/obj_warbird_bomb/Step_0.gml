@@ -29,6 +29,6 @@ timer += 1;
 if timer >= 300
     {
     image_alpha -= 0.1;
-    if image_alpha <= 0 then instance_destroy();
+    if image_alpha <= 0 instance_destroy();
     }
 

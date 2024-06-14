@@ -7,4 +7,4 @@ thr.image_yscale = thr.image_xscale;
 //thr.depth = depth + 1;
 
 vspeed = -1;
-if y < yview-32 then instance_destroy();
+if y < yview-32 instance_destroy();

@@ -28,7 +28,7 @@ function scr_turntoimageangle(angle,turnspeed) {
 			{
 		    tempdir = angle + 360;
 		    if (abs(tempdir-image_angle) > turnspeed)
-		    then image_angle += turnspeed
+		    image_angle += turnspeed
 		    else image_angle = angle;
 		    }
 		} 
@@ -37,7 +37,7 @@ function scr_turntoimageangle(angle,turnspeed) {
 	    if (abs(angle - image_angle) > turnspeed) 
 			{
 	        if (angle > image_angle)
-	        then image_angle += turnspeed
+	        image_angle += turnspeed
 	        else image_angle -= turnspeed;
 			} 
 		else image_angle = angle;

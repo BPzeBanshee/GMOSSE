@@ -16,4 +16,4 @@ if timer == 2
     timer = 0;
     count += 1;
     }
-if count == 10 then instance_destroy();
+if count == 10 instance_destroy();

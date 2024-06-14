@@ -1,4 +1,4 @@
-if c > 0 then draw_sprite_ext(spr_whitepixel,0,xview,yview,240,320,0,c_white,c);
+if c > 0 draw_sprite_ext(spr_whitepixel,0,xview,yview,240,320,0,c_white,c);
 draw_set_alpha(1-c);
 
 if mode == 2 

@@ -1,3 +1,3 @@
 timer += 1;
-if timer > 5 then instance_destroy();
+if timer > 5 instance_destroy();
 

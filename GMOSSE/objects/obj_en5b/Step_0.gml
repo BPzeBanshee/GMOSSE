@@ -33,7 +33,7 @@ switch mode
             }
             
         // Timeout/Get the fuck out of the wall's way
-        if num_of_shots == 0 then mode = 2;
+        if num_of_shots == 0 mode = 2;
         break;
         }
     case 2:
@@ -42,15 +42,15 @@ switch mode
             {
             scr_turntoangle(180,3);
             speed += 0.05;
-            if x < xview-sprite_width then instance_destroy();
+            if x < xview-sprite_width instance_destroy();
             }
         else
             {
             scr_turntoangle(0,3);
             speed += 0.05;
-            if x > xview+240+sprite_width then instance_destroy();
+            if x > xview+240+sprite_width instance_destroy();
             }
-        if y > yview+320+sprite_height then instance_destroy();
+        if y > yview+320+sprite_height instance_destroy();
         break;
         }
     }

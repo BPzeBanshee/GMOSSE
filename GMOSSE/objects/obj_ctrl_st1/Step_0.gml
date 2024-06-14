@@ -15,9 +15,9 @@ if completedelay == 120
 // This is the code that controls what happens in the stage, whether it be
 // enemies, background effects, timing of music or boss initialisation.
 
-if pop_count >= 26 then global.omake_enabled = true;
+if pop_count >= 26 global.omake_enabled = true;
 
-if !instance_exists(obj_ctrl_clear) then stage_time += 1;
+if !instance_exists(obj_ctrl_clear) stage_time += 1;
 switch stage_time
     {
     case 20:
@@ -282,9 +282,9 @@ if (stage_time > 2650 && stage_time < 3200)
 || (stage_time > 5400 && stage_time < 6500)
     {
     atk_timer += 1;
-    if atk_timer == 30 then instance_create_layer(120,-32,global.lay_en_air,obj_rock_atk);
-    if atk_timer == 60 then instance_create_layer(200,-32,global.lay_en_air,obj_rock_atk);
-    if atk_timer == 90 then instance_create_layer(40,-32,global.lay_en_air,obj_rock_atk);
+    if atk_timer == 30 instance_create_layer(120,-32,global.lay_en_air,obj_rock_atk);
+    if atk_timer == 60 instance_create_layer(200,-32,global.lay_en_air,obj_rock_atk);
+    if atk_timer == 90 instance_create_layer(40,-32,global.lay_en_air,obj_rock_atk);
     if atk_timer == 120
         {
         instance_create_layer(280,-32,global.lay_en_air,obj_rock_atk);
@@ -297,5 +297,5 @@ if stage_time > 6550 && !instance_exists(obj_omake1)
     {
 	var l = layer_get_id("lay_bkg");
 	var s = layer_get_vspeed(l);
-	if s < 4 then layer_vspeed(l,s+0.1);
+	if s < 4 layer_vspeed(l,s+0.1);
     }

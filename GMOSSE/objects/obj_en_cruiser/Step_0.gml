@@ -43,30 +43,30 @@ if !made
     }    
 
 // movement handling
-if hscroll == true then hspeed = layer_get_hspeed(l);
+if hscroll == true hspeed = layer_get_hspeed(l);
 switch phase
     {
     case 1:
         {
-        if y < yview-48 then y += 0.5 else y += 0.25;
-        if made then if (dead[0,2]) && (dead[1,2]) then phase = 2;
+        if y < yview-48 y += 0.5 else y += 0.25;
+        if made if (dead[0,2]) && (dead[1,2]) phase = 2;
         break;
         }
     case 2:
         {
-        if y < yview+48 then y += 0.5 else y += 0.25;
-        if (dead[0,1]) && (dead[1,1]) then phase = 3;
+        if y < yview+48 y += 0.5 else y += 0.25;
+        if (dead[0,1]) && (dead[1,1]) phase = 3;
         break;
         }
     case 3:
         {
-        if y < yview+160 then y += 0.5 else y += 0.25;
+        if y < yview+160 y += 0.5 else y += 0.25;
         break;
         }
     }
 
 // Death handling
-if y > yview+320+(sprite_height/2) then instance_destroy();
+if y > yview+320+(sprite_height/2) instance_destroy();
 if !instance_exists(box) && made
     {
     // Set everything that's still alive red
@@ -75,7 +75,7 @@ if !instance_exists(box) && made
         {
         for (var xx=0; xx<2; xx++)
             {
-            if instance_exists(turret[xx,yy]) then turret[xx,yy].image_blend = c_red;
+            if instance_exists(turret[xx,yy]) turret[xx,yy].image_blend = c_red;
             }
         }
         
@@ -95,13 +95,13 @@ else // if still alive
     {
     if !made exit;
     // set craters to colour of ship if ship colour has changed
-    if image_blend != blend then 
+    if image_blend != blend 
     for (var yy=0; yy<3; yy++) //turret[i]
         {
         for (var xx=0; xx<2; xx++) //turret[i,j]
             {
             if instance_exists(turret[xx,yy]) && dead[xx,yy]
-            then turret[xx,yy].image_blend = image_blend;
+            turret[xx,yy].image_blend = image_blend;
             }
         }
     blend = image_blend;

@@ -6,7 +6,7 @@ yee.image_angle = image_angle;
 
 // Change from player target to enemy
 timer += 1;
-if timer == 30 then attacktarget = obj_en_parent;
+if timer == 30 attacktarget = obj_en_parent;
 
 // Turning laser behaviour
 var angle;

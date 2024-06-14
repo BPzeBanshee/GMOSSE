@@ -19,7 +19,7 @@ function scr_spreadshot_aim(origin_x,origin_y,bullettype,shootsound,arc,numbulle
 	else arcstart = shootdir;
     
 	//play shoot sound (-1 plays no sound)
-	if audio_exists(shootsound) then scr_snd_play(shootsound,true);
+	if audio_exists(shootsound) scr_snd_play(shootsound,true);
 
 	var mybullet;
 	for (var bulletloop = 0; bulletloop < numbullets; bulletloop += 1)
@@ -28,8 +28,8 @@ function scr_spreadshot_aim(origin_x,origin_y,bullettype,shootsound,arc,numbulle
 	    mybullet.direction = arcstart;
 	    mybullet.speed = bulletspeed;
     
-	    if imagedir == true then mybullet.image_angle = arcstart;
+	    if imagedir == true mybullet.image_angle = arcstart;
     
-	    if numbullets > 1 then arcstart += arc / (numbullets - 1);
+	    if numbullets > 1 arcstart += arc / (numbullets - 1);
 	    }
 }

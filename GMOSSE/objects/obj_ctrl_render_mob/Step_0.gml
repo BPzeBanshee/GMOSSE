@@ -1,4 +1,4 @@
-if l_delay > 0 then l_delay -= 1;
+if l_delay > 0 l_delay -= 1;
 
 if m_size != global.window_size 
 or m_aspect != global.window_aspect 
@@ -57,7 +57,7 @@ m_clean = global.scaling;
 if m_angle == 90 || m_angle == 270
 then l_scale = min(window_get_width()/m_base_h,window_get_height()/m_base_w)
 else l_scale = min(window_get_width()/m_base_w,window_get_height()/m_base_h);
-if m_clean then l_scale = max(1,floor(l_scale));
+if m_clean l_scale = max(1,floor(l_scale));
 
 // Offset x/y for centering the drawn surface
 x = round(window_get_width()/2);

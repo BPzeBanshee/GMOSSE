@@ -2,7 +2,7 @@
 if global.flicker == 1
     {
     frame += 1;
-    if frame < 2 then visible = true else
+    if frame < 2 visible = true else
         {
         visible = false;
         frame = 0;
@@ -10,4 +10,4 @@ if global.flicker == 1
     }
 
 // Compatibility with old GMOSSE explosions
-if image_speed != 0.1 then image_angle = random(360);
+if image_speed != 0.1 image_angle = random(360);

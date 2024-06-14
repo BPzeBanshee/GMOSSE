@@ -5,6 +5,6 @@ image_alpha -= 0.01;
 
 var randomplace = irandom(10) - irandom(10);
 explosiontimer += 1;
-if explosiontimer < 5 then instance_create_layer(x+randomplace,y+randomplace,layer,obj_explosion);
+if explosiontimer < 5 instance_create_layer(x+randomplace,y+randomplace,layer,obj_explosion);
 
-if image_alpha < 0.01 then instance_destroy();
+if image_alpha < 0.01 instance_destroy();

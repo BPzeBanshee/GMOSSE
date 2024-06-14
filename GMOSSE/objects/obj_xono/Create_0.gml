@@ -21,4 +21,4 @@ slowshipspeed = 3;
 has_afterimage = true;
 afterimage_spr = spr_xono_aft;
 outline_spr = spr_xono_out;
-if sprite_index = spr_xono_v3 then image_speed = 0.33;
+if sprite_index = spr_xono_v3 image_speed = 0.33;

@@ -1,7 +1,7 @@
 /// @description  PATTERN 3: DOOM (placeholder)
 /// @param placeholder
 // Reposition if necessary
-if x != 160 || y != yview+65 then step_towards_point(160,yview+65,0.5);//mp_linear_step(160,yview+65,0.5,0);
+if x != 160 || y != yview+65 step_towards_point(160,yview+65,0.5);//mp_linear_step(160,yview+65,0.5,0);
 
 atk_timer += 1;
 if atk_timer == 8
