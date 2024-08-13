@@ -16,6 +16,7 @@ function scr_main_init() {
 
 	// INPUT
 	//Set vars and clear the joystick buttons
+	// TODO: could these be constructors?
 	for (var i=0; i<2;i++)
 		{
 		global.jup[i] = false;

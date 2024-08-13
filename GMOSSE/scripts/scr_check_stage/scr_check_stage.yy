@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_check_stage",
   "isCompatibility":false,
   "isDnD":false,

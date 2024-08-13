@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_camera_bound",
   "isCompatibility":false,
   "isDnD":false,

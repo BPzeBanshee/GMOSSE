@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_pause_draw",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_hiscore_load",
   "isCompatibility":false,
   "isDnD":false,

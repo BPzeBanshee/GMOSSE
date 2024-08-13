@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_hiscore_reset",
   "isCompatibility":false,
   "isDnD":false,

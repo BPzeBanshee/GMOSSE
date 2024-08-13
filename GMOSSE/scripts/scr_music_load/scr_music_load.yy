@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_music_load",
   "isCompatibility":false,
   "isDnD":false,

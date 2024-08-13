@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_circleshot02",
   "isCompatibility":false,
   "isDnD":false,

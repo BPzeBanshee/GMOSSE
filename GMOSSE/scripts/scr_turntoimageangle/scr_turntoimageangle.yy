@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_turntoimageangle",
   "isCompatibility":false,
   "isDnD":false,

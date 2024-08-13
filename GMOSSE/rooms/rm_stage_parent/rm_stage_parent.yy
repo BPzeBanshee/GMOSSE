@@ -1,5 +1,5 @@
 {
-  "$GMRoom":"",
+  "$GMRoom":"v1",
   "%Name":"rm_stage_parent",
   "creationCodeFile":"${project_dir}/rooms/rm_stage_parent/RoomCreationCode.gml",
   "inheritCode":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_screen_init",
   "isCompatibility":false,
   "isDnD":false,

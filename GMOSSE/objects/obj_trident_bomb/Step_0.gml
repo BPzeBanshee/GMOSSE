@@ -10,6 +10,7 @@ if instance_exists(parent_id)
     if timer == 5
 		{
 		laser = instance_create_layer(x,y-8,layer,obj_trident_laser);
+		laser.myctrl = myctrl;
 		parent_id.slow_speed();
 		}
 	if instance_exists(laser)

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_spreadshot",
   "isCompatibility":false,
   "isDnD":false,

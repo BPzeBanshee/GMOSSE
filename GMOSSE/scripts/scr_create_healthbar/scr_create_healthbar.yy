@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_create_healthbar",
   "isCompatibility":false,
   "isDnD":false,

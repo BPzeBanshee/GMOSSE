@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_max_aa",
   "isCompatibility":false,
   "isDnD":false,
