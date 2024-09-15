@@ -25,7 +25,7 @@ function scr_input(playerid = 0) {
 	// joystick movement handling
 	if joy_id >= 0
 	    {
-	    if (gamepad_axis_count(joy_id) >= 2 && global.joytype[playerid] != 1)
+	    if (gamepad_axis_count(joy_id) >= 2 && global.joytype != 1)
 	        {
 	        if (gamepad_axis_value(joy_id,gp_axislv) < -global.deadzone) global.jup[playerid] = true;
 	        if (gamepad_axis_value(joy_id,gp_axislv) > global.deadzone) global.jdown[playerid] = true;

@@ -39,4 +39,3 @@ if global.button1[0] && !hook
         case 5: selection = selection_previous; category = 0; break;
         }
     }
-

@@ -2,19 +2,12 @@
 event_inherited();
 if !instance_exists(obj_hitbox) exit;
 
-var side = myctrl.side;
-var left = global.jleft[side];
-var right = global.jright[side];
-var b1 = global.button1[side];
-var b2 = global.button2[side];
-var b3 = global.button3[side];
-
 // Weapon Timers
 if shot_timer > 0 shot_timer -= 1;
 if bomb_timer > 0 bomb_timer -= 1;
 
 // Button 1 Event
-if (b1)
+if (input_b1)
     { 
     if shot_timer == 0 && !instance_exists(obj_trident_bomb)
         {
@@ -45,7 +38,7 @@ if (b1)
     }
     
 // Button 2 Event
-if (b2)
+if (input_b2)
     {
     if bomb_timer == 0 && bombs > 0
         {

@@ -9,7 +9,7 @@ function scr_config_save(location) {
 	ini_write_real("Joystick","joy3",global.joy3);
 	ini_write_real("Joystick","joy4",global.joy4);
 	ini_write_real("Joystick","deadzone",global.deadzone);
-	ini_write_real("Joystick","joytype",global.joytype[0]);
+	ini_write_real("Joystick","joytype",global.joytype);
 
 	// [KEYBOARD]
 	ini_write_real("Keyboard","up",global.keycode_up);

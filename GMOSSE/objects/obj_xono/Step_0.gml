@@ -1,16 +1,13 @@
 // COMPUSLORY EVENT
 event_inherited();
 if !instance_exists(myhitbox) exit;
-var side = myctrl.side;
-var b1 = global.button1[side];
-var b2 = global.button2[side];
 
 // TIMERS
 if lsr_timer > 0 lsr_timer -= 1;
 if bomb_timer > 0 bomb_timer -= 1;
 
 // BUTTON 1 - SHOT/MISSILE
-if (b1) 
+if (input_b1) 
     {
     // shot
     scr_snd_play(snd_xono_shot); 
@@ -45,7 +42,7 @@ if (b1)
     }
 
 // BUTTON 2 - BOMB
-if (b2) && bomb_timer == 0 && bombs > 0
+if (input_b2) && bomb_timer == 0 && bombs > 0
     {
     scr_snd_play(snd_exp1);
 	var _ex;
