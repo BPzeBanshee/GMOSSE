@@ -17,10 +17,10 @@ with obj_ctrl_music event_user(12);
 scr_create_healthbar();
 
 increment_score = function(){
-var p = global.player_data.myplayer;
+var p = instance_find(obj_player,0);
 if instance_exists(p)
 	{
-	myctrl = global.player_data.myctrl;
+	myctrl = p.myctrl;
 	scr_addscore(1000,0,0);
 	}
 }

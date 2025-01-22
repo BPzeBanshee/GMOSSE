@@ -40,8 +40,28 @@ if timeout == 0 phase = 7;
 
 // Movement-related code
 move_timer += 1;
-if move_timer = 60 vspeed = 0;
+if move_timer == 60 vspeed = 0;
 if move_timer < 60 enemyHP = enemyHP_max;
+if instance_exists(orb1)
+	{
+	if orb1_radius < 60 orb1_radius += 2 else
+		{
+		orb1.x = x + lengthdir_x(orb1_radius,orb1_angle);
+		orb1.y = y + lengthdir_y(orb1_radius,orb1_angle);
+		orb1_angle -= 10;
+		if orb1_angle < 0 orb1_angle += 360;
+		}
+	}
+if instance_exists(orb2)
+	{
+	if orb2_radius < 60 orb2_radius += 2 else
+		{
+		orb2.x = x + lengthdir_x(orb2_radius,orb2_angle);
+		orb2.y = y + lengthdir_y(orb2_radius,orb2_angle);
+		orb2_angle += 5;
+		if orb2_angle > 360 orb2_angle -= 360;
+		}
+	}	
 
 // Attack behaviour
 switch phase
@@ -51,7 +71,6 @@ switch phase
         if move_timer == 60
             {
             orb1 = instance_create_layer(x,y,layer,obj_orb);
-            orb1.hspeed = 2;
             made = 1;
             phase = 1; 
             }
@@ -92,8 +111,7 @@ switch phase
         }
     case 3: // create second orb
         {
-        orb2 = instance_create_layer(x,y,layer,obj_orb2); 
-        orb2.hspeed = -2;
+        orb2 = instance_create_layer(x,y,layer,obj_orb2);
         made = 2;
         phase = 4;
         break;
@@ -104,7 +122,7 @@ switch phase
             {
             orb1.phase = 2;
             orb2.phase = 1;
-            if orb1.count == 20 && orb2.count == 4
+            if orb1.count >= 20 && orb2.count >= 4
                 {
                 orb1.phase = 0;
                 orb2.phase = 0;
@@ -156,7 +174,7 @@ switch phase
             orb2.y -= 1;
             }
         direction = 90;
-        if y < yview-sprite_width/2 instance_destroy();
+        if y < (yview - sprite_height) instance_destroy();
         break;
         }
     }

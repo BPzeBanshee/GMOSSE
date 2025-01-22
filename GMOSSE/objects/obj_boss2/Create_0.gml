@@ -1,15 +1,15 @@
 // Compulsory
 enemyHP = 1200;          // initial health
 event_inherited();
+//can_collide = false;
 can_damage = false; // damage taken from pod children
 // Initial moving/aesthetic variables
-//image_alpha = 0;
 vspeed = 3.6;//3.75
 spd = 0;
 neg = 0;
 
 // Pod-related
-made = 0;
+made = false;
 pods_killed = 0;
 
 // Attack-related

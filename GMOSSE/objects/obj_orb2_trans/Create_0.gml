@@ -1,3 +1,3 @@
 z = 62;
 scr_3D();
-direction = 270;
+direction = 90;

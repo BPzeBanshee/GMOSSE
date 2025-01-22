@@ -12,12 +12,11 @@ switch phase
         if y > yview-(sprite_height/2) && !made
             {
             // creates attack pods
-            pod[0] = instance_create_layer(x+24,y+24,global.lay_en_air,obj_boss2_pod);
-            pod[1] = instance_create_layer(x-24,y+24,global.lay_en_air,obj_boss2_pod);
-            pod[2] = instance_create_layer(x+24,y-24,global.lay_en_air,obj_boss2_pod);
-            pod[3] = instance_create_layer(x-24,y-24,global.lay_en_air,obj_boss2_pod);
+            pod[0] = instance_create_depth(x+24,y+24,depth-1,obj_boss2_pod);
+            pod[1] = instance_create_depth(x-24,y+24,depth-1,obj_boss2_pod);
+            pod[2] = instance_create_depth(x+24,y-24,depth-1,obj_boss2_pod);
+            pod[3] = instance_create_depth(x-24,y-24,depth-1,obj_boss2_pod);
 			for (var i=0;i<4;i++) pod[i].parent_id = id;
-			
             scr_create_healthbar();
             made = true;
             }
@@ -97,4 +96,3 @@ switch phase
         break;
         }
     }
-

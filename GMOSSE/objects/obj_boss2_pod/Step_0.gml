@@ -1,5 +1,3 @@
-// Initial/exit invulnerability
-if image_alpha < 1 enemyHP = enemyHP_max;
 image_angle = direction;
 
 // Flash
@@ -28,11 +26,6 @@ scr_turntoangle(ang,1);
 
 switch mode
     {
-    case 0:
-        {
-        if image_alpha == 1 mode = 1;
-        break;
-        }
     case 1:
         {
         if enemyHP <= 200

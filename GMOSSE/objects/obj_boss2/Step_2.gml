@@ -12,7 +12,6 @@ for (var i=0; i<4; i++)
 		hp += pod[i].enemyHP;
 		pod[i].x = x + lengthdir_x(37,image_angle+45+(90*i));
 		pod[i].y = y + lengthdir_y(37,image_angle+45+(90*i));
-		pod[i].image_alpha = image_alpha;
 		}
 	}
 

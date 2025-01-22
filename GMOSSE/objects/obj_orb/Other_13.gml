@@ -1,3 +1,8 @@
+/*
+Attack Phase 3: Large explosion of bullets that home in on the player
+
+This is called by obj_boss along with obj_orb2's direct attack
+*/
 atk2_timer -= 1;
 if atk2_timer <= 5
     {
@@ -14,4 +19,3 @@ if atk3_timer == 0
     var blast = scr_basicshot(x,y,global.lay_bullets,obj_bullet_shoot,0,0);
     blast.btype = 3;
     }
-

@@ -18,3 +18,7 @@ atk_timer = 0;
 atk2_timer = 2;
 orb1 = noone;
 orb2 = noone;
+orb1_radius = 0;
+orb2_radius = 0;
+orb1_angle = 0;
+orb2_angle = 180;

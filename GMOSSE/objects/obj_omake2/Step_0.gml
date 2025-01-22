@@ -10,6 +10,7 @@ thr2.image_yscale = 0.75;
 
 /* BEHAVIOUR */
 enemyHP = timeout;
+var dash_speed = 5;
 switch mode
     {
     case 0:
@@ -20,7 +21,7 @@ switch mode
             {
             vspeed = 0;
             timer = 0;
-            hspeed = 5;
+            hspeed = dash_speed;
             mode = 1;
             }
         break;
@@ -31,7 +32,8 @@ switch mode
         increment_score();
         
         // Move around very fast
-        if x >= 320-64 || x <= 64 hspeed = -hspeed;
+        if x >= 320-64 hspeed = -dash_speed;
+		if x <= 64 hspeed = dash_speed;
         
         // Attack 1
         switch timer
