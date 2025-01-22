@@ -1,4 +1,4 @@
-var b1 = global.button1[0];
+var b1 = global.button1;
 if !b1 ready = true;
 if (b1 && ready && !instance_exists(obj_trans))
     {

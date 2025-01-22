@@ -1,7 +1,7 @@
 //input check
 draw_y -= 0.5;
 obj_title.y -= 0.5;
-var b1 = global.button1[0];
+var b1 = global.button1;
 if (!b1 && !ready) ready = true;
 if (b1 && ready) || draw_y <= e
     {

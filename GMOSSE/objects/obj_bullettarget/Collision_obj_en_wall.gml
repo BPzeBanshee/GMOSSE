@@ -1,2 +1,2 @@
-instance_change(obj_bulletcancel,true);
-
+instance_create_depth(x,y,depth,obj_bulletcancel);
+instance_destroy();

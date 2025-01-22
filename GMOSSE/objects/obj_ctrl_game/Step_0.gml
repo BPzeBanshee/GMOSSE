@@ -14,16 +14,9 @@ if respawntimer == 0
     {
     if mylives == 0
 		{
-		global.player_data[side].myscore = myscore;
-		if instance_number(object_index) == 2
-			{
-			instance_destroy();
-			}
-		else
-			{
-	        if !instance_exists(obj_ctrl_continue) 
-			instance_create_layer(x,y,layer,obj_ctrl_continue);
-			}
+		global.player_data.myscore = myscore;
+	    if !instance_exists(obj_ctrl_continue) 
+		instance_create_layer(x,y,layer,obj_ctrl_continue);
 		}
 	else event_user(0);
     respawntimer = -1;
@@ -41,11 +34,11 @@ if countdown > 180 countdown = 180;
 if countdown == 0 chain = 0;
 
 // Extends    
-if myscore >= (3000000 * (global.player_data[side].extends+1))
+if myscore >= (3000000 * (global.player_data.extends+1))
     {
     scr_snd_play(snd_1up);
     mylives += 1;
-    global.player_data[side].extends += 1;
+    global.player_data.extends += 1;
     var a = instance_create_layer(x,y,global.lay_player,obj_popup);
     a.msg = "EXTEND";
     }

@@ -1,20 +1,18 @@
 // Don't bother doing anything if we're not actually playing
 if !instance_exists(myhitbox) exit;
 
-
 // Get button inputs
-var ind = myctrl.side;
-input_up = global.jup[ind];
-input_down = global.jdown[ind];
-input_left = global.jleft[ind];
-input_right = global.jright[ind];
-input_b1 = global.button1[ind];
-input_b2 = global.button2[ind];
-input_b3 = global.button3[ind];
+up = global.jup;
+down = global.jdown;
+left = global.jleft;
+right = global.jright;
+b1 = global.button1;
+b2 = global.button2;
+b3 = global.button3;
 
 // Speed value
 var spd = shipspeed;
-if input_b3
+if b3
     {
     if has_afterimage
 		{
@@ -27,10 +25,10 @@ if input_b3
 // Directional input
 var dirx = 0;
 var diry = 0;
-if input_up diry -= 1;
-if input_down diry += 1;
-if input_left dirx -= 1;
-if input_right dirx += 1;
+if up diry -= 1;
+if down diry += 1;
+if left dirx -= 1;
+if right dirx += 1;
 
 // Now manipulate the player position
 if dirx != 0 || diry != 0

@@ -1,8 +1,8 @@
 // Get inputs
-var up = global.jup[0];
-var down = global.jdown[0];
-var b1 = global.button1[0];
-var b2 = global.button2[0];
+var up = global.jup;
+var down = global.jdown;
+var b1 = global.button1;
+var b2 = global.button2;
 
 timer += 1;
 scroll += 1;

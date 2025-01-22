@@ -56,6 +56,8 @@ if tur_count > 0
 // Final pattern - Only occurs if all turrets are destroyed
 if tur_count == 0 && y > yview-(sprite_height/2) && y < yview+160
     {
+	z = 128;
+	can_damage = true;
     timer += 1;
     if timer >= 4
         {

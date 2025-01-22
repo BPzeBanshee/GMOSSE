@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_linebreak",
   "parent":{
-    "name":"Others",
-    "path":"folders/Scripts/CORE/Others.yy",
+    "name":"String Handling",
+    "path":"folders/Scripts/CORE/String Handling.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

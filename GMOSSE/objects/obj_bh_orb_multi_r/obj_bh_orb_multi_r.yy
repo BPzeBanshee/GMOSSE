@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_bh_type1",
+  "%Name":"obj_bh_orb_multi_r",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_bh_type1",
+  "name":"obj_bh_orb_multi_r",
   "overriddenProperties":[],
   "parent":{
     "name":"Orb Types",

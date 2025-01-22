@@ -8,7 +8,6 @@ modified to work with GMOSSE by BPzeBanshee
 
 // Precaution to preserve joystick/gamepad state if disabled
 if !enabled exit;
-var jid = 0;
 
 // Debug code so you can see which event has been triggered
 trace("Event: " + async_load[? "event_type"]);        
@@ -27,13 +26,13 @@ switch(async_load[? "event_type"])
             {
             if global.joy_pref == pad
                 {
-                global.joy_id[jid] = pad;
+                global.joy_id = pad;
                 trace("Pad set to preferred ID "+string(pad)+" ("+string(gamepad_get_description(pad))+")");
                 }
             }
         else 
             {
-            global.joy_id[jid] = pad; // otherwise if it's the only pad, use it
+            global.joy_id = pad; // otherwise if it's the only pad, use it
             trace("Pad set to only available ID "+string(pad)+" ("+string(gamepad_get_description(pad))+")");
             }
         
@@ -51,9 +50,9 @@ switch(async_load[? "event_type"])
         trace("Pad ID: " + string(pad));
         
         // If lost pad is currently used/preferred, find us a new one!
-        if global.joy_id[jid] == pad
+        if global.joy_id == pad
             {
-            global.joy_id[jid] = -1; // Nuke old ID
+            global.joy_id = -1; // Nuke old ID
             
             var count = 0; 
             pad = 0; 
@@ -63,16 +62,16 @@ switch(async_load[? "event_type"])
                 {
                 if gamepad_is_connected(pad) 
                     {
-                    if global.joy_id[jid] == -1 global.joy_id[jid] = pad;
+                    if global.joy_id == -1 global.joy_id = pad;
                     count += 1;
                     }
                 pad += 1;
                 }
                 
             // Report result to console
-            if pad == gamepad_get_device_count() && global.joy_id[jid] == -1
+            if pad == gamepad_get_device_count() && global.joy_id == -1
             trace("Failed to find any joystick/gamepads")
-            else trace(string(count)+" Pads found, picked ID: "+string(global.joy_id[jid]));
+            else trace(string(count)+" Pads found, picked ID: "+string(global.joy_id));
             }
         break;
         }

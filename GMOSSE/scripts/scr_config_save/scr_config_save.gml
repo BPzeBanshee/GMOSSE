@@ -3,7 +3,7 @@ function scr_config_save(location) {
 	ini_open(location);
 
 	// [JOYSTICK]
-	ini_write_real("Joystick","joy_pref",global.joy_pref[0]);
+	ini_write_real("Joystick","joy_pref",global.joy_pref);
 	ini_write_real("Joystick","joy1",global.joy1);
 	ini_write_real("Joystick","joy2",global.joy2);
 	ini_write_real("Joystick","joy3",global.joy3);

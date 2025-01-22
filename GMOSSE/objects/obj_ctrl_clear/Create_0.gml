@@ -1,6 +1,5 @@
 global.pausable = false;
-p[0] = noone;
-p[1] = noone;
+p = noone;
 timer = 0;
 txt_alpha = 0;
 bkg_alpha = 0;

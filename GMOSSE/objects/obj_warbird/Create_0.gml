@@ -20,3 +20,4 @@ time_passed = 0;
 has_afterimage = true;
 afterimage_spr = spr_warbird_aft;
 outline_spr = spr_warbird_out;
+alarm[0] = 3;

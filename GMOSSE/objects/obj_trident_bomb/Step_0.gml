@@ -9,8 +9,7 @@ if instance_exists(parent_id)
     timer += 1;
     if timer == 5
 		{
-		laser = instance_create_layer(x,y-8,layer,obj_trident_laser);
-		laser.myctrl = myctrl;
+		laser = scr_player_shot(x,y-8,obj_trident_laser,0,0);
 		parent_id.slow_speed();
 		}
 	if instance_exists(laser)

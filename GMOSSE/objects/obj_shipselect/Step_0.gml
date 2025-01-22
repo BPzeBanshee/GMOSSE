@@ -6,11 +6,11 @@ text = string_copy(ship_info[4],1,chr1);
 if disabled exit;
 
 // GET INPUTS
-var left = global.jleft[0];
-var right = global.jright[0];
-var button1 = global.button1[0];
-var button2 = global.button2[0];
-var button3 = global.button3[0];
+var left = global.jleft;
+var right = global.jright;
+var button1 = global.button1;
+var button2 = global.button2;
+var button3 = global.button3;
 
 // Left/right keys scroll through ship selection screen
 if left && (selection > 1) && !hook
@@ -32,7 +32,7 @@ if right && (selection < max_ships) && !hook
 if button1 && !hook
     {
 	scr_snd_play(snd_click,true);
-	global.player_data[0].shipselect = selection;
+	global.player_data.shipselect = selection;
     if selection == 3
         {
         instance_create_layer(x,y,layer,obj_shipselect_bh); 

@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"ini_open_fixed",
   "parent":{
-    "name":"Others",
-    "path":"folders/Scripts/CORE/Others.yy",
+    "name":"Config",
+    "path":"folders/Scripts/CORE/Config.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

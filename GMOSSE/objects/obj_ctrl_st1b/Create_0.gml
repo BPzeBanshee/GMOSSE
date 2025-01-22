@@ -9,6 +9,7 @@ completedelay = 0; // stage complete handling
 atk_timer = 0;
 
 scr_layer_vars();
+lay_planet = layer_get_id("lay_obj_planet");
 
 var rx,ry,rs,rd,r;
 repeat 30
@@ -23,7 +24,7 @@ repeat 30
 
 /* BACKGROUND HANDLING */
 scr_camera_init(0,80,0,0);
-planet1 = instance_create_layer(200,134,global.lay_en_ground,obj_planet1);
+planet1 = instance_create_layer(200,134,lay_planet,obj_planet1);
 planet1.image_angle = 46;
 
 instance_create_layer(x+160,y+240,layer,obj_ctrl_game);

@@ -5,16 +5,7 @@ if instance_exists(obj_ctrl_clear) exit;
 var player_rp = range / 2;
 
 // 2P mode: lerp(player1.x,player2.x,0.5) - x
-if instance_exists(obj_player)
-	{
-	if instance_number(obj_player) == 2
-		{
-		var p1 = global.player_data[0].myplayer;
-		var p2 = global.player_data[1].myplayer;
-		player_rp = lerp(p1.x,p2.x,0.5) - x;
-		}
-	else player_rp = (obj_player.x - x);
-	}
+if instance_exists(obj_player) player_rp = (obj_player.x - x);
 var player_pc = player_rp / range; // player position as decimal percentage
 var max_width = range - view_width; // 80 assuming playable area of 320 wide
 

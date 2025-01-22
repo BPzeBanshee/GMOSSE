@@ -1,19 +1,18 @@
 // COMPUSLORY EVENT
 event_inherited();
-if !instance_exists(obj_hitbox) or !made exit;
+if !instance_exists(myhitbox) or !made exit;
 
 // shoot code
 // button 1
 if shot_timer > 0 shot_timer -= 1 else can_shoot = true;
 if shot2_timer > 0 shot2_timer -= 1 else can_shoot2 = true;
-if input_b1
+if b1
     {
     if can_shoot // Main shot
         {
         scr_snd_play(snd_bh_mainshot);
-        var shot = scr_basicshot(x,y,global.lay_player_weapons,obj_bh_mainshot,20,90+shot_angle);
+        var shot = scr_player_shot(x,y,obj_bh_mainshot,20,90+shot_angle);
         shot.image_blend = blend;
-		shot.myctrl = myctrl;
 
         if shot_angle_add == 1 shot_angle += 1 else shot_angle -= 1;
         if shot_angle > 3 || shot_angle < -3
@@ -43,29 +42,29 @@ if input_b1
     }
 	
 // Button 2 (Program setting)
-if input_b2 && can_program
+if b2 && can_program
     {
     program = !program;
 	for (var i=0; i<num_options; i++) option[i].program = program;
     can_program = false;
     }
-if !input_b2 can_program = true;
+if !b2 can_program = true;
 
 // Button 3 (Speed gear setting)
-if (input_b3 && can_speed) 
+if (b3 && can_speed) 
     {
     can_speed = false;
     if speed_up speed_gear += 1 else speed_gear -= 1;
     switch speed_gear
         {
-        case 1: shipspeed = 1; thrust_scale = 0.25; speed_up = true; break;
+        case 1: shipspeed = 2; thrust_scale = 0.25; speed_up = true; break;
         case 2: shipspeed = 3; thrust_scale = 0.5; break;
-        case 3: shipspeed = 5; thrust_scale = 0.75; break;
-        case 4: shipspeed = 7; thrust_scale = 1; speed_up = false; break;
+        case 3: shipspeed = 4; thrust_scale = 0.75; break;
+        case 4: shipspeed = 5; thrust_scale = 1; speed_up = false; break;
         }
     slowshipspeed = shipspeed;
     }
-if (!input_b3) can_speed = true;
+if (!b3) can_speed = true;
 
 // Image aesthetics
 image_timer += 1;

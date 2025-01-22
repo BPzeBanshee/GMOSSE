@@ -36,42 +36,42 @@ switch stage_time
         }
     case 475:
         {
-        instance_create_layer(160,-32,global.lay_en_air,obj_en_carrier);
-        var planet1 = instance_create_layer(200,-320,global.lay_en_ground,obj_planet1);
+        instance_create_layer(160,-32,global.lay_en_air2,obj_en_carrier);
+        var planet1 = instance_create_layer(200,-320,lay_planet,obj_planet1);
         planet1.vspeed = 0.1;
         break;
         }
     case 650:
         {
-        var enemy1 = instance_create_layer(160,-32,global.lay_en_air,obj_en1);
+        var enemy1 = instance_create_layer(160,-32,global.lay_en_air2,obj_en1);
         enemy1.vspeed = 1.25;
         break;
         }
     case 700:
         {
-        var enemy1r2 = instance_create_layer(80,-32,global.lay_en_air,obj_en1);
+        var enemy1r2 = instance_create_layer(80,-32,global.lay_en_air2,obj_en1);
         enemy1r2.vspeed = 1.25;
-        var enemy1r3 = instance_create_layer(240,-32,global.lay_en_air,obj_en1);
+        var enemy1r3 = instance_create_layer(240,-32,global.lay_en_air2,obj_en1);
         enemy1r3.vspeed = 1.25;
         break;
         }
     case 900:
         {
-        var enemy2 = instance_create_layer(-32,60,global.lay_en_air,obj_en2);
+        var enemy2 = instance_create_layer(-32,60,global.lay_en_air2,obj_en2);
         enemy2.hspeed = 2;
-        var enemy3 = instance_create_layer(xview+272,yview+60,global.lay_en_air,obj_3Den1_spawn);
+        var enemy3 = instance_create_layer(xview+272,yview+60,global.lay_en_air2,obj_3Den1_spawn);
         enemy3.direction = 180;
         break;
         }
     case 1100:
         {
-        var enemy3b = instance_create_layer(342,60,global.lay_en_air,obj_en2);
+        var enemy3b = instance_create_layer(342,60,global.lay_en_air2,obj_en2);
         enemy3b.hspeed = -2;
         break;
         }
     case 1200: // Jumping jack 3D enemies spawn relative to your view position
         {
-        var enemy3 = instance_create_layer(xview-32,yview+60,global.lay_en_air,obj_3Den1_spawn);
+        var enemy3 = instance_create_layer(xview-32,yview+60,global.lay_en_air2,obj_3Den1_spawn);
         enemy3.direction = 0;
         break;
         }
@@ -89,30 +89,30 @@ switch stage_time
         }
     case 1600:
         {
-        var enemy5 = instance_create_layer(160,-32,global.lay_en_air,obj_3Den2_spawn);
+        var enemy5 = instance_create_layer(160,-32,global.lay_en_air2,obj_3Den2_spawn);
         enemy5.speed = 1.6;
         enemy5.direction = 270;
         break;
         }
     case 1650:
         {
-        var pop1 = instance_create_layer(240,-32,global.lay_en_air,obj_en1);
-        var pop2 = instance_create_layer(80,-32,global.lay_en_air,obj_en1);
+        var pop1 = instance_create_layer(240,-32,global.lay_en_air2,obj_en1);
+        var pop2 = instance_create_layer(80,-32,global.lay_en_air2,obj_en1);
         pop1.vspeed = 1.25;
         pop2.vspeed = 1.25;
         break;
         }
     case 1875:
         {
-        var pop1 = instance_create_layer(240,-32,global.lay_en_air,obj_en1);
-        var pop2 = instance_create_layer(80,-32,global.lay_en_air,obj_en1);
+        var pop1 = instance_create_layer(240,-32,global.lay_en_air2,obj_en1);
+        var pop2 = instance_create_layer(80,-32,global.lay_en_air2,obj_en1);
         pop1.vspeed = 2.5;
         pop2.vspeed = 2.5;
         break;
         }
     case 2100:
         {
-        instance_create_layer(160,-32,global.lay_en_air,obj_en_plat);
+        instance_create_layer(160,-32,global.lay_en_air2,obj_en_plat);
         break;
         }
     case 2500:
@@ -122,12 +122,12 @@ switch stage_time
         }
     case 2800:
         {
-        instance_create_layer(90,-40,global.lay_en_air,obj_en_plat);
+        instance_create_layer(90,-40,global.lay_en_air2,obj_en_plat);
         break;
         }
     case 3200:
         {
-        instance_create_layer(230,-40,global.lay_en_air,obj_en_plat);
+        instance_create_layer(230,-40,global.lay_en_air2,obj_en_plat);
         break;
         }
     case 3400:
@@ -143,8 +143,8 @@ switch stage_time
         }
     case 3700:
         {
-        jumper1 = instance_create_layer(xview-32,yview+60,global.lay_en_air,obj_3Den1_spawn);
-        jumper2 = instance_create_layer(xview+272,yview+60,global.lay_en_air,obj_3Den1_spawn);
+        jumper1 = instance_create_layer(xview-32,yview+60,global.lay_en_air2,obj_3Den1_spawn);
+        jumper2 = instance_create_layer(xview+272,yview+60,global.lay_en_air2,obj_3Den1_spawn);
         jumper1.direction = 0;
         jumper2.direction = 180;
         break;
@@ -153,13 +153,13 @@ switch stage_time
         {
         if !instance_exists(jumper1) && !en4_spawn1
             {
-            var en4a = instance_create_layer(-32,60,global.lay_en_air,obj_en2);
+            var en4a = instance_create_layer(-32,60,global.lay_en_air2,obj_en2);
             en4a.hspeed = 2;
             en4_spawn1 = true;
             }
         if !instance_exists(jumper2) && !en4_spawn2
             {
-            var en4b = instance_create_layer(342,60,global.lay_en_air,obj_en2);
+            var en4b = instance_create_layer(342,60,global.lay_en_air2,obj_en2);
             en4b.hspeed = -2;
             en4_spawn2 = true;
             }
@@ -179,7 +179,7 @@ switch stage_time
         }
     case 4300:
         {
-        instance_create_layer(160,-32,global.lay_en_air,obj_en_carrier);
+        instance_create_layer(160,-32,global.lay_en_air2,obj_en_carrier);
         break;
         }
     case 4450:
@@ -204,12 +204,9 @@ switch stage_time
         }
     case 5000:
         {
-        var enemy5 = instance_create_layer(160,-32,global.lay_en_air,obj_3Den2_spawn);// was x=120
+        var enemy5 = instance_create_layer(160,-32,global.lay_en_air2,obj_3Den2_spawn);// was x=120
         enemy5.speed = 1.6;
         enemy5.direction = 270;
-        /*enemy5b = instance_create_layer(200,-32,global.lay_en_air,obj_3Den2_spawn);
-        enemy5b.speed = 1.6;
-        enemy5b.direction = 270;*/
         break;
         }
     case 5200:
@@ -232,7 +229,7 @@ switch stage_time
         }
     case 6550:
         {
-        var en1 = instance_create_layer(80,-30,global.lay_en_air,obj_en1);
+        var en1 = instance_create_layer(80,-30,global.lay_en_air2,obj_en1);
         en1.vspeed = 1;
         with obj_ctrl_music event_user(1); // boss music
         with obj_rock dead = true;
@@ -240,27 +237,27 @@ switch stage_time
         }
     case 6610:
         {
-        var en2 = instance_create_layer(160,-30,global.lay_en_air,obj_en1);
+        var en2 = instance_create_layer(160,-30,global.lay_en_air2,obj_en1);
         en2.vspeed = 1;
         break;
         }
     case 6670:
         {
-        var en3 = instance_create_layer(240,-30,global.lay_en_air,obj_en1);
+        var en3 = instance_create_layer(240,-30,global.lay_en_air2,obj_en1);
         en3.vspeed = 1;
         break;
         }
     case 6790:
         {
-        var sideenemy = instance_create_layer(-40,40,global.lay_en_air,obj_en2);
+        var sideenemy = instance_create_layer(-40,40,global.lay_en_air2,obj_en2);
         sideenemy.hspeed = 1.5;
-        var sideenemy2 = instance_create_layer(360,40,global.lay_en_air,obj_en2);
+        var sideenemy2 = instance_create_layer(360,40,global.lay_en_air2,obj_en2);
         sideenemy2.hspeed = -1.5;
         break;
         }
     case 6890:
         {
-        instance_create_layer(160,-32,global.lay_en_air,obj_en_carrier);
+        instance_create_layer(160,-32,global.lay_en_air2,obj_en_carrier);
         break;
         }
     case 7100:

@@ -14,6 +14,8 @@ atk_phase = 1;
 aim = 0;
 
 tur_count = 0;
-made = 0;
+made = false;
+z = 127;
+can_damage = false;
 
 for (var i=0;i<4;i++) tur[i] = noone;

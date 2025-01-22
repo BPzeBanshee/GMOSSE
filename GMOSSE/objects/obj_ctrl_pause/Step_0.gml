@@ -1,9 +1,9 @@
 if !enabled exit;
 
 // *************** Input Checking ***************
-var up = global.jup[0];
-var down = global.jdown[0];
-var b1 = global.button1[0];
+var up = global.jup;
+var down = global.jdown;
+var b1 = global.button1;
 
 // Up
 if (up && !hook && enabled)
@@ -48,15 +48,10 @@ if (b1 && !global.levelend && !hook && enabled)
             scr_trans(room,2,c_black,0.025,0.05,0);
             if global.nextroom == rm_stage1
                 {
+				var s = global.player_data.shipselect;
+				scr_playerdata_reset();
+				global.player_data.shipselect = s;
 				global.medalvalue = 1;
-				for (var i=0;i<2;i++)
-					{
-					global.player_data[i].myscore = 0;
-					global.player_data[i].mylives = 3;
-					global.player_data[i].mybombs = -1;
-					global.player_data[i].extends = 0;
-					global.player_data[i].continues = 0;
-					}
                 
                 // TODO: Does obj_ctrl_game even get this command? does it care?
                 with obj_ctrl_game

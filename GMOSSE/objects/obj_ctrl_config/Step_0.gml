@@ -4,11 +4,11 @@ event_user(category);
 enabled = true;
 
 // Get inputs
-var up = global.jup[0];
-var down = global.jdown[0];
-var left = global.jleft[0];
-var right = global.jright[0];
-var b1 = global.button1[0];
+var up = global.jup;
+var down = global.jdown;
+var left = global.jleft;
+var right = global.jright;
+var b1 = global.button1;
 
 // UP
 if up && !hook

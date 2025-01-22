@@ -20,7 +20,7 @@ function scr_config_load(location) {
     
 	/* JOYSTICK */
 	// joystick button numbers
-	global.joy_pref[0] = ini_read_real("Joystick","joy_pref",0); // preferred joy id
+	global.joy_pref = ini_read_real("Joystick","joy_pref",0); // preferred joy id
 	global.joy1 = ini_read_real("Joystick","joy1",gp_face1);
 	global.joy2 = ini_read_real("Joystick","joy2",gp_face2);
 	global.joy3 = ini_read_real("Joystick","joy3",gp_face3);

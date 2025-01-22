@@ -1,20 +1,20 @@
 ///@desc Create Orbs
 
 // Decide which pods to make based on option type
-optiontype = global.player_data[myctrl.side].optiontype;
+//optiontype = parent_id.optiontype;
 switch optiontype
     {
-    default: pod_type = obj_bh_type1; break;
-    case 2: pod_type = obj_bh_type2; break;
-    case 3: pod_type = obj_bh_type3; break;
-    case 4: pod_type = obj_bh_type4; break;
-    case 5: pod_type = obj_bh_type5; break;
-    case 6: pod_type = obj_bh_type6; break;
-    case 7: pod_type = obj_bh_type7; break;
+    default: pod_type = obj_bh_orb_normal; break;
+    case 2: pod_type = obj_bh_orb_reverse; break;
+    case 3: pod_type = obj_bh_orb_search; break;
+    case 4: pod_type = obj_bh_orb_multi; break;
+    case 5: pod_type = obj_bh_orb_multi_r; break;
+    case 6: pod_type = obj_bh_orb_shadow; break;
+    case 7: pod_type = obj_bh_orb_roll; break;
     }
 	
 // Assign blend colour based on weapon type
-weapontype = global.player_data[myctrl.side].weapontype;
+//weapontype = parent_id.weapontype;
 switch weapontype
     {
     case 1: blend = 16744576; break; // light blue

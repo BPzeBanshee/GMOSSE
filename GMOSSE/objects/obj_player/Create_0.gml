@@ -9,10 +9,10 @@ has_afterimage = false;
 afterimage_spr = -1;
 outline_spr = -1;
 
-input_up = false;
-input_down = false;
-input_left = false;
-input_right = false;
-input_b1 = false;
-input_b2 = false;
-input_b3 = false;
+up = false;
+down = false;
+left = false;
+right = false;
+b1 = false;
+b2 = false;
+b3 = false;

@@ -3,7 +3,7 @@ category_type = "CONFIGURATION MENU";
 selection_max = 5;
 max_h = 0;
 
-if global.button1[0] && !hook 
+if global.button1 && !hook 
     {
     scr_snd_play(snd_click,true);
     hook = true;

@@ -14,6 +14,7 @@ en4_spawn1 = false;
 en4_spawn2 = false;
 
 scr_layer_vars();
+lay_planet = layer_get_id("lay_obj_planet");
 
 var rx,ry,rs,rd,r;
 repeat 30

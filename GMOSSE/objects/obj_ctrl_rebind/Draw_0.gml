@@ -10,7 +10,7 @@ draw_text(xview+120,yview+240,string(msg)); // draws the message
 
 if control > 1 // Non-keyboard display
     {
-    var pad_str = string(global.joy_id[0]);
+    var pad_str = string(global.joy_id);
     if control == 2 && mode == 3
         {
         pad_str = string(pad_list[select]);

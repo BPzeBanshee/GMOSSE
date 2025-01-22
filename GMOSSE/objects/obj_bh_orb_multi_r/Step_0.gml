@@ -1,9 +1,8 @@
-var side = (parent_id.myctrl).side;
 if program == 0
 	{
 	var ypos = 0;
-	if global.jup[side] ypos -= 1;
-	if global.jdown[side] ypos += 1;
+	if parent_id.up ypos -= 1;
+	if parent_id.down ypos += 1;
 	
 	var angle = 90;	
 	if ypos != 0 

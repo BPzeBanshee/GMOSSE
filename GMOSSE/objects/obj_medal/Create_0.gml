@@ -2,9 +2,8 @@ image_speed = 0;
 visible = false;
 alarm[0] = 1;
 
-speed = 2;
-direction = 90;
-gravity = 0.1;
+speed = -2;
+direction = 270;
 
 value = 10000;
 if global.medalvalue >= 20 && global.medalvalue < 29 value = 1000 * (global.medalvalue-19);

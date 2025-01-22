@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"string_spacefix",
   "parent":{
-    "name":"Others",
-    "path":"folders/Scripts/Others.yy",
+    "name":"String Handling",
+    "path":"folders/Scripts/CORE/String Handling.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

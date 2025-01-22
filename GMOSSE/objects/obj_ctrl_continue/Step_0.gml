@@ -30,9 +30,9 @@ if limiter > 5
     }
     
 // Get inputs
-var up = global.jup[0];
-var down = global.jdown[0];
-var b1 = global.button1[0];
+var up = global.jup;
+var down = global.jdown;
+var b1 = global.button1;
 
 // BEHAVIOUR
 // Scrolling up
@@ -81,7 +81,7 @@ if has_chosen && alpha <= 0
         {
         case 1:
             { // Continue because you're a shit player :3
-			global.player_data[0].continues += 1;
+			global.player_data.continues += 1;
 			with obj_hitbox invincible = 180;
 			with obj_ctrl_game
 				{
@@ -89,10 +89,8 @@ if has_chosen && alpha <= 0
 				respawntimer = 1;
 				countdown = 0;
 				chain = 0;
-				if global.player_data[0].continues < 9 
-					{
-					myscore = global.player_data[0].continues;
-					}
+				if global.player_data.continues < 9 
+				myscore = global.player_data.continues
 				else myscore = 9;
 				}
             break;
