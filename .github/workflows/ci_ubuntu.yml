@@ -1,11 +1,17 @@
-name: Continuous Integration for Windows export
+name: CI for Ubuntu
 on: 
   # push: #Uncomment this line to run the workflow on push
   workflow_dispatch: #This line allows you to run the workflow manually from the GitHub Actions page
+    #inputs:
+    #  runtime:
+    #    description: 'Target runtime'
+    #    default: 2024.1100.0.658
+    #    required: false
   workflow_call: #This line allows you to run the workflow from another workflow
 jobs:
   build:
-    runs-on: windows-2022
+    # ubuntu-latest incurs AppArmor problems, cfr https://github.com/YoYoGames/GameMaker-Bugs/issues/6015
+    runs-on: ubuntu-22.04
     steps:
       # Check out the repository with the GameMaker project
       - uses: actions/checkout@v4
@@ -15,16 +21,23 @@ jobs:
       - id: find_yyp
         name: Find the yyp file
         run: |
-          $yyp = Get-ChildItem -Path ${{ github.workspace }} -Recurse -Filter *.yyp
-          Write-Output "YYP file found at: $yyp"
-          "yyp-path=$yyp" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          yyp=$(find ${{ github.workspace }} -name "*.yyp")
+          echo "YYP file found at: $yyp"
+          echo "yyp-path=$yyp" >> $GITHUB_OUTPUT
+      - name: Set up ffmpeg # This step may be removed when https://github.com/YoYoGames/GameMaker-Bugs/issues/4977 is fixed
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        with:
+          ffmpeg-version: '6.1.0'
       # This step sets up the GameMaker build CLI tool Igor https://github.com/bscotch/igor-setup
       - name: use Igor Setup
-        uses: bscotch/igor-setup@v1
+        uses: bscotch/igor-setup@develop
         id: igor
         with:
           target-yyp: ${{ steps.find_yyp.outputs.yyp-path }}
-          access-key: ${{ secrets.ACCESS_KEY }} # 📝 To generate your Access Key, check out the Access Key section of the GameMaker Manual's Building via Command Line page: https://manual.gamemaker.io/monthly/en/#t=Settings%2FBuilding_via_Command_Line.htm
+          access-key: ${{ secrets.ACCESS_KEY }} # To generate your Access Key, check out the Access Key section of the GameMaker Manual's Building via Command Line page: https://manual.gamemaker.io/monthly/en/#t=Settings%2FBuilding_via_Command_Line.htm
+          cache: true
+          runtime-version: ${{ inputs.runtime }}
+          modules: linux
       # This step uses Igor to build the GameMaker project https://github.com/bscotch/igor-build
       - name: use Igor build
         uses: bscotch/igor-build@v1
@@ -32,10 +45,12 @@ jobs:
         with:
           yyp-path: ${{ steps.find_yyp.outputs.yyp-path }}
           user-dir: ${{ steps.igor.outputs.user-dir }}
+          platform: linux
       # This step uploads the build to the artifacts, so you can download it from the GitHub Actions page or use it in another workflow
       - name: upload-build
         uses: actions/upload-artifact@v4
         with:
-          name: igor-build-windows
+          name: igor-build-${{ runner.os }}
           path: ${{ steps.build.outputs.out-dir }}
           retention-days: 1 # Longer retention days can incur additional charges. See https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
+          
