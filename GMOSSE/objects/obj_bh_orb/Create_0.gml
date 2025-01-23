@@ -39,8 +39,7 @@ fire_weapon = function(){
 	    case 5:
 	        {
 	        if instance_number(obj_bh_shot5)>1 exit;
-	        s[0] = instance_create_layer(x,y,obj_bh_shot5);
-	        s[0].parent_id = id;
+	        s[0] = scr_player_shot(x,y,obj_bh_shot5,0,image_angle,true);
 	        break;
 	        }
 	    case 6:

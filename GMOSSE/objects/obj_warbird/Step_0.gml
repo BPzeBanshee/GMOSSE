@@ -36,6 +36,6 @@ if b2 && bomb_timer == 0 && bombs > 0
     {
     bombs -= 1;
     bomb_timer = 320;
-    instance_create_layer(x,y,layer,obj_warbird_bomb);
+    scr_player_shot(x,y,obj_warbird_bomb,0,0,false);
     scr_snd_play(snd_war_bomb);
     }

@@ -25,6 +25,7 @@ if (b1)
             shot[3].direction = 120;
             shot[4].direction = 130;
             }
+		for (var i=0;i<=4;i++) shot[i].image_angle = 90;
         shot_timer = 8;
         }
     }

@@ -15,13 +15,12 @@ if (enemyHP > 200 && enemyHP < 225)
 else image_blend = c_white;
 
 // Pattern-specific behaviour
-var ang;
+var ang = 270;
 if instance_exists(obj_hitbox)
     {
     var tar = instance_nearest(x,y,obj_hitbox);
     ang = point_direction(x,y,tar.x,tar.y);
     }
-else ang = 270;
 scr_turntoangle(ang,1);
 
 switch mode

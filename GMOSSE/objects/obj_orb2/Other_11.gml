@@ -2,8 +2,8 @@
 if count < 4 atk_timer -= 1;
 if atk_timer < 8
     {
-	var target = instance_nearest(x,y,obj_hitbox);
 	var aim = 270;
+	var target = instance_nearest(x,y,obj_hitbox);
 	if target != noone aim = point_direction(x,y,target.x,target.y);
     scr_basicshot(x,y,global.lay_bullets,obj_bullet3,0,aim);
     scr_basicshot(x,y,global.lay_bullets,obj_bullet3,0,aim+20);

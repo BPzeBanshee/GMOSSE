@@ -8,15 +8,15 @@ performs its own circular attack.
 if count2 < 4 atk_timer -= 1;
 if atk_timer == 0
     {
-	var target = instance_nearest(x,y,obj_hitbox);
 	var aim = 270;
+	var target = instance_nearest(x,y,obj_hitbox);
 	if target != noone aim = point_direction(x,y,target.x,target.y);
     repeat 5
         {
         scr_basicshot(x,y,global.lay_bullets,obj_bullet1,spd,aim);
         spd += 0.5;
         }
-    spd = 4;
+    spd = 3;
     scr_snd_play(snd_en_shot1,true);
     atk_timer = 4;
     count += 1;

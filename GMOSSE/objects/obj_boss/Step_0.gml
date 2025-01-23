@@ -44,23 +44,17 @@ if move_timer == 60 vspeed = 0;
 if move_timer < 60 enemyHP = enemyHP_max;
 if instance_exists(orb1)
 	{
-	if orb1_radius < 60 orb1_radius += 2 else
-		{
-		orb1.x = x + lengthdir_x(orb1_radius,orb1_angle);
-		orb1.y = y + lengthdir_y(orb1_radius,orb1_angle);
-		orb1_angle -= 10;
-		if orb1_angle < 0 orb1_angle += 360;
-		}
+	if orb1_radius < 60 orb1_radius += 2 else orb1_angle -= 10;
+	if orb1_angle < 0 orb1_angle += 360;
+	orb1.x = x + lengthdir_x(orb1_radius,orb1_angle);
+	orb1.y = y + lengthdir_y(orb1_radius,orb1_angle);
 	}
 if instance_exists(orb2)
 	{
-	if orb2_radius < 60 orb2_radius += 2 else
-		{
-		orb2.x = x + lengthdir_x(orb2_radius,orb2_angle);
-		orb2.y = y + lengthdir_y(orb2_radius,orb2_angle);
-		orb2_angle += 5;
-		if orb2_angle > 360 orb2_angle -= 360;
-		}
+	if orb2_radius < 60 orb2_radius += 2 else orb2_angle += 5;
+	if orb2_angle > 360 orb2_angle -= 360;
+	orb2.x = x + lengthdir_x(orb2_radius,orb2_angle);
+	orb2.y = y + lengthdir_y(orb2_radius,orb2_angle);
 	}	
 
 // Attack behaviour
@@ -120,14 +114,17 @@ switch phase
         {
         if instance_exists(orb1) && instance_exists(orb2)
             {
-            orb1.phase = 2;
-            orb2.phase = 1;
             if orb1.count >= 20 && orb2.count >= 4
                 {
-                orb1.phase = 0;
-                orb2.phase = 0;
+                orb1.phase = 0; orb1.timer = 0;
+                orb2.phase = 0; orb2.timer = 0;
                 phase = 1;
                 }
+			else
+				{
+				orb1.phase = 2;
+				orb2.phase = 1;
+				}
             }
         else
             {
@@ -165,12 +162,12 @@ switch phase
         y -= 1;
         if instance_exists(orb1)
             {
-            orb1.phase = 4; 
+            orb1.phase = 0;
             orb1.y -= 1;
             }
         if instance_exists(orb2)
             {
-            orb2.phase = 3;
+            orb2.phase = 0;
             orb2.y -= 1;
             }
         direction = 90;
