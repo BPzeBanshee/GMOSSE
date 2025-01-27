@@ -30,6 +30,8 @@ jobs:
         with:
           ffmpeg-version: '6.1.0'
       # This step sets up the 2024 prerequisites for Linux GM:
+      - name: Set up FUSE
+        run: sudo apt-get install -y libfuse2
       - name: Set up AppImage
         run: |
             wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
