@@ -64,12 +64,12 @@ jobs:
           user-dir: ${{ steps.igor.outputs.user-dir }}
           platform: linux
           yyc: true
-          name: ${{ github.workspace }}.AppImage
+          name: igor-build-${{ runner.os }}.AppImage
       # This step uploads the build to the artifacts, so you can download it from the GitHub Actions page or use it in another workflow
       - name: upload-build
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.workspace }}.AppImage #igor-build-${{ runner.os }}
+          name: igor-build-${{ runner.os }}.AppImage
           path: ${{ steps.build.outputs.out-dir }}
           retention-days: 1 # Longer retention days can incur additional charges. See https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
           
