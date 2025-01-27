@@ -69,7 +69,7 @@ jobs:
       - name: upload-build
         uses: actions/upload-artifact@v4
         with:
-          name: igor-build-${{ runner.os }}
+          name: ${{ github.workspace }}.AppImage #igor-build-${{ runner.os }}
           path: ${{ steps.build.outputs.out-dir }}
           retention-days: 1 # Longer retention days can incur additional charges. See https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
           
