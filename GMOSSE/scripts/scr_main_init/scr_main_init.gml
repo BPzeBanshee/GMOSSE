@@ -3,9 +3,8 @@ function scr_main_init() {
 	// Test code for parameters, can't think of any real uses at the moment
 	if parameter_count() > 0 && parameter_string(1) != "-game"
 	    {
-	    var s;
-	    s = "";
-	    for (i=0;i<parameter_count();i++) s += parameter_string(i+1) + " ";
+	    var s = "";
+	    for (var i=0;i<parameter_count();i++) s += parameter_string(i+1) + " ";
 	    show_message(s);
 	    }
 	*/

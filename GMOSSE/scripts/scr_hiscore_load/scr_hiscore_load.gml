@@ -4,9 +4,8 @@ function scr_hiscore_load(myfile) {
 	/*
 	scr_hiscore_load(), by BPzeBanshee
 	*/
-	var a,c;
-	c = "aLKJDalksjdalKJSDLKAJdLAJLKSDJlKASJdlkaJSDlkjakJLd";
-	a = myfile;
+	var c = "aLKJDalksjdalKJSDLKAJdLAJLKSDJlKASJdlkaJSDlkjakJLd";
+	var a = myfile;
 	if !file_exists(a) // If the file isn't there
 	    { // give the arrays their own default values
 	    // Sets default values for each position in the highscore and name arrays
@@ -19,9 +18,8 @@ function scr_hiscore_load(myfile) {
 	    var scorefile = file_text_open_read(myfile);
     
 	    // Error checking
-	    var str_a,str_b;
-	    str_a = "The quick brown fox jumps over the lazy dog! 0123456789";
-	    str_b = scr_decrypt(file_text_read_string(scorefile),c);
+	    var str_a = "The quick brown fox jumps over the lazy dog! 0123456789";
+	    var str_b = scr_decrypt(file_text_read_string(scorefile),c);
 	    file_text_readln(scorefile);
 	    if str_a != str_b
 	        {

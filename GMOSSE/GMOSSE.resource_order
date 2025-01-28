@@ -293,6 +293,7 @@
     {"name":"rm_test2","order":1,"path":"rooms/rm_test2/rm_test2.yy",},
     {"name":"rm_test3","order":2,"path":"rooms/rm_test3/rm_test3.yy",},
     {"name":"rm_tutorial","order":5,"path":"rooms/rm_tutorial/rm_tutorial.yy",},
+    {"name":"debug_instances","order":5,"path":"scripts/debug_instances/debug_instances.yy",},
     {"name":"file_to_string","order":3,"path":"scripts/file_to_string/file_to_string.yy",},
     {"name":"os_get_type","order":7,"path":"scripts/os_get_type/os_get_type.yy",},
     {"name":"scr_addscore","order":6,"path":"scripts/scr_addscore/scr_addscore.yy",},

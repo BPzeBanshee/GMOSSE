@@ -46,11 +46,10 @@ switch mode
     }
     
 // AESTHETICS //
-var x1,y1,x2,y2;
-x1 = x+lengthdir_x(8,direction+90)+lengthdir_x(14,direction+180); // left thruster (top-left of sprite)
-y1 = y+lengthdir_y(8,direction+90)+lengthdir_y(14,direction+180);
-x2 = x+lengthdir_x(8,direction+270)+lengthdir_x(14,direction+180); // right thruster (bottom-left of sprite)
-y2 = y+lengthdir_y(8,direction+270)+lengthdir_y(14,direction+180);
+var x1 = x+lengthdir_x(8,direction+90)+lengthdir_x(14,direction+180); // left thruster (top-left of sprite)
+var y1 = y+lengthdir_y(8,direction+90)+lengthdir_y(14,direction+180);
+var x2 = x+lengthdir_x(8,direction+270)+lengthdir_x(14,direction+180); // right thruster (bottom-left of sprite)
+var y2 = y+lengthdir_y(8,direction+270)+lengthdir_y(14,direction+180);
 
 thr_timer += 1;
 if thr_timer == 5

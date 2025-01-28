@@ -22,20 +22,18 @@ while m_array_h[m_aspect,global.window_size] > display_get_height() global.windo
 m_size = min(global.window_size,l_max_size);
 
 // Then pluck the array variables and adjust window size accordingly
-var w,h;
-w = m_array_w[m_aspect,m_size];
-h = m_array_h[m_aspect,m_size];
+var w = m_array_w[m_aspect,m_size];
+var h = m_array_h[m_aspect,m_size];
 window_set_size(w,h);
 
 if !l_firstrun 
     {
     // if we center in consecutive runs on Win7 we get garbage graphics
     // and if we just use window_center it's even worse
-    var xx,yy,dw,dh;
-    dw = display_get_width();
-    dh = display_get_height();
-    xx = (dw / 2) - (w / 2);
-    yy = (dh / 2) - (h / 2);
+    var dw = display_get_width();
+    var dh = display_get_height();
+    var xx = (dw / 2) - (w / 2);
+    var yy = (dh / 2) - (h / 2);
     if window_get_x() != xx || window_get_y() != yy
     window_set_position(xx,yy);
     l_firstrun = 1;

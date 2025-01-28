@@ -31,13 +31,12 @@ if layer_get_vspeed(l) > -1
 /* BEHAVIOUR */
 enemyHP = timeout;
 
-var aim;
+var aim = 270;
 if instance_exists(obj_hitbox)
     {
     var tar = instance_nearest(x,y,obj_hitbox);
     aim = point_direction(x,y,tar.x,tar.y);
     }
-else aim = 270;
 
 atk_timer += 1;
 switch phase

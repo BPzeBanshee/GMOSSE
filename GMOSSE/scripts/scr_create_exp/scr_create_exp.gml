@@ -11,10 +11,9 @@ function scr_create_exp(object,amount,countup) {
 	example usage:
 	'scr_create_exp(obj_explosion,360,18)'
 	*/
-	var choice,spd,scl;
-	choice = irandom_range(1,6);
-	spd = 0.1;
-	scl = 1;
+	var choice = irandom_range(1,6);
+	var spd = 0.1;
+	var scl = 1;
 	switch choice
 	    {
 	    case 1: // explode_spiral01
@@ -51,9 +50,8 @@ function scr_create_exp(object,amount,countup) {
 	        }
 	    case 3: // explode_linear
 	        {
-	        var _x, _y, _bullet, _lead;
-
-	        _lead = instance_create_depth(x,y,depth-1,object);
+	        var _x, _y, _bullet;
+	        var _lead = instance_create_depth(x,y,depth-1,object);
 	        _lead.speed = (amount/42)+0.5;
 	        _lead.direction = random (360);
 	        for (var i = 0; i <= amount; i+=countup)

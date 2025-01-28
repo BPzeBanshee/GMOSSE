@@ -11,10 +11,9 @@ function scr_spreadshot(origin_x,origin_y,bullettype,shootsound,arc,numbullets,b
 
 	//Get direction to shoot (from origin to player)
 	var target = instance_nearest(x,y,obj_hitbox);
-	var shootdir;
+	var shootdir = 270;
 	if target != noone
-	shootdir = point_direction(origin_x, origin_y, target.x, target.y)
-	else shootdir = 270;
+	shootdir = point_direction(origin_x, origin_y, target.x, target.y);
 
 	var arcstart = shootdir;
 	if numbullets > 1 arcstart = (shootdir - (arc / 2));

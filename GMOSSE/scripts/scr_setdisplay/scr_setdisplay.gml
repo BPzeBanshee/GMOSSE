@@ -9,10 +9,10 @@ function scr_setdisplay(aa, vsync) {
 	Safely measures antialiasing values to use and applies them
 	as well as the vsync function.
 	*/
-	var set_aa;
+	var set_aa = 0;
 	switch aa
 	    {
-	    default: set_aa = 0; break;
+	    default: break;
 	    case 1: set_aa = 2; break;
 	    case 2: set_aa = 4; break;
 	    case 3: set_aa = 8; break;

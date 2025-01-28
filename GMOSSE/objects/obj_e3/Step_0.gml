@@ -73,8 +73,8 @@ if made
             }
         }
     
-    var avg_x,avg_y;
-    avg_x = 0; avg_y = 0;
+    var avg_x = 0; 
+	var avg_y = 0;
     
     // Maintain Leg info
     for(var i=0;i<pairs;i+=1)

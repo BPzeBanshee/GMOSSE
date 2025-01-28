@@ -1,9 +1,8 @@
-/// @description scr_config_reset(location)
-/// @param location
+///@desc scr_config_reset(location)
+///@param {String} location
 function scr_config_reset(location) {
-	var e,f1;
-	e = -1;
-	f1 = working_directory+string(location); // sandbox
+	var e = -1;
+	var f1 = working_directory+string(location); // sandbox
 
 	// Delete config.ini from sandbox
 	e = file_delete(f1);

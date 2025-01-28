@@ -1,7 +1,6 @@
 function scr_fonts_set() {
-	var p,s;
-	p = 1; // proportional fonts
-	s = 1; // separation between glyphs by pixels?
+	var p = true; // proportional fonts
+	var s = 1; // separation between glyphs by pixels?
 
 	// default font set
 	if global.fonttype == 0  

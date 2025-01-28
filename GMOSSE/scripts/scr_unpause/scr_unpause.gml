@@ -1,15 +1,12 @@
-/// @description scr_unpause()
+// scr_unpause(), written by BPze
+/**@desc 
+Unpauses the game by reactivating everything,
+setting the backgrounds back to normal and
+deleting the stillscreen image to not be wasteful.
+*/
 function scr_unpause() {
-	/*
-	scr_unpause()
-
-	"Unpauses" the game by reactivating everything,
-	setting the backgrounds back to normal and
-	deleting the stillscreen image to not be wasteful.
-	*/
-	var back,i; 
-	back = layer_get_all();
-	for (i=0; i<array_length(back); i++)
+	var back = layer_get_all();
+	for (var i=0; i<array_length(back); i++)
 		{
 		if layer_get_name(back[i]) != "layer_bkg_brightness"// Reserved for background darkening
 			{
@@ -21,6 +18,5 @@ function scr_unpause() {
 
 	if sprite_exists(global.pause_img) sprite_delete(global.pause_img);
 	instance_activate_all();
-
 	global.paused = false;
 }

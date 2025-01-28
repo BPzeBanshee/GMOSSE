@@ -1,6 +1,6 @@
-/// @description scr_decrypt(str,key)
-/// @param str
-/// @param key
+///@desc scr_decrypt(str,key)
+///@param str
+///@param key
 function scr_decrypt(str,key) {
 	/*
 	rc4_decrypt_b64
@@ -8,17 +8,17 @@ function scr_decrypt(str,key) {
 	based off the rc4 script by xot
 	with modifications for GMS use by NailBuster
 	*/
-	var out,len,strlen,i,S,j,temp,pos,t,pad,b64,bin,tab,outsize;
+	var out,i,S,temp,t,bin;
 
 	//base64_decode string to array of bytes for decryption
-	strlen = string_length(str);
+	var strlen = string_length(str);
 	for (i=0; i<strlen; i+=1) out[i] = 0;
-	outsize=0;
+	var outsize = 0;
 
-	b64 = str;
-	len = string_length(b64);
-	pad = "=";
-	tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+	var b64 = str;
+	var len = string_length(b64);
+	var pad = "=";
+	var tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 	str = "";
 	while (string_length(b64) mod 4) b64 += pad;
 	for(i=0;i<len;i+=4) 
@@ -36,7 +36,7 @@ function scr_decrypt(str,key) {
 	var outst="";
 	len = string_length(key);
 	for (i=0; i<256; i+=1) S[i] = i;
-	j = 0;
+	var j = 0;
 	for (i=0; i<256; i+=1) 
 	    {
 	    j = (j + S[i] + ord(string_char_at(key,(i mod len)+1))) mod 256;
@@ -46,7 +46,7 @@ function scr_decrypt(str,key) {
 	    }
 	i = 0;
 	j = 0;
-	for (pos=0; pos<outsize; pos+=1) 
+	for (var pos=0; pos<outsize; pos+=1) 
 	    {
 	    i = (i + 1) mod 256;
 	    j = (j + S[i]) mod 256;

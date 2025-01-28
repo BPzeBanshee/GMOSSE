@@ -44,13 +44,12 @@ switch phase
         }
     case 1:
         {
-		var aim;
+		var aim = 270;
         if instance_exists(obj_hitbox)
             {
             var tar = instance_nearest(x,y,obj_hitbox);
             aim = point_direction(x,y,tar.x,tar.y);
             }
-        else aim = 270;
         
         shot_timer += 1;
         if shot_timer == 5

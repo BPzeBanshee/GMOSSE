@@ -24,8 +24,7 @@ if moving
     Zenodeath's mechanism works like this:
     if x != xx || y != yy
         {
-        var s;
-        s = clamp(point_distance(x,y,xx,yy)/4,0.1,5);
+        var s = clamp(point_distance(x,y,xx,yy)/4,0.1,5);
         mp_linear_step(xx,yy,s,0);
         }
     */

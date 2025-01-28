@@ -20,21 +20,14 @@ switch(async_load[? "event_type"])
         // Get the pad index value from the async_load map
         var pad = async_load[? "pad_index"];
         trace("Pad ID: " + string(pad));
-        
-        // If multiple pads are connected, pick the preferred one defined via config
-        if gamepad_get_device_count() > 1
+		
+		// If it's the config-preferred, just pick it
+		if global.joy_pref == pad
             {
-            if global.joy_pref == pad
-                {
-                global.joy_id = pad;
-                trace("Pad set to preferred ID "+string(pad)+" ("+string(gamepad_get_description(pad))+")");
-                }
+            global.joy_id = pad;
+            trace("Pad set to preferred ID "+string(pad)+" ("+string(gamepad_get_description(pad))+")");
             }
-        else 
-            {
-            global.joy_id = pad; // otherwise if it's the only pad, use it
-            trace("Pad set to only available ID "+string(pad)+" ("+string(gamepad_get_description(pad))+")");
-            }
+		else find_new_pad();
         
         // Set the deadzone for the analog stick and triggers
         //gamepad_set_axis_deadzone(pad,global.deadzone); // not needed, done manually
@@ -50,29 +43,7 @@ switch(async_load[? "event_type"])
         trace("Pad ID: " + string(pad));
         
         // If lost pad is currently used/preferred, find us a new one!
-        if global.joy_id == pad
-            {
-            global.joy_id = -1; // Nuke old ID
-            
-            var count = 0; 
-            pad = 0; 
-
-            // Try to find and pick the first available gamepad
-            while pad < gamepad_get_device_count()
-                {
-                if gamepad_is_connected(pad) 
-                    {
-                    if global.joy_id == -1 global.joy_id = pad;
-                    count += 1;
-                    }
-                pad += 1;
-                }
-                
-            // Report result to console
-            if pad == gamepad_get_device_count() && global.joy_id == -1
-            trace("Failed to find any joystick/gamepads")
-            else trace(string(count)+" Pads found, picked ID: "+string(global.joy_id));
-            }
+        if pad == global.joy_id find_new_pad();
         break;
         }
     }

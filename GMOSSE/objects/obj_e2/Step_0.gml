@@ -18,8 +18,8 @@ if !made
 if made
     {
     // Maintain Leg info
-    var yscroll;
-    if spd_y == 0 yscroll = true else yscroll = false; // spd_y is a globalvar declared by scr_camera_init iirc
+    var yscroll = false;
+    if spd_y == 0 yscroll = true;// spd_y is a globalvar declared by scr_camera_init iirc
     for(var i=0;i<=2;i+=1)
         {
         for (var j=0;j<=1;j+=1)

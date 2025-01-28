@@ -3,11 +3,10 @@ function scr_hiscore_draw() {
 	draw_set_font(global.fnt_default);
 	draw_set_color(c_white);
 
-	var hgap,vgap,shipscale,shippos;
-	hgap = 16;
-	vgap = 24;
-	shipscale = 0.8;
-	shippos = 202;
+	var hgap = 16;
+	var vgap = 24;
+	var shipscale = 0.8;
+	var shippos = 202;
 
 	var place,name_location,lvl,ship_used,score_location,txt,txt2;
 	for (var i=vgap; i<vgap*10; i+=vgap)
@@ -30,14 +29,17 @@ function scr_hiscore_draw() {
 	    draw_set_color(c_lime);
 	    draw_text((xview + 240) - hgap - 22,(yview+32) + i + 24,(txt2)); // score
     
+		var spr = -1;
+		var ind = 0;
 	    switch ship_used
 	        {
-	        case 1: draw_sprite_ext(spr_xono,0,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1); break;
-	        case 2: draw_sprite_ext(spr_warbird,1,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1); break;
-	        case 3: draw_sprite_ext(spr_bh,0,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1); break;
-	        case 4: draw_sprite_ext(spr_trident,2,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1); break;
-	        case 5: draw_sprite_ext(spr_arxyne,0,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1); break;
+	        case 1: spr = spr_xono;				break;
+	        case 2: spr = spr_warbird;			break;
+	        case 3: spr = spr_bh;				break;
+	        case 4: spr = spr_trident; ind = 2; break;
+	        case 5: spr = spr_arxyne;			break;
 	        default: break;
 	        }
+		draw_sprite_ext(spr,ind,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1);
 	    }
 	}

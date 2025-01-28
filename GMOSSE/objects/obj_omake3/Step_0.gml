@@ -31,8 +31,7 @@ AESTHETIC CODE
 Only significant thing I have here for the body is the single thruster
 on it's back. The rest I have delegated to the arm code in event_user(0) for now.
 */
-var thr;
-thr = scr_basicshot(x,y,layer,obj_explosion,5,image_angle+180+random_range(-10,10));
+var thr = scr_basicshot(x,y,layer,obj_explosion,5,image_angle+180+random_range(-10,10));
 thr.depth = depth + 1;
 thr.image_xscale = 0.25;
 thr.image_yscale = 0.25;
@@ -73,8 +72,7 @@ else
         }
     else
         {
-        var e;
-        e = scr_basicshot(x1,y1,layer,obj_explosion,5,aim+270+random_range(-30,30));
+        var e = scr_basicshot(x1,y1,layer,obj_explosion,5,aim+270+random_range(-30,30));
         e.depth = depth + 1;
         e.image_xscale = 0.5;
         e.image_yscale = 0.5;
@@ -87,8 +85,7 @@ else
         }
     else 
         {
-        var e;
-        e = scr_basicshot(x2,y2,layer,obj_explosion,5,aim+90+random_range(-30,30));
+        var e = scr_basicshot(x2,y2,layer,obj_explosion,5,aim+90+random_range(-30,30));
         e.depth = depth + 1;
         e.image_xscale = 0.5;
         e.image_yscale = 0.5;

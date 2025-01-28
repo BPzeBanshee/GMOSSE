@@ -29,10 +29,9 @@ function scr_draw_gauge(x1,y1,r,width,g_start,g_end,g_dir,value,mincol,maxcol) {
 	g_end += 360;
 	value *= 0.01;
 	var forloopres = 10; // added in by BPzeBanshee, was originally hardcoded 10
-	var v_dif_h,v_dif_s,v_dif_v,v_size;
-	v_dif_h = color_get_hue(maxcol) - color_get_hue(mincol);
-	v_dif_s = color_get_saturation(maxcol) - color_get_saturation(mincol);
-	v_dif_v = color_get_value(maxcol) - color_get_value(mincol);
+	var v_dif_h = color_get_hue(maxcol) - color_get_hue(mincol);
+	var v_dif_s = color_get_saturation(maxcol) - color_get_saturation(mincol);
+	var v_dif_v = color_get_value(maxcol) - color_get_value(mincol);
 
 	value = clamp(value,0,1);
 
@@ -50,7 +49,7 @@ function scr_draw_gauge(x1,y1,r,width,g_start,g_end,g_dir,value,mincol,maxcol) {
 	        }
 	    }
 
-	v_size = abs(g_start-g_end);
+	var v_size = abs(g_start-g_end);
 
 	gpu_set_blendmode(bm_add);
 	draw_set_color(make_color_hsv(color_get_hue(mincol)+v_dif_h*value,color_get_saturation(mincol)+v_dif_s*value,color_get_value(mincol)+v_dif_v*value));
