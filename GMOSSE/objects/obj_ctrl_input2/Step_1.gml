@@ -1,4 +1,4 @@
-event_inherited();
+ event_inherited();
 
 if replaying && stagenum > 0
     {

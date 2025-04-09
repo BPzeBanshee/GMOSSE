@@ -29,5 +29,4 @@ if !instance_exists(obj_ctrl_clear)
     with obj_ctrl_music event_user(6);
     }
 
-scr_pause();
-visible = true;
+if !global.paused scr_pause();

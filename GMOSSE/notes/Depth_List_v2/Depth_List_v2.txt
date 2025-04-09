@@ -212,7 +212,7 @@ function __global_object_depths() {
 	global.__objectDepths[174] = -5; // obj_bulletcancel
 	global.__objectDepths[175] = -7; // obj_bullet_shoot
 	global.__objectDepths[176] = -7; // obj_bullet_homing
-	global.__objectDepths[177] = -7; // obj_bullettarget
+	global.__objectDepths[177] = -7; // obj_bullet_parent
 	global.__objectDepths[178] = 0; // obj_title
 	global.__objectDepths[179] = 0; // obj_logo2
 	global.__objectDepths[180] = 12; // obj_bkg_menu
@@ -430,7 +430,7 @@ function __global_object_depths() {
 	global.__objectNames[174] = "obj_bulletcancel";
 	global.__objectNames[175] = "obj_bullet_shoot";
 	global.__objectNames[176] = "obj_bullet_homing";
-	global.__objectNames[177] = "obj_bullettarget";
+	global.__objectNames[177] = "obj_bullet_parent";
 	global.__objectNames[178] = "obj_title";
 	global.__objectNames[179] = "obj_logo2";
 	global.__objectNames[180] = "obj_bkg_menu";

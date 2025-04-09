@@ -9,7 +9,7 @@
   "bitRate":192,
   "compression":0,
   "conversionMode":0,
-  "duration":0.776271,
+  "duration":0.7762585,
   "name":"snd_voice3",
   "parent":{
     "name":"Voices",

@@ -9,7 +9,7 @@
   "bitRate":192,
   "compression":0,
   "conversionMode":0,
-  "duration":3.326531,
+  "duration":3.3265307,
   "name":"snd_lightning1",
   "parent":{
     "name":"Others",
@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"snd_lightning1",
   "type":0,
-  "volume":0.88,
+  "volume":0.5,
 }

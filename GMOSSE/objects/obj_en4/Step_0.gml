@@ -3,11 +3,8 @@ image_angle += 1;
 thr_timer += 1;
 if thr_timer == 4 
     {
-    var thr = instance_create_layer(x,y,layer,obj_en_thr);
-    thr.image_xscale = 3.75;
-    thr.image_yscale = 3.75;
-    thr.image_speed = 0.3;
-    thr.image_angle = irandom(360);
+	var thr = scr_thrust(x,y,3.75,true);
+	thr.image_speed = 0.3;
     thr_timer = 0;
     }
     

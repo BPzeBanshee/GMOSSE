@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_thrust",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_thrust",
+  "parent":{
+    "name":"Others",
+    "path":"folders/Scripts/Others.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

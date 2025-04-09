@@ -1,11 +1,9 @@
 // Aesthetics
 if !dead
     {
-    var thrust = scr_basicshot(x,y-12,layer,obj_en_thr,2,90);
-    thrust.image_xscale = 4;
-    thrust.image_yscale = 4;
-    thrust.image_angle = irandom(360);
-    thrust.z = 128;
+	var thr = scr_thrust(x,y,4,true);
+	thr.speed = 2; 
+	thr.direction = 90;
     }
 
 // Attack-related

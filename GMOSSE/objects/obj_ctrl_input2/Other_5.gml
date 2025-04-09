@@ -10,13 +10,15 @@ if recording
     //trace("global.nextroom = "+string(global.nextroom)+", global.startstage = "+string(global.startstage));
     if global.nextroom == global.startstage
         {
+		scr_playerdata_reset();
+		global.medalvalue = 1;
         trace("replay[# 0,0] thru [# 0,5] being set");
         replay[# 0,0] = 1;
         replay[# 0,1] = room_get_name(global.startstage); // starting room
 		
 		// TODO: better way?
         replay[# 0,2] = sprite_get_name(object_get_sprite(obj_xono));
-        replay[# 0,3] = sprite_get_name(object_get_sprite(obj_arxyne));
+        replay[# 0,3] = global.medalvalue;
 		
         replay[# 0,4] = global.player_data.optiontype;
         replay[# 0,5] = global.player_data.weapontype;
@@ -47,7 +49,7 @@ if recording
 
 if replaying == true
     {
-    if instance_exists(obj_ctrl_gameover)
+    if instance_exists(obj_ctrl_gameover) or global.nextroom == rm_menu
         {
         replaying = false;
 		var s = global.player_data.myscore;

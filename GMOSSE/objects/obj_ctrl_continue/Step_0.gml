@@ -61,10 +61,6 @@ if b1 && !hook
 // Actions based on chosen option
 if has_chosen && alpha <= 0
     {
-    // Unpause and restore everything to look normal
-    scr_unpause();
-    visible = false; // don't capture continue screen if Game Overing
-    
     // make the stars go away/go back to normal
     instance_destroy(obj_star);
     
@@ -73,16 +69,19 @@ if has_chosen && alpha <= 0
 		{
 		event_user(5);	// call again to switch off
 	    resume();		// Unpause whatever was playing before Continue
-		}
-    global.pausable = true;
-    
+		} 
     // Selection-specific stuff
     switch selection
         {
         case 1:
             { // Continue because you're a shit player :3
+			global.pausable = true;
+			scr_unpause(); // Unpause and restore everything to look normal
 			global.player_data.continues += 1;
-			with obj_hitbox invincible = 180;
+			with obj_hitbox 
+				{
+				invincible = 180;
+				}
 			with obj_ctrl_game
 				{
 				mylives = 3;

@@ -14,7 +14,7 @@ yview = camera_get_view_y(cam);
 
 objects_to_scroll = [obj_player,obj_hitbox,
 obj_player_shot,obj_afterimage,
-obj_bullettarget,obj_en_air,
+obj_bullet_parent,obj_en_air,
 obj_stock_bomb,obj_popup,obj_misc_scrollable];
 
 // Old superwide test room code, might be useful to someone

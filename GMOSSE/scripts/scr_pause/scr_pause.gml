@@ -25,24 +25,26 @@ function scr_pause() {
 
 	// Capture image of screen (without debug text)
 	// Note: This stopped working for debug use since GMS switchover, 
-	//instance_deactivate_object(obj_ctrl_music);
-	//instance_deactivate_object(obj_debug);
+	instance_deactivate_object(obj_ctrl_music);
+	instance_deactivate_object(obj_debug);
+	
+	if !sprite_exists(global.pause_img)
+		{
+		// First, create the surface
+		var win_w = obj_ctrl_render.m_base_w;
+		var win_h = obj_ctrl_render.m_base_h;
+		var surf = surface_create(win_w,win_h);
+		surface_set_target(surf);
+		draw_clear_alpha(c_black,1);
+		gpu_set_blendmode_ext(bm_one, bm_inv_src_alpha);
+		if surface_exists(application_surface) draw_surface_stretched(application_surface,0,0,win_w,win_h);
+		gpu_set_blendmode(bm_normal);
+		surface_reset_target();
 
-	// First, create the surface
-	var win_w = obj_ctrl_render.m_base_w;
-	var win_h = obj_ctrl_render.m_base_h;
-	var surf = surface_create(win_w,win_h);
-	surface_set_target(surf);
-	draw_clear_alpha(c_black,1);
-	gpu_set_blendmode_ext(bm_one, bm_inv_src_alpha);
-	if surface_exists(application_surface) draw_surface_stretched(application_surface,0,0,win_w,win_h);
-	gpu_set_blendmode(bm_normal);
-	surface_reset_target();
-
-	// Then make the sprite off the surface
-	global.pause_img = sprite_create_from_surface(surf,0,0,win_w,win_h,false,false,0,0);
-	surface_free(surf);
-
+		// Then make the sprite off the surface
+		global.pause_img = sprite_create_from_surface(surf,0,0,win_w,win_h,false,false,0,0);
+		surface_free(surf);
+		}
 	/* 
 	Strange bug in HTML5 export: 
 	the stage controller lasts a frame longer if this isn't included

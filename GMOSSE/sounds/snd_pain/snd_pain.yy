@@ -9,7 +9,7 @@
   "bitRate":192,
   "compression":0,
   "conversionMode":0,
-  "duration":7.362312,
+  "duration":7.362313,
   "name":"snd_pain",
   "parent":{
     "name":"Voices",

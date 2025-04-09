@@ -16,7 +16,7 @@ if b3
     {
     if has_afterimage
 		{
-		var aft = instance_create_layer(x,y,layer,obj_afterimage);
+		var aft = instance_create_depth(x,y,depth+1,obj_afterimage);
 		aft.sprite_index = afterimage_spr;
 		}
     spd = slowshipspeed;

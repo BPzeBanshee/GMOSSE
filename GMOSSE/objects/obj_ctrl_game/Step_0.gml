@@ -4,7 +4,7 @@ if respawntimer > 0
 	// ternary operator: if mylives is zero, increment half, else one per frame
 	var increment = mylives == 0 ? 0.5 : 1;
     respawntimer -= increment;
-    with obj_bullettarget 
+    with obj_bullet_parent 
         {
         scr_basicshot(x,y,layer,obj_bulletcancel,speed,direction);
         instance_destroy();

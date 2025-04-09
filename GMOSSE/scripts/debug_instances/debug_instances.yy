@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"debug_instances",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Others",
+    "path":"folders/Scripts/Others.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

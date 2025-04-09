@@ -9,11 +9,15 @@ modified to work with GMOSSE by BPzeBanshee
 // Precaution to preserve joystick/gamepad state if disabled
 if !enabled exit;
 
+// Additional precaution to stop crash if async_load is invalid
+var event = async_load[? "event_type"];
+if is_undefined(event) exit;
+
 // Debug code so you can see which event has been triggered
-trace("Event: " + async_load[? "event_type"]);        
+trace("Event: " + event);
 
 // Parse the async_load map to see which event has been triggered
-switch(async_load[? "event_type"]) 
+switch(event) 
     {
     case "gamepad discovered": 
         {

@@ -20,7 +20,7 @@ if global.debug
     str += "S:"+string(global.step)+", I:"+string(instance_count)+"\n";
     str += string(fps)+" FPS";
 	
-	if instance_exists(obj_ctrl_pause)
+	if global.paused
 		{
 		draw_set_color(c_black);
 		draw_rectangle(xview+240-48,yview+290,xview+240,yview+320,false);
