@@ -38,18 +38,40 @@ l_inp_b3 = 64;
 l_step = 0;
 l_input_value = 0;
 stagenum = 0;
-log_str = "";
-recording = 0;
-replaying = 0;
+recording = false;
+replaying = false;
 
 // initialise replay grid and input list
 replay = ds_grid_create(10,6); // # array, grid large enough for 10 stages
-// replay = ds_grid_create(room_last,6); // if we want to have replays for even main menu
 ds_grid_clear(replay,0);
 input = ds_list_create(); // | array which will have current_input saved into each "frame"
 
+// FUNCTIONS
+load_replay = function(){
+var l = get_open_filename("*.inp","replay.inp");
+if l == "" exit;
+replay = scr_replay_load(replay,l);
+show_message("Replay file version (max score): "+string(replay[# 0,0])+"\n Starting stage: "+string(replay[# 0,1]));
+var n = asset_get_index(replay[# 0,1]);
+if room_exists(n) global.startstage = n;
+}
+
+save_replay = function(){
+var l = get_save_filename("*.inp","replay.inp");
+if l == "" l = "replay.inp";
+
+scr_replay_save(replay,l);
+
+ds_grid_clear(replay,0);
+ds_list_clear(input);
+stagenum = 0;
+}
+
 /*
-The replay file system format I've devised works as follows:
+EDIT 24/4/25: Not a fan of ds_*, thinking JSON+structs will be a more human-debuggable approach.
+Security can come after confirming the replays actually *work* consistently in principle.
+
+The ds_map-based  replay file system format I originall devised works as follows:
 
 replay[#0,y]
 0,0 = version number (real) (todo: temporarily saving score here for debugging)
@@ -72,3 +94,30 @@ x,3 = lives remaining
 x,4 = current score
 x,5 = current bomb stock
 */
+
+/*input = [];
+repeat 256 array_push(input,irandom(256));
+replay = {
+	gamedata: {
+		version: 1,
+		start_stage: "rm_stage1",
+		name: "RPY",
+		ship: 1,
+		side: 0,
+		high_score: 123456789
+		},
+	stage1: {
+		input_list: input,
+		rng_seed: -1,
+		score: 0,
+		medals: 0,
+		bombs: 3,
+		lives: 3,
+		option_type: 1,
+		weapon_type: 1
+		}
+	}
+var r = json_stringify(replay,true);
+var f = file_text_open_write("replay.json");
+file_text_write_string(f,r);
+file_text_close(f);*/

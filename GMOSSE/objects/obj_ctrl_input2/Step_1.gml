@@ -20,12 +20,6 @@ if replaying && stagenum > 0
         {
         l_step += 1;
         l_step = round(l_step);
-        // logging
-        /*if l_input_value > 0 
-        then log_str += string(room_get_name(room))+" - "
-        +string(l_step)+":"+string(l_input_value)
-        +" (x:"+string(obj_player.x)+",y:"+string(obj_player.y)
-        +",rng:"+string(random_get_seed())+")"+chr(10);*/
         }
     }
 else
@@ -46,13 +40,6 @@ else
             input[|l_step] = round(l_input_value);
             l_step += 1;
             l_step = round(l_step);
-			
-            // logging
-            /*if l_input_value > 0 then 
-            log_str += string(room_get_name(room))+" - "
-            +string(l_step)+":"+string(l_input_value)
-            +" (x:"+string(obj_player.x)+",y:"+string(obj_player.y)
-            +",rng:"+string(random_get_seed())+")"+chr(10);*/
             }
         else
             {

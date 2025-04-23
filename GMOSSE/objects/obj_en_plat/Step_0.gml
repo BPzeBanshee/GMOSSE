@@ -1,11 +1,12 @@
-/* AESTHETICS */
-var thr=scr_basicshot(x,y,layer,obj_en_thr,random_range(3,5),random_range(direction+100,direction+260));
-thr.image_xscale = 4;
-thr.image_yscale = 4;
-thr.image_angle = random(360);
+// AESTHETICS
+var thr = scr_thrust(x,y,4,true);
+thr.speed = random_range(3,5);
+thr.direction = random_range(direction+100,direction+260);
 
-/* CREATION OF TURRETS */
-if y > yview-(sprite_height/2) && !made
+// CREATION OF TURRETS
+// ternary operator: return true if y more than camera y
+var in_view = y > yview-(sprite_height/2) ? true : false;
+if in_view && !made
     {
     // Creation of turrets
     tur[0] = instance_create_depth(x-18,y-18,depth-1,obj_en_platTUR); // Top-left
@@ -17,7 +18,7 @@ if y > yview-(sprite_height/2) && !made
     made = true;
     }
 
-/* ATTACK PATTERNS */
+// ATTACK PATTERNS
 if tur_count > 0 
     {
     // Pattern Duration/Reset of timers
@@ -54,22 +55,26 @@ if tur_count > 0
     }
     
 // Final pattern - Only occurs if all turrets are destroyed
-if tur_count == 0 && y > yview-(sprite_height/2) && y < yview+160
+if tur_count == 0 && in_view
     {
 	z = 128;
 	can_damage = true;
-    timer += 1;
-    if timer >= 4
-        {
-        scr_snd_play(snd_en_shot3,true);
-        scr_basicshot(x,y,global.lay_bullets,obj_bullet4,4,aim); 
-        aim += 45;
-        if aim >= 360 aim = 0;
-        timer = 0;
-        }
+	
+	if y < yview+160
+		{
+	    timer += 1;
+	    if timer >= 4
+	        {
+	        scr_snd_play(snd_en_shot3,true);
+	        scr_basicshot(x,y,global.lay_bullets,obj_bullet4,3,aim); 
+	        aim += 45;
+	        if aim >= 360 aim = 0;
+	        timer = 0;
+	        }
+		}
     }    
 
-/* MOVEMENT BEHAVIOUR */
+// MOVEMENT BEHAVIOUR
 switch phase
     {
     case 1: // Moving down
@@ -106,7 +111,7 @@ switch phase
         }
     }
     
-/* DEATH HANDLING */
+// DEATH HANDLING
 if x < -(sprite_width/2) 
 || x > 320+(sprite_width/2)
 || y > yview+320+(sprite_height/2)

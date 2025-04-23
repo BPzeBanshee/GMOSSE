@@ -35,7 +35,7 @@ if recording
         {
         replay[# 0,0] = global.player_data.myscore;
         trace("replay[# 0,0] set to score "+string(replay[# 0,0]));
-        event_user(2);
+        save_replay();
         recording = false;
         }
     if global.nextroom == rm_menu
@@ -47,7 +47,7 @@ if recording
         }
     }
 
-if replaying == true
+if replaying
     {
     if instance_exists(obj_ctrl_gameover) or global.nextroom == rm_menu
         {
@@ -55,8 +55,6 @@ if replaying == true
 		var s = global.player_data.myscore;
         if s != replay[# 0,0]
         show_message("DESYNC FAILED! replay[#0,0] did not match score "+string(s));
-        //clipboard_set_text(sha1_string_utf8(log_str)+chr(10)+log_str);
-        //log_str = "";
         stagenum = 0;
         ds_grid_clear(replay,0);
         ds_list_clear(input);

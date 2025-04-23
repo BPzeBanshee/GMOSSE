@@ -8,11 +8,11 @@ draw_set_alpha(1);
 var xx = xview;
 var yy = yview;
 
-draw_sprite(spr_pause,-1,xx+120,yy+135);
-
 draw_set_color(c_black); draw_set_alpha(0.5);
 draw_rectangle(xx+30,yy+110,xx+210,yy+220,0);
 draw_set_color(8454016); draw_set_alpha(1);
+
+draw_sprite(spr_pause,-1,xx+120,yy+135);
 
 draw_text(xx+60,yy+160,"RESUME GAME");
 if restart_locked draw_set_color(c_red);
