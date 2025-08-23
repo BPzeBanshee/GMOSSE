@@ -90,5 +90,5 @@ function scr_getshipinfo(ship_id) {
 	    }
 	
 	ship_spr = scr_shipspr(ship_id);
-	ship_index = floor(sprite_get_number(ship_spr)/2);
+	ship_index = (sprite_get_number(ship_spr) - 1)/2;
 }

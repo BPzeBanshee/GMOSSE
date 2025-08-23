@@ -75,3 +75,8 @@ if image_timer >= 5
     thrust.image_yscale = thrust_scale*2;
     image_timer = 0;
     }
+	
+// Outline glow in/out
+outline_alpha = outline_add ? outline_alpha + 0.05 : outline_alpha - 0.05;
+if outline_alpha >= 1 && outline_add outline_add = false;
+if outline_alpha < 0.5 && !outline_add outline_add = true;

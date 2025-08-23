@@ -42,3 +42,13 @@ if dirx != 0 || diry != 0
 // ...but keep the player within the view
 x = clamp(x,xview+16,xview+240-16);
 y = clamp(y,yview+16,yview+320-16);
+
+// Image Aesthetics  
+image_index = round(img);
+if (left && img > 0) img -= img_bank_spd;
+if (right && img < image_number-1) img += img_bank_spd;
+if (!left && !right)
+    {
+    if img > img_bank_center img -= img_bank_spd;
+    if img < img_bank_center img += img_bank_spd;
+    }

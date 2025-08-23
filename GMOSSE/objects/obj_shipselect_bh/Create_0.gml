@@ -8,6 +8,8 @@ chr1 = 0;
 text = "";
 msg = "";
 blend = c_white;
+outline_alpha = 1;
+outline_add = false;
 weapon_str = "N/A";
 event_user(0);
 

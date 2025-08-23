@@ -8,6 +8,11 @@ var button2 = global.button2;
 chr1 += 1;
 text = string_copy(msg,1,chr1);
 
+// AESTHETICS
+outline_alpha = outline_add ? outline_alpha + 0.05 : outline_alpha - 0.05;
+if outline_alpha < 0.5 && !outline_add outline_add = true;
+if outline_alpha >= 1 && outline_add outline_add = false;
+
 // BUTTON EVENTS
 // Left
 if (left && selection > 1 && !hook)

@@ -14,3 +14,5 @@ shot1_timer = 0;
 shot2_timer = 0;
 shot3_timer = 0;
 bomb_timer = 0;
+
+if sprite_index != spr_arxyne has_banking = false;

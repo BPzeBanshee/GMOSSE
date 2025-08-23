@@ -11,8 +11,8 @@
   "name":"obj_ctrl_shipskin",
   "overriddenProperties":[],
   "parent":{
-    "name":"Generic",
-    "path":"folders/Objects/Controllers/Generic.yy",
+    "name":"Ship Selection",
+    "path":"folders/Objects/Controllers/Ship Selection.yy",
   },
   "parentObjectId":null,
   "persistent":false,

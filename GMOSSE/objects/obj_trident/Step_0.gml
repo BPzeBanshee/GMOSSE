@@ -40,13 +40,3 @@ if (b2)
         bomb_timer = 240;
         }
     }
-	
-// Image Aesthetics  
-image_index = round(img);
-if (left && img > 0) img -= img_bank_spd;
-if (right && img < 4) img += img_bank_spd;
-if (!left && !right)
-    {
-    if img > 2 img -= img_bank_spd;
-    if img < 2 img += img_bank_spd;
-    }

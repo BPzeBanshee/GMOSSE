@@ -23,6 +23,8 @@ can_speed = true;
 // AESTHETICS
 image_timer = 0;
 thrust_scale = 0.25;
+outline_alpha = 1;
+outline_add = false;
 
 // OPTION VARS
 made = false;

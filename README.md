@@ -26,7 +26,7 @@ It serves as a swiss army knife of resources culminating in a perfectly playable
 How a STG should be made is a balance between the interests of ***you*** as the developer, and the ***audience*** you're targeting with your project. I originally wrote this project in 2011 with features that were in vogue at the time and with quite a few influences, but in hindsight the game could be a lot more entertaining. It's an engine demo first, good game second, subject to change.
 
 ### What version of GameMaker does this target ###
-Ideally the latest one (as of writing GameMaker v2024.4). There is a legacy branch for those interested that contains the last commit of the project when it was still operating on Game Maker Studio 1.4.9999.
+Ideally the latest one (as of writing GameMaker v2024.13). There is a legacy branch for those interested that contains the last commit of the project when it was still operating on Game Maker Studio 1.4.9999.
 
 ### I pulled straight from the master branch and there's a problem! ###
 Apologies, I do tend to commit checkpoints to the main branch as-is, so for stable learning tagged releases are the way to go! (there aren't any yet, but there will be when the dust settles :))
@@ -40,6 +40,7 @@ GMOSSE makes use of multiple assets provided by members of said forum and the wi
 * **Rozyrg** - contributed a lot towards GMOSSE discussion wise, showed various alternate methods of doing things
 * [**railslave**](https://www.youtube.com/@southendbusker7534) - composer for GMOSSE's music
 * [**S20-TBL**](https://www.pixiv.net/en/users/18617250) - contributed heaps regarding attack scripts and bullet behaviour + CONTRA YAGAWACORPS EXPLOSHUNS BY MICHAEL BAY!
+* [**pops**](https://github.com/4-shot) - banking animations for what several commissioned artists said "couldn't be done"
 * **GodHand** - coded basis of S20-TBL's circle attack scripts
 * **Emerald Master** - Alternate awesome fonts!
 * [**EddyMRA**](https://github.com/EddyMRA) - posted his spread shot script from Xeno Fighters R, and inspiration for various 			functions. Even Xeno Fighters R in itself was an inspiration

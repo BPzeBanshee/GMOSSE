@@ -12,8 +12,6 @@ draw_text(xx+120,yy+110,ship_info[0]);
 draw_set_alpha(1);
 
 // Ship portrait
-if selection == 3 // White border for Busterhawk
-draw_sprite_ext(spr_bh_out,image_index/3,xx+120,yy+64,1,1,0,c_white,1);
 if ship_spr != -1 draw_sprite(ship_spr,ship_index,xx+120,yy+64);
 
 // Statistical bullshit info    

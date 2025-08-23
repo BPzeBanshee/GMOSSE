@@ -30,14 +30,14 @@ function scr_hiscore_draw() {
 	    draw_text((xview + 240) - hgap - 22,(yview+32) + i + 24,(txt2)); // score
     
 		var spr = -1;
-		var ind = 0;
+		var ind = 2;
 	    switch ship_used
 	        {
-	        case 1: spr = spr_xono;				break;
-	        case 2: spr = spr_warbird;			break;
-	        case 3: spr = spr_bh;				break;
-	        case 4: spr = spr_trident; ind = 2; break;
-	        case 5: spr = spr_arxyne;			break;
+	        case 1: spr = spr_xono;		break;
+	        case 2: spr = spr_warbird;	break;
+	        case 3: spr = spr_bh;		break;
+	        case 4: spr = spr_trident;	break;
+	        case 5: spr = spr_arxyne;	break;
 	        default: break;
 	        }
 		draw_sprite_ext(spr,ind,xview + hgap + shippos,yview + 32 + i + 24,shipscale,shipscale,0,c_white,1);

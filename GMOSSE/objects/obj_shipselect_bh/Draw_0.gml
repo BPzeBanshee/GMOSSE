@@ -3,8 +3,8 @@ var xx = 0;
 var yy = 0;
 
 // SHIP PORTRAIT
-draw_sprite_ext(spr_bh_out,image_index/3,xx+120,yy+64,1,1,0,blend,1);
-draw_sprite(spr_bh,-1,xx+120,yy+64);
+draw_sprite_ext(spr_bh_out,2,xx+120,yy+64,1,1,0,blend,outline_alpha);
+draw_sprite(spr_bh,2,xx+120,yy+64);
 
 // TITLE TEXT
 scr_draw_vars(global.fnt_shipselect,fa_center,8454016);
