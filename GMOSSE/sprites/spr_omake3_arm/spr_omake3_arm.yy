@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_omake3_arm",
   "bboxMode":0,
   "bbox_bottom":15,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"e1bacc6d-8de8-450c-bbcc-065ced8ed632","name":"e1bacc6d-8de8-450c-bbcc-065ced8ed632","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"e1bacc6d-8de8-450c-bbcc-065ced8ed632","name":"e1bacc6d-8de8-450c-bbcc-065ced8ed632","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

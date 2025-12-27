@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_en_cruiser",
   "bboxMode":0,
   "bbox_bottom":367,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"91e1b4cc-041d-4a72-9be7-398fd5b32ac6","name":"91e1b4cc-041d-4a72-9be7-398fd5b32ac6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"91e1b4cc-041d-4a72-9be7-398fd5b32ac6","name":"91e1b4cc-041d-4a72-9be7-398fd5b32ac6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_bh_lockon",
   "bboxMode":0,
   "bbox_bottom":31,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"54ddd2c5-8eb7-4e65-906e-fb6cad29a7cc","name":"54ddd2c5-8eb7-4e65-906e-fb6cad29a7cc","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"54ddd2c5-8eb7-4e65-906e-fb6cad29a7cc","name":"54ddd2c5-8eb7-4e65-906e-fb6cad29a7cc","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

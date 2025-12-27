@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_en5_apple",
   "bboxMode":0,
   "bbox_bottom":30,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"f3f0323a-7f35-4598-afd2-8e4f35e2e72b","name":"f3f0323a-7f35-4598-afd2-8e4f35e2e72b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"f3f0323a-7f35-4598-afd2-8e4f35e2e72b","name":"f3f0323a-7f35-4598-afd2-8e4f35e2e72b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

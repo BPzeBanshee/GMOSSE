@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"bkg_wallpaper",
   "bboxMode":0,
   "bbox_bottom":63,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"cbb27215-7d60-4a69-a6ba-3d21c6f184d5","name":"cbb27215-7d60-4a69-a6ba-3d21c6f184d5","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"cbb27215-7d60-4a69-a6ba-3d21c6f184d5","name":"cbb27215-7d60-4a69-a6ba-3d21c6f184d5","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

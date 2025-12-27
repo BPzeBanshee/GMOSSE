@@ -1,5 +1,5 @@
 {
-  "$GMNotes":"",
+  "$GMNotes":"v1",
   "%Name":"Depth_List_v2",
   "name":"Depth_List_v2",
   "parent":{

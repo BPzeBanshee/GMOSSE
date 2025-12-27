@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_omake3_legs",
   "bboxMode":0,
   "bbox_bottom":45,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"c2ec3c1e-3f26-4ad8-ad0c-8ffd0577ebff","name":"c2ec3c1e-3f26-4ad8-ad0c-8ffd0577ebff","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c2ec3c1e-3f26-4ad8-ad0c-8ffd0577ebff","name":"c2ec3c1e-3f26-4ad8-ad0c-8ffd0577ebff","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
