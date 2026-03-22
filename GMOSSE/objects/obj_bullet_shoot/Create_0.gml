@@ -1,3 +1,4 @@
+event_inherited();
 btype = 0;
 shoot = 1;
 sprite_def = sprite_index;

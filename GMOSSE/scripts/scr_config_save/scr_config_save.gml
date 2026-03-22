@@ -61,6 +61,7 @@ function scr_config_save(location) {
 	ini_write_real("Misc","hitboxvisible",global.hitbox_visible);
 	ini_write_real("Misc","fonttype",global.fonttype);
 	ini_write_real("Misc","bulletcolour",global.bulletcolour);
+	ini_write_real("Misc","bulletglow",global.bulletglow);
 	ini_write_real("Misc","flicker",global.flicker);
 	ini_close();
 }

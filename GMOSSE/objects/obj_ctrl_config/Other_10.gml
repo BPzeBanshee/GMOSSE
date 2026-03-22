@@ -1,4 +1,4 @@
-/// @description  MAIN OPTIONS MENU
+///@desc MAIN OPTIONS MENU
 category_type = "CONFIGURATION MENU";
 selection_max = 5;
 max_h = 0;
@@ -17,4 +17,3 @@ if global.button1 && !hook
         case 5: instance_destroy(); break;
         }
     }
-

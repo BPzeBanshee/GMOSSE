@@ -9,18 +9,18 @@ if/then/else is totally acceptable too if that's how you roll.
 */
 
 // INIT
-if !enabled exit;
 scr_draw_vars(global.fnt_default,fa_left,c_black);
+var s = yview+133;//125 // base position for menu
 var g = 10;
 
 // DRAW BLACK BOX
 draw_set_alpha(0.75);
-draw_rectangle(xview+25,yview+s-8,xview+215,yview+s+(g*(selection_max+3))+max_h,0);
+draw_rectangle(xview+25,s-8,xview+215,s+(g*(selection_max+3))+max_h,0);
 
 // DRAW CATEGORY TEXT
 draw_set_alpha(1);
 draw_set_color(c_white);
-draw_text(xview+60,yview+s,string(category_type));
+draw_text(xview+60,s,string(category_type));
         
 // ----------------- MAIN EVENT --------------
 draw_set_color(8454016);
@@ -29,12 +29,12 @@ draw_set_color(8454016);
 if category == 0
     {
     // TEXT
-    draw_text(xview+60,yview+s+(g*1),"CONTROL SETTINGS");
-    draw_text(xview+60,yview+s+(g*2),"VIDEO SETTINGS");
-    draw_text(xview+60,yview+s+(g*3),"AUDIO SETTINGS");
-    draw_text(xview+60,yview+s+(g*4),"MISC. SETTINGS");
+    draw_text(xview+60,s+g,"CONTROL SETTINGS");
+    draw_text(xview+60,s+(g*2),"VIDEO SETTINGS");
+    draw_text(xview+60,s+(g*3),"AUDIO SETTINGS");
+    draw_text(xview+60,s+(g*4),"MISC. SETTINGS");
     
-    draw_text(xview+60,yview+s+(g*6),"EXIT CONFIG");
+    draw_text(xview+60,s+(g*6),"EXIT CONFIG");
     }
     
 // ------ CONTROLS CONFIG MENU -----
@@ -52,12 +52,12 @@ if category == 1
         }
     
     // TEXT
-    draw_text(xview+60,yview+s+(g*1),"DEFINE KEYBOARD");
-    draw_text(xview+60,yview+s+(g*2),"DEFINE JOYSTICK");
-    draw_text(xview+60,yview+s+(g*3),"DEADZONE: "+string(dz)); 
-    draw_text(xview+60,yview+s+(g*4),"JOYSTICK U/D/L/R: "+string(du));
+    draw_text(xview+60,s+g,"DEFINE KEYBOARD");
+    draw_text(xview+60,s+(g*2),"DEFINE JOYSTICK");
+    draw_text(xview+60,s+(g*3),"DEADZONE: "+string(dz)); 
+    draw_text(xview+60,s+(g*4),"JOYSTICK U/D/L/R: "+string(du));
     
-    draw_text(xview+60,yview+s+(g*6),"RETURN TO MENU");
+    draw_text(xview+60,s+(g*6),"RETURN TO MENU");
     }
     
 // ------ VIDEO CONFIG MENU ------
@@ -89,24 +89,24 @@ if category == 2
     var wallpaper_str = global.use_wallpaper ? "ON" : "OFF";
     
     // TEXT
-    draw_text(xview+60,yview+s+(g*1),"FULLSCREEN: "+string(full_str));
-    draw_text(xview+60,yview+s+(g*2),"VSYNC: "+string(vsync_str));
-    draw_text(xview+60,yview+s+(g*3),"ANTIALIASING: "+string(aa_str));
-    draw_text(xview+60,yview+s+(g*4),"ROTATION: "+string(tate_str));
-    draw_text(xview+60,yview+s+(g*5),"WIN. ASPECT: "+string(aspect_str));
-    draw_text(xview+60,yview+s+(g*6),"WIN. SIZE: "+string(winsize_str));
-    draw_text(xview+60,yview+s+(g*7),"SCALING: "+string(scale_str));
-    draw_text(xview+60,yview+s+(g*8),"WALLPAPER: "+string(wallpaper_str));
+    draw_text(xview+60,s+g,"FULLSCREEN: "+string(full_str));
+    draw_text(xview+60,s+(g*2),"VSYNC: "+string(vsync_str));
+    draw_text(xview+60,s+(g*3),"ANTIALIASING: "+string(aa_str));
+    draw_text(xview+60,s+(g*4),"ROTATION: "+string(tate_str));
+    draw_text(xview+60,s+(g*5),"WIN. ASPECT: "+string(aspect_str));
+    draw_text(xview+60,s+(g*6),"WIN. SIZE: "+string(winsize_str));
+    draw_text(xview+60,s+(g*7),"SCALING: "+string(scale_str));
+    draw_text(xview+60,s+(g*8),"WALLPAPER: "+string(wallpaper_str));
     
-    draw_text(xview+60,yview+s+(g*10),"CONFIGURE FILTERS");
-    draw_text(xview+60,yview+s+(g*11),"RETURN TO MENU");
+    draw_text(xview+60,s+(g*10),"CONFIGURE FILTERS");
+    draw_text(xview+60,s+(g*11),"RETURN TO MENU");
     
     // WARNING TEXT
     if warning != ""
         {
         draw_set_halign(fa_center);
         draw_set_color(c_red);
-        draw_text(xview+120,yview+s+(g*15),string(warning));
+        draw_text(xview+120,s+(g*13),string(warning));
         }
     }
     
@@ -127,12 +127,12 @@ if category == 3
     var alpha_str = string(round(global.scanline_alpha))+"%";
         
     // TEXT
-    draw_text(xview+60,yview+s+(g*1),"WALLPAPER ALPHA: "+string(wallbright_str));
-    draw_text(xview+60,yview+s+(g*2),"BILINEAR FILTER: "+string(filter_str));
-    draw_text(xview+60,yview+s+(g*3),"SCANLINES: "+string(scan_str));
-    draw_text(xview+60,yview+s+(g*4),"SCANLINE ALPHA: "+string(alpha_str));
+    draw_text(xview+60,s+g,"WALLPAPER ALPHA: "+string(wallbright_str));
+    draw_text(xview+60,s+(g*2),"BILINEAR FILTER: "+string(filter_str));
+    draw_text(xview+60,s+(g*3),"SCANLINES: "+string(scan_str));
+    draw_text(xview+60,s+(g*4),"SCANLINE ALPHA: "+string(alpha_str));
     
-    draw_text(xview+60,yview+s+(g*6),"RETURN TO VIDEO");
+    draw_text(xview+60,s+(g*6),"RETURN TO VIDEO");
     }
 
 
@@ -153,23 +153,23 @@ if category == 4
     if global.voice_volume == 0 vol_voice = "OFF";
     
     // TEXT
-    draw_text(xview+60,yview+s+(g*1),"MUSIC VOLUME: "+string(vol_music));
-    draw_text(xview+60,yview+s+(g*2),"SFX VOLUME: "+string(vol_sfx));
-    draw_text(xview+60,yview+s+(g*3),"VOICE VOLUME: "+string(vol_voice));
+    draw_text(xview+60,s+g,"MUSIC VOLUME: "+string(vol_music));
+    draw_text(xview+60,s+(g*2),"SFX VOLUME: "+string(vol_sfx));
+    draw_text(xview+60,s+(g*3),"VOICE VOLUME: "+string(vol_voice));
 	
 	var safety_check = room == rm_menu ? true : false;
 	if !safety_check draw_set_color(c_red);
-    draw_text(xview+60,yview+s+(g*4),"DEFINE MUSIC PACK");
+    draw_text(xview+60,s+(g*4),"DEFINE MUSIC PACK");
     if !safety_check draw_set_color(8454016);
 	
-    draw_text(xview+60,yview+s+(g*6),"RETURN TO MENU");
+    draw_text(xview+60,s+(g*6),"RETURN TO MENU");
 	
 	// WARNING TEXT
     if warning != ""
         {
         draw_set_halign(fa_center);
         draw_set_color(c_red);
-        draw_text(xview+120,yview+s+(g*9),string(warning));
+        draw_text(xview+120,s+(g*9),string(warning));
         }
     }
     
@@ -188,30 +188,30 @@ if category == 5
         case 2: b_str = "RED"; break;
         case 3: b_str = "MIXED"; break;
         }
+	var bg_str = global.bulletglow ? "ON" : "OFF";
     
     
     // TEXT
-    draw_text(xview+60,yview+s+(g*1),"DEBUG DISPLAY: "+string(debug_str));
-    draw_text(xview+60,yview+s+(g*2),"HITBOX: "+string(hitbox_str));
-    draw_text(xview+60,yview+s+(g*3),"ALT. FONTSET: "+string(font_str));
-    draw_text(xview+60,yview+s+(g*4),"BULLET COLOUR: "+string(b_str));
-    draw_text(xview+60,yview+s+(g*5),"EXPLOSION FLICKER: "+string(flicker_str));
-    draw_text(xview+60,yview+s+(g*6),"RESET HIGHSCORES");
-	draw_text(xview+60,yview+s+(g*7),"RESET CONFIG");
+    draw_text(xview+60,s+g,"DEBUG DISPLAY: "+string(debug_str));
+    draw_text(xview+60,s+(g*2),"HITBOX: "+string(hitbox_str));
+    draw_text(xview+60,s+(g*3),"ALT. FONTSET: "+string(font_str));
+    draw_text(xview+60,s+(g*4),"BULLET COLOUR: "+string(b_str));
+	draw_text(xview+60,s+(g*5),"BULLET GLOW: "+string(bg_str));
+    draw_text(xview+60,s+(g*6),"EXPLOSION FLICKER: "+string(flicker_str));
+    draw_text(xview+60,s+(g*7),"RESET HIGHSCORES");
+	draw_text(xview+60,s+(g*8),"RESET CONFIG");
     
-    draw_text(xview+60,yview+s+(g*9),"RETURN TO MENU");
+    draw_text(xview+60,s+(g*10),"RETURN TO MENU");
     
     if timer > 0
         {
         draw_set_color(c_white);
-        draw_text(xview+60,yview+s+(g*11),reset_msg);
+        draw_text(xview+60,s+(g*12),reset_msg);
         }
     }
     
 var i = 0;
 if selection == selection_max i = 10;
 if category == 2 if selection == selection_max - 1 i = 10;
-draw_sprite(spr_shipselect,-1,xview+45,yview+s+5+(g*selection+i));
-    
+draw_sprite(spr_shipselect,-1,xview+45,s+5+(g*selection+i));
 // ----------------- END MAIN EVENT --------------
-

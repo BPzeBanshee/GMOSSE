@@ -1,9 +1,9 @@
-/// @description  MISC. SETTINGS MENU
+///@desc MISC. SETTINGS MENU
 
 // BEHAVIOUR
 category_type = "MISC. SETTINGS";
-selection_max = 8; // amount of positions in the submenu
-max_h = 30;
+selection_max = 9; // amount of positions in the submenu
+max_h = 20;
 if timer > 0 timer -= 1;
 
 // LEFT
@@ -16,7 +16,8 @@ if global.jleft && !hook
         case 2: global.hitbox_visible = false; break;
         case 3: global.fonttype = false; scr_fonts_set(); break;
         case 4: if global.bulletcolour > 1 global.bulletcolour -= 1;  break;
-        case 5: global.flicker = false; break;
+		case 5: global.bulletglow = false; break;
+        case 6: global.flicker = false; break;
         }
     }
     
@@ -30,7 +31,8 @@ if global.jright && !hook
         case 2: global.hitbox_visible = true; break;
         case 3: global.fonttype = true; scr_fonts_set(); break;
         case 4: if global.bulletcolour < 3 global.bulletcolour += 1;  break;
-        case 5: global.flicker = true; break;
+		case 5: global.bulletglow = true; break;
+        case 6: global.flicker = true; break;
         }
     }
     
@@ -41,7 +43,7 @@ if global.button1 && !hook
     scr_snd_play(snd_click,true);
     switch selection
         {
-        case 6:
+        case 7:
             {
             timer = 90;
             scr_hiscore_reset();
@@ -49,14 +51,14 @@ if global.button1 && !hook
 			reset_msg = "HIGH SCORES RESET!";
             break;
             }
-		case 7:
+		case 8:
 			{
 			timer = 90;
 			scr_config_reset("config.ini");
 			reset_msg = "CONFIG RESET!";
 			break;
 			}
-        case 8:
+        case 9:
             {
             timer = 0;
             selection = selection_previous; 

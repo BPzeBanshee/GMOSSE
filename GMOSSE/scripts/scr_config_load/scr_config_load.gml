@@ -1,14 +1,12 @@
-/// @description scr_config_load(location)
-/// @param location
+///@desc scr_config_load(location)
+///@param location
 function scr_config_load(location) {
 	/*
 	scr_config_load(), by BPzeBanshee
 
 	Requirements: Ability to use external files
-	(so GM Pro and no Secure Mode bullshit)
 
 	Notes:
-
 	Change global variables according to what you need,
 	and do not keep the rest. Make sure the global vars
 	aren't used anywhere else though!
@@ -18,7 +16,7 @@ function scr_config_load(location) {
 
 	ini_open(location);
     
-	/* JOYSTICK */
+	// JOYSTICK / GAMEPAD
 	// joystick button numbers
 	global.joy_pref = ini_read_real("Joystick","joy_pref",0); // preferred joy id
 	global.joy1 = ini_read_real("Joystick","joy1",gp_face1);
@@ -28,7 +26,7 @@ function scr_config_load(location) {
 	global.deadzone = ini_read_real("Joystick","deadzone",0.3); // joystick deadzone
 	global.joytype = ini_read_real("Joystick","joytype",2);// direction input to use
 
-	/* KEYBOARD */
+	// KEYBOARD
 	// keyboard codes
 	global.keycode_up = ini_read_real("Keyboard","up",vk_up);
 	global.keycode_down = ini_read_real("Keyboard","down",vk_down);
@@ -39,7 +37,7 @@ function scr_config_load(location) {
 	global.keycode_button3 = ini_read_real("Keyboard","button3",vk_shift);
 	global.keycode_button4 = ini_read_real("Keyboard","button4",vk_enter);
      
-	/* VIDEO */
+	// VIDEO
 	global.alternate_sync = ini_read_real("Video","alternate_sync",false); // alternate sync method
 	global.sleep_margin = ini_read_real("Video","sleep_margin",10); // sleep margin when using alt timing
 	global.fullscreen = ini_read_real("Video","fullscreen",false); // Fullscreen mode
@@ -57,7 +55,7 @@ function scr_config_load(location) {
 	global.scanlines = ini_read_real("Video_Filters","scanlines",0); // scanlines
 	global.scanline_alpha = ini_read_real("Video_Filters","scanline_alpha",50); // scanline alpha
 
-	/* SOUND */
+	// SOUND
 	// Volume levels
 	global.music_volume = ini_read_real("Sound","music_volume",70);
 	global.sfx_volume = ini_read_real("Sound","sfx_volume",70);
@@ -68,18 +66,19 @@ function scr_config_load(location) {
 
 	/*
 	TODO:
-	// GAMEPLAY //
+	// GAMEPLAY
 	global.bullet_color[0] = ini_read_real("Gameplay_Bullets","bullet1_color",0);
 	global.bullet_color[1] = ini_read_real("Gameplay_Bullets","bullet2_color",0);
 	global.bullet_color[2] = ini_read_real("Gameplay_Bullets","bullet3_color",0);
 	global.bullet_color[3] = ini_read_real("Gameplay_Bullets","bullet4_color",0);
 	*/
 
-	/* MISC */
+	// MISC
 	global.debug = ini_read_real("Misc","debug",true); // Debug display
 	global.hitbox_visible = ini_read_real("Misc","hitboxvisible",true); // hitbox visibility
 	global.fonttype = ini_read_real("Misc","fonttype",0); // Font set to use (0=default,1=alternate)
 	global.bulletcolour = ini_read_real("Misc","bulletcolour",2); // Bullet color (0=red,1=blue,2=hybridmode)
+	global.bulletglow = ini_read_real("Misc","bulletglow",true); // Bullet glow (0=false/1=true)
 	global.flicker = ini_read_real("Misc","flicker",false); // explosion flicker
 	ini_close();
 }

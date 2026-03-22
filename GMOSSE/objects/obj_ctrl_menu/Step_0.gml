@@ -92,7 +92,8 @@ if (b1 && !global.levelend && !hook)
             }
         case 4: // Go To High Scores
             {
-            scr_trans(rm_scores,2,c_white,0.025,0.05,0);
+			instance_create_layer(x,y,layer,obj_ctrl_scoreboard);
+			enabled = false;
             break;
             }
         case 5: // Exit Game

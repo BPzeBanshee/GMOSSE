@@ -1,18 +1,13 @@
-enabled = false;
 hook = true;
-
 category = 0;
 selection = 1;
 selection_previous = 1;
-selection_max = 1;
+selection_max = 5;
 warning = "";
 category_type = "";
 reset_msg = "";
 max_h = 0;
 timer = 0;
-
-// base position for menu
-s = 125;
 
 // Methods
 pick_ini = function(){

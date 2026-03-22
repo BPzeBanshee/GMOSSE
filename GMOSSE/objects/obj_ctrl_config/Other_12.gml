@@ -1,4 +1,4 @@
-/// @description  VIDEO OPTIONS MENU
+///@desc VIDEO OPTIONS MENU
 
 // BEHAVIOUR
 category_type = "VIDEO SETTINGS";//"[VIDEO]";
@@ -8,7 +8,7 @@ max_h = 0;
 warning = "";
 if selection == 6
 	{
-	max_h = 45;
+	max_h = 25;
 	warning = "NOTE: WINDOW SIZE LIMITED\nTO DESKTOP RESOLUTION";
 	}
 
@@ -69,4 +69,3 @@ if global.button1 && !hook
         category = 0;
         }
     }
-

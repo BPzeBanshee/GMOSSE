@@ -1,7 +1,5 @@
-/// @description  MENU BEHAVIOUR (PER MODE)
-/// @param PER MODE
+///@desc MENU BEHAVIOUR (PER MODE)
 event_user(category);
-enabled = true;
 
 // Get inputs
 var up = global.jup;

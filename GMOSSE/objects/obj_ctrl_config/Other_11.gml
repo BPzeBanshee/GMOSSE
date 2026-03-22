@@ -1,4 +1,4 @@
-/// @description  CONTROL OPTIONS MENU
+///@desc CONTROL OPTIONS MENU
 
 // BEHAVIOUR
 category_type = "CONTROLS SETTINGS";

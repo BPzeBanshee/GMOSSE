@@ -1,4 +1,4 @@
-/// @description AUDIO OPTIONS MENU
+///@desc AUDIO OPTIONS MENU
 
 // BEHAVIOUR
 category_type = "AUDIO SETTINGS";

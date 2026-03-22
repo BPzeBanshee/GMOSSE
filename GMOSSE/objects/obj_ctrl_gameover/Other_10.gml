@@ -11,5 +11,5 @@ if newscore && !hassaved
     hassaved = true;
     } 
 
-//go to highscore   
-scr_trans(rm_scores,2,c_black,0.025,0.05,0);
+//go to main menu  
+scr_trans(rm_menu,2,c_white,0.025,0.05,0);

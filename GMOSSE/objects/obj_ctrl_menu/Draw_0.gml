@@ -1,16 +1,21 @@
 if !enabled exit;
-scr_draw_vars(global.fnt_menu,fa_center,8454016);
 var bx = room_width/2; // 240/2 == 120
 var by = 140;
+
+draw_set_alpha(0.75);
+draw_set_color(c_black);
+draw_rectangle(bx-90,by-15,bx+90,by+145,false);
 draw_set_alpha(1);
+
+scr_draw_vars(global.fnt_menu,fa_center,8454016);
 
 // Draw cursors
 if selection == 1
     {
     if selection2 > 1 
-    draw_sprite_ext(spr_shipselect,-1,bx-85,by+7,-1,1,0,c_white,1);
+    draw_sprite_ext(spr_shipselect,-1,bx-70,by+7,-1,1,0,c_white,1);
     if selection2 < 3
-    draw_sprite_ext(spr_shipselect,-1,bx+85,by+7,1,1,0,c_white,1);
+    draw_sprite_ext(spr_shipselect,-1,bx+70,by+7,1,1,0,c_white,1);
     }
 else draw_set_color(c_green);
 

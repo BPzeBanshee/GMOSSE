@@ -1,4 +1,4 @@
-/// @description  FILTER OPTIONS MENU
+///@desc FILTER OPTIONS MENU
 
 // BEHAVIOUR
 category_type = "DISPLAY FILTERS";//"[FILTERS]";
