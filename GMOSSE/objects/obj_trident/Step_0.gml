@@ -12,7 +12,7 @@ if (b1)
     if shot_timer == 0 && !instance_exists(obj_trident_bomb)
         {
         scr_snd_play(snd_sf_shot,true);
-        var shot[];
+        var shot = [];
 		shot[0] = scr_player_shot(x,y,obj_trident_shot,10,90);
         shot[1] = scr_player_shot(x-2,y,obj_trident_shot,10,50); 
         shot[2] = scr_player_shot(x-4,y,obj_trident_shot,10,30);

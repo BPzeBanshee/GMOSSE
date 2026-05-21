@@ -11,16 +11,20 @@ b2 = global.button2;
 b3 = global.button3;
 
 // Speed value
-var spd = shipspeed;
-if b3
-    {
-    if has_afterimage
-		{
-		var aft = instance_create_depth(x,y,depth+1,obj_afterimage);
-		aft.sprite_index = afterimage_spr;
-		}
-    spd = slowshipspeed;
-    }
+var spd = 0;
+if up or down or left or right 
+	{
+	spd = shipspeed;
+	if b3
+	    {
+	    if has_afterimage
+			{
+			var aft = instance_create_depth(x,y,depth+1,obj_afterimage);
+			aft.sprite_index = afterimage_spr;
+			}
+	    spd = slowshipspeed;
+	    }
+	}
 	
 // Directional input
 var dirx = 0;
@@ -29,13 +33,17 @@ if up diry -= 1;
 if down diry += 1;
 if left dirx -= 1;
 if right dirx += 1;
+var movedir = point_direction(0,0,dirx,diry);
+var dx = lengthdir_x(spd,movedir);
+var dy = lengthdir_y(spd,movedir);
 
 // Now manipulate the player position
-if dirx != 0 || diry != 0
+//if dirx != 0 || diry != 0
     {
-    var movedir = point_direction(0,0,dirx,diry);
-    x += lengthdir_x(spd,movedir);
-    y += lengthdir_y(spd,movedir);
+    
+    //x += lengthdir_x(spd,movedir);
+    //y += lengthdir_y(spd,movedir);
+	move_and_collide(dx,dy,obj_wall);
     direction = movedir;
     }
 

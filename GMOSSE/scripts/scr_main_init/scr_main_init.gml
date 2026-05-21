@@ -42,6 +42,7 @@ function scr_main_init() {
 	//instance_create_layer(0,0,layer,obj_ctrl_input2); // for experimental replay support
 	
 	// Music/Sounds
+	global.nextroom = -1;  
 	instance_create_layer(0,0,layer,obj_ctrl_music);
 	
 	// Render
@@ -70,7 +71,7 @@ function scr_main_init() {
 	
 	// used for transition control/preloading
 	global.levelend = false;
-	global.nextroom = -1;  
+	
 	global.startstage = rm_stage1; // hidden menu function
 	global.intro = true;
 	

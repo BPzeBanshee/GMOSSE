@@ -9,10 +9,9 @@ function scr_fonts_init() {
 	I've left it for now. Unsure about fnt_score
 	and fnt_litscore.
 	*/
-
-	var p,s;
-	p = 1; // proportional font
-	s = 1; // separation between font sprites in pixels
+	
+	var p = true; // proportional font
+	var s = 1; // separation between font sprites in pixels
 	/* 
 	Studio 2.2.1.375 works best with s = -1 but still kinda borked,
 	requires manually resizing font subimages to add space,

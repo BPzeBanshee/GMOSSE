@@ -18,8 +18,10 @@ fading_in = false;
 fading_out = false;
 
 // 'Load all sounds' or 'load only needed'
-LOAD_EVERYTHING = true;
+LOAD_EVERYTHING = false;
 CONTINUE_TOGGLE = false;
+
+aux_loaded = false;
 
 // Create methods
 #region io
@@ -33,21 +35,48 @@ timer = 0;
 // Load only the needed music
 load = function(){
 	var music_str = "";
+	var load_aux = false;
+	
+	// Select stage music
 	switch global.nextroom
 		{
-		case rm_menu: if room == rm_init music_str = "Intro"; break;
+		case rm_menu: if global.intro music_str = "Intro"; break;
 		case rm_shipselect: music_str = "Selection"; break;
+		
 		case rm_stage1:
-		case rm_boss1: music_str = "Stage1"; break;
+		case rm_boss1: 
+		music_str = "Stage1"; load_aux = true; 
+		snd_omake1 = scr_music_load("Omake1"); 
+		break;
+		
 		case rm_stage2:
-		case rm_boss2: music_str = "Stage2"; break;
-		case rm_stage3: music_str = "Stage3"; break;
-		case rm_omake1: music_str = "Omake1"; break;
-		case rm_omake2: music_str = "Omake2"; break;
-		case rm_omake3: music_str = "Omake3"; break;
+		case rm_boss2: 
+		music_str = "Stage2"; load_aux = true; 
+		snd_omake2 = scr_music_load("Omake2"); 
+		break;
+		
+		case rm_stage3: 
+		music_str = "Stage3"; load_aux = true; 
+		snd_st3b = scr_music_load("Stage3_B"); 
+		snd_omake3 = scr_music_load("Omake3"); 
+		break;
+		
+		case rm_omake1: music_str = "Omake1"; load_aux = true; break;
+		case rm_omake2: music_str = "Omake2"; load_aux = true; break;
+		case rm_omake3: music_str = "Omake3"; load_aux = true; break;
 		default: break;
 		}
 	if music_str != "" music = scr_music_load(music_str);
+	
+	// Load auxillary music (continue, etc)
+	if load_aux && !aux_loaded
+		{
+		snd_boss = scr_music_load("Boss1");
+		snd_stageclear = scr_music_load("StageComplete");
+		snd_continue = scr_music_load("Continue");
+		snd_gameover = scr_music_load("GameOver");
+		aux_loaded = true;
+		}
 }
 
 // Load ALL music at once
@@ -75,44 +104,56 @@ unload = function(){
 	if is_array(music2) free(music2[0]);
 	music = -1;
 	music2 = -1;
+	}
 	
-	// existing sound arrays and their audio handles at [0]
-	if is_array(snd_intro) free(snd_intro[0]);
-	if is_array(snd_shipselect) free(snd_shipselect[0]);
-	if is_array(snd_st1) free(snd_st1[0]);
-	if is_array(snd_st2) free(snd_st2[0]);
-	if is_array(snd_st3) free(snd_st3[0]);
-	if is_array(snd_st3b) free(snd_st3b[0]);
+unload_aux = function(){
+	if !aux_loaded return 0;
 	if is_array(snd_boss) free(snd_boss[0]);
-	if is_array(snd_omake1) free(snd_omake1[0]);
-	if is_array(snd_omake2) free(snd_omake2[0]);
-	if is_array(snd_omake3) free(snd_omake3[0]);
 	if is_array(snd_stageclear) free(snd_stageclear[0]);
 	if is_array(snd_continue) free(snd_continue[0]);
 	if is_array(snd_gameover) free(snd_gameover[0]);
-	snd_intro = -1;
-	snd_shipselect = -1;
-	snd_st1 = -1;
-	snd_st2 = -1;
-	snd_st3 = -1;
-	snd_st3b = -1;
-    snd_boss = -1;
-    snd_omake1 = -1;
-    snd_omake2 = -1;
-    snd_omake3 = -1;
-    snd_stageclear = -1;
-    snd_continue = -1;
-    snd_gameover = -1;
+	snd_boss = -1;
+	snd_stageclear = -1;
+	snd_continue = -1;
+	snd_gameover = -1;
+	aux_loaded = false;
+	}
+	
+unload_all = function(){
+	unload();
+	unload_aux();
+	
+	// existing sound arrays and their audio handles at [0]
+	if LOAD_EVERYTHING 
+		{
+		if is_array(snd_intro) free(snd_intro[0]);
+		if is_array(snd_shipselect) free(snd_shipselect[0]);
+		if is_array(snd_st1) free(snd_st1[0]);
+		if is_array(snd_st2) free(snd_st2[0]);
+		if is_array(snd_st3) free(snd_st3[0]);
+		if is_array(snd_st3b) free(snd_st3b[0]);
+		if is_array(snd_boss) free(snd_boss[0]);
+		if is_array(snd_omake1) free(snd_omake1[0]);
+		if is_array(snd_omake2) free(snd_omake2[0]);
+		if is_array(snd_omake3) free(snd_omake3[0]);
+		snd_intro = -1;
+		snd_shipselect = -1;
+		snd_st1 = -1;
+		snd_st2 = -1;
+		snd_st3 = -1;
+		snd_st3b = -1;
+	    snd_omake1 = -1;
+	    snd_omake2 = -1;
+	    snd_omake3 = -1;
+		}
 	}
 	
 reload = function(){
 	stop_all();
 	show_info(false);
-	unload();
+	unload_all();
 	if LOAD_EVERYTHING
-		{
-		load_all();
-		}
+	load_all()
 	else load();
 	}
 #endregion
@@ -190,7 +231,5 @@ return 0;
 
 show_info(false);
 if LOAD_EVERYTHING
-	{
-	load_all();
-	}
+load_all()
 else load();

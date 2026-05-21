@@ -4,10 +4,12 @@
 stop_all();
 if !LOAD_EVERYTHING
 	{
-	if is_array(music) free(music[0]);
-	if is_array(music2) free(music2[0]);
-	music = -1;
-	music2 = -1;
+	unload();
+	
+	if (global.nextroom == rm_menu
+	or global.nextroom == rm_shipselect)
+	&& aux_loaded
+	unload_aux();
 	}
 show_info(false);
 	

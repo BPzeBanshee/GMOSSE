@@ -6,7 +6,7 @@ angle = 90;
 program = 0;
 
 fire_weapon = function(){
-	var s[];
+	var s = [];
 	switch parent_id.weapontype
 	    {
 	    case 1:

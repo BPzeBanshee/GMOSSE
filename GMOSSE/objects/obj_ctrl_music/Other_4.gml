@@ -1,9 +1,8 @@
 ///@desc Play room track
 
 // Choose song to play based on current room
-var choice,loop;
-choice = -1;
-loop = true;
+var choice = -1;
+var loop = true;
 
 // if all tracks are loaded, override defaults and pick the array
 if LOAD_EVERYTHING
@@ -34,10 +33,15 @@ if LOAD_EVERYTHING
 		case rm_stage3: choice = snd_st3; break;
 		}
 	if is_array(choice) music = choice;
+	show_debug_message("room: {0}, choice: {1}",room,choice);
 	}
 	
 // ...else, kludge loop check for menu...
-else if room == rm_menu && global.intro loop = false;
+else 
+	{
+	choice = music;
+	if global.intro loop = false;
+	}
 	
 // ...then play the decided track, or not
 if is_array(choice)
