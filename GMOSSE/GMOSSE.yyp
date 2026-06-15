@@ -156,7 +156,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2026.0.0.15",
+    "IDEVersion":"2026.0.0.16",
   },
   "name":"GMOSSE",
   "resources":[
@@ -300,6 +300,7 @@
     {"id":{"name":"obj_en6_dead","path":"objects/obj_en6_dead/obj_en6_dead.yy",},},
     {"id":{"name":"obj_en6","path":"objects/obj_en6/obj_en6.yy",},},
     {"id":{"name":"obj_en6b","path":"objects/obj_en6b/obj_en6b.yy",},},
+    {"id":{"name":"obj_en7_dead","path":"objects/obj_en7_dead/obj_en7_dead.yy",},},
     {"id":{"name":"obj_en7_tur","path":"objects/obj_en7_tur/obj_en7_tur.yy",},},
     {"id":{"name":"obj_en7","path":"objects/obj_en7/obj_en7.yy",},},
     {"id":{"name":"obj_en8_dead","path":"objects/obj_en8_dead/obj_en8_dead.yy",},},

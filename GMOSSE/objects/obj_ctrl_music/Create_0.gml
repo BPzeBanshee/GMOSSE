@@ -18,7 +18,7 @@ fading_in = false;
 fading_out = false;
 
 // 'Load all sounds' or 'load only needed'
-LOAD_EVERYTHING = false;
+LOAD_EVERYTHING = true;
 CONTINUE_TOGGLE = false;
 
 aux_loaded = false;
@@ -95,6 +95,7 @@ var t = get_timer();
     snd_stageclear = scr_music_load("StageComplete");
     snd_continue = scr_music_load("Continue");
     snd_gameover = scr_music_load("GameOver");
+	aux_loaded = true;
 	trace("time taken to load files: "+string((get_timer() - t))+" microseconds");
 	}
 	
