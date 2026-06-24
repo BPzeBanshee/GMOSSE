@@ -178,7 +178,6 @@ if category == 5
     {
     // BEHAVIOURS
 	var debug_str = global.debug ? "ON" : "OFF";
-	var font_str = global.fonttype ? "ON" : "OFF";
 	var hitbox_str = global.hitbox_visible ? "VISIBLE" : "HIDDEN";
 	var flicker_str = global.flicker ? "ON" : "OFF";
 	var b_str;
@@ -194,19 +193,18 @@ if category == 5
     // TEXT
     draw_text(xview+60,s+g,"DEBUG DISPLAY: "+string(debug_str));
     draw_text(xview+60,s+(g*2),"HITBOX: "+string(hitbox_str));
-    draw_text(xview+60,s+(g*3),"ALT. FONTSET: "+string(font_str));
-    draw_text(xview+60,s+(g*4),"BULLET COLOUR: "+string(b_str));
-	draw_text(xview+60,s+(g*5),"BULLET GLOW: "+string(bg_str));
-    draw_text(xview+60,s+(g*6),"EXPLOSION FLICKER: "+string(flicker_str));
-    draw_text(xview+60,s+(g*7),"RESET HIGHSCORES");
-	draw_text(xview+60,s+(g*8),"RESET CONFIG");
+    draw_text(xview+60,s+(g*3),"BULLET COLOUR: "+string(b_str));
+	draw_text(xview+60,s+(g*4),"BULLET GLOW: "+string(bg_str));
+    draw_text(xview+60,s+(g*5),"EXPLOSION FLICKER: "+string(flicker_str));
+    draw_text(xview+60,s+(g*6),"RESET HIGHSCORES");
+	draw_text(xview+60,s+(g*7),"RESET CONFIG");
     
-    draw_text(xview+60,s+(g*10),"RETURN TO MENU");
+    draw_text(xview+60,s+(g*9),"RETURN TO MENU");
     
     if timer > 0
         {
         draw_set_color(c_white);
-        draw_text(xview+60,s+(g*12),reset_msg);
+        draw_text(xview+60,s+(g*11),reset_msg);
         }
     }
     

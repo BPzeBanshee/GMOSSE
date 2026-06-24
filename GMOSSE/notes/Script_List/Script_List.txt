@@ -76,8 +76,6 @@ CORE
 	    Fonts
 	        * scr_fonts_init()
 	            - Creates fonts from sprites.
-	        * scr_fonts_set()
-	            - Replaces fonts from sprites if alternate font is selected.
 	    >
 	    Camera
 	        * scr_camera_init(left_bound,right_bound,xspd,yspd)

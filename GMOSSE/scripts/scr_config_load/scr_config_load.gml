@@ -76,7 +76,6 @@ function scr_config_load(location) {
 	// MISC
 	global.debug = ini_read_real("Misc","debug",true); // Debug display
 	global.hitbox_visible = ini_read_real("Misc","hitboxvisible",true); // hitbox visibility
-	global.fonttype = ini_read_real("Misc","fonttype",0); // Font set to use (0=default,1=alternate)
 	global.bulletcolour = ini_read_real("Misc","bulletcolour",2); // Bullet color (0=red,1=blue,2=hybridmode)
 	global.bulletglow = ini_read_real("Misc","bulletglow",true); // Bullet glow (0=false/1=true)
 	global.flicker = ini_read_real("Misc","flicker",false); // explosion flicker

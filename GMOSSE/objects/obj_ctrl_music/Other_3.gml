@@ -1,3 +1,3 @@
 ///@desc KILL EVERYTHING
-stop_all();
+stop_all(); 
 unload_all();

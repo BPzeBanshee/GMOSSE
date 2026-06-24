@@ -1,3 +1,2 @@
-/// @description  RESET GAME
+///@desc RESET GAME
 scr_main_reset();
-

@@ -11,7 +11,7 @@ function scr_main_init() {
 	math_set_epsilon(0.0001);
 
 	global.debug_text = "";
-	instance_create_depth(0,0,-99999,obj_debug);
+	instance_create_depth(0,0,-9999,obj_debug);
 
 	// INPUT
 	//Set vars and clear the joystick buttons
@@ -71,7 +71,6 @@ function scr_main_init() {
 	
 	// used for transition control/preloading
 	global.levelend = false;
-	
 	global.startstage = rm_stage1; // hidden menu function
 	global.intro = true;
 	

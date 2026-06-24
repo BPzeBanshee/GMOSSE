@@ -13,6 +13,8 @@ m_base_w = 240;
 m_base_h = 320;
 window_set_min_width(m_base_w);
 window_set_min_height(m_base_h);
+window_set_max_width(display_get_width());
+window_set_max_height(display_get_height());
 application_surface_draw_enable(false);
 surface_resize(application_surface,m_base_w,m_base_h);
 
@@ -28,15 +30,13 @@ m_filter_bi = global.filter;        // interpolation of textures/bilinear filter
 // Define self-configured variables
 xx = x;
 yy = y;
-l_firstrun = 0;
+l_firstrun = false;
 l_scale = 1;  // automatically calculated in step
 l_delay = 12; // masks funny behaviour while changing window size
-l_res = "";
+lw_width = m_base_w;
+lw_height = m_base_h;
+l_res = string(lw_width)+"x"+string(lw_height);
 l_wall_img[0] = bkg_wallpaper;
-//l_wall_w = 1920;
-//l_wall_h = 1080;
-//l_wall_s = 1;
-//l_wall_max_s = 1;
 l_scan = -1;
 l_scan_scale = l_scale;
 
@@ -56,21 +56,27 @@ m_array_w[1,3] = 1280; m_array_h[1,3] = 1024;
 m_array_w[2,0] = 640; m_array_h[2,0] = 360;
 m_array_w[2,1] = 720; m_array_h[2,1] = 405;
 m_array_w[2,2] = 848; m_array_h[2,2] = 480;
-m_array_w[2,3] = 960; m_array_h[2,3] = 540;
+m_array_w[2,3] = 960; m_array_h[2,3] = 540; // nHD
 m_array_w[2,4] = 1024; m_array_h[2,4] = 576;
-m_array_w[2,5] = 1280; m_array_h[2,5] = 720;
-m_array_w[2,6] = 1366; m_array_h[2,6] = 768;
-m_array_w[2,7] = 1600; m_array_h[2,7] = 900;
-m_array_w[2,8] = 1920; m_array_h[2,8] = 1080;
-m_array_w[2,9] = 2560; m_array_h[2,9] = 1440;
-m_array_w[2,10] = 3840; m_array_h[2,10] = 2160;
+m_array_w[2,5] = 1280; m_array_h[2,5] = 720; // HD
+m_array_w[2,6] = 1366; m_array_h[2,6] = 768; // WXGA
+m_array_w[2,7] = 1600; m_array_h[2,7] = 900; // HD+
+m_array_w[2,8] = 1920; m_array_h[2,8] = 1080; // Full HD
+m_array_w[2,9] = 2560; m_array_h[2,9] = 1440; // QHD
+m_array_w[2,10] = 3200; m_array_h[2,10] = 1800; // QHD+
+m_array_w[2,11] = 3840; m_array_h[2,11] = 2160; // 4K UHD
+m_array_w[2,12] = 5120; m_array_h[2,12] = 2880; // 5K UHD
+m_array_w[2,13] = 7680; m_array_h[2,13] = 4320; // 8K UHD
 
 // 16:10
-m_array_w[3,0] = 1280; m_array_h[3,0] = 800;
-m_array_w[3,1] = 1440; m_array_h[3,1] = 900;
-m_array_w[3,2] = 1680; m_array_h[3,2] = 1050;
-m_array_w[3,3] = 1920; m_array_h[3,3] = 1200;
-m_array_w[3,4] = 2560; m_array_h[3,4] = 1600;
+m_array_w[3,0] = 640; m_array_h[3,0] = 400;
+m_array_w[3,1] = 960; m_array_h[3,1] = 600;
+m_array_w[3,2] = 1280; m_array_h[3,2] = 800; // WXGA
+m_array_w[3,3] = 1440; m_array_h[3,3] = 900; // WXGA+
+m_array_w[3,4] = 1680; m_array_h[3,4] = 1050; // WSXGA+
+m_array_w[3,5] = 1920; m_array_h[3,5] = 1200; // WUXGA
+m_array_w[3,6] = 2560; m_array_h[3,6] = 1600; // WQXGA
+m_array_w[3,7] = 3840; m_array_h[3,7] = 2400; // WQUXGA
 
-alarm[2] = 5;
+alarm[2] = 1;
 alarm[0] = l_delay;

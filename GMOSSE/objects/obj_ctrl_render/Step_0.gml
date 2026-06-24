@@ -40,20 +40,26 @@ if keyboard_check_pressed(ord("Y"))
 if keyboard_check_pressed(ord("U")) then m_wallpaper = !m_wallpaper;
 */
 
-/// Update options
+// Update options
 m_angle = global.rotation;
 m_clean = global.scaling;
 m_wallpaper = global.use_wallpaper;
-if m_filter_bi != global.filter
-    {
-    m_filter_bi = global.filter;
-    alarm[1] = 1;
-    }
+m_filter_bi = global.filter;
+	
+// Fix for window_get_width/height returning 0 when focus is lost
+// ie. switching monitors/minimising
+lw_width = window_get_width();
+lw_height = window_get_height();
+if !window_has_focus()
+	{
+	lw_width = m_array_w[global.window_aspect,global.window_size];
+	lw_height = m_array_h[global.window_aspect,global.window_size];
+	}
 
 // Adjust scale as needed (no more viewports, hooray!)
 if m_angle == 90 || m_angle == 270
-l_scale = min(window_get_width()/m_base_h,window_get_height()/m_base_w)
-else l_scale = min(window_get_width()/m_base_w,window_get_height()/m_base_h);
+l_scale = min(lw_width/m_base_h,lw_height/m_base_w)
+else l_scale = min(lw_width/m_base_w,lw_height/m_base_h);
 if m_clean l_scale = max(1,floor(l_scale));
 
 if m_scanlines != global.scanlines
@@ -61,26 +67,7 @@ if m_scanlines != global.scanlines
 event_user(1);
 
 // Offset x/y for centering the drawn surface
-x = round(window_get_width()/2);
-y = round(window_get_height()/2);
+x = round(lw_width/2);
+y = round(lw_height/2);
 xx = x - lengthdir_x((m_base_w/2)*l_scale,m_angle) - lengthdir_x((m_base_h/2)*l_scale,m_angle+270);
 yy = y - lengthdir_y((m_base_w/2)*l_scale,m_angle) - lengthdir_y((m_base_h/2)*l_scale,m_angle+270);
-
-// Update wallpaper draw scale if necessary
-/*var w,h; w = window_get_width(); h = window_get_height();
-l_wall_x = (w - l_wall_w)/2;
-l_wall_y = 0;
-if w > h 
-    {
-    l_wall_s = (w/l_wall_w);
-    //l_wall_s = l_wall_w / l_wall_max_s;
-    } 
-else 
-    {
-    l_wall_s = (h/l_wall_h);
-    //l_wall_s = l_wall_h / l_wall_max_s;
-    }
-//show_message(string(l_wall_x)+", "+string(l_wall_y))
-
-/* */
-/*  */

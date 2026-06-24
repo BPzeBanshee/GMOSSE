@@ -1,3 +1,2 @@
-/// @description  EXIT GAME
+///@desc EXIT GAME
 game_end();
-

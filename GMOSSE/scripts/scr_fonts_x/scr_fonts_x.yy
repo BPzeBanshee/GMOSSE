@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_fonts_x",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_fonts_x",
+  "parent":{
+    "name":"Fonts",
+    "path":"folders/Scripts/CORE/Fonts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

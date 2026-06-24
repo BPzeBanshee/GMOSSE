@@ -22,11 +22,6 @@ function scr_pause() {
 			layer_hspeed(back[i],0);
 			}
 		}
-
-	// Capture image of screen (without debug text)
-	// Note: This stopped working for debug use since GMS switchover, 
-	instance_deactivate_object(obj_ctrl_music);
-	instance_deactivate_object(obj_debug);
 	
 	if !sprite_exists(global.pause_img)
 		{

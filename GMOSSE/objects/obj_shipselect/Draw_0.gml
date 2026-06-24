@@ -14,7 +14,7 @@ draw_set_alpha(1);
 // Ship portrait
 if ship_spr != -1 draw_sprite(ship_spr,ship_index,xx+120,yy+64);
 
-// Statistical bullshit info    
+// Statistical bullshit info
 scr_draw_vars(global.fnt_default,fa_left,make_color_rgb(100,100,255));
 draw_text(xx+1,yy+140,"ATK: "+ship_info[1]);
 draw_text(xx+1,yy+151,"SPD: "+ship_info[2]);

@@ -7,6 +7,8 @@ var loop = true;
 // if all tracks are loaded, override defaults and pick the array
 if LOAD_EVERYTHING
 	{
+	// will not work in GMRT, bug: https://github.com/YoYoGames/GameMaker-Bugs/issues/14770
+	// workaround: string(room) = "ref room x"
 	switch room
 		{
 		// MAIN MENU
@@ -33,7 +35,7 @@ if LOAD_EVERYTHING
 		case rm_stage3: choice = snd_st3; break;
 		}
 	if is_array(choice) music = choice;
-	show_debug_message("room: {0}, choice: {1}",room,choice);
+	//show_debug_message("room: {0}, choice: {1}",string(room),choice);
 	}
 	
 // ...else, kludge loop check for menu...

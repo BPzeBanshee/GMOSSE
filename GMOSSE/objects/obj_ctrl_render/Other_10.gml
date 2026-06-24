@@ -1,13 +1,13 @@
-/// @description  Set Window size according to aspect etc
-if !window_has_focus()
+///@desc Set Window size according to aspect etc
+/*if !window_has_focus()
     {
-    /*trace("event_user(0) called while focus lost, m_size: "
+    trace("event_user(0) called while focus lost, m_size: "
     +string(m_size)
     +", global.window_size: "+string(global.window_size)
     +", m_aspect: "+string(m_aspect)
-    +", global.window_aspect: "+string(global.window_aspect));*/
+    +", global.window_aspect: "+string(global.window_aspect));
     exit;
-    }
+    }*/
 
 // First, update the maximum array iteration size
 m_aspect = global.window_aspect;
@@ -36,7 +36,7 @@ if !l_firstrun
     var yy = (dh / 2) - (h / 2);
     if window_get_x() != xx || window_get_y() != yy
     window_set_position(xx,yy);
-    l_firstrun = 1;
+    l_firstrun = true;
     }
 
 l_res = string(w)+"x"+string(h);
