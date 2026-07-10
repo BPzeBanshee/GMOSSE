@@ -1,9 +1,8 @@
-/// @desc scr_hiscore_update(name,stage,shipused,_score)
-/// @param name
-/// @param stage
-/// @param shipused
-/// @param _score
-/// @returns 0
+///@desc Checks if a given entry is worthy, if so is added to the highscore table.
+///@param {String} name
+///@param {Real} stage
+///@param {Real} shipused
+///@param {Real} _score
 function scr_hiscore_update(name, stage, shipused, _score) {
 	// SETTING SCORES
 	var p;
@@ -25,5 +24,4 @@ function scr_hiscore_update(name, stage, shipused, _score) {
 	    global.hiscore[p,2] = shipused; // ship used
 	    global.hiscore[p,3] = _score; // score
 	    }
-	return 0;
 }

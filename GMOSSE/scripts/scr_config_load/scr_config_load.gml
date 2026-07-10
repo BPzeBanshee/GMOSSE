@@ -1,6 +1,5 @@
-///@desc scr_config_load(location)
-///@param location
-function scr_config_load(location) {
+///@desc Loads settings from the INI file set in the macro CONFIG_STR.
+function scr_config_load() {
 	/*
 	scr_config_load(), by BPzeBanshee
 
@@ -11,6 +10,7 @@ function scr_config_load(location) {
 	and do not keep the rest. Make sure the global vars
 	aren't used anywhere else though!
 	*/
+	var location = game_save_id + CONFIG_STR;
 	if !file_exists(location)
 	trace(string(location)+" not found, using defaults.\nGo to Options Menu to adjust settings.");
 
@@ -76,7 +76,7 @@ function scr_config_load(location) {
 	// MISC
 	global.debug = ini_read_real("Misc","debug",true); // Debug display
 	global.hitbox_visible = ini_read_real("Misc","hitboxvisible",true); // hitbox visibility
-	global.bulletcolour = ini_read_real("Misc","bulletcolour",2); // Bullet color (0=red,1=blue,2=hybridmode)
+	global.bulletcolour = ini_read_real("Misc","bulletcolour",3); // Bullet color (1=blue,2=red,3=hybridmode)
 	global.bulletglow = ini_read_real("Misc","bulletglow",true); // Bullet glow (0=false/1=true)
 	global.flicker = ini_read_real("Misc","flicker",false); // explosion flicker
 	ini_close();

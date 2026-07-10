@@ -1,4 +1,6 @@
 // Feather ignore GM2016 in *
 function macros() {
-#macro const_version_str "MK-X BETA"
+#macro VERSION_STR "MK-X BETA"
+#macro CONFIG_STR "config.ini"
+#macro SCORE_STR "score.gmes"
 }

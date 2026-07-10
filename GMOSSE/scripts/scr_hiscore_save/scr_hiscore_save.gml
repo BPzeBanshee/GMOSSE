@@ -1,10 +1,9 @@
-/// @description scr_hiscore_save(myfile)
-/// @param myfile
-function scr_hiscore_save(myfile) {
+/// @desc Writes a highscore table to a file in the save directory.
+function scr_hiscore_save() {
 	/*
 	scr_hiscore_save(), by BPzeBanshee
 	*/
-	var scorefile = file_text_open_write(myfile);
+	var scorefile = file_text_open_write(game_save_id+SCORE_STR);
 	var c = "aLKJDalksjdalKJSDLKAJdLAJLKSDJlKASJdlkaJSDlkjakJLd";
 
 	// Test string

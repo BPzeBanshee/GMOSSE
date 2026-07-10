@@ -7,7 +7,7 @@ if newscore && !hassaved
 						global.level,
 						global.player_data.shipselect,
 						global.player_data.myscore);
-    scr_hiscore_save("score.gmes");
+    scr_hiscore_save();
     hassaved = true;
     } 
 

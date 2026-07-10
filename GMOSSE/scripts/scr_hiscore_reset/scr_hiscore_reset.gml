@@ -1,9 +1,7 @@
-/// @description scr_hiscore_reset()
+///@desc Resets the highscore table and saves it to the save directory under the given filename.
 function scr_hiscore_reset() {
 	// Sets default values for each position in the highscore and name arrays
-	// Format: 0,name; 1,level; 2,shipused; 3,score
-
-	// Normal mode
+	// (Format: 0,name; 1,level; 2,shipused; 3,score)
 	global.hiscore[1,0] = "BPZ"; global.hiscore[1,1] = 3; global.hiscore[1,2] = 1; global.hiscore[1,3] = 90000;
 	global.hiscore[2,0] = "KSR"; global.hiscore[2,1] = 3; global.hiscore[2,2] = 2; global.hiscore[2,3] = 80000;
 	global.hiscore[3,0] = "MJC"; global.hiscore[3,1] = 3; global.hiscore[3,2] = 3; global.hiscore[3,3] = 70000;
@@ -15,6 +13,6 @@ function scr_hiscore_reset() {
 	global.hiscore[9,0] = "UDD"; global.hiscore[9,1] = 1; global.hiscore[9,2] = 1; global.hiscore[9,3] = 10000;
 	global.hiscore[10,0] = "ZZZ"; global.hiscore[10,1] = 0; global.hiscore[10,2] = 1; global.hiscore[10,3] = 0;
 
-
-
+	// save to file
+	scr_hiscore_save(SCORE_STR);
 }

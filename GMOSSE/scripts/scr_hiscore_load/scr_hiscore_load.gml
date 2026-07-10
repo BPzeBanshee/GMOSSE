@@ -1,21 +1,19 @@
-/// @description scr_hiscore_load(file)
-/// @param myfile
-function scr_hiscore_load(myfile) {
+///@desc Loads a highscore table from a file in the save directory.
+function scr_hiscore_load() {
 	/*
 	scr_hiscore_load(), by BPzeBanshee
 	*/
 	var c = "aLKJDalksjdalKJSDLKAJdLAJLKSDJlKASJdlkaJSDlkjakJLd";
-	var a = myfile;
-	if !file_exists(a) // If the file isn't there
-	    { // give the arrays their own default values
+	var file_name = game_save_id+SCORE_STR;
+	if !file_exists(file_name) // If the file isn't there
+	    {
 	    // Sets default values for each position in the highscore and name arrays
 	    scr_hiscore_reset();
-	    scr_hiscore_save(myfile);
 	    exit;
 	    }
 	else // if the file is there, as expected
 	    {
-	    var scorefile = file_text_open_read(myfile);
+	    var scorefile = file_text_open_read(file_name);
     
 	    // Error checking
 	    var str_a = "The quick brown fox jumps over the lazy dog! 0123456789";
@@ -23,11 +21,10 @@ function scr_hiscore_load(myfile) {
 	    file_text_readln(scorefile);
 	    if str_a != str_b
 	        {
-	        trace("Error loading file, likely corrupted. Resetting "+string(myfile));
+	        trace("Error loading file, likely corrupted. Resetting "+SCORE_STR);
 	        file_text_close(scorefile);
-	        file_rename(myfile,"broke_"+myfile);
+	        file_rename(file_name,string_replace(file_name,SCORE_STR,"broke_"+SCORE_STR));
 	        scr_hiscore_reset();
-	        scr_hiscore_save(myfile);
 	        return -1;
 	        }
     

@@ -45,14 +45,13 @@ if global.button1 && !hook
             {
             timer = 90;
             scr_hiscore_reset();
-            scr_hiscore_save("score.gmes");
 			reset_msg = "HIGH SCORES RESET!";
             break;
             }
 		case 7:
 			{
 			timer = 90;
-			scr_config_reset("config.ini");
+			scr_config_reset();
 			reset_msg = "CONFIG RESET!";
 			break;
 			}

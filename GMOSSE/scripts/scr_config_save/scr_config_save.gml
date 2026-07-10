@@ -1,5 +1,6 @@
-function scr_config_save(location) {
+function scr_config_save() {
 	// Saves settings to config
+	var location = game_save_id + CONFIG_STR;
 	ini_open(location);
 
 	// [JOYSTICK]

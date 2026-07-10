@@ -12,7 +12,7 @@ function scr_main_init() {
 
 	global.debug_text = "";
 	instance_create_depth(0,0,-9999,obj_debug);
-
+	
 	// INPUT
 	//Set vars and clear the joystick buttons
 	// TODO: could these be constructors?
@@ -28,10 +28,10 @@ function scr_main_init() {
 	global.joy_pref = -1;
 
 	// CONFIG
-	scr_config_load("config.ini");
+	scr_config_load(); // filename set in macros
 
 	// SCORES
-	scr_hiscore_load("score.gmes");
+	scr_hiscore_load(); // filename set in macros
 
 	// FONTS
 	scr_fonts_init();

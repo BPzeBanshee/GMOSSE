@@ -13,6 +13,8 @@ CORE
 	        * scr_config_save()
 	        - Saves the player-configured controls, screen options,
 	        sound options, and the font type.
+			* scr_config_reset()
+			- Nukes the config file and regenerates it.
 	    >
 	>
         
@@ -47,10 +49,10 @@ CORE
 	        * scr_decrypt()
 	            - Decryption script. The scripts that need this call this anyway.
 	                Best not to touch this script.
-	        * scr_hiscore_load(file)
+	        * scr_hiscore_load()
 	            - Either initializes the score file (if it does not exist)
 	                or retrieves high scores from it.
-	        * scr_hiscore_save(file)
+	        * scr_hiscore_save()
 	            - Writes the high scores to a file.
 	        * scr_hiscore_update(score,name,position)
 	            - Adds a new score to the current array of high scores.
