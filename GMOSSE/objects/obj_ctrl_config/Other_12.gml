@@ -23,7 +23,7 @@ if global.jleft && !hook
         case 3: if global.aa > 0 global.aa -= 1; scr_setdisplay(global.aa,global.vsync); break;
         case 4: global.rotation -= 90; if global.rotation < 0 global.rotation = 270; break;
         case 5: global.window_aspect -= 1; if global.window_aspect < 0 global.window_aspect = 3; break; 
-        case 6: if global.window_size > 0 global.window_size -= 1; break; 
+        case 6: with obj_ctrl_render decrease_window_size(); break; 
         case 7: global.scaling = false; break;
         case 8: global.use_wallpaper = false; break;
         }
@@ -40,12 +40,7 @@ if global.jright && !hook
         case 3: if global.aa < scr_max_aa() global.aa += 1; scr_setdisplay(global.aa,global.vsync); break;
         case 4: global.rotation += 90; if global.rotation > 270 global.rotation = 0; break;
         case 5: global.window_aspect += 1; if global.window_aspect > 3 global.window_aspect = 0; break;
-        case 6: 
-            {
-			var max_size = array_length(obj_ctrl_render.m_array_w[global.window_aspect])-1
-			if global.window_size < max_size global.window_size += 1;
-            break;
-            }
+        case 6: with obj_ctrl_render increase_window_size(); break;
         case 7: global.scaling = true; break;
         case 8: global.use_wallpaper = true; break;
         }

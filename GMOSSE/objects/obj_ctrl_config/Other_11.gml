@@ -34,8 +34,8 @@ if global.button1 && !hook
 	var c;
     switch selection
         {
-        case 1: c = instance_create_depth(x,y,depth-1,obj_ctrl_rebind); c.control = 1; break;
-        case 2: c = instance_create_depth(x,y,depth-1,obj_ctrl_rebind); c.control = 2; break;
+        case 1: c = instance_create_depth(x,y,depth-1,obj_ctrl_rebind_v2); c.menu = 1; break;
+        case 2: c = instance_create_depth(x,y,depth-1,obj_ctrl_rebind_v2); c.menu = 2; break;
         case 5: selection = selection_previous; category = 0; break;
         }
     }

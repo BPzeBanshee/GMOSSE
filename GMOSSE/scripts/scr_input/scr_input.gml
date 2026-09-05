@@ -71,7 +71,7 @@ function scr_input() {
 	as far as "mouse" position so values don't reflect
 	final touch location.
 	*/
-	if instance_exists(obj_ctrl_render_mob)
+	/*if instance_exists(obj_ctrl_render_mob)
 	    {
 	    if device_mouse_check_button(0,mb_left) // touching screen
 	        {
@@ -109,5 +109,5 @@ function scr_input() {
 	            if alarm[0] > 0 {global.button1 = true} else alarm[0] = 15;
 	            }
 	        }
-	    }
+	    }*/
 }

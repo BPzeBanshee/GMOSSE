@@ -1,3 +1,4 @@
+enabled = true;
 hook = true;
 category = 0;
 selection = 1;

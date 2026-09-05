@@ -9,6 +9,7 @@ if/then/else is totally acceptable too if that's how you roll.
 */
 
 // INIT
+if !enabled exit;
 scr_draw_vars(global.fnt_default,fa_left,c_black);
 var s = yview+133;//125 // base position for menu
 var g = 10;
@@ -79,6 +80,7 @@ if category == 2
 	var aspect_str;
     switch global.window_aspect
         {
+		case -1: aspect_str = "WEB"; break;
         case 0: aspect_str = "3:4 (NATIVE)"; break;
         case 1: aspect_str = "4:3"; break;
         case 2: aspect_str = "16:9"; break;

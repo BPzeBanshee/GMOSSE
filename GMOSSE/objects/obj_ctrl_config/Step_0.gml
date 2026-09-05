@@ -1,4 +1,5 @@
 ///@desc MENU BEHAVIOUR (PER MODE)
+if !enabled exit;
 event_user(category);
 
 // Get inputs

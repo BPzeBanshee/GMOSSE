@@ -36,9 +36,9 @@ l_delay = 12; // masks funny behaviour while changing window size
 lw_width = m_base_w;
 lw_height = m_base_h;
 l_res = string(lw_width)+"x"+string(lw_height);
-l_wall_img[0] = bkg_wallpaper;
 l_scan = -1;
 l_scan_scale = l_scale;
+l_wall_img[0] = bkg_wallpaper;
 
 // Define control aspect ratio settings for windowed mode
 // 3:4
@@ -77,6 +77,16 @@ m_array_w[3,4] = 1680; m_array_h[3,4] = 1050; // WSXGA+
 m_array_w[3,5] = 1920; m_array_h[3,5] = 1200; // WUXGA
 m_array_w[3,6] = 2560; m_array_h[3,6] = 1600; // WQXGA
 m_array_w[3,7] = 3840; m_array_h[3,7] = 2400; // WQUXGA
+
+increase_window_size = function(){
+var max_size = array_length(m_array_w[global.window_aspect])-1
+if global.window_size < max_size global.window_size += 1;
+event_user(0);
+}
+decrease_window_size = function(){
+if global.window_size > 0 global.window_size -= 1;
+event_user(0);
+}
 
 alarm[2] = 1;
 alarm[0] = l_delay;

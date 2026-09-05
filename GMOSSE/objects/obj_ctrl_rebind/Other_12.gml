@@ -1,5 +1,4 @@
-/// @description  FIND ID(S) TO USE
-/// @param S
+///@desc FIND ID(S) TO USE
 rect_h = 60;
 if mode == 1
     {
@@ -91,4 +90,3 @@ if mode == 3
         instance_destroy();
         }
     }
-

@@ -40,11 +40,5 @@ if !l_firstrun
     }
 
 l_res = string(w)+"x"+string(h);
-if !window_get_fullscreen()
-    {
-    l_delay = 11;
-    alarm[1] = 11;
-    }
-else alarm[1] = 2;
-
+if !window_get_fullscreen() l_delay = 11;
 //trace("obj_ctrl_render: event user 0, w: "+string(w)+", h: "+string(h));
