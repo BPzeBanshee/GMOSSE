@@ -1,0 +1,41 @@
+G.M.O.S.S.E
+The Game Maker Open-Source Shmup Engine
+
+Created by BPzeBanshee, with help from various shmups.system11.org members
+
+This project makes use of multiple scripts created as examples of 'bullet engines' by members of the SHMUPS! forums.
+After some experimenting I decided to make use of my newfound knowledge with what the hell to do about making bullet patterns and came up with this. To be honest it inspired me to get back into coding again.
+
+Controls:
+Arrow Keys to move
+SHIFT to slow down
+Z to shoot
+X to bomb
+F2 to reset game
+F1 to view this document
+F4 to go fullscreen, or toggle it in Options Menu
+ENTER to pause, and access Options Menu
+F9 to take a screenshot (wont work in highscore window)
+Keypad 1 when playing to go to a test stage
+Keypad 2 when playing to go to another test stage
+
+This project wouldnt've been possible without the members at the "Game Maker oddity" topic that answered my questions (despite derailing the thread :P), and programs and projects as a result of other's hard work, specifically:
+
+S20-TBL			contributed heaps regarding attack scripts and bullet behaviour
+GodHand			coded basis of S20-TBL's circle attack scripts
+Alluro			posted his spread shot script from Xeno Fighters R
+Rozyrg			contributed a lot towards GMOSSE discussion wise, showed various alternate methods of things
+worstplayer		helped out tons in original 'TATE in GML (Game Maker)' thread using views and/or surfaces
+MegaGamer		neat scrolling text engine in Game Maker that I could understand
+iluvfuz			GMLBuddy has helped me tons in getting started - I still cant wrap my head around everything GML
+DrPetter		sfxr (for the neat shmuppy sound effects, though I don't think I used sfxr for GMOSSE...hmm...)
+Parmalat		Paul's Iced Coffee
+ZeroFollower0	Original base for Swordfish
+Gun6			Further spritework for Swordfish
+Nimitz			Joystick/Gamepad support, removal of extra windows and inbuilt highscores
+Emerald Master	Excellent arcade sprite-based fonts
+
+If I left anyone out please don't kill me, let me know so I'll add you to the list. :D
+
+IF YOU WANT TO USE GMOSSE AS A TEMPLATE FOR YOUR GAME:
+Credit me or the project, or Miles Edgeworth will crawl out of your monitor and prosecute you to the full extent of the jam. ;)

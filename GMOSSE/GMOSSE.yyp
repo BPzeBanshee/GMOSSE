@@ -127,7 +127,7 @@
     {"$GMFolder":"","%Name":"Warbird","folderPath":"folders/Sprites/Player/Warbird.yy","name":"Warbird","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Xonochrome","folderPath":"folders/Sprites/Player/Xonochrome.yy","name":"Xonochrome","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Weapons","folderPath":"folders/Sprites/Player/Xonochrome/Weapons.yy","name":"Weapons","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"tilesets","folderPath":"folders/Sprites/tilesets.yy","name":"tilesets","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Tiles","folderPath":"folders/Sprites/Tiles.yy","name":"Tiles","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[
@@ -159,8 +159,8 @@
   "name":"GMOSSE",
   "resources":[
     {"id":{"name":"fnt_init","path":"fonts/fnt_init/fnt_init.yy",},},
+    {"id":{"name":"_notes","path":"notes/_notes/_notes.yy",},},
     {"id":{"name":"Depth_List_v2","path":"notes/Depth_List_v2/Depth_List_v2.yy",},},
-    {"id":{"name":"notes","path":"notes/notes/notes.yy",},},
     {"id":{"name":"Script_List","path":"notes/Script_List/Script_List.yy",},},
     {"id":{"name":"obj_3Den1_alt","path":"objects/obj_3Den1_alt/obj_3Den1_alt.yy",},},
     {"id":{"name":"obj_3Den1_spawn","path":"objects/obj_3Den1_spawn/obj_3Den1_spawn.yy",},},
