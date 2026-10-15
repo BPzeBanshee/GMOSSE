@@ -2,5 +2,5 @@
 if (room == rm_menu || room == rm_shipselect)
     {
     recording = !recording;
-    trace("recording set to "+string(recording));
+    show_message("recording set to "+string(recording)");
     }

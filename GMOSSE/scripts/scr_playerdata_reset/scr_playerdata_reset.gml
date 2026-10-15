@@ -1,5 +1,6 @@
 ///@desc Resets the global struct that contains player data
 function scr_playerdata_reset(){
+	global.medalvalue = 1;
 	global.player_data = {
 		shipselect: 1,
 		optiontype: 1,

@@ -38,8 +38,8 @@ function scr_main_init() {
 
 	// CONTROLLERS
 	// Input
-	instance_create_layer(0,0,layer,obj_ctrl_input);
-	//instance_create_layer(0,0,layer,obj_ctrl_input2); // for experimental replay support
+	//instance_create_layer(0,0,layer,obj_ctrl_input);
+	instance_create_layer(0,0,layer,obj_ctrl_input2); // for experimental replay support
 	
 	// Music/Sounds
 	global.nextroom = -1;  

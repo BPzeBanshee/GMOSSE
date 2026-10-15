@@ -54,7 +54,7 @@ if replaying
         replaying = false;
 		var s = global.player_data.myscore;
         if s != replay[# 0,0]
-        show_message("DESYNC FAILED! replay[#0,0] did not match score "+string(s));
+        show_message("DESYNC FAILED! replay[#0,0] ("+string(replay[# 0,0])+") did not match score "+string(s));
         stagenum = 0;
         ds_grid_clear(replay,0);
         ds_list_clear(input);
@@ -67,6 +67,7 @@ if replaying
             global.player_data.shipselect = replay[# stagenum,2];
             global.player_data.extends = 0;
             global.player_data.continues = 0;
+			global.medalvalue = replay[# 0,3];
             global.player_data.optiontype = replay[# 0,4];
             global.player_data.weapontype = replay[# 0,5];
             }
