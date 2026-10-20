@@ -8,5 +8,6 @@ if global.startstage != -1
     with obj_ctrl_music fade_out(3000);
     replaying = true;
 	recording = false;
+	scr_playerdata_reset();
     }
 else global.startstage = old_startstage;
